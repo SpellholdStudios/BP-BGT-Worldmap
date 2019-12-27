@@ -1,0 +1,26 @@
+IF
+  Global("FW4700Reveal_Xvart Village","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4700")
+    SetGlobal("FW4700Reveal_Xvart Village","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW3100Reveal_Shipwreck Coast","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW3100")
+    SetGlobal("FW3100Reveal_Shipwreck Coast","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW3600Reveal_Lighthouse","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW3600")
+    SetGlobal("FW3600Reveal_Lighthouse","Global",1)
+    Continue()
+END

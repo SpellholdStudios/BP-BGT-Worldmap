@@ -1,0 +1,9 @@
+IF
+  Global("AR8500Reveal_Cloakwood Wyverns","Global",0)
+  GlobalGT("Chapter","Global",4)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR8500")
+    SetGlobal("AR8500Reveal_Cloakwood Wyverns","Global",1)
+    Continue()
+END

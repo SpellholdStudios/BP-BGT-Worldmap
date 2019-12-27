@@ -1,0 +1,289 @@
+SRC_AREA  SRC_NWSE  TARGET_ARE  ENTRY_NAME  TRV_TIME  DEF_ENTRY  ENC1     ENC2     ENC3     ENC4     ENC5     ENC_PROB
+
+FW0100    E         FW0200      EXT0200W    0         1          N        N        N        N        N        0
+FW0100    S         FW0600      EXT0600N    0         1          N        N        N        N        N        0
+
+FW0200    E         FW0300      Ext0300W    0         1          N        N        N        N        N        0
+FW0200    S         FW0700      Ext0700N    0         1          N        N        N        N        N        0
+FW0200    W         FW0100      Ext0100E    0         1          N        N        N        N        N        0
+
+FW0300    S         FW0800      Ext0800N    0         1          N        N        N        N        N        0
+FW0300    W         FW0200      Ext0200E    0         1          N        N        N        N        N        0
+
+FW0600    N         FW0100      Ext0100S    0         1          N        N        N        N        N        0
+FW0600    E         FW0700      Ext0700W    0         1          N        N        N        N        N        0
+FW0600    S         FW1100      Ext1100N    0         1          N        N        N        N        N        0
+
+FW0700    N         FW0200      Ext0200S    0         1          N        N        N        N        N        0
+FW0700    E         FW0800      Ext0800W    0         1          N        N        N        N        N        0
+FW0700    S         FW1200      Ext1200N    0         1          N        N        N        N        N        0
+FW0700    W         FW0600      Ext0600E    0         1          N        N        N        N        N        0
+
+FW0800    N         FW0300      Ext0300S    0         1          N        N        N        N        N        0
+FW0800    E         FW0900      Exit0800    0         1          N        N        N        N        N        0
+FW0800    S         FW1300      Ext1300N    0         1          N        N        N        N        N        0
+FW0800    W         FW0700      Ext0700E    0         1          N        N        N        N        N        0
+
+FW0900    W         FW0800      Ext0800E    0         1          N        N        N        N        N        0
+FW0900    N         FW0400      EXIT0900    2         2          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW0900    N         FW1000      EXIT1400    2         1          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW0900    S         FW1400      EXIT0900    2         3          FW5700   FW5900   FW6000   FW6100   FW5801   10
+
+FW1100    N         FW0600      Ext0600S    0         1          N        N        N        N        N        0
+FW1100    E         FW1200      Ext1200W    0         1          N        N        N        N        N        0
+
+FW1200    N         FW0700      Ext0700S    0         1          N        N        N        N        N        0
+FW1200    E         FW1300      Ext1300W    0         1          N        N        N        N        N        0
+FW1200    W         FW1100      Ext1100E    0         1          N        N        N        N        N        0
+
+FW1300    N         FW0800      Ext0800S    0         1          N        N        N        N        N        0
+FW1300    W         FW1200      Ext1200E    0         1          N        N        N        N        N        0
+
+FW0400    S         FW0900      EXIT0400    2         3          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW0400    S         FW1000      EXIT1400    2         1          FW5701   FW5800   FW5801   FW6001   FW5900   10
+
+FW0500    W         FW3000      EXIT3500    2         2          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW0500    W         FW3500      EXIT0500    2         3          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW0500    W         FW4000      EXIT0500    2         3          FW6100   FW5801   FW5701   FW5800   FW5801   10
+
+FW1000    E         FW0400      EXIT0900    2         3          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW1000    E         FW0900      EXIT0400    2         3          FW6001   FW5900   FW5600   FW5700   FW5900   10
+
+FW1400    N         FW0900      EXIT1400    2         3          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW1400    S         FW2300      EXIT1400    2         3          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW1400    E         FW1900      EXIT2400    4         1          FW5801   FW6001   FW5900   FW5600   FW5700   10
+
+FW1500    S         FW2000      FROMNOR     1         3          FW6000   FW6100   FW5801   FW5701   FW5800   10
+
+FW1600    S         FW2600      EXIT2700    2         1          FW5900   FW5600   FW5700   FW5900   FW6000   10
+FW1600    S         FW2626      EXIT2700    2         1          FW5801   FW5701   FW5800   FW5801   FW6001   10
+FW1600    N         FW1700      EXIT1600    1         2          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW1600    S         FW2100      EXIT1600    1         2          FW6100   FW5801   FW5701   FW5800   FW5801   10
+
+FW1700    S         FW1600      EXIT1700    1         2          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW1700    E         FW1800      EXIT1700    1         1          FW5801   FW5701   FW5800   FW5801   FW6001   10
+
+FW1800    W         FW1700      EXIT1800    1         2          FW5801   FW6001   FW5900   FW5600   FW5700   10
+
+FW1900    W         FW2300      EXIT1400    4         2          FW5800   FW5801   FW6001   FW5900   FW5600   10
+FW1900    W         FW1400      EXIT2300    4         3          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW1900    S         FW2400      EXIT1900    2         4          FW5801   FW6001   FW5900   FW5600   FW5700   10
+
+FW2000    N         FW1500      FROMSOU     1         2          FW6001   FW5900   FW5600   FW5700   FW5900   10
+
+FW2100    S         FW2600      EXIT2700    2         1          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW2100    S         FW2626      EXIT2700    2         1          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW2100    S         FW2700      EXIT2800    2         3          FW5800   FW5801   FW6001   FW5900   FW5600   10
+FW2100    E         FW2200      EXIT2100    1         3          FW5900   FW5600   FW5700   FW5900   FW6000   10
+FW2100    N         FW1600      EXIT2100    1         2          FW6100   FW5801   FW5701   FW5800   FW5801   10
+
+FW2200    S         FW2700      EXIT2800    2         3          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW2200    E         FW2300      EXIT2800    3         2          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW2200    E         FW2800      EXIT2300    3         5          FW5900   FW5600   FW5700   FW5900   FW6000   10
+FW2200    N         FW2100      EXIT2200    1         2          FW5900   FW6000   FW6100   FW5801   FW5701   10
+
+FW2300    S         FW4800      EXIT4300    8         3          FW5800   FW5801   FW6001   FW5900   FW5600   30
+FW2300    S         FW2800      EXIT2300    2         5          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW2300    W         FW2200      EXIT2300    3         3          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW2300    N         FW1400      EXIT2300    2         3          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW2300    E         FW1900      EXIT2400    4         1          FW5900   FW5600   FW5700   FW5900   FW6000   10
+FW2300    E         FW2400      EXIT2300    2         4          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW2300    E         FW2900      EXIT2800    3         4          FW5701   FW5800   FW5801   FW6001   FW5900   10
+
+FW2400    W         FW2300      EXIT1400    2         2          FW5800   FW5801   FW6001   FW5900   FW5600   10
+FW2400    N         FW1900      EXIT2400    2         1          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW2400    S         FW2900      EXIT2400    2         4          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW2400    S         FW3000      EXIT2900    2         2          FW5701   FW5800   FW5801   FW6001   FW5900   10
+
+FW2600    N         FW1600      EXIT2100    2         3          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW2600    N         FW2100      EXIT1600    2         2          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW2600    E         FW2700      Exit2600    2         8          FW6100   FW5801   FW5701   FW5800   FW5801   0
+FW2600    E         FW3100      EXIT3200    2         1          FW5900   FW6000   FW6100   FW5801   FW5701   10
+
+FW2626    N         FW1600      EXIT2100    2         3          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW2626    N         FW2100      EXIT1600    2         2          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW2626    E         FW2700      EXIT2600    2         3          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW2626    E         FW3100      EXIT3200    2         1          FW5900   FW6000   FW6100   FW5801   FW5701   10
+
+FW2700    W         FW2600      EXIT2700    2         1          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW2700    W         FW2626      EXIT2700    2         1          FW5801   FW5701   FW5800   FW5801   FW6001   10
+FW2700    E         FW2800      EXIT2700    3         5          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW2700    N         FW2200      EXIT2100    2         2          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW2700    S         FW3200      EXIT3100    2         4          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW2700    W         FW3700      EXIT2700    2         4          FW5801   FW5701   FW5800   FW5801   FW6001   10
+
+FW2800    W         FW2700      EXIT2800    3         3          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW2800    S         FW3300      EXIT2800    2         4          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW2800    N         FW2300      EXIT2800    2         2          FW5801   FW5701   FW5800   FW5801   FW6001   10
+FW2800    N         FW2200      EXIT2300    3         3          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW2800    E         FW2900      EXIT2800    2         4          FW5801   FW5701   FW5800   FW5801   FW6001   10
+FW2800    W         FW3200      EXIT2700    2         3          FW5900   FW6000   FW6100   FW5801   FW5701   10
+
+FW2900    N         FW2300      EXIT1400    3         2          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW2900    W         FW2800      EXIT2900    2         5          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW2900    N         FW2400      EXIT2900    2         4          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW2900    E         FW3000      EXIT2900    2         2          FW5900   FW5600   FW5700   FW5900   FW6000   10
+FW2900    S         FW3400      EXIT2900    2         4          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW2900    S         FW3500      EXIT3000    2         4          FW6000   FW6100   FW5801   FW5701   FW5800   10
+
+FW3000    W         FW2400      EXIT2900    2         4          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW3000    W         FW2900      EXIT3000    2         4          FW5801   FW5701   FW5800   FW5801   FW6001   10
+FW3000    S         FW3400      EXIT2900    2         4          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW3000    S         FW3500      EXIT3000    2         3          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW3000    E         FW0500      EXIT0400    2         1          FW6001   FW5900   FW5600   FW5700   FW5900   10
+
+FW3100    N         FW2600      EXIT2700    1         1          FW5700   FW5900   FW6000   FW6100   FW5801   30
+FW3100    N         FW2626      EXIT2700    1         1          FW5700   FW5900   FW6000   FW6100   FW5801   30
+FW3100    E         FW3200      EXIT3100    4         4          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW3100    S         FW3600      EXIT3700    2         2          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW3100    E         FW3700      EXIT3600    2         4          FW5700   FW5900   FW6000   FW6100   FW5801   10
+
+FW3200    N         FW2700      EXIT3200    2         3          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW3200    E         FW3300      EXIT3200    2         4          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW3200    W         FW3100      EXIT3200    4         1          FW5900   FW5600   FW5700   FW5900   FW6000   10
+FW3200    W         FW3700      EXIT3200    2         4          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW3200    S         FW3800      EXIT4200    2         4          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW3200    N         FW2800      EXIT2700    2         3          FW5900   FW6000   FW6100   FW5801   FW5701   10
+
+FW3300    N         FW2800      EXIT3300    2         5          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW3300    W         FW3200      EXIT3300    2         4          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW3300    E         FW3400      EXIT3300    0         4          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW3300    S         FW3800      EXIT3800    0         4          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW3300    S         FW4800      EXIT4300    4         3          FW5600   FW5700   FW5900   FW6000   FW6100   10
+
+FW3400    S         FW4300      EXIT3800    2         4          FW5801   FW5701   FW5800   FW5801   FW6001   10
+FW3400    W         FW3300      EXIT3400    0         4          FW5800   FW5801   FW6001   FW5900   FW5600   10
+FW3400    N         FW2900      EXIT3400    2         4          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW3400    N         FW3000      EXIT2900    3         2          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW3400    E         FW3500      EXIT3400    3         3          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW3400    S         FW3900      EXIT3400    4         5          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW3400    S         FW4400      EXIT3900    4         4          FW5900   FW5600   FW5700   FW5900   FW6000   10
+
+FW3500    W         FW2900      EXIT3400    2         2          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW3500    N         FW3000      EXIT3500    2         2          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW3500    W         FW3400      EXIT3900    3         4          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW3500    S         FW3900      EXIT3400    2         5          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW3500    S         FW4000      EXIT3900    4         3          FW5800   FW5801   FW6001   FW5900   FW5600   10
+FW3500    E         FW0500      EXIT0400    2         1          FW5900   FW5600   FW5700   FW5900   FW6000   10
+
+FW3600    E         FW4700      EXIT4600    2         4          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW3600    N         FW3100      EXIT3200    2         1          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW3600    E         FW3700      EXIT3600    2         4          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW3600    S         FW4100      EXIT3600    2         3          FW5900   FW5600   FW5700   FW5900   FW6000   10
+
+FW3700    W         FW3100      EXIT3200    2         1          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW3700    N         FW3200      Exit3100    2         7          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW3700    W         FW3600      Exit3700    2         2          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW3700    E         FW3800      Exit4200    4         4          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW3700    S         FW4100      EXIT3600    2         3          FW5800   FW5801   FW6001   FW5900   FW5600   10
+FW3700    S         FW4200      Exit4100    2         4          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW3700    N         FW2700      EXIT3200    2         1          FW5900   FW6000   FW6100   FW5801   FW5701   10
+
+FW3800    W         FW4200      EXIT4800    2         4          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW3800    S         FW4300      EXIT3800    2         4          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW3800    N         FW3300      EXIT3800    0         4          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW3800    W         FW3200      EXIT3300    2         4          FW5801   FW5701   FW5800   FW5801   FW6001   10
+FW3800    W         FW3700      EXIT3200    4         4          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW3800    E         FW3900      EXIT3800    4         5          FW5600   FW5700   FW5900   FW6000   FW6100   10
+
+FW3900    N         FW3400      EXIT3900    4         4          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW3900    N         FW3500      EXIT4400    2         3          FW5900   FW5600   FW5700   FW5900   FW6000   10
+FW3900    W         FW3800      EXIT4300    4         4          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW3900    E         FW4000      EXIT3900    4         3          FW5900   FW5600   FW5700   FW5900   FW6000   10
+FW3900    S         FW4400      EXIT3900    2         4          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW3900    S         FW4500      EXIT4400    4         3          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW3900    S         FW4300      EXIT4400    2         4          FW5600   FW5700   FW5900   FW6000   FW6100   10
+
+FW4000    W         FW4400      EXIT3900    2         4          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW4000    S         FW4500      EXIT4000    0         3          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW4000    N         FW3500      EXIT4400    4         3          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW4000    W         FW3900      EXIT4000    4         5          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW4000    E         FW0500      EXIT0400    2         1          FW5600   FW5700   FW5900   FW6000   FW6100   10
+
+FW4100    N         FW4200      EXIT4100    2         4          FW5801   FW5701   FW5800   FW5801   FW6001   10
+FW4100    E         FW4700      EXIT4600    2         4          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW4100    S         FW4600      EXIT4100    2         3          FW5800   FW5801   FW6001   FW5900   FW5600   10
+FW4100    N         FW3600      EXIT4100    2         2          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW4100    N         FW3700      EXIT3600    2         4          FW5900   FW5600   FW5700   FW5900   FW6000   10
+
+FW4200    E         FW4300      EXIT4200    2         4          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW4200    S         FW4700      EXIT5200    2         4          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW4200    N         FW3700      EXIT4700    2         4          FW5801   FW5701   FW5800   FW5801   FW6001   10
+FW4200    W         FW4100      EXIT4700    2         3          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW4200    W         FW3800      EXIT4200    2         4          FW5700   FW5900   FW6000   FW6100   FW5801   10
+
+FW4300    W         FW4200      EXIT4800    2         4          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW4300    E         FW4400      EXIT4900    2         4          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW4300    S         FW4800      EXIT4300    2         3          FW5801   FW5701   FW5800   FW5801   FW6001   10
+FW4300    E         FW4900      EXIT4800    2         4          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW4300    N         FW3400      EXIT3900    2         4          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW4300    N         FW3800      EXIT4300    2         4          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW4300    E         FW3900      EXIT3800    2         4          FW5801   FW6001   FW5900   FW5600   FW5700   10
+
+FW4400    W         FW4300      EXIT4400    2         4          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW4400    E         FW4500      EXIT4400    2         3          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW4400    S         FW4900      EXIT4400    2         4          FW5900   FW5600   FW5700   FW5900   FW6000   10
+FW4400    N         FW3400      EXIT3900    4         4          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW4400    N         FW3900      EXIT4000    2         5          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW4400    E         FW4000      EXIT3900    2         3          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW4400    S         FW5000      EXIT4400    2         4          FW5600   FW5700   FW5900   FW6000   FW6100   10
+
+FW4500    W         FW4400      EXIT4500    2         4          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW4500    W         FW5000      EXIT4400    2         3          FW5801   FW5701   FW5800   FW5801   FW6001   10
+FW4500    N         FW3900      EXIT4000    4         5          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW4500    N         FW4000      EXIT4500    0         3          FW5900   FW6000   FW6100   FW5801   FW5701   10
+
+FW4600    E         FW4700      EXIT4600    2         3          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW4600    S         FW5100      EXIT5200    2         1          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW4600    E         FW5200      EXIT5100    2         3          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW4600    N         FW4100      EXIT4600    2         3          FW5800   FW5801   FW6001   FW5900   FW5600   10
+
+FW4700    N         FW4200      EXIT5200    2         4          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW4700    W         FW4600      EXIT5200    2         3          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW4700    W         FW5100      EXIT5200    2         1          FW5801   FW6001   FW5900   FW5600   FW5700   10
+FW4700    S         FW5200      EXIT4200    2         3          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW4700    W         FW3600      EXIT3700    2         2          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW4700    W         FW4100      EXIT4600    2         3          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW4700    E         FW4800      EXIT5300    6         3          FW5701   FW5800   FW5801   FW6001   FW5900   10
+
+FW4800    N         FW4300      EXIT4800    2         4          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW4800    E         FW4900      EXIT4800    0         4          FW5800   FW5801   FW6001   FW5900   FW5600   10
+FW4800    S         FW5400      EXIT4800    0         3          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW4800    N         FW2300      EXIT2800    8         2          FW6001   FW5900   FW5600   FW5700   FW5900   30
+FW4800    W         FW4700      EXIT5200    6         4          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW4800    N         FW3300      EXIT3800    4         4          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW4800    S         FW5300      EXIT4200    3         1          FW6000   FW6100   FW5801   FW5701   FW5800   10
+
+FW4900    N         FW4300      EXIT4800    2         4          FW5800   FW5801   FW6001   FW5900   FW5600   10
+FW4900    E         FW4400      EXIT4900    2         4          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW4900    W         FW4800      EXIT4900    0         3          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW4900    E         FW5000      EXIT5400    4         3          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW4900    S         FW5400      EXIT4800    0         3          FW6100   FW5801   FW5701   FW5800   FW5801   10
+
+FW5000    N         FW4500      EXIT5000    2         3          FW6000   FW6100   FW5801   FW5701   FW5800   10
+FW5000    N         FW4900      EXIT5500    4         4          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW5000    S         FW5500      EXIT5000    2         2          FW5800   FW5801   FW6001   FW5900   FW5600   10
+FW5000    N         FW4400      EXIT5000    2         3          FW5701   FW5800   FW5801   FW6001   FW5900   10
+
+FW5100    E         FW4600      EXIT5100    2         3          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW5100    E         FW4700      EXIT5200    2         3          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW5100    E         FW5200      EXIT5100    2         3          FW6000   FW6100   FW5801   FW5701   FW5800   10
+
+FW5200    W         FW4700      EXIT5200    2         4          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW5200    W         FW4600      EXIT5200    2         3          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW5200    W         FW5100      EXIT5200    2         1          FW5900   FW5600   FW5700   FW5900   FW6000   10
+FW5200    E         FW5300      EXIT5200    2         3          FW5700   FW5900   FW6000   FW6100   FW5801   10
+
+FW5300    W         FW5200      EXIT5300    2         3          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW5300    E         FW5400      EXIT5300    2         3          FW5900   FW6000   FW6100   FW5801   FW5701   10
+FW5300    E         FW5500      EXIT5300    4         2          FW5701   FW5800   FW5801   FW6001   FW5900   10
+FW5300    N         FW4800      EXIT5300    3         4          FW6000   FW6100   FW5801   FW5701   FW5800   10
+
+FW5400    N         FW4800      EXIT5400    0         3          FW5600   FW5700   FW5900   FW6000   FW6100   10
+FW5400    N         FW4900      EXIT5500    0         4          FW6001   FW5900   FW5600   FW5700   FW5900   10
+FW5400    W         FW5300      EXIT5400    2         3          FW5900   FW5600   FW5700   FW5900   FW6000   10
+FW5400    E         FW5500      EXIT5300    2         2          FW5800   FW5801   FW6001   FW5900   FW5600   10
+
+FW5500    N         FW5000      EXIT5500    2         3          FW5700   FW5900   FW6000   FW6100   FW5801   10
+FW5500    W         FW5300      EXIT5400    4         3          FW6100   FW5801   FW5701   FW5800   FW5801   10
+FW5500    W         FW5400      EXIT5500    2         3          FW5900   FW6000   FW6100   FW5801   FW5701   10

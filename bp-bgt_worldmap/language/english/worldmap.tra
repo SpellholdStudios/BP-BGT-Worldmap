@@ -1,0 +1,187 @@
+// -*- coding: cp1252 -*-
+
+@900   = ~Requires installation of BP-BGT Worldmap first~
+
+@1000   = ~Worldmap for Baldur's Gate - including colored Baldur's Gate map icons~
+
+@2000   = ~Which travel times do you want?
+
+1. Original Travel Times and Area Visibility
+2. Revised Travel Times and Area Visibility.
+
+PLEASE ENTER  1 OR 2  ~
+
+@3000   = ~Which size of the worldmap do you want?
+
+1. Large Worldmap 4900x3500
+2. Huge Worldmap 8000x6300
+
+PLEASE ENTER  1 OR 2  ~
+@3003   = ~Huge worldmap 8000x6300 is required and will be installed~
+
+@4000   = ~Worldmap for Throne of Bhaal~
+@4001   = ~Use new Worldmap for Throne of Bhaal as well~
+@4002   = ~Clothmap-style map for Throne of Bhaal~
+
+@5000   = ~Convert old Savegames (No "New Game" needed)
+
+>> If you want to uninstall this component,
+you have to make a backup of your savegame folder manually! <<~
+@5001   = ~There is no savegame~
+
+
+@100000 = ~"Somewhere###far###North"~
+@100001 = ~"River###Chionthar"~
+@100002 = ~"Rusted###Scabbard###Entrance"~
+@100003 = ~"Brimstone###Bridge"~
+@100004 = ~"Slave###Route"~
+@100005 = ~"Castle###Daerthmac"~
+@100006 = ~"Temple###of###the###Black###Hand"~
+@100007 = ~"Bald###Hill"~
+@100008 = ~"Dragon###Caves"~
+
+@777002  = "Waukeen's###Promenade"
+@777003  = "Slums"
+@777004  = "Graveyard"
+@777005  = "Docks"
+@777006  = "Bridge"
+@777007  = "Temple"
+@777008  = "Government"
+@777009  = "Umar###Hills"
+@777010  = "Temple###Ruins"
+@777011  = "de'Arnise###Hold"
+@777012  = "Windspear###Hills"
+@777013  = "City###Gates"
+@777014  = "Trademeet"
+@777015  = "Druid###Grove"
+@777016  = "Small###Teeth###Pass"
+@777017  = "Underdark###Exit"
+@777018  = "Forest###of###Tethyr"
+@777019  = "North###Forest"
+@777020  = "Brynnlaw"
+@777021  = "Underdark"
+@777022  = "The###Asylum"
+@777023  = "Underwater###City"
+@777024  = "Suldanessellar"
+@777025  = "Watcher's###Keep"
+@777026  = "Saradush"
+@777027  = "Amkethran"
+@777028  = "Siege###Camp"
+@777029  = "Forest###of###Mir###-###The###Temple"
+@777030  = "Marching###Mountains"
+@777031  = "The###Oasis"
+@777032  = "Abazigal's###Lair"
+@777033  = "Sendai's###Enclave"
+@777034  = "Godsheads"
+@777035  = "Road###to###Marching###Mountains"
+
+@781001  = "Candlekeep"
+@781002  = "Wilderness###Lake"
+@781003  = "Nashkel###Pass"
+@781004  = "Firewine###Plains"
+@781005  = "Firewine###Bridge"
+@781006  = "Xvart###Village"
+@781007  = "Ogre's###Reach"
+@781008  = "Nashkel"
+@781009  = "Carnival"
+@781010  = "Valley###of###the###Tombs"
+@781011  = "Gnoll###Stronghold"
+@781012  = "Dryad###Falls"
+@781013  = "The###Cloudpeaks"
+@781014  = "Nashkel###Mines"
+@781015  = "Dragon's###Run"
+@781016  = "Lion's###Way"
+@781017  = "Beregost"
+@781018  = "Friendly###Arm###Inn"
+@781019  = "Crossroads"
+@781020  = "Cloakwood###Lodge"
+@781021  = "High###Hedge"
+@781022  = "Farms###over###Chionthar"
+@781023  = "Wyrm's###Crossing"
+@781024  = "Ankheg###Farms"
+@781025  = "Cloakwood###Druids"
+@781026  = "Cloakwood###Wyverns"
+@781027  = "Cloakwood###Mines"
+@781028  = "Bandit###Camp"
+@781029  = "Cloakwood###Nest"
+@781030  = "Peldvale"
+@781031  = "Larswood"
+@781032  = "Spider###Wood"
+@781033  = "Shipwreck's###Coast"
+@781034  = "Temple###of###Lathander"
+@781035  = "Mutamin's###Garden"
+@781036  = "The###Lighthouse"
+@781037  = "Red###Canyons"
+@781038  = "Badlands"
+@781039  = "Ulcaster###School"
+@781040  = "Gullykin"
+@781041  = "Archeological###Site"
+@781042  = "Durlag's###Tower"
+@781043  = "Ulgoth's###Beard"
+@781044  = "Ice###Island"
+@781045  = "Werewolf###Isle"
+@781046  = "Balduran's###Shipwreck"
+
+@781501  = "Cloakwood"
+@781502  = "Cloakwood"
+@781503  = "Cloakwood"
+@781504  = "Mines"
+@781505  = "Cloakwood"
+@781506  = "Friendly###Arm###Inn"
+@781507  = "Bandit###Camp"
+@781508  = "Peldvale"
+@781509  = "Larswood"
+@781510  = "Candlekeep"
+@781511  = "Beregost"
+@781512  = "High###Hedge"
+@781513  = "Temple"
+@781514  = "Gullykin"
+@781515  = "Firewine###bridge"
+@781516  = "Nashkel"
+@781517  = "Carnival"
+@781518  = "Ulcaster"
+@781519  = "Gnoll###Stronghold"
+@781520  = "Nashkel###Mines"
+@781521  = "Ulgoth's###Beard"
+@781522  = "Durlag's###Tower"
+
+@782001  = "Wood###of###Sharp###Teeth"
+@782002  = "Forest###of###Forgotten###Souls"
+@782003  = "Castle###Daerthmac"
+@782004  = "East###Wood###of###Sharp###Teeth"
+
+@783001  = "Northern###Coast"
+@783002  = "Field###of###the###Dead"
+@783003  = "Elven###Wood"
+@783004  = "Wood###of###the###Dead"
+@783005  = "Northern###Citadel"
+@783006  = "Temple###of###the###Black###Hand"
+
+@784001  = "Bald###Hill"
+@784002  = "Restenford"
+@784003  = "Reddy###Forest"
+@784004  = "Bone###Hill"
+@784005  = "Garrotten"
+@784006  = "Sir###BillyBob's###Farm"
+@784007  = "Temple"
+@784008  = "Tri###-###Top"
+@784009  = "Garrotten###Castle"
+@784010  = "Assassin's###Grotto"
+@784011  = "Lake###Lizards"
+@784012  = "Thief's###Den"
+
+// BG2EE SoA areas
+@800001  = "Abandoned###Amphitheater" //@84799
+@800002  = "Heretic###Temple" //@84800
+@800003  = "Resurrection###Gorge" //@80786
+@800004  = "Helmite###Camp" //@80785
+@800005  = "Wild###Forest" //@88426
+@800006  = "Hidden###Refuge" //@88427
+
+// BG2EE ToB areas
+@800007  = "Deepstone###Clanhold" //@84801
+@800008  = "Clearing" //@90195
+
+// BG1EE areas
+@810001  = "Adoy's###Enclave" //@28282
+@810002  = "Cloud###Peaks" //@29026

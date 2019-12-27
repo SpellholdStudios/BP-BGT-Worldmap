@@ -1,0 +1,39 @@
+IF
+  Global("FW4100Reveal_Archeological Dig","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4100")
+    SetGlobal("FW4100Reveal_Archeological Dig","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW5400Reveal_Nashkel Mines","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW5400")
+    SetGlobal("FW5400Reveal_Nashkel Mines","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW4900Reveal_Carnival","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4900")
+    SetGlobal("FW4900Reveal_Carnival","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW4300Reveal_Nashkel Pass","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4300")
+    SetGlobal("FW4300Reveal_Nashkel Pass","Global",1)
+    Continue()
+END

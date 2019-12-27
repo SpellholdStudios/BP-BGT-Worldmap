@@ -1,0 +1,19 @@
+IF
+  Global("FW4000Reveal_Gullykin","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4000")
+    SetGlobal("FW4000Reveal_Gullykin","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW4400Reveal_Firewine Plains","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4400")
+    SetGlobal("FW4400Reveal_Firewine Plains","Global",1)
+    Continue()
+END

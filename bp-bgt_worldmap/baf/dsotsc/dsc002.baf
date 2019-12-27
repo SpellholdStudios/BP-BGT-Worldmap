@@ -1,0 +1,10 @@
+IF
+  OnCreation()
+  Global("DSC004Reveal_Forest of Forgotten Souls","Global",0)
+  GlobalGT("Chapter","Global",5)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("DSC004")
+    SetGlobal("DSC004Reveal_Forest of Forgotten Souls","Global",1)
+    Continue()
+END

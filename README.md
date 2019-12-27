@@ -123,11 +123,8 @@ You must choose between:
 and:
 
 1. Large worldmap size (4900x3500), or
-2. Huge worldmap size (8000x6300).
-
-Large Worldmap (4900x3500):
 <center><img src="bp-bgt_worldmap/images/worldmap/worldmap_v7.0_large_mini.jpg"></center>
-Huge Worldmap (8000x6300):
+2. Huge worldmap size (8000x6300).
 <center><img src="bp-bgt_worldmap/images/worldmap/worldmap_v7.0_huge_mini.jpg"></center>
 
 ## 

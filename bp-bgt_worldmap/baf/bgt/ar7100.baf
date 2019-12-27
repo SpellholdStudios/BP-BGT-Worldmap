@@ -1,0 +1,17 @@
+IF
+  Global("AR9600Reveal_Red Canyons","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR9600")
+    SetGlobal("AR9600Reveal_Red Canyons","Global",1)
+    Continue()
+END
+
+IF
+  Global("AR3100Reveal_Wilderness Lake","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR3100")
+    SetGlobal("AR3100Reveal_Wilderness Lake","Global",1)
+    Continue()
+END

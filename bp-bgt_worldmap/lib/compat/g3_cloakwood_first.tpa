@@ -1,0 +1,12 @@
+ACTION_FOR_EACH resource IN ar2200 BEGIN //Cloakwood 1
+  LAF fl#bg1pal STR_VAR resource type = "ARE" RET resource END
+  ACTION_IF VARIABLE_IS_SET $fl#CONTENT("%resource%") BEGIN
+    OUTER_SET $fl#FLAGS("%resource%") |= BIT1 //Add "reveal through link"
+  END
+END
+ACTION_FOR_EACH resource IN ar2100 BEGIN //Cloakwood 2
+  LAF fl#bg1pal STR_VAR resource type = "ARE" RET resource END
+  ACTION_IF VARIABLE_IS_SET $fl#CONTENT("%resource%") BEGIN
+    OUTER_SET $fl#FLAGS("%resource%") &= 0xfd //Remove "reveal through link"
+  END
+END

@@ -1,0 +1,20 @@
+IF
+  Global("HelpBjornin","Global",2)
+  Global("FW4200Reveal_Wilderness Lake","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4200")
+    SetGlobal("FW4200Reveal_Wilderness Lake","Global",1)
+    Continue()
+END
+
+IF
+  Global("HelpGurke","GLOBAL",1)
+  !PartyHasItem("CLCK06") // Cloak of Non-Detection
+  Global("FW2200Reveal_Cloakwood Lodge","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW2200")
+    SetGlobal("FW2200Reveal_Cloakwood Lodge","Global",1)
+    Continue()
+END

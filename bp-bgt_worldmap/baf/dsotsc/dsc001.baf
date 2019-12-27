@@ -1,0 +1,10 @@
+IF
+  OnCreation()
+  Global("DSC002Reveal_East Wood of Sharp Teeth","Global",0)
+  GlobalGT("Chapter","Global",5)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("DSC002")
+    SetGlobal("DSC002Reveal_East Wood of Sharp Teeth","Global",1)
+    Continue()
+END

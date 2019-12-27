@@ -1,0 +1,5 @@
+ACTION_IF GAME_IS ~tob bgt~ BEGIN
+  INCLUDE ~bp-bgt_worldmap/lib/revised/megamods.tpa~
+END ELSE ACTION_IF GAME_IS ~tutu tutu_totsc~ BEGIN
+  INCLUDE ~bp-bgt_worldmap/lib/revised/tutu_revised.tpa~
+END

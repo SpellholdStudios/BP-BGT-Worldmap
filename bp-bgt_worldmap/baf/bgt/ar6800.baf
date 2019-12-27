@@ -1,0 +1,19 @@
+IF
+  Global("AR8300Reveal_Ankheg Farms","Global",0)
+  GlobalGT("Chapter","Global",3)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR8300")
+    SetGlobal("AR8300Reveal_Ankheg Farms","Global",1)
+    Continue()
+END
+
+IF
+  Global("AR8900Reveal_Peldvale","Global",0)
+  GlobalGT("Chapter","Global",3)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR8900")
+    SetGlobal("AR8900Reveal_Peldvale","Global",1)
+    Continue()
+END

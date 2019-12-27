@@ -1,0 +1,10 @@
+IF
+  OnCreation()
+  Global("FW0400Reveal_Farms over Chionthar","Global",0)
+  GlobalGT("Chapter","Global",2)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW0400")
+    SetGlobal("FW0400Reveal_Farms over Chionthar","Global",1)
+    Continue()
+END

@@ -1,0 +1,32 @@
+IF
+  OnCreation()
+  Global("AR6800Reveal_Friendly Arm Inn","Global",1)
+  Global("AR6700Reveal_Beregost","Global",0)
+  GlobalLT("Chapter","Global",3)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR6700")
+    SetGlobal("AR6700Reveal_Beregost","Global",1)
+    Continue()
+END
+
+IF
+  Global("AR6800Reveal_Friendly Arm Inn","Global",0)
+  GlobalLT("Chapter","Global",3)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR6800")
+    SetGlobal("AR6800Reveal_Friendly Arm Inn","Global",1)
+    Continue()
+END
+
+IF
+  Global("AR6700Reveal_Beregost","Global",1)
+  Global("AR9000Reveal_Larswood","Global",0)
+  GlobalGT("Chapter","Global",2)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR9000")
+    SetGlobal("AR9000Reveal_Larswood","Global",1)
+    Continue()
+END

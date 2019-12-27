@@ -1,0 +1,15 @@
+//BoneHill New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME        TOOLTIP     LOAD_IM
+
+BH0200      BH0200   BH0200     2      57        400    4525   @BH_784006  @BH_784006  N        //Sir BillyBob's Farm
+BH1100      BH1100   BH1100     2      73        370    4460   @BH_784001  @BH_784001  N        //Bald Hill
+BH1200      BH1200   BH1200     2      38        295    4460   @BH_784012  @BH_784012  N        //Thief's Den
+BH0100      BH0100   BH0100     2      71        320    4530   @BH_784002  @BH_784002  N        //Restenford
+BH0300      BH0300   BH0300     2      84        242    4522   @BH_784007  @BH_784007  N        //Temple
+BH1300      BH1300   BH1300     2      63        190    4460   @BH_784008  @BH_784008  N        //Tri-Top
+BH1400      BH1400   BH1400     2      17        75     4460   @BH_784003  @BH_784003  N        //Reddy Forest
+BH1000      BH1000   BH1000     2      12        80     4550   @BH_784004  @BH_784004  N        //Bone Hill
+BH2000      BH2000   BH2000     4      13        175    4690   @BH_784005  N           N        //Garrotten
+BH2200      BH2200   BH2200     2      68        155    4587   @BH_784011  @BH_784011  N        //Lake Lizards
+BH2300      BH2300   BH2300     4      70        83     4732   @BH_784010  @BH_784010  N        //Assassin's Grotto
+BH2100      BH2100   BH2100     2      46        235    4610   @BH_784009  @BH_784009  N        //Garrotten Castle

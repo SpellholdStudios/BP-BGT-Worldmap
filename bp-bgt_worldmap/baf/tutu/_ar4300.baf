@@ -1,0 +1,42 @@
+IF
+  Global("FW3800Reveal_Badlands","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW3800")
+    SetGlobal("FW3800Reveal_Badlands","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW4400Reveal_Firewine Plains","Global",0)
+  Global("FW4900Reveal_Carnival","Global",0)
+  GlobalLT("Chapter","Global",2)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4400")
+    RevealAreaOnMap("FW4900")
+    SetGlobal("FW4400Reveal_Firewine Plains","Global",1)
+    SetGlobal("FW4900Reveal_Carnival","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW4400Reveal_Firewine Plains","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4400")
+    SetGlobal("FW4400Reveal_Firewine Plains","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW3900Reveal_Ulcaster School","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW3900")
+    SetGlobal("FW3900Reveal_Ulcaster School","Global",1)
+    Continue()
+END

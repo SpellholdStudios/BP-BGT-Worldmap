@@ -1,0 +1,9 @@
+IF
+  Global("AR20PBReveal_Northern Coast","Global",0)
+  Global("HelpNadalin","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR20PB")
+    SetGlobal("AR20PBReveal_Northern Coast","Global",1)
+    Continue()
+END

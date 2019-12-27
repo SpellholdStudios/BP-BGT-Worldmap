@@ -1,0 +1,217 @@
+//Compares two worldmaps content-wise and reports any differences
+
+OUTER_SPRINT old_file "test/old_worldmap.wmp"
+OUTER_SPRINT new_file "test/worldmap.wmp"
+OUTER_SPRINT output_file "test/output.txt"
+
+DEFINE_PATCH_MACRO read_wmp BEGIN  //Prequires Array_Prefix
+LOCAL_SET height = 0
+LOCAL_SET width = 0
+LOCAL_SET num_areas = 0
+LOCAL_SET num_links = 0
+LOCAL_SET i = 0
+LOCAL_SET j = 0
+LOCAL_SET k = 0
+LOCAL_SPRINT content ""
+LOCAL_SPRINT short ""
+LOCAL_SPRINT long ""
+LOCAL_SET flags = 0
+LOCAL_SET icon = 0
+LOCAL_SET x = 0
+LOCAL_SET y = 0
+LOCAL_SPRINT name ""
+LOCAL_SPRINT tooltip ""
+LOCAL_SPRINT image ""
+LOCAL_SET target = 0
+LOCAL_SPRINT ent ""
+LOCAL_SET dist = 0
+LOCAL_SET def_ent = 0
+LOCAL_SPRINT enc1 ""
+LOCAL_SPRINT enc2 ""
+LOCAL_SPRINT enc3 ""
+LOCAL_SPRINT enc4 ""
+LOCAL_SPRINT enc5 ""
+LOCAL_SET prob = 0
+LOCAL_SPRINT target_are ""
+
+  READ_LONG 0x18 height
+  READ_LONG 0x1c width
+  READ_LONG 0x30 num_areas
+  READ_LONG 0x3c num_links
+  SET $EVAL "%Array_Prefix%"(height) = height
+  SET $EVAL "%Array_Prefix%"(width) = width
+  SET $EVAL "%Array_Prefix%"(num_areas) = num_areas
+  SET $EVAL "%Array_Prefix%"(num_links) = num_links
+  FOR (i = 0; i < num_areas; ++i) BEGIN
+    READ_ASCII LONG_AT 0x34 + 0xf0*i content
+    SPRINT $index("%i%") "%content%"
+  END
+  FOR (i = 0; i < num_areas; ++i) BEGIN
+    ao = LONG_AT 0x34 + 0xf0*i
+    READ_ASCII ao        content
+    READ_ASCII ao + 0x8  short
+    READ_ASCII ao + 0x10 long (0x20)
+    READ_LONG  ao + 0x30 flags
+    READ_LONG  ao + 0x34 icon
+    READ_LONG  ao + 0x38 x
+    READ_LONG  ao + 0x3c y
+    READ_STRREF ao + 0x40 name
+    READ_STRREF ao + 0x44 tooltip
+    READ_ASCII ao + 0x48 image
+    TO_LOWER content
+    SET $EVAL "%Array_Prefix%_areas"("%content%") = 1
+    SPRINT $EVAL "%Array_Prefix%_short"("%content%") "%short%"
+    SPRINT $EVAL "%Array_Prefix%_long"("%content%") "%long%"
+    SET $EVAL "%Array_Prefix%_flags"("%content%") = flags
+    SET $EVAL "%Array_Prefix%_icon"("%content%") = icon
+    SET $EVAL "%Array_Prefix%_x"("%content%") = x
+    SET $EVAL "%Array_Prefix%_y"("%content%") = y
+    SPRINT $EVAL "%Array_Prefix%_name"("%content%") "%name%"
+    SPRINT $EVAL "%Array_Prefix%_tooltip"("%content%") "%tooltip%"
+    SPRINT $EVAL "%Array_Prefix%_image"("%content%") "%image%"
+    PATCH_FOR_EACH j IN 0 3 2 1 BEGIN
+      READ_LONG ao + 0x50 + 0x8*j idx
+      READ_LONG ao + 0x54 + 0x8*j num
+      FOR (k = 0; k < num; ++k) BEGIN
+        lo = LONG_AT 0x38 + 0xd8*(idx + k)
+        READ_LONG  lo        target
+        READ_ASCII lo + 0x4  ent (0x20) NULL
+        READ_LONG  lo + 0x24 dist
+        READ_LONG  lo + 0x28 def_ent
+        READ_ASCII lo + 0x2c enc1
+        READ_ASCII lo + 0x34 enc2
+        READ_ASCII lo + 0x3c enc3
+        READ_ASCII lo + 0x44 enc4
+        READ_ASCII lo + 0x4c enc5
+        READ_LONG  lo + 0x54 prob
+        SPRINT target_are $index("%target%")
+        SET $EVAL "%Array_Prefix%_links"("%content%" "%j%" "%target_are%") = 1
+        SPRINT $EVAL "%Array_Prefix%_ent"("%content%" "%j%" "%target_are%") "%ent%"
+        SET $EVAL "%Array_Prefix%_dist"("%content%" "%j%" "%target_are%") = dist
+        SET $EVAL "%Array_Prefix%_def_ent"("%content%" "%j%" "%target_are%") = def_ent
+        SPRINT $EVAL "%Array_Prefix%_enc1"("%content%" "%j%" "%target_are%") "%enc1%"
+        SPRINT $EVAL "%Array_Prefix%_enc2"("%content%" "%j%" "%target_are%") "%enc2%"
+        SPRINT $EVAL "%Array_Prefix%_enc3"("%content%" "%j%" "%target_are%") "%enc3%"
+        SPRINT $EVAL "%Array_Prefix%_enc4"("%content%" "%j%" "%target_are%") "%enc4%"
+        SPRINT $EVAL "%Array_Prefix%_enc5"("%content%" "%j%" "%target_are%") "%enc5%"
+        SET $EVAL "%Array_Prefix%_prob"("%content%" "%j%" "%target_are%") = prob
+      END
+    END
+  END
+END
+
+DEFINE_ACTION_FUNCTION cmp_wmp STR_VAR out = "" RET out BEGIN
+  COPY "%old_file%" "%old_file%"
+    SPRINT Array_Prefix old
+    LPM read_wmp
+  BUT_ONLY
+
+  COPY "%new_file%" "%new_file%"
+    SPRINT Array_Prefix new
+    LPM read_wmp
+  BUT_ONLY
+
+  //Check the Worldmap header
+  OUTER_SPRINT $string(height) "Height differs"
+  OUTER_SPRINT $string(width) "Width differs"
+  OUTER_SPRINT $string(num_areas) "Number of areas differ"
+  OUTER_SPRINT $string(num_links) "Number of links differ"
+  ACTION_FOR_EACH p IN height width num_areas num_links BEGIN
+    ACTION_IF $old("%p%") != $new("%p%") BEGIN
+      OUTER_SET old = $old("%p%")
+      OUTER_SET new = $new("%p%")
+      OUTER_SPRINT string $string("%p%")
+      OUTER_SPRINT out "%out%%string%; old: %old%, new: %new%%LNL%"
+    END
+  END
+
+  //Check the areas
+  OUTER_SPRINT $string(short) "Short"
+  OUTER_SPRINT $string(long) "Long"
+  OUTER_SPRINT $string(name) "Name"
+  OUTER_SPRINT $string(tooltip) "Tooltip"
+  OUTER_SPRINT $string(image) "Image"
+  OUTER_SPRINT $string(flags) "Flags differ"
+  OUTER_SPRINT $string(icon) "Icon differs"
+  OUTER_SPRINT $string(x) "X coordinate differs"
+  OUTER_SPRINT $string(y) "Y coordinate differs"
+  ACTION_PHP_EACH new_areas AS area => int BEGIN
+    ACTION_IF VARIABLE_IS_SET $old_areas("%area%") BEGIN
+      ACTION_FOR_EACH s IN short long name tooltip image BEGIN
+        ACTION_IF NOT $EVAL "old_%s%"("%area%") STRING_EQUAL_CASE $EVAL "new_%s%"("%area%") BEGIN
+          OUTER_SPRINT old $EVAL "old_%s%"("%area%")
+          OUTER_SPRINT new $EVAL "new_%s%"("%area%")
+          OUTER_SPRINT string $string("%s%")
+          OUTER_SPRINT out "%out%%string% differs on %area%; old: %old%, new: %new%%LNL%"
+        END
+      END
+      ACTION_FOR_EACH v IN flags icon x y BEGIN
+        ACTION_IF $EVAL "old_%v%"("%area%") != $EVAL "new_%v%"("%area%") BEGIN
+          OUTER_SET old = $EVAL "old_%v%"("%area%")
+          OUTER_SET new = $EVAL "new_%v%"("%area%")
+          OUTER_SPRINT string $string("%v%")
+          OUTER_SPRINT out "%out%%string% on %area%; old: %old%, new: %new%%LNL%"
+        END
+      END
+    END ELSE BEGIN
+      OUTER_SPRINT out "%out%Area %area% exists in new but does not exist in old%LNL%"
+    END
+  END
+  ACTION_PHP_EACH old_areas AS area => int BEGIN
+    ACTION_IF NOT VARIABLE_IS_SET $new_areas("%area%") BEGIN
+      OUTER_SPRINT out "%out%Area %area% exists in old but does not exist in new%LNL%"
+    END
+  END
+
+  //Check the links
+  OUTER_SPRINT $string(ent) "Entrance"
+  OUTER_SPRINT $string(enc1) "Enc1"
+  OUTER_SPRINT $string(enc2) "Enc2"
+  OUTER_SPRINT $string(enc3) "Enc3"
+  OUTER_SPRINT $string(enc4) "Enc4"
+  OUTER_SPRINT $string(enc5) "Enc5"
+  OUTER_SPRINT $string(dist) "Distance"
+  OUTER_SPRINT $string(def_ent) "Default entrance"
+  OUTER_SPRINT $string(prob) "Encounter probability"
+  ACTION_PHP_EACH new_links AS link => int BEGIN
+    ACTION_IF VARIABLE_IS_SET $old_links("%link_0%" "%link_1%" "%link_2%") BEGIN
+      ACTION_FOR_EACH s IN ent enc1 enc2 enc3 enc4 enc5 BEGIN
+        ACTION_IF NOT $EVAL "old_%s%"("%link_0%" "%link_1%" "%link_2%") STRING_EQUAL_CASE $EVAL "new_%s%"("%link_0%" "%link_1%" "%link_2%") BEGIN
+          OUTER_SPRINT old $EVAL "old_%s%"("%link_0%" "%link_1%" "%link_2%")
+          OUTER_SPRINT new $EVAL "new_%s%"("%link_0%" "%link_1%" "%link_2%")
+          OUTER_SPRINT string $string("%s%")
+          OUTER_SPRINT out "%out%%string% differs on link from %link_0% to %link_2% at %link_1%; old: %old%, new: %new%%LNL%"
+        END
+      END
+      ACTION_FOR_EACH v IN dist def_ent prob BEGIN
+        ACTION_IF $EVAL "old_%v%"("%link_0%" "%link_1%" "%link_2%") != $EVAL "new_%v%"("%link_0%" "%link_1%" "%link_2%") BEGIN
+          OUTER_SPRINT old $EVAL "old_%v%"("%link_0%" "%link_1%" "%link_2%")
+          OUTER_SPRINT new $EVAL "new_%v%"("%link_0%" "%link_1%" "%link_2%")
+          OUTER_SPRINT string $string("%v%")
+          OUTER_SPRINT out "%out%%string% differs on link from %link_0% to %link_2% at %link_1%; old: %old%, new: %new%%LNL%"
+        END
+      END
+    END ELSE BEGIN
+      OUTER_SPRINT out "%out%Link from %link_0% to %link_2% at %link_1% exists in new but does not exist in old%LNL%"
+    END
+  END
+  ACTION_PHP_EACH old_links AS link => int BEGIN
+    ACTION_IF NOT VARIABLE_IS_SET $new_links("%link_0%" "%link_1%" "%link_2%") BEGIN
+      OUTER_SPRINT out "%out%Link from %link_0% to %link_2% at %link_1% exists in old but does not exist in new%LNL%"
+    END
+  END
+END
+
+LAF cmp_wmp RET output = out END
+
+<<<<<<<< ...blank
+>>>>>>>>
+
+ACTION_IF STRING_LENGTH "%output%" > 0 BEGIN
+  COPY "...blank" "%output_file%"
+    INSERT_BYTES 0 STRING_LENGTH "%output%"
+    WRITE_ASCIIE 0 "%output%"
+  PRINT "Output written to %output_file%"
+END ELSE BEGIN
+  PRINT "No differences detected"
+END

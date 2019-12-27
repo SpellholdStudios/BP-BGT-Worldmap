@@ -1,0 +1,9 @@
+IF
+  Global("ARU000Reveal_Ulgoth's Beard","Global",0)
+  GlobalGT("Chapter","Global",5)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("ARU000")
+    SetGlobal("ARU000Reveal_Ulgoth's Beard","Global",1)
+    Continue()
+END

@@ -1,0 +1,10 @@
+IF
+  Dead("Raiken")
+  Global("FW1900Reveal_Bandit Camp","Global",0)
+  GlobalGT("Chapter","Global",2)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW1900")
+    SetGlobal("FW1900Reveal_Bandit Camp","Global",1)
+    Continue()
+END

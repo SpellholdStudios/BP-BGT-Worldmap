@@ -1,0 +1,9 @@
+IF
+  Global("FW1800Reveal_Cloakwood Mines","Global",0)
+  GlobalGT("Chapter","Global",3)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW1800")
+    SetGlobal("FW1800Reveal_Cloakwood Mines","Global",1)
+    Continue()
+END
