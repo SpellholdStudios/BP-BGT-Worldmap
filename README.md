@@ -1,5 +1,5 @@
 
-![Latest Release](https://img.shields.io/github/v/release/SpellholdStudios/Rolles?include_prereleases&color=darkred)<a name="top" id="top"> </a>
+![Latest Release](https://img.shields.io/github/v/release/SpellholdStudios/BP-BGT-Worldmap?include_prereleases&color=darkred)<a name="top" id="top"> </a>
 ![Platform](https://img.shields.io/static/v1?label=platform&message=windows%20%7C%20macos%20%7C%20linux&color=informational)
 ![Language](https://img.shields.io/static/v1?label=language&message=English%20%7C%20French%20%7C%20German%20%7C%20Italian%20%7C%20Polish%20%7C%20Russian%20%7C%20Spanish&color=limegreen)
 
@@ -30,9 +30,13 @@ This mod replaces the in-game worldmap with a large, new worldmap. It is used es
 This is the original introduction written by Yacomo:
 
 >Please allow me a few words about my motivation in doing this...
+
 >I always loved maps, guess since I first got my hands on the middle earth atlas. I always liked the infinity engine games as well, but those two things had nothing to do with each other...
+
 >Well, nothing to do until I started playing the BP-BGT-NeJ-CtB-DSotSC-BH-NTotSC monster in early 2005. I became a fan of the Check the Bodies worldmap immediately and I fell in love with the spirit of the modding community shortly thereafter. I had to give it back something...
->What I never liked about the BP-BGT map was the mix of coloured and black and white icons. So I was already tinkering with the idea of creating coloured versions of all the Baldur's Gate map icons when Horred the Plague posted <a class="inter-link" href="http://forums.spellholdstudios.net/index.php?act=ST&amp;f=193&amp;t=13954">link</a> on the former forgottenwars forums...
+
+>What I never liked about the BP-BGT map was the mix of coloured and black and white icons. So I was already tinkering with the idea of creating coloured versions of all the Baldur's Gate map icons when Horred the Plague posted <a href="http://forums.spellholdstudios.net/index.php?act=ST&amp;f=193&amp;t=13954">link</a> on the former forgottenwars forums...
+
 >That was the starter I was waiting for! So I picked up the task, made myself comfortable with GIMP (who needs Photoshop - bah :smile: and this is the result - hope ya like it!
 
 At the beginning of the year 2006 Yacomo retired the first time from this mod and King Diamond and Weigo took over the worldmap. King Diamond, one of the WeiDU coding chiefs, made a fantastic new code for the worldmap. Weigo made a lot of small and large changes to the worldmaps.
@@ -90,7 +94,7 @@ Run **`setup-bp-bgt_worldmap.exe`** in your game folder to reinstall, un-install
 
 **Note:** BP-BGT Worldmap relies on an external executable called <a href="http://www.shsforums.net/topic/47779-mospack/">mosunpack</a>. Mosunpack comes bundled with the mod (located in bp-bgt_worldmap/bin/) and the mod will attempt to run it inside the mod directory. Should this for any reason not be possible you need to place mosunpack on your system path and allow it to be executed as a program (chmod it) before attempting to install the mod.
 
-Download a compiled version of <a href=""https://github.com/WeiDUorg/weidu/releases">WeiDU</a> appropriate for your platform. Place the WeiDU and WeInstall binaries on your path. If you don't already have one it is recommended you create a directory in your home directory, add that directory to your path and place your binaries there. If you are on Linux, or another case-sensitive environment, you also need the tolower binary.
+Download a compiled version of <a href="https://github.com/WeiDUorg/weidu/releases">WeiDU</a> appropriate for your platform. Place the WeiDU and WeInstall binaries on your path. If you don't already have one it is recommended you create a directory in your home directory, add that directory to your path and place your binaries there. If you are on Linux, or another case-sensitive environment, you also need the tolower binary.
 
 Extract the BP-BGT-Worldmap archive to your game-installation directory. Open a terminal in your installation directory. Run tolower if you need to. Issue the command **`WeInstall bp-bgt-worldmap`** and follow the instructions.
 
@@ -113,19 +117,19 @@ The installer includes the following components.<br /><br />
 
 You must choose between those two sets of options:
 
-- 1. Original travel times and area visibility, or
-- 2. Revised travel times and area visibility.
+1. Original travel times and area visibility, or
+2. Revised travel times and area visibility.
 
-- 1. Large worldmap size (4900x3500), or
-- 2. Huge worldmap size (8000x6300)?
+1. Large worldmap size (4900x3500), or
+2. Huge worldmap size (8000x6300).
 
 
 ## 
 
 **2. Worldmap for Throne of Bhaal**<br />
 
-- 1. Use new worldmap for Throne of Bhaal, or
-- 2. Use clothmap-style map for Throne of Bhaal.
+1. Use new worldmap for Throne of Bhaal, or
+2. Use clothmap-style map for Throne of Bhaal.
 
 ## 
 
@@ -159,6 +163,7 @@ A: Either start a new game or use the savegame converter.
 #### Coders: King Diamond, Weigo, Erebusant
 #### Support: Erebusant
 
+## 
 
 #### Special Acknowledgements to:
 
@@ -170,6 +175,7 @@ A: Either start a new game or use the savegame converter.
 - Russian translation: prowler and Silent.
 - Others: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
 
+## 
 
 #### Copyrights Information
 
@@ -489,7 +495,7 @@ pointing this out.
 - Fixed bug where Watcher's Keep would appear twice if Check the Bodies was not installed, thanks to King Diamond for pointing this out.
 - Moved Trollford to the west of Umar Hills, thanks to Chevalier for pointing this out.
 - Moved Suldanessellar to the immediate south of Forest of Tethir and moved both closer to Underdark Exit, thanks to Chevalier for pointing this out.
-- Reorganized installer, so that a normal player can just say "install all" and get what he expects instead of some strange debug install?
+- Reorganized installer, so that a normal player can just say "install all" and get what he expects instead of some strange debug install.
 
 ## 
 
@@ -508,5 +514,5 @@ pointing this out.
 - Compressed bpbgtmap.bam using DLTCEP, this together with the rebuild reduced file size from 9022kb to 1679kb - partly compensates for the giant worldmap.mos that I introduced.
 - Updated the worldmap.wmp file from Bonehill 1.8 for the new map size.
 - Created a debug variant of worldmap.wmp with all map icons visible.
-- Created a small WeiDU installer?
+- Created a small WeiDU installer.
 <div align="right"><a href="#top">Back to top</a></div>
