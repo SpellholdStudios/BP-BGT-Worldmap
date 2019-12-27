@@ -373,27 +373,27 @@ A: Either start a new game or use the savegame converter.
 - Fixed "No BGT" install, Riatavin Timer &amp; "Greyed" Ar.
 - Fixed "new_map_mods_areas_NTotSC.tbl".
 - Fixes for the Revised Area Visibility and travel times:
-	1. new_map_mods_areas_BGT.tbl.
+	- new_map_mods_areas_BGT.tbl.
 		a. Western Cloudpeaks x +15 y -10.
 		b. The Cloudpeaks x -20 y -145 Name Label Removed.
-	2. new_map_mods_areas_CTB.tbl.
+	- new_map_mods_areas_CTB.tbl.
 		a. Central Hlondeth x NC y +10 Name Label Re-Added BAM = #21.
 		b. East Hlondeth x -10 y +5 Name Label Re-Added BAM = #20.
 		c. West Hlondeth x -25 y +100 Name Label Re-Added BAM = #24.
 		d. BrimstoneBridge x NC y -50.
-	3. new_map_mods_areas_ROT.tbl.
+	- new_map_mods_areas_ROT.tbl.
 		a. Slave Route x NC y +5.
 		b. NorthCave x +35 y +30.
 		c. Westchar x +150 y -25.
-	4. new_map_mods_areas_TDD.tbl.
+	- new_map_mods_areas_TDD.tbl.
 		a. TrollMountains x +42 y +25 Name Label Removed.
 		b. DeepMirForest x NC y +50.
 		c. Eshpurta x +10 y NC.
-	5. new_map_mods_links_BGT.tbl.
+	- new_map_mods_links_BGT.tbl.
 		a. Various minor additions and/or deletions to links table.
-	6. new_map_mods_links_SOBH.tbl.
+	- new_map_mods_links_SOBH.tbl.
 		a. Various minor additions and/or deletions to links table.
-	7. new_tables_BP.tph.
+	- new_tables_BP.tph.
 		a. Forest of Tethyr x NC y +10 Name Label Removed (Label Exists on Map).
 		b. Druid Grove x &amp; y coordinates placed at x = Trademeet +80 &amp; y = Trademeet +50.
 - Italian translation.
