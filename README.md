@@ -265,7 +265,7 @@ A: Either start a new game or use the savegame converter.
 	- Swap the locations of Abazigal's Lair and Sendai's Enclave, so their local maps better match the terrain on the worldmap.
 - Reposition some SoA map icons under "Original travel times and area visibility" for improved spatial coherence.
 	- Move Brynnlaw and the Asylum onto the actual Nelanter isles.
-	- Move the Underwater City to a location you could conceivably end up at while sailing back to Athkatla
+	- Move the Underwater City to a location you could conceivably end up at while sailing back to Athkatla.
 	- Move the Druid Grove closer to Trademeet and out of the mountains.
 - Add the Drizzt encounter to the link between the Underdark Exit and Watcher's Keep.
 - Do not overwrite xnewarea.2da or xl3000.2da.
@@ -275,16 +275,16 @@ A: Either start a new game or use the savegame converter.
 
 ## 
 
-##### 10 August 2013 - Version 9.0.2</h6>
+##### Version 9.0.2 (10 August 2013)
 
 - Fixed two bugs in the savegame converter.
-- Added uninstallation directions to the readme.
+- Added un-installation directions to the readme.
 - The mod can now be installed on 64-bit Macs.
 - The installation does not fail if worldmap.mos already exists in the override.
 
 ## 
 
-##### 19 November 2011 - Version 9.0.1</h6>
+##### Version 9.0.1 (19 November 2011)
 
 - Updated the Russian translation.
 - Updated to WeiDU 231.
@@ -374,28 +374,28 @@ A: Either start a new game or use the savegame converter.
 - Fixed "new_map_mods_areas_NTotSC.tbl".
 - Fixes for the Revised Area Visibility and travel times:
 	- new_map_mods_areas_BGT.tbl.
-		a. Western Cloudpeaks x +15 y -10.
-		b. The Cloudpeaks x -20 y -145 Name Label Removed.
+		- a. Western Cloudpeaks x +15 y -10.
+		- b. The Cloudpeaks x -20 y -145 Name Label Removed.
 	- new_map_mods_areas_CTB.tbl.
-		a. Central Hlondeth x NC y +10 Name Label Re-Added BAM = #21.
-		b. East Hlondeth x -10 y +5 Name Label Re-Added BAM = #20.
-		c. West Hlondeth x -25 y +100 Name Label Re-Added BAM = #24.
-		d. BrimstoneBridge x NC y -50.
+		- a. Central Hlondeth x NC y +10 Name Label Re-Added BAM = #21.
+		- b. East Hlondeth x -10 y +5 Name Label Re-Added BAM = #20.
+		- c. West Hlondeth x -25 y +100 Name Label Re-Added BAM = #24.
+		- d. BrimstoneBridge x NC y -50.
 	- new_map_mods_areas_ROT.tbl.
-		a. Slave Route x NC y +5.
-		b. NorthCave x +35 y +30.
-		c. Westchar x +150 y -25.
+		- a. Slave Route x NC y +5.
+		- b. NorthCave x +35 y +30.
+		- c. Westchar x +150 y -25.
 	- new_map_mods_areas_TDD.tbl.
-		a. TrollMountains x +42 y +25 Name Label Removed.
-		b. DeepMirForest x NC y +50.
-		c. Eshpurta x +10 y NC.
+		- a. TrollMountains x +42 y +25 Name Label Removed.
+		- b. DeepMirForest x NC y +50.
+		- c. Eshpurta x +10 y NC.
 	- new_map_mods_links_BGT.tbl.
-		a. Various minor additions and/or deletions to links table.
+		- a. Various minor additions and/or deletions to links table.
 	- new_map_mods_links_SOBH.tbl.
-		a. Various minor additions and/or deletions to links table.
+		- a. Various minor additions and/or deletions to links table.
 	- new_tables_BP.tph.
-		a. Forest of Tethyr x NC y +10 Name Label Removed (Label Exists on Map).
-		b. Druid Grove x &amp; y coordinates placed at x = Trademeet +80 &amp; y = Trademeet +50.
+		- a. Forest of Tethyr x NC y +10 Name Label Removed (Label Exists on Map).
+		- b. Druid Grove x &amp; y coordinates placed at x = Trademeet +80 &amp; y = Trademeet +50.
 - Italian translation.
 - Reorganized Setup-BP-BGT-Worldmap.tp2 code.
 - You can now choose between Revised and Original travel times and area visibility.
