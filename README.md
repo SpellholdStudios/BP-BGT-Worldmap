@@ -115,14 +115,20 @@ The installer includes the following components.<br /><br />
 
 **1. Worldmap for Baldur's Gate - including colored Baldur's Gate map icons**<br />
 
-You must choose between those two sets of options:
+You must choose between:
 
 1. Original travel times and area visibility, or
 2. Revised travel times and area visibility.
 
+and:
+
 1. Large worldmap size (4900x3500), or
 2. Huge worldmap size (8000x6300).
 
+Large Worldmap (4900x3500):
+<center><img src="bp-bgt_worldmap/images/worldmap/worldmap_v7.0_large.jpg"></center>
+Huge Worldmap (8000x6300):
+<center><img src="bp-bgt_worldmap/images/worldmap/worldmap_v7.0_huge.jpg"></center>
 
 ## 
 
