@@ -1,0 +1,10 @@
+Changes for 10.2.4:
+-corrected area names for DSotSC areas (areas should be named correctly and should all have names on the worldmap)
+-corrected area visibility for ntotsc (areas should have the same visibility on worldmap as in original mod)
+-added changelog.txt file.
+
+Changes for 10.2.3:
+-Update EE map-icon file.
+
+Changes for v10.2.2:
+-README.md : fixes wrong dating
