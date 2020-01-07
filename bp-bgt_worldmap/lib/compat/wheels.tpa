@@ -1,5 +1,0 @@
-// Areas
-LAF install_area_table
-  STR_VAR
-    table = "bp-bgt_worldmap/compat/wheels/areas.tbl"
-END

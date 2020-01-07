@@ -1,0 +1,24 @@
+//Areas
+LAF install_area_table
+  STR_VAR
+    table = "bp-bgt-worldmap/compat/fft/areas.tbl"
+END
+
+//Links
+LAF install_link_table
+  STR_VAR
+    table = "bp-bgt-worldmap/compat/fft/links.tbl"
+END
+
+//Translations
+ACTION_IF FILE_EXISTS "%tra_path%/%LANGUAGE%/fft_compat.tra" BEGIN
+  LAF install_translation_table
+    STR_VAR
+      table = EVAL "%tra_path%/%LANGUAGE%/fft_compat.tra"
+  END
+END ELSE BEGIN
+  LAF install_translation_table
+    STR_VAR
+      table = EVAL "%tra_path%/english/fft_compat.tra"
+  END
+END

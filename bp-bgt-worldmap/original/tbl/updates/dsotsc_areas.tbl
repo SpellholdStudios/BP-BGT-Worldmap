@@ -1,0 +1,7 @@
+//DSotSC New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+DSC001      DSC001   DSC001     4      76        2200   2372   @DS_782001   @DS_782001   N        //Wood of Sharp Teeth
+DSC002      DSC002   DSC002     2      63        2300   2360   @DS_782004   @DS_782004   N
+DSC004      DSC004   DSC004     2      83        2219   2295   @DS_782002   @DS_782002   N        //Forest of Forgotten Souls
+DSC010      DSC010   DSC010     4      79        2300   2794   @DS_782003   @DS_782003   N        //Castle Daerthmac
