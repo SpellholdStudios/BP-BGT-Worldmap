@@ -1,0 +1,19 @@
+IF
+  Global("AR9900Reveal_Gullykin","Global",0)
+  GlobalGT("Chapter","Global",2)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR9900")
+    SetGlobal("AR9900Reveal_Gullykin","Global",1)
+    Continue()
+END
+
+IF
+  Global("AR3300Reveal_Firewine Plains","Global",0)
+  GlobalGT("Chapter","Global",2)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR3300")
+    SetGlobal("AR3300Reveal_Firewine Plains","Global",1)
+    Continue()
+END

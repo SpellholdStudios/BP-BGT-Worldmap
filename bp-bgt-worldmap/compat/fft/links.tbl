@@ -1,0 +1,246 @@
+SRC_AREA  SRC_NWSE  TARGET_ARE  ENTRY_NAME  TRV_TIME  DEF_ENTRY  ENC1     ENC2     ENC3     ENC4     ENC5     ENC_PROB
+
+YS1000    N         AR0020      ExitNE      2         1          N        N        N        N        N        0
+YS1000    S         AR1100      ExitSE      2         1          N        N        N        N        N        0
+YS1000    S         AR1300      ExitSE      2         1          N        N        N        N        N        0
+YS1000    S         AR1304      ExitSE      2         1          N        N        N        N        N        0
+YS1000    S         AR2000      ExitSW      2         1          N        N        N        N        N        0
+YS1000    W         AR1200      ExitW       2         1          N        N        N        N        N        0
+YS1000    W         YS0360      Exit1       6         1          N        N        N        N        N        0
+YS1000    W         YS0370      Exits       6         1          N        N        N        N        N        0
+
+YS1001    N         AR0020      ExitNE      2         1          N        N        N        N        N        0
+YS1001    S         AR1100      ExitSE      2         1          N        N        N        N        N        0
+YS1001    S         AR1300      ExitSE      2         1          N        N        N        N        N        0
+YS1001    S         AR1304      ExitSE      2         1          N        N        N        N        N        0
+YS1001    S         AR2000      ExitSW      2         1          N        N        N        N        N        0
+YS1001    W         AR1200      ExitW       2         1          N        N        N        N        N        0
+YS1001    W         YS0360      Exit1       6         1          N        N        N        N        N        0
+YS1001    W         YS0370      ExitS       6         1          N        N        N        N        N        0
+
+YS0390    N         AR0020      ExitNE      0         1          N        N        N        N        N        0
+YS0390    N         AR0300      ExitN       0         1          N        N        N        N        N        0
+YS0390    N         AR0400      ExitN       0         1          N        N        N        N        N        0
+YS0390    N         AR0500      ExitNE      0         1          N        N        N        N        N        0
+YS0390    E         AR0700      ExitE       0         1          N        N        N        N        N        0
+YS0390    S         AR0800      ExitS       0         1          N        N        N        N        N        0
+YS0390    N         AR0900      ExitNW      0         1          N        N        N        N        N        0
+YS0390    N         AR1000      ExitN       0         1          N        N        N        N        N        0
+
+YS0360    N         AR0020      ExitNE      6         1          N        N        N        N        N        0
+YS0360    S         AR1100      ExitSE      6         1          N        N        N        N        N        0
+YS0360    S         AR1300      ExitSE      6         1          N        N        N        N        N        0
+YS0360    S         AR1304      ExitSE      6         1          N        N        N        N        N        0
+YS0360    S         AR2000      ExitSW      6         1          N        N        N        N        N        0
+YS0360    W         AR1200      ExitW       6         1          N        N        N        N        N        0
+YS0360    W         YS1000      Exitne      6         1          N        N        N        N        N        0
+YS0360    W         YS0370      Exitn       6         1          N        N        N        N        N        0
+
+YS0370    N         AR0020      ExitNE      6         1          N        N        N        N        N        0
+YS0370    S         AR1100      ExitSE      6         1          N        N        N        N        N        0
+YS0370    S         AR1300      ExitSE      6         1          N        N        N        N        N        0
+YS0370    S         AR1304      ExitSE      6         1          N        N        N        N        N        0
+YS0370    S         AR2000      ExitSW      6         1          N        N        N        N        N        0
+YS0370    W         AR1200      ExitW       6         1          N        N        N        N        N        0
+YS0370    W         YS1000      Exitne      6         1          N        N        N        N        N        0
+YS0370    W         YS0360      Exit2       6         1          N        N        N        N        N        0
+
+AR0020    N         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR0020    E         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR0020    W         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR0020    S         YS1000      Exitne      2         1          N        N        N        N        N        0
+
+AR1100    N         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR1100    S         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR1100    W         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR1100    E         YS1000      Exitne      2         1          N        N        N        N        N        0
+
+AR1300    N         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR1300    S         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR1300    W         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR1300    E         YS1000      Exitne      2         1          N        N        N        N        N        0
+
+AR1304    N         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR1304    S         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR1304    W         YS1000      Exitne      2         1          N        N        N        N        N        0
+AR1304    E         YS1000      Exitne      2         1          N        N        N        N        N        0
+
+AR1200    N         YS1000      Exite       2         1          N        N        N        N        N        0
+AR1200    S         YS1000      Exite       2         1          N        N        N        N        N        0
+AR1200    W         YS1000      Exite       2         1          N        N        N        N        N        0
+AR1200    E         YS1000      Exite       2         1          N        N        N        N        N        0
+
+AR2000    N         YS1000      Exite       2         1          N        N        N        N        N        0
+AR2000    S         YS1000      Exite       2         1          N        N        N        N        N        0
+AR2000    W         YS1000      Exite       2         1          N        N        N        N        N        0
+AR2000    E         YS1000      Exite       2         1          N        N        N        N        N        0
+
+YS0360    N         YS1000      Exite       6         1          N        N        N        N        N        0
+YS0360    S         YS1000      Exite       6         1          N        N        N        N        N        0
+YS0360    W         YS1000      Exite       6         1          N        N        N        N        N        0
+YS0360    E         YS1000      Exite       6         1          N        N        N        N        N        0
+
+YS0370    N         YS1000      Exite       6         1          N        N        N        N        N        0
+YS0370    S         YS1000      Exite       6         1          N        N        N        N        N        0
+YS0370    W         YS1000      Exite       6         1          N        N        N        N        N        0
+YS0370    E         YS1000      Exite       6         1          N        N        N        N        N        0
+
+AR0020    N         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR0020    E         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR0020    W         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR0020    S         YS1001      Exitne      2         1          N        N        N        N        N        0
+
+AR1100    N         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR1100    S         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR1100    W         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR1100    E         YS1001      Exitne      2         1          N        N        N        N        N        0
+
+AR1300    N         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR1300    S         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR1300    W         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR1300    E         YS1001      Exitne      2         1          N        N        N        N        N        0
+
+AR1304    N         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR1304    S         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR1304    W         YS1001      Exitne      2         1          N        N        N        N        N        0
+AR1304    E         YS1001      Exitne      2         1          N        N        N        N        N        0
+
+AR1200    N         YS1001      Exite       2         1          N        N        N        N        N        0
+AR1200    S         YS1001      Exite       2         1          N        N        N        N        N        0
+AR1200    W         YS1001      Exite       2         1          N        N        N        N        N        0
+AR1200    E         YS1001      Exite       2         1          N        N        N        N        N        0
+
+AR2000    N         YS1001      Exite       2         1          N        N        N        N        N        0
+AR2000    S         YS1001      Exite       2         1          N        N        N        N        N        0
+AR2000    W         YS1001      Exite       2         1          N        N        N        N        N        0
+AR2000    E         YS1001      Exite       2         1          N        N        N        N        N        0
+
+YS0360    N         YS1001      Exite       6         1          N        N        N        N        N        0
+YS0360    S         YS1001      Exite       6         1          N        N        N        N        N        0
+YS0360    W         YS1001      Exite       6         1          N        N        N        N        N        0
+YS0360    E         YS1001      Exite       6         1          N        N        N        N        N        0
+
+YS0370    N         YS1001      Exite       6         1          N        N        N        N        N        0
+YS0370    S         YS1001      Exite       6         1          N        N        N        N        N        0
+YS0370    W         YS1001      Exite       6         1          N        N        N        N        N        0
+YS0370    E         YS1001      Exite       6         1          N        N        N        N        N        0
+
+AR0020    N         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0020    E         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0020    W         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0020    S         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+
+AR0300    N         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0300    S         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0300    W         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0300    E         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+
+AR0400    N         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0400    S         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0400    W         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0400    E         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+
+AR0500    N         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0500    S         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0500    W         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0500    E         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+
+AR0700    N         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0700    S         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0700    W         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0700    E         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+
+AR0800    N         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0800    S         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0800    W         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0800    E         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+
+AR0900    N         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0900    S         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0900    W         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR0900    E         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+
+AR1000    N         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR1000    S         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR1000    W         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+AR1000    E         YS0390      Exitwmp     0         1          N        N        N        N        N        0
+
+AR0020    N         YS0360      Exit1       6         1          N        N        N        N        N        0
+AR0020    E         YS0360      Exit1       6         1          N        N        N        N        N        0
+AR0020    W         YS0360      Exit1       6         1          N        N        N        N        N        0
+AR0020    S         YS0360      Exit1       6         1          N        N        N        N        N        0
+
+AR1100    N         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1100    S         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1100    W         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1100    E         YS0360      Exit2       6         1          N        N        N        N        N        0
+
+AR1300    N         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1300    S         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1300    W         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1300    E         YS0360      Exit2       6         1          N        N        N        N        N        0
+
+AR1304    N         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1304    S         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1304    W         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1304    E         YS0360      Exit2       6         1          N        N        N        N        N        0
+
+AR1200    N         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1200    S         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1200    W         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR1200    E         YS0360      Exit2       6         1          N        N        N        N        N        0
+
+AR2000    N         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR2000    S         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR2000    W         YS0360      Exit2       6         1          N        N        N        N        N        0
+AR2000    E         YS0360      Exit2       6         1          N        N        N        N        N        0
+
+YS1000    N         YS0360      Exit2       6         1          N        N        N        N        N        0
+YS1000    S         YS0360      Exit2       6         1          N        N        N        N        N        0
+YS1000    W         YS0360      Exit2       6         1          N        N        N        N        N        0
+YS1000    E         YS0360      Exit2       6         1          N        N        N        N        N        0
+
+YS0370    N         YS0360      Exit2       6         1          N        N        N        N        N        0
+YS0370    S         YS0360      Exit2       6         1          N        N        N        N        N        0
+YS0370    W         YS0360      Exit2       6         1          N        N        N        N        N        0
+YS0370    E         YS0360      Exit2       6         1          N        N        N        N        N        0
+
+AR0020    N         YS0370      Exit1       6         1          N        N        N        N        N        0
+AR0020    E         YS0370      Exit1       6         1          N        N        N        N        N        0
+AR0020    W         YS0370      Exit1       6         1          N        N        N        N        N        0
+AR0020    S         YS0370      Exit1       6         1          N        N        N        N        N        0
+
+AR1100    N         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1100    S         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1100    W         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1100    E         YS0370      Exit2       6         1          N        N        N        N        N        0
+
+AR1300    N         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1300    S         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1300    W         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1300    E         YS0370      Exit2       6         1          N        N        N        N        N        0
+
+AR1304    N         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1304    S         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1304    W         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1304    E         YS0370      Exit2       6         1          N        N        N        N        N        0
+
+AR1200    N         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1200    S         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1200    W         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR1200    E         YS0370      Exit2       6         1          N        N        N        N        N        0
+
+AR2000    N         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR2000    S         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR2000    W         YS0370      Exit2       6         1          N        N        N        N        N        0
+AR2000    E         YS0370      Exit2       6         1          N        N        N        N        N        0
+
+YS1000    N         YS0370      Exit2       6         1          N        N        N        N        N        0
+YS1000    S         YS0370      Exit2       6         1          N        N        N        N        N        0
+YS1000    W         YS0370      Exit2       6         1          N        N        N        N        N        0
+YS1000    E         YS0370      Exit2       6         1          N        N        N        N        N        0
+
+YS0360    N         YS0370      Exit2       6         1          N        N        N        N        N        0
+YS0360    S         YS0370      Exit2       6         1          N        N        N        N        N        0
+YS0360    W         YS0370      Exit2       6         1          N        N        N        N        N        0
+YS0360    E         YS0370      Exit2       6         1          N        N        N        N        N        0

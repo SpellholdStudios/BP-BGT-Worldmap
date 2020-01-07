@@ -1,9 +1,0 @@
-IF
-  Global("FW1700Reveal_Cloakwood Wyverns","Global",0)
-  GlobalGT("Chapter","Global",3)
-THEN
-  RESPONSE #100
-    RevealAreaOnMap("FW1700")
-    SetGlobal("FW1700Reveal_Cloakwood Wyverns","Global",1)
-    Continue()
-END

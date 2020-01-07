@@ -1,0 +1,17 @@
+IF
+  Global("AR3400Reveal_Firewine Bridge","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR3400")
+    SetGlobal("AR3400Reveal_Firewine Bridge","Global",1)
+    Continue()
+END
+
+IF
+  Global("AR9900Reveal_Gullykin","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR9900")
+    SetGlobal("AR9900Reveal_Gullykin","Global",1)
+    Continue()
+END

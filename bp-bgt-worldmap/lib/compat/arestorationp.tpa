@@ -1,0 +1,5 @@
+// Areas
+LAF install_area_table
+  STR_VAR
+    table = "bp-bgt-worldmap/compat/arestorationp/areas.tbl"
+END

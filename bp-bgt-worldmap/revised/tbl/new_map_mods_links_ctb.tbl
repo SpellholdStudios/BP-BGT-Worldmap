@@ -1,0 +1,173 @@
+//CtB Area Links Table
+SRC_AREA  SRC_NWSE  TARGET_ARE  ENTRY_NAME  TRV_TIME  DEF_ENTRY  ENC1     ENC2     ENC3     ENC4     ENC5     ENC_PROB
+
+AR0020    E         AR3610      EXITN       36        1          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR0020    E         AR3611      EXITE       36        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR0020    E         AR3613      EXITE       36        4          AR0042   AR0046   AR0042   AR0043   AR0044   10
+AR0020    N         AR3520      EXITSW      28        1          AR0042   AR0042   AR0043   AR0044   AR0045   60
+AR0020    E         AR3534      EXITW       20        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR0020    E         AR3540      EXITSW      22        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR0020    S         AR3570      EXITNE      12        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR0020    S         AR3585      EXITN       12        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR0020    N         AR3587      EXITE       16        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR0020    E         AR3597      EXITNE      2         1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR0020    E         AR3675      N           46        1          AR0042   AR0043   AR0044   AR0045   AR0042   50
+AR3610    W         AR0020      ExitNE      36        1          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3611    W         AR0020      ExitNE      36        1          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3613    W         AR0020      ExitNE      36        1          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3520    S         AR0020      EXITNE      28        1          AR0042   AR0044   AR0045   AR0042   AR0043   60
+AR3534    W         AR0020      EXITNE      20        1          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3540    W         AR0020      EXITNE      22        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3570    N         AR0020      ExitNE      12        1          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3585    N         AR0020      ExitNE      12        1          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3587    S         AR0020      ExitNE      16        1          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3597    W         AR0020      ExitNE      2         1          AR0042   AR0044   AR0045   AR0042   AR0043   60
+AR3675    W         AR0020      EXITNE      46        1          AR0044   AR0042   AR0043   AR0044   AR0045   50
+
+AR3520    S         AR1100      ExitSE      16        1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR1100    N         AR3520      EXITSW      16        1          AR0042   AR0042   AR0043   AR0044   AR0045   60
+
+AR1200    S         AR3534      EXITW       4         4          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR1200    S         AR3540      EXITSW      12        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR1200    E         AR3610      EXITN       20        1          AR0042   AR0044   AR0045   AR0042   AR0043   30
+AR3534    N         AR1200      EXITW       4         1          AR0043   AR0044   AR0045   AR0042   AR0043   20
+AR3540    N         AR1200      EXITW       12        1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR3610    W         AR1200      EXITW       20        1          AR0042   AR0044   AR0045   AR0042   AR0043   30
+
+AR1300    W         AR3597      EXITNE      2         1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR3597    E         AR1300      ExitSE      2         1          AR0043   AR0044   AR0045   AR0042   AR0043   20
+
+AR1304    W         AR3597      EXITNE      2         1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR3597    E         AR1304      ExitSE      2         1          AR0043   AR0044   AR0045   AR0042   AR0043   20
+
+AR1700    N         AR3597      EXITNE      2         1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3597    S         AR1700      CDExit      2         1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+
+AR1800    N         AR3597      EXITNE      4         1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR3597    S         AR1800      CDExit      4         1          AR0042   AR0043   AR0044   AR0045   AR0042   25
+
+AR1900    S         AR3570      EXITNE      4         4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3570    N         AR1900      EXITW       4         1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+
+AR2000    N         AR3597      EXITNE      6         1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR3597    S         AR2000      ExitNW      6         2          AR0042   AR0043   AR0044   AR0045   AR0042   25
+
+AR2600    S         AR3585      EXITN       2         4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3585    N         AR2600      CDExit      2         1          AR0044   AR0045   AR0042   AR0043   AR0044   10
+
+AR3610    N         AR3611      EXITE       0         1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR3610    N         AR3613      EXITE       0         1          AR0045   AR0042   AR0043   AR0044   AR0045   25
+AR3610    N         AR3675      N           10        1          AR0045   AR0042   AR0043   AR0044   AR0045   25
+AR3610    N         AR3520      EXITSW      24        1          AR0042   AR0042   AR0043   AR0044   AR0045   60
+AR3610    W         AR3534      EXITW       22        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3610    W         AR3540      EXITSW      20        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3610    W         AR3570      EXITNE      32        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3610    W         AR3585      EXITN       38        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3610    N         AR3587      EXITE       20        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3610    W         AR3597      EXITNE      34        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+
+AR3611    N         AR3610      EXITN       0         1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR3611    N         AR3613      EXITE       0         1          AR0045   AR0042   AR0043   AR0044   AR0045   25
+
+AR3613    N         AR3610      EXITN       0         1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR3613    N         AR3611      EXITE       0         1          AR0045   AR0042   AR0043   AR0044   AR0045   25
+
+AR3520    E         AR3610      EXITN       24        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3520    E         AR3611      EXITE       24        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3520    E         AR3613      EXITE       24        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3520    S         AR3534      EXITW       18        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3520    S         AR3540      EXITSW      26        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3520    S         AR3570      EXITNE      24        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3520    S         AR3585      EXITN       26        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3520    W         AR3587      EXITE       20        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3520    S         AR3597      EXITNE      26        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+
+AR3534    E         AR3610      EXITN       22        1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR3534    E         AR3611      EXITE       22        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3534    E         AR3613      EXITE       22        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3534    N         AR3520      EXITSW      18        1          AR0042   AR0042   AR0043   AR0044   AR0045   60
+AR3534    E         AR3540      EXITSW      8         4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3534    S         AR3570      EXITNE      12        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3534    S         AR3585      EXITN       18        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3534    N         AR3587      EXITE       24        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3534    W         AR3597      EXITNE      18        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+
+AR3540    E         AR3610      EXITN       20        1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR3540    E         AR3611      EXITE       20        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3540    E         AR3613      EXITE       20        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3540    N         AR3520      EXITSW      26        1          AR0042   AR0042   AR0043   AR0044   AR0045   60
+AR3540    W         AR3534      EXITW       8         4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3540    W         AR3570      EXITNE      14        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3540    S         AR3585      EXITN       18        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3540    N         AR3587      EXITE       28        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3540    W         AR3597      EXITNE      18        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+
+AR3570    E         AR3610      EXITN       32        1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR3570    E         AR3611      EXITE       32        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3570    E         AR3613      EXITE       32        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3570    N         AR3520      EXITSW      24        1          AR0042   AR0042   AR0043   AR0044   AR0045   60
+AR3570    N         AR3534      EXITW       12        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3570    E         AR3540      EXITSW      14        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3570    W         AR3585      EXITN       6         4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3570    N         AR3587      EXITE       28        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3570    W         AR3597      EXITNE      10        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+
+AR3585    E         AR3610      EXITN       38        1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR3585    E         AR3611      EXITE       38        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3585    E         AR3613      EXITE       38        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3585    N         AR3520      EXITSW      26        1          AR0042   AR0042   AR0043   AR0044   AR0045   60
+AR3585    N         AR3534      EXITW       18        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3585    E         AR3540      EXITSW      20        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3585    E         AR3570      EXITNE      6         4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3585    N         AR3587      EXITE       28        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3585    N         AR3597      EXITNE      10        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+
+AR3587    E         AR3610      EXITN       20        1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR3587    E         AR3611      EXITE       20        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3587    E         AR3613      EXITE       20        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3587    E         AR3520      EXITSW      20        1          AR0042   AR0042   AR0043   AR0044   AR0045   60
+AR3587    S         AR3534      EXITW       24        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3587    S         AR3540      EXITSW      28        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3587    S         AR3570      EXITNE      28        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3587    S         AR3585      EXITN       28        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3587    S         AR3597      EXITNE      16        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+
+AR3597    E         AR3610      EXITN       34        1          AR0044   AR0045   AR0042   AR0043   AR0044   20
+AR3597    E         AR3611      EXITE       34        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3597    E         AR3613      EXITE       34        4          AR0042   AR0044   AR0045   AR0042   AR0043   10
+AR3597    N         AR3520      EXITSW      26        1          AR0042   AR0042   AR0043   AR0044   AR0045   60
+AR3597    E         AR3534      EXITW       18        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3597    E         AR3540      EXITSW      18        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3597    S         AR3570      EXITNE      10        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3597    S         AR3585      EXITN       10        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3597    N         AR3587      EXITE       16        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+
+AR3000    N         AR3610      EXITN       38        1          AR0042   AR0042   AR0043   AR0044   AR0045   60
+AR3000    N         AR3611      EXITE       38        4          AR0042   AR0044   AR0045   AR0042   AR0043   60
+AR3000    N         AR3613      EXITE       38        4          AR0042   AR0044   AR0045   AR0042   AR0043   60
+AR3000    N         AR3520      EXITSW      36        1          AR0042   AR0042   AR0043   AR0044   AR0045   60
+AR3000    N         AR3534      EXITW       20        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3000    N         AR3540      EXITSW      18        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3000    N         AR3570      EXITNE      12        4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3000    N         AR3585      EXITN       6         4          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3000    N         AR3587      EXITE       30        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR3000    N         AR3597      EXITNE      12        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR3610    W         AR3000      ExitSW      38        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR3611    W         AR3000      ExitSW      38        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR3613    W         AR3000      ExitSW      38        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR3520    S         AR3000      ExitSW      36        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR3534    S         AR3000      ExitSW      20        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3540    W         AR3000      ExitSW      18        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3570    W         AR3000      ExitSW      12        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3585    W         AR3000      ExitSW      6         1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3587    S         AR3000      ExitSW      30        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+AR3597    S         AR3000      ExitSW      12        1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+
+AR3540    W         RA5700      EXITS       6         1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3597    N         RA4900      EXITS       2         1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3610    W         RR3900      EXITNE      18        1          AR0043   AR0042   AR0043   AR0044   AR0045   60
+
+AR3540    N         DD1900      N           4         1          AR0043   AR0042   AR0043   AR0044   AR0045   30
+AR3570    W         ARPO05      N           2         1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3570    E         DD3300      N           4         1          AR0043   AR0042   AR0043   AR0044   AR0045   10
+AR3597    E         DD1800      N           4         1          AR0043   AR0042   AR0043   AR0044   AR0045   30

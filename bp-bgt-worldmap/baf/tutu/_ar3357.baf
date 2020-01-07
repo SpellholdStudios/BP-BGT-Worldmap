@@ -1,0 +1,9 @@
+IF
+  Global("FW3200Reveal_High Hedge","Global",0)
+  Global("HelpPerdue","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW3200")
+    SetGlobal("FW3200Reveal_High Hedge","Global",1)
+    Continue()
+END

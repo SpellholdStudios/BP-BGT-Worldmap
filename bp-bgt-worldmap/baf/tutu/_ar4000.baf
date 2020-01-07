@@ -1,0 +1,18 @@
+IF
+  Global("FW4500Reveal_Firewine Bridge","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4500")
+    SetGlobal("FW4500Reveal_Firewine Bridge","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW0500Reveal_Durlag's Tower","Global",0)
+  GlobalGT("Chapter","Global",4)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW0500")
+    SetGlobal("FW0500Reveal_Durlag's Tower","Global",1)
+    Continue()
+END

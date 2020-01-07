@@ -1,0 +1,43 @@
+//CtB Existing Links Patching Table
+//1st line contains original contents - to serach for
+//next line contains new contents - to replace with
+SRC_AREA  SRC_NWSE  TARGET_ARE  ENTRY_NAME  TRV_TIME  DEF_ENTRY  ENC1     ENC2     ENC3     ENC4     ENC5     ENC_PROB  NN
+
+AR0400    N         AR0800      EXITS       0         1          AR0045   N        N        N        N        100       1
+AR0400    N         AR0800      EXITS       0         1          AR3526   N        N        N        N        100       1
+
+AR0400    E         AR0800      EXITS       0         4          AR0045   N        N        N        N        100       2
+AR0400    E         AR0800      EXITS       0         4          AR3526   N        N        N        N        100       2
+
+AR0400    S         AR0800      EXITS       0         2          AR0045   N        N        N        N        102       3
+AR0400    S         AR0800      EXITS       0         2          AR3526   N        N        N        N        102       3
+
+AR0900    N         AR0020      EXITSW      0         1          AR0045   N        N        N        N        103       4
+AR0900    N         AR0020      EXITSW      0         1          AR3526   N        N        N        N        103       4
+
+AR0900    E         AR0020      EXITSW      0         1          AR0045   N        N        N        N        100       5
+AR0900    E         AR0020      EXITSW      0         1          AR3526   N        N        N        N        100       5
+
+AR0900    S         AR0020      EXITSW      0         1          AR0045   N        N        N        N        103       6
+AR0900    S         AR0020      EXITSW      0         1          AR3526   N        N        N        N        103       6
+
+AR0020    S         AR0900      ExitNW      0         1          AR0045   N        N        N        N        103       7
+AR0020    S         AR0900      ExitNW      0         1          AR3526   N        N        N        N        103       7
+
+AR0020    W         AR0900      ExitNW      0         1          AR0045   N        N        N        N        103       8
+AR0020    W         AR0900      ExitNW      0         1          AR3526   N        N        N        N        103       8
+
+AR0300    S         AR0500      EXITNE      0         1          AR0046   N        N        N        N        102       9
+AR0300    S         AR0500      EXITNE      0         1          AR3525   N        N        N        N        102       9
+
+AR0500    E         AR0300      EXITN       0         1          AR0046   N        N        N        N        100       10
+AR0500    E         AR0300      EXITN       0         1          AR3525   N        N        N        N        100       10
+
+AR0500    S         AR0300      EXITN       0         1          AR0046   N        N        N        N        100       11
+AR0500    S         AR0300      EXITN       0         1          AR3525   N        N        N        N        100       11
+
+AR0800    S         AR1000      ExitNE      0         1          AR0046   N        N        N        N        103       12
+AR0800    S         AR1000      ExitNE      0         1          AR3525   N        N        N        N        103       12
+
+AR1000    N         AR0800      EXITS       0         4          AR0046   N        N        N        N        103       13
+AR1000    N         AR0800      EXITS       0         4          AR3525   N        N        N        N        103       13

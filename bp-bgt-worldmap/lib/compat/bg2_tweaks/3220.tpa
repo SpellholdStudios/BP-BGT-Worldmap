@@ -1,0 +1,29 @@
+ACTION_DEFINE_ASSOCIATIVE_ARRAY entry BEGIN
+  AR3300 => CDEastExit // beregost
+  AR1400 => CDSouthExit // nfai
+  AR0400 => CDSouthExit // zfarm
+  AR3100 => CDSouthExit // shipw
+  AR3600 => CDNorthExit // lhouse
+END
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY default_entry BEGIN
+  AR3300 => 1 // beregost
+  AR1400 => 4 // nfai
+  AR0400 => 2 // zfarm
+  AR3100 => 4 // shipw
+  AR3600 => 4 // lhouse
+END
+
+ACTION_PHP_EACH fl#DEF AS e => def BEGIN
+  OUTER_SPRINT src "%e_0%"
+  OUTER_SPRINT node "%e_1%"
+  OUTER_SPRINT target "%e_2%"
+  ACTION_FOR_EACH area IN AR3300 AR1400 AR 0400 AR3100 AR3600 BEGIN
+    ACTION_IF "%target%" STR_EQ "%area%" AND
+              def = $default_entry("%area%") AND
+              !VARIABLE_IS_SET $fl#ENTRY("%src%" "%node%" "%target%")
+    BEGIN
+      OUTER_SPRINT $fl#ENTRY("%src%" "%node%" "%target%") $entry("%area%")
+    END
+  END
+END

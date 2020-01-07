@@ -1,0 +1,9 @@
+IF
+  Global("AR6900Reveal_Crossroads","Global",0)
+  Global("Chapter","Global",2)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR6900")
+    SetGlobal("AR6900Reveal_Crossroads","Global",1)
+    Continue()
+END

@@ -1,0 +1,7 @@
+//G3Aniversary Area Links Table
+SRC_AREA  SRC_NWSE  TARGET_ARE  ENTRY_NAME  TRV_TIME  DEF_ENTRY  ENC1     ENC2     ENC3     ENC4     ENC5     ENC_PROB
+
+G3G12B    N         AR0400      ExitSE      0         4          N        N        N        N        N        0
+G3G12B    E         AR0400      ExitSE      0         4          N        N        N        N        N        0
+G3G12B    S         AR0400      ExitSE      0         4          N        N        N        N        N        0
+G3G12B    W         AR0400      ExitSE      0         4          N        N        N        N        N        0

@@ -1,9 +1,0 @@
-IF
-  Global("AR8800Reveal_Cloakwood Nest","Global",0)
-  GlobalGT("Chapter","Global",4)
-THEN
-  RESPONSE #100
-    RevealAreaOnMap("AR8800")
-    SetGlobal("AR8800Reveal_Cloakwood Nest","Global",1)
-    Continue()
-END

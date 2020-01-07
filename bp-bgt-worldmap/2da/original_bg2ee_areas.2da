@@ -1,0 +1,50 @@
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM X_POS   Y_POS  NAME     TOOLTIP  LOAD_IM
+// BG2:EE SoA old areas
+AR0700      AR0700   AR0700     3      22       1092    3051   @777002  @777002  N        //Waukeen's Promenade
+AR0400      AR0400   AR0400     3      21       1195    3023   @777003  N        N        //Slums
+AR0300      AR0300   AR0300     3      25       1022    2974   @777005  N        N        //Docks
+AR0500      AR0500   AR0500     3      23       1206    2927   @777006  N        N        //Bridge
+AR0800      AR0800   AR0800     3      20       1282    3033   @777004  N        N        //Graveyard
+AR0900      AR0900   AR0900     3      24       1088    2812   @777007  N        N        //Temple
+AR1000      AR1000   AR1000     3      19       1224    2811   @777008  N        N        //Government
+AR1100      AR1100   AR1100     0      10       2650    3038   @777009  N        N        //Umar Hills
+AR1400      AR1400   AR1400     0      9        2328    2944   @777010  N        N        //Temple Ruins
+AR1300      AR1300   AR1300     0      12       2000    3024   @777011  N        N        //de'Arnise Hold
+AR1200      AR1200   AR1200     0      11       2936    3200   @777012  N        N        //Windspear Hills
+AR0020      AR0020   AR0020     3      26       1282    2942   @777013  N        N        //City Gates
+AR1404      AR1404   AR1404     0      9        2328    2944   @777010  N        N        //Temple Ruins
+AR1304      AR1304   AR1304     0      12       2000    3024   @777011  N        N        //de'Arnise Hold
+AR2000      AR2000   AR2000     0      13       2175    3290   N        N        N        //Trademeet
+AR1900      AR1900   AR1900     0      14       2255    3340   @777015  N        N        //Druid Grove
+AR1700      AR1700   AR1700     0      17       1800    3355   @777016  N        N        //Small Teeth pass
+AR2500      AR2500   AR2500     0      15       1520    3450   @777017  N        N        //Underdark Exit
+AR2600      AR2600   AR2600     0      17       1980    3450   @777018  N        N        //Forest of Tethir
+AR1800      AR1800   AR1800     0      16       1600    3280   @777019  N        N        //North Forest
+AR1600      AR1600   AR1600     0      5        550     3900   @777020  N        N        //Brynnlaw
+AR2100      AR2100   AR2100     0      7        900     3450   @777021  N        N        //Underdark
+AR1500      AR1500   AR1500     0      6        445     3800   @777022  N        N        //The Asylum
+AR2300      AR2300   AR2300     0      8        770     3500   @777023  N        N        //Underwater City
+AR2800      AR2800   AR2800     0      18       1920    3540   @777024  N        N        //Suldanessellar
+// BG2:EE SoA new areas
+OH4000      OH4000   OH4000     0      106      1890    3030   @800001  N        N        //Abandoned Amphitheater
+OH4100      OH4100   OH4100     0      108      1850    2855   @800002  N        N        //Heretic Temple
+OH5100      OH5100   OH5100     0      110      1682    3390   @800003  N        N        //Resurrection Gorge
+OH5300      OH5300   OH5300     0      10       1495    3250   @800004  N        N        //Helmite Camp
+OH6000      OH6000   OH6000     0      109      1600    3540   @800005  N        N        //Wild Forest
+OH6100      OH6100   OH6100     0      107      1792    3442   @800006  N        N        //Hidden Refuge
+OH6200      OH6200   OH6200     0      107      1792    3442   @800006  N        N        //Hidden Refuge
+// BG2:EE ToB old areas
+AR4000      AR4000   AR4000     4      91       1820    3750   @777018  N        N        //Forest of Tethir
+AR3000      AR3000   AR3000     7      90       1340    3770   @777025  @777025  N        //Watcher's Keep
+AR5000      AR5000   AR5000     0      93       2510    4025   N        N        N        //Saradush
+AR5500      AR5500   AR5500     0      99       1990    4390   @777027  @777027  N        //Amkethran
+AR5203      AR5203   AR5203     0      92       2400    4030   @777028  @777028  N        //Siege Camp
+AR5202      AR5202   AR5202     0      94       2500    4350   @777029  @777029  N        //Forest of Mir - The Temple
+AR5200      AR5200   AR5200     0      95       2160    4270   @777030  @777030  N        //Marching Mountains
+AR6300      AR6300   AR6300     0      100      1870    4250   @777031  @777031  N        //The Oasis
+AR6400      AR6400   AR6400     0      98       2337    4105   @777019  @777019  N        //North Forest
+AR6000      AR6000   AR6000     0      101      1960    4270   @777032  @777032  N        //Abazigal's Lair
+AR6100      AR6100   AR6100     0      97       2270    4442   @777033  @777033  N        //Sendai's Enclave
+// BG2:EE ToB new areas
+OH4200      OH4200   OH4200     0      111      2835    4280   @800007  @800007  N        //Deepstone Clanhold
+OH6400      OH6400   OH6400     0      96       1570    3665   @800008  @800008  N        //Clearing

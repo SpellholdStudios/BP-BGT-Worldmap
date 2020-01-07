@@ -1,0 +1,4 @@
+//G3Anniversary New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+G3G12B      G3G12B   G3G12B     4      10        1176   3075   @G3A_787001  @G3A_787001  N         //Pub Crawl

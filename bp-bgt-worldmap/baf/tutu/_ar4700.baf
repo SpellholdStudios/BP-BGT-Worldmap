@@ -1,0 +1,36 @@
+IF
+  Global("FW5200Reveal_Western Cloudpeaks","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW5200")
+    SetGlobal("FW5200Reveal_Western Cloudpeaks","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW4100Reveal_Archeological Dig","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4100")
+    SetGlobal("FW4100Reveal_Archeological Dig","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW4600Reveal_Ogre's Reach","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4600")
+    SetGlobal("FW4600Reveal_Ogre's Reach","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW4200Reveal_Wilderness Lake","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4200")
+    SetGlobal("FW4200Reveal_Wilderness Lake","Global",1)
+    Continue()
+END

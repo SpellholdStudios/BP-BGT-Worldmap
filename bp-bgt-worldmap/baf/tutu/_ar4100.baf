@@ -1,0 +1,18 @@
+IF
+  Global("FW4600Reveal_Ogre's Reach","Global",0)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4600")
+    SetGlobal("FW4600Reveal_Ogre's Reach","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW4600Reveal_Ogre's Reach","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW4600")
+    SetGlobal("FW4600Reveal_Ogre's Reach","Global",1)
+    Continue()
+END

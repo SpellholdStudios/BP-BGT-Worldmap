@@ -1,9 +1,0 @@
-IF
-  Global("AR3700Reveal_Nashkel","Global",0)
-  Global("SpokeToKhalid","Global",1)
-THEN
-  RESPONSE #100
-    RevealAreaOnMap("AR3700")
-    SetGlobal("AR3700Reveal_Nashkel","Global",1)
-    Continue()
-END

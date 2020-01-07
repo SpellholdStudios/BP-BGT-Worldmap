@@ -1,0 +1,9 @@
+IF
+  Global("FW2100Reveal_Cloakwood Nest","Global",0)
+  GlobalGT("Chapter","Global",3)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW2100")
+    SetGlobal("FW2100Reveal_Cloakwood Nest","Global",1)
+    Continue()
+END

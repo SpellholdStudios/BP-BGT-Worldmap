@@ -1,0 +1,122 @@
+//
+// 1) ### in NAME and TOOLTIP will be replaced with SPACE character
+// 2) N for ENC1-5 and LOAD_IM means 'None'
+// 3) It's REQUIREMENT: new area name must be unique
+//
+
+//
+// searching for MODS
+//
+// Each mod MUST provide 3 files:
+//   1) new areas table
+//   2) new links table
+//   3) text translation table (language is to choose upon MOD installation, not WM)
+//
+// and append them to the following:
+//
+//   Worldmap/map_mods_areas.tbl
+//   Worldmap/map_mods_links.tbl
+//   Worldmap/map_mods_trans.tra
+//
+//   Here is an example how SoS does that:
+//
+//    ACTION_IF FILE_EXISTS ~Worldmap/map_mods_areas.tbl~ THEN BEGIN
+//      COPY ~Worldmap/map_mods_areas.tbl~  ~Worldmap~
+//       APPEND_FILE ~SOS/Worldmap/areas.tbl~
+//      COPY ~Worldmap/map_mods_links.tbl~  ~Worldmap~
+//       APPEND_FILE ~SOS/Worldmap/links.tbl~
+//      COPY ~Worldmap/map_mods_trans.tra~  ~Worldmap~
+//       APPEND_FILE ~SOS/Worldmap/English/worldmap.tra~     //for WeiDU v193 - %LANGUAGE%
+//    END
+//    ELSE BEGIN
+//      MKDIR ~Worldmap~
+//      COPY ~SOS/Worldmap/areas.tbl~ ~Worldmap/map_mods_areas.tbl~
+//      COPY ~SOS/Worldmap/links.tbl~ ~Worldmap/map_mods_links.tbl~
+//      COPY ~SOS/Worldmap/%LANGUAGE%/worldmap.tra~ ~Worldmap/map_mods_trans.tra~
+//    END
+//
+
+///////////////////////////////////////////////////////////////////////////
+// Before tables are loaded ///////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+MKDIR worldmap
+
+ACTION_IF MOD_IS_INSTALLED dq.tp2 0 BEGIN
+  INCLUDE "bp-bgt-worldmap/lib/compat/fft.tpa"
+END
+ACTION_IF MOD_IS_INSTALLED wheels.tp2 0 BEGIN
+  INCLUDE "bp-bgt-worldmap/lib/compat/wheels.tpa"
+END
+ACTION_IF FILE_EXISTS_IN_GAME "l-sar1.are" AND GAME_INCLUDES ~tob~ BEGIN // Almateria's Restoration Project
+  INCLUDE "bp-bgt-worldmap/lib/compat/arestorationp.tpa"
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Tables are loaded //////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+OUTER_SET got_revised = GAME_IS ~tutu tutu_totsc tob bgt~ ? 1 : 0
+
+//Original or Revised?
+ACTION_IF got_revised BEGIN
+  PRINT @2000
+  ACTION_READLN how
+  OUTER_WHILE NOT IS_AN_INT how OR how > 2 OR how < 1 BEGIN
+    PRINT @2000
+    ACTION_READLN how
+  END
+END ELSE BEGIN
+  OUTER_SET how = 1
+END
+
+ACTION_IF how = 1 BEGIN
+  INCLUDE ~bp-bgt-worldmap/lib/original.tpa~
+END ELSE BEGIN
+  INCLUDE ~bp-bgt-worldmap/lib/revised.tpa~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// After tables are loaded ////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+/* BG2 Wilderness areas before chapter 6 */
+ACTION_IF MOD_IS_INSTALLED bg2_tweaks.tp2 1030 OR
+          MOD_IS_INSTALLED cdtweaks.tp2 1030
+BEGIN
+  INCLUDE "bp-bgt-worldmap/lib/compat/bg2_tweaks/1030.tpa"
+END
+
+/* Reveal first Cloakwood area */
+ACTION_IF FILE_EXISTS_IN_GAME X#BG1NPCCloakLodge.G3 OR
+          MOD_IS_INSTALLED bg2_tweaks.tp2 1035 OR
+          MOD_IS_INSTALLED cdtweaks.tp2 1035
+BEGIN
+  INCLUDE "bp-bgt-worldmap/lib/compat/g3_cloakwood_first.tpa"
+END
+
+/* Reveal all but the last Cloakwood area */
+ACTION_IF FILE_EXISTS_IN_GAME X#BG1NPCCloakwood.G3 OR
+          MOD_IS_INSTALLED bg2_tweaks.tp2 1036 OR
+          MOD_IS_INSTALLED cdtweaks.tp2 1036
+BEGIN
+  INCLUDE "bp-bgt-worldmap/lib/compat/g3_cloakwood_allbutlast.tpa"
+END
+
+/* Don't reveal Durlag's Tower from adjacent areas */
+ACTION_IF MOD_IS_INSTALLED bgttweak.tp2 2600 BEGIN
+  INCLUDE "bp-bgt-worldmap/lib/compat/bgttweak/2600.tpa"
+END
+
+/* Sensible Entrance Points */
+ACTION_IF (MOD_IS_INSTALLED bg2_tweaks.tp2 3220 OR
+           MOD_IS_INSTALLED cdtweaks.tp2 3220) AND
+           GAME_INCLUDES ~bg1~
+BEGIN
+  INCLUDE "bp-bgt-worldmap/lib/compat/bg2_tweaks/3220.tpa"
+END
+
+/* Almateria's Restoration Project, Restored Minor Encounters */
+ACTION_IF FILE_EXISTS_IN_GAME "l-ar01.are" AND GAME_INCLUDES ~tob~ BEGIN
+  INCLUDE "bp-bgt-worldmap/lib/compat/arestorationp/rme.tpa"
+END

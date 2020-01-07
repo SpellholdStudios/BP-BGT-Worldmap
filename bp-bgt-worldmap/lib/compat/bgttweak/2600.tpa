@@ -1,0 +1,3 @@
+ACTION_IF VARIABLE_IS_SET $fl#CONTENT(ard000) BEGIN
+  OUTER_SET $fl#FLAGS(ard000) &= BIT2 //Remove all flags but "can be visited"
+END

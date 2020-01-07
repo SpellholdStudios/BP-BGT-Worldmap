@@ -1,0 +1,19 @@
+IF
+  Global("FW3200Reveal_High Hedge","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW3200")
+    SetGlobal("FW3200Reveal_High Hedge","Global",1)
+    Continue()
+END
+
+IF
+  Global("FW3700Reveal_Red Canyons","Global",0)
+  GlobalGT("Chapter","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("FW3700")
+    SetGlobal("FW3700Reveal_Red Canyons","Global",1)
+    Continue()
+END

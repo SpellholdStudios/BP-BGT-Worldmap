@@ -1,0 +1,172 @@
+//BGT New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+AR0015      AR0015   AR0015     12     50        1366   2464   @BGT_781001  @BGT_781001  N        //Candlekeep
+AR3100      AR3100   AR3100     6      63        1635   2640   @BGT_781002  @BGT_781002  N        //Wilderness Lake
+AR3200      AR3200   AR3200     2      64        1885   2605   @BGT_781003  @BGT_781003  N        //Nashkel Pass
+AR3300      AR3300   AR3300     2      65        2100   2665   @BGT_781004  @BGT_781004  N        //Firewine Plains
+AR3400      AR3400   AR3400     2      67        2230   2700   @BGT_781005  @BGT_781005  N        //Firewine Bridge
+AR3498      AR3498   AR3498     2      69        1545   2700   @BGT_781006  @BGT_781006  N        //Xvart Village
+AR3499      AR3499   AR3499     2      74        1440   2735   @BGT_781007  @BGT_781007  N        //Ogre's Reach
+AR3700      AR3700   AR3700     6      71        1856   2690   @BGT_781008  @BGT_781008  N        //Nashkel
+AR3800      AR3800   AR3800     2      72        1950   2690   @BGT_781009  @BGT_781009  N        //Carnival
+AR3900      AR3900   AR3900     2      73        2130   2770   @BGT_781010  @BGT_781010  N        //Southern Wastelands
+AR4100      AR4100   AR4100     2      75        1438   2800   @BGT_781011  @BGT_781011  N        //Gnoll Stronghold
+AR4200      AR4200   AR4200     2      70        1640   2781   @BGT_781012  @BGT_781012  N        //Western Cloudpeaks
+AR4300      AR4300   AR4300     2      76        1755   2795   N            N            N        //The Cloudpeaks
+AR4400      AR4400   AR4400     2      77        1880   2775   @BGT_781014  @BGT_781014  N        //Nashkel Mines
+AR4600      AR4600   AR4600     2      78        2000   2850   @BGT_781015  @BGT_781015  N        //Dragon's Run
+AR6526      AR6526   AR6526     12     50        1366   2464   @BGT_781001  @BGT_781001  N        //Candlekeep
+AR6600      AR6600   AR6600     2      52        1530   2450   @BGT_781016  @BGT_781016  N        //Lion's Way
+AR6700      AR6700   AR6700     2      53        1835   2480   @BGT_781017  @BGT_781017  N        //Beregost
+AR6800      AR6800   AR6800     2      46        1800   2270   @BGT_781018  @BGT_781018  N        //Friendly Arm Inn
+AR6900      AR6900   AR6900     2      47        1795   2392   @BGT_781019  @BGT_781019  N        //Crossroads
+AR7000      AR7000   AR7000     4      45        1562   2336   @BGT_781020  @BGT_781020  N        //Cloakwood Lodge
+AR7100      AR7100   AR7100     2      58        1700   2515   @BGT_781021  @BGT_781021  N        //High Hedge
+AR7200      AR7200   AR7200     3      29        934    2000   N            N            N        //Baldur's Gate NW
+AR7300      AR7300   AR7300     3      30        1019   1987   N            N            N        //Baldur's Gate N
+AR7400      AR7400   AR7400     3      31        1111   1997   N            N            N        //Baldur's Gate NE
+AR7500      AR7500   AR7500     2      57        1475   1950   @BGT_781022  @BGT_781022  N        //Farms over Chionthar
+AR7600      AR7600   AR7600     3      32        927    2047   N            N            N        //Baldur's Gate W
+AR7700      AR7700   AR7700     3      33        1033   2048   N            N            N        //Baldur's Gate Center
+AR7800      AR7800   AR7800     3      34        1125   2062   N            N            N        //Baldur's Gate E
+AR7900      AR7900   AR7900     2      43        1542   2080   @BGT_781023  @BGT_781023  N        //Wyrm's Crossing
+AR8000      AR8000   AR8000     3      35        929    2111   N            N            N        //Baldur's Gate SW
+AR8100      AR8100   AR8100     3      36        1026   2109   N            N            N        //Baldur's Gate S
+AR8200      AR8200   AR8200     3      37        1092   2116   N            N            N        //Baldur's Gate SE
+AR8300      AR8300   AR8300     2      42        1680   2190   @BGT_781024  @BGT_781024  N        //Ankheg Farms
+AR8400      AR8400   AR8400     2      38        1322   2324   @BGT_781025  @BGT_781025  N        //Cloakwood Druids
+AR8500      AR8500   AR8500     2      40        1358   2218   @BGT_781026  @BGT_781026  N        //Cloakwood Wyverns
+AR8600      AR8600   AR8600     2      44        1506   2202   @BGT_781027  @BGT_781027  N        //Cloakwood Mines
+AR8700      AR8700   AR8700     4      41        2050   2164   @BGT_781028  @BGT_781028  N        //Bandit Camp
+AR8800      AR8800   AR8800     4      39        1412   2378   @BGT_781029  @BGT_781029  N        //Cloakwood Nest
+AR8900      AR8900   AR8900     6      49        1990   2282   @BGT_781030  @BGT_781030  N        //Peldvale
+AR9000      AR9000   AR9000     6      48        2000   2372   @BGT_781031  @BGT_781031  N        //Larswood
+AR9100      AR9100   AR9100     2      54        2100   2355   @BGT_781032  @BGT_781032  N        //The East Wood
+AR9200      AR9200   AR9200     2      51        1380   2535   @BGT_781033  @BGT_781033  N        //Shipwreck Coast
+AR9300      AR9300   AR9300     2      84        1900   2490   @BGT_781034  @BGT_781034  N        //Temple of Lathander
+AR9400      AR9400   AR9400     2      83        2150   2450   @BGT_781035  @BGT_781035  N        //Mutamin's Garden
+AR9500      AR9500   AR9500     2      62        1400   2600   @BGT_781036  @BGT_781036  N        //Lighthouse
+AR9600      AR9600   AR9600     2      56        1550   2555   @BGT_781037  @BGT_781037  N        //Red Canyons
+AR9700      AR9700   AR9700     2      59        1795   2545   @BGT_781038  @BGT_781038  N        //Badlands
+AR9799      AR9799   AR9799     2      66        2155   2570   @BGT_781039  @BGT_781039  N        //Ulcaster School
+AR9900      AR9900   AR9900     2      61        2275   2650   @BGT_781040  @BGT_781040  N        //Gullykin
+ARA100      ARA100   ARA100     2      68        1445   2675   @BGT_781041  @BGT_781041  N        //Archeological Site
+ARD000      ARD000   ARD000     4      79        2380   2515   @BGT_781042  @BGT_781042  N        //Durlag's Tower
+ARU000      ARU000   ARU000     2      80        1335   1865   @BGT_781043  @BGT_781043  N        //Ulgoth's Beard
+ARW000      ARW000   ARW000     4      42        700    1965   @BGT_781044  @BGT_781044  N        //Werewolf Isle
+ARW500      ARW500   ARW500     2      51        715    1885   @BGT_781045  @BGT_781045  N        //Balduran's Shipwreck
+ARU008      ARU008   ARU008     4      51        145    445    @BGT_781046  @BGT_781046  N        //Ice Island
+
+//SOS New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+AR4220      AR4220   AR4220     4      16        2525   1805   @SOS_780001  @SOS_780001  N        //River Chionthar
+
+//TDD New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+DD1800      DD1800   DD1800     4      17        2280   2912   @TDD_779001  @TDD_779001  N        //Snake Woods
+DD2500      DD2500   DD2500     4      10        2600   2845   N            @TDD_779002  N        //Troll Mountains
+DD2300      DD2300   DD2300     4      12        2530   3120   N            @TDD_779003  N        //Eshpurta
+DD5000      DD5000   DD5000     4      11        3800   2970   @TDD_779004  @TDD_779004  N        //Hall of Knowledge
+DD3300      DD3300   DD3300     4      53        2585   3345   N            @TDD_779005  N        //Riatavin
+DD8000      DD8000   DD8000     4      17        2430   4430   @TDD_779006  @TDD_779006  N        //Deep Mir Forest
+DD8001      DD8001   DD8001     4      16        2565   4730   @TDD_779007  @TDD_779007  N        //Haunted Forest
+DD9000      DD9000   DD9000     4      10        2770   2925   @TDD_779008  @TDD_779008  N        //Trollford
+DD7000      DD7000   DD7000     4      6         2852   3850   @TDD_779009  @TDD_779009  N        //Orgoth's Tower
+DD1900      DD1900   DD1900     4      10        3235   3250   @TDD_779010  @TDD_779010  N        //Purskal
+ARPO05      ARPO05   ARPO05     4      10        2200   3518   @TDD_779011  @TDD_779011  N        //Rusted Scabbard
+
+//CtB New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+AR3613      AR3613   AR3613     4      24        4555   3680   @CTB_778001  @CTB_778001  N        //West Hlondeth
+AR3520      AR3520   AR3520     4      17        2710   2125   N            @CTB_778003  N        //Sunset Mountains
+AR3534      AR3534   AR3534     4      98        2890   3355   N            @CTB_778004  N        //Snowflake Mountains
+AR3540      AR3540   AR3540     4      10        3200   3600   @CTB_778005  @CTB_778005  N        //Academy of Kuldin
+AR3570      AR3570   AR3570     4      91        2276   3466   @CTB_778006  @CTB_778006  N        //Secluded Meadow
+AR3585      AR3585   AR3585     4      11        1840   3650   @CTB_778007  @CTB_778007  N        //Hunting Lodge
+AR3587      AR3587   AR3587     4      38        1290   2395   @CTB_778008  @CTB_778008  N        //Druidic Circle
+AR3588      AR3588   AR3588     1      82        660    2965   @CTB_778009  @CTB_778009  N        //Rauthym Island
+AR3597      AR3597   AR3597     4      9         1730   2954   @CTB_778010  @CTB_778010  N        //Neng Horse Ranch
+AR3610      AR3610   AR3610     4      21        4670   3630   @CTB_778002  @CTB_778002  N        //Central Hlondeth
+AR3611      AR3611   AR3611     4      20        4760   3725   @CTB_778012  @CTB_778012  N        //East Hlondeth
+AR3675      AR3675   AR3675     4      92        4556   3170   @CTB_778011  @CTB_778011  N        //Brimstone Bridge
+
+//ROT New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+RR3100      RR3100   RR3100     4      19        3180   4100   @ROT_785001  N            N        //Arlax
+RR3200      RR3200   RR3200     4      14        2710   4085   @ROT_785002  N            N        //Monzuma큦 Cave
+RR3300      RR3300   RR3300     4      10        2475   2675   @ROT_785003  N            N        //Westchar
+RR3400      RR3400   RR3400     4      12        2000   2780   @ROT_785004  N            N        //Olmar큦 Castle
+RR3450      RR3450   RR3450     4      79        2100   2860   @ROT_785005  N            N        //Talavan큦 Castle
+RR3900      RR3900   RR3900     4      18        3150   2950   @ROT_785006  N            N        //Maribur
+RR3950      RR3950   RR3950     4      16        2980   2840   @ROT_785007  N            N        //Mysterious Cave
+RA4200      RA4200   RA4200     4      17        3110   2810   @ROT_785008  N            N        //Hunting Forest
+RA4300      RA4300   RA4300     4      26        1120   2975   @ROT_785009  N            N        //The Arena
+RA4500      RA4500   RA4500     4      10        3110   4170   @ROT_785010  N            N        //Esath's Farms
+RA4700      RA4700   RA4700     4      11        2580   4140   @ROT_785011  N            N        //Gaidan큦 Castle
+RA4900      RA4900   RA4900     4      14        1735   2810   @ROT_785012  N            N        //North Cave
+RA5700      RA5700   RA5700     4      9         3040   3920   @ROT_785013  N            N        //Razor큦 Hideout
+RR0044      RR0044   RR0044     4      16        1540   2775   @ROT_785014  N            N        //Slave Route
+RA5100      RA5100   RA5100     4      25        850    550    @ROT_785015  N            N        //Bremen
+RA5400      RA5400   RA5400     2      47        775    475    @ROT_785016  N            N        //The Waypoint
+RA5401      RA5401   RA5401     2      64        805    375    @ROT_785017  N            N        //Mountain Reaches
+RA5600      RA5600   RA5600     2      63        600    425    @ROT_785018  N            N        //Hermit's Outpost
+RA5601      RA5601   RA5601     2      83        500    500    @ROT_785019  N            N        //Ice Temple
+RA5412      RA5412   RA5412     2      69        1025   300    @ROT_785020  N            N        //Aerie of Dragons
+RA5416      RA5416   RA5416     2      66        975    400    @ROT_785021  N            N        //Maze
+
+//DSotSC New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+DSC001      DSC001   DSC001     4      76        2200   2372   @DS_782001   @DS_782001   N        //Wood of Sharp Teeth
+DSC002      DSC002   DSC002     2      63        2320   2350   @DS_782004   @DS_782004   N        //East Wood of Sharp Teeth
+DSC004      DSC004   DSC004     2      83        2340   2275   @DS_782002   @DS_782002   N        //Forest of Forgotten Souls
+DSC010      DSC010   DSC010     4      79        2300   2794   @DS_782003   @DS_782003   N        //Castle Daerthmac
+
+//NTotSC New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+AR20PB      AR20PB   AR20PB     4      62        1010   1425   @NT_783001   @NT_783001   N        //Northern Coast
+AR10PB      AR10PB   AR10PB     4      73        1505   1325   @NT_783002   @NT_783002   N        //Field of the Dead
+AR40PB      AR40PB   AR40PB     2      74        2085   1295   @NT_783003   @NT_783003   N        //Elven Wood
+AR01PB      AR01PB   AR01PB     4      40        1660   1723   @NT_783004   @NT_783004   N        //Wood of the Dead
+AR30PB      AR30PB   AR30PB     4      46        2675   1500   @NT_783005   @NT_783005   N        //Northern Citadel
+AR60PB      AR60PB   AR60PB     4      49        2460   2185   @NT_783006   @NT_783006   N        //Temple of the Black Hand
+AR9PBA      AR9PBA   AR9PBA     4      62        1050   2350   @NT_783007   @NT_783007   N        //Sirene's Island
+
+//BoneHill New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME        TOOLTIP     LOAD_IM
+
+BH0200      BH0200   BH0200     2      57        400    4525   @BH_784006  @BH_784006  N        //Sir BillyBob's Farm
+BH1100      BH1100   BH1100     2      73        370    4460   @BH_784001  @BH_784001  N        //Bald Hill
+BH1200      BH1200   BH1200     2      38        295    4460   @BH_784012  @BH_784012  N        //Thief's Den
+BH0100      BH0100   BH0100     2      71        320    4530   @BH_784002  @BH_784002  N        //Restenford
+BH0300      BH0300   BH0300     2      84        242    4522   @BH_784007  @BH_784007  N        //Temple
+BH1300      BH1300   BH1300     2      63        190    4460   @BH_784008  @BH_784008  N        //Tri-Top
+BH1400      BH1400   BH1400     2      17        75     4460   @BH_784003  @BH_784003  N        //Reddy Forest
+BH1000      BH1000   BH1000     2      12        80     4550   @BH_784004  @BH_784004  N        //Bone Hill
+BH2000      BH2000   BH2000     4      13        175    4690   @BH_784005  N           N        //Garrotten
+BH2200      BH2200   BH2200     2      68        155    4587   @BH_784011  @BH_784011  N        //Lake Lizards
+BH2300      BH2300   BH2300     4      70        83     4732   @BH_784010  @BH_784010  N        //Assassin's Grotto
+BH2100      BH2100   BH2100     2      46        235    4610   @BH_784009  @BH_784009  N        //Garrotten Castle
+
+//G3Anniversary New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+G3G12B      G3G12B   G3G12B     4      10        1176   3075   @G3A_787001  @G3A_787001  N         //Pub Crawl
+
+//Drizzt Saga New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+F_7777      F_7777   F_7777     4      65        215    290    @DSW_786001  @DSW_786001  N        //Bruenor's Cabin
+F_9898      F_9898   F_9898     4      73        320    50     @DSW_786002  @DSW_786002  N        //Mountain of the Dead
+F_0111      F_0111   F_0111     4      54        65     207    @DSW_786003  @DSW_786003  N        //Bear Tribe Village
+F_0222      F_0222   F_0222     4      68        225    180    @DSW_786004  @DSW_786004  N        //Storm March Mountains
+F_7779      F_7779   F_7779     6      74        280    240    @DSW_786005  @DSW_786005  N        //Dragon Caves
+F_0112      F_0112   F_0112     4      63        120    150    @DSW_786006  @DSW_786006  N        //Frost Giant Hills
+F_0115      F_0115   F_0115     6      51        232    115    @DSW_786007  @DSW_786007  N        //Winter Wolf Ritual
+F_8888      F_8888   F_8888     6      10        305    135    @DSW_786008  @DSW_786008  N        //Drow Caves

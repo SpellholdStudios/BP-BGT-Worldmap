@@ -1,0 +1,18 @@
+// -*- coding: cp1252 -*-
+
+// Nothern Tales of the Sword Coast (non traduit)
+
+@NT_783001  = "Northern###Coast"
+@NT_783002  = "Field###of###the###Dead"
+@NT_783003  = "Elven###Wood"
+@NT_783004  = "Wood###of###the###Dead"
+@NT_783005  = "Northern###Citadel"
+@NT_783006  = "Temple###of###the###Black###Hand"
+@NT_783007  = "Sirene's###Island"
+// @NT_783001  = "Côte###septentrionale"
+// @NT_783002  = "Champs###des###Morts"
+// @NT_783003  = "Bois###des###Elfes"
+// @NT_783004  = "Bois###des###Morts"
+// @NT_783005  = "Citadelle###septentrionale"
+// @NT_783006  = "Temple###de###la###Main###Noire"
+// @NT_783007  = "Île###de###la###Sirene"

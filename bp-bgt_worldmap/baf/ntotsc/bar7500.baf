@@ -1,9 +1,0 @@
-IF
-  Global("ZombiesDead","GLOBAL",21)
-  Global("AR01PBReveal_Wood of the Dead","Global",0)
-THEN
-  RESPONSE #100
-    RevealAreaOnMap("AR01PB")
-    SetGlobal("AR01PBReveal_Wood of the Dead","Global",1)
-    Continue()
-END

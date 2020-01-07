@@ -1,0 +1,39 @@
+IF
+  Global("AR4600Reveal_Dragon's Run","Global",0)
+  GlobalGT("Chapter","Global",2)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR4600")
+    SetGlobal("AR4600Reveal_Dragon's Run","Global",1)
+    Continue()
+END
+
+IF
+  Global("AR4600Reveal_Dragon's Run","Global",0)
+  GlobalLT("Chapter","Global",3)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR4600")
+    SetGlobal("AR4600Reveal_Dragon's Run","Global",1)
+    Continue()
+END
+
+IF
+  Global("AR3800Reveal_Carnival","Global",0)
+  GlobalLT("Chapter","Global",3)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR3800")
+    SetGlobal("AR3800Reveal_Carnival","Global",1)
+    Continue()
+END
+
+IF
+  Global("AR4300Reveal_Cloudpeaks","Global",0)
+  GlobalGT("Chapter","Global",2)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR4300")
+    SetGlobal("AR4300Reveal_Cloudpeaks","Global",1)
+    Continue()
+END

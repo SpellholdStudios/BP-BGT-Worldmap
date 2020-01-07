@@ -1,8 +1,0 @@
-IF
-  Dead("Tranzig")
-  Global("RevealBandits","GLOBAL",0)
-THEN
-  RESPONSE #100
-    SetGlobal("RevealBandits","GLOBAL",1)
-    RevealAreaOnMap("AR8700")
-END

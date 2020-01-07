@@ -1,0 +1,186 @@
+////////////////////////////////////////////
+//Standard Tutu areas and links
+////////////////////////////////////////////
+COPY "bp-bgt-worldmap/2da/revised_tutu_areas.2da" "bp-bgt-worldmap/2da/revised_tutu_areas.2da"
+  LPM read_area_array_from_2da
+BUT_ONLY
+
+COPY "bp-bgt-worldmap/2da/revised_tutu_links.2da" "bp-bgt-worldmap/2da/revised_tutu_links.2da"
+  LPM read_link_array_from_2da
+BUT_ONLY
+
+
+////////////////////////////////////////////
+//Mod-added areas
+////////////////////////////////////////////
+//Add areas from "worldmap/map_mods_areas.tbl"
+ACTION_IF FILE_EXISTS "worldmap/map_mods_areas.tbl" BEGIN
+  COPY "worldmap/map_mods_areas.tbl" "worldmap/map_mods_areas.tbl"
+    LPM read_area_array_from_2da
+  BUT_ONLY
+END
+
+
+////////////////////////////////////////////
+//Mod-added links
+////////////////////////////////////////////
+
+//This needs to be done before we read from revised/tbl/, so the data in revised/tbl/ can override the data in worldmap/ when there's overlap
+
+ACTION_IF FILE_EXISTS "worldmap/map_mods_links.tbl" BEGIN
+  COPY "worldmap/map_mods_links.tbl" "worldmap/map_mods_links.tbl"
+    LPM read_link_array_from_2da
+  BUT_ONLY
+END
+
+
+/* //The link-patch system is poorly designed and barely used. The only case seems to be CtB, but it uses it to overwrite vanilla Athkatla encounters
+////////////////////////////////////////////
+//Link patches
+////////////////////////////////////////////
+ACTION_IF FILE_EXISTS "worldmap/map_mods_links_patch.tbl" BEGIN
+  COPY "worldmap/map_mods_links_patch.tbl" "worldmap/map_mods_links_patch.tbl"
+    LPM apply_link_patches
+  BUT_ONLY
+END
+*/
+
+
+////////////////////////////////////////////
+//Translations
+////////////////////////////////////////////
+ACTION_IF FILE_EXISTS "worldmap/map_mods_trans.tra" BEGIN
+  COPY "worldmap/map_mods_trans.tra" "worldmap/map_mods_trans.tra"
+    LPM read_trans_array_from_2da
+  BUT_ONLY
+END
+
+COPY "bp-bgt-worldmap/language/english/worldmap.tra" "bp-bgt-worldmap/language/english/worldmap.tra" //To guard against incomplete translations
+     "bp-bgt-worldmap/language/%LANGUAGE%/worldmap.tra" "bp-bgt-worldmap/language/%LANGUAGE%/worldmap.tra"
+  LPM read_trans_array_from_2da
+BUT_ONLY
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_trans BEGIN //Don't know if all of these are relevant for BG1/Tutu, but what the hell
+  AR4220 => SOS
+  AR3610 => CtB
+  RR3100 => RoT
+  DSC001 => DSotSC
+  AR01PB => NTotSC
+  BH0100 => SoBH
+  F_0115 => DS
+END
+
+ACTION_PHP_EACH mod_trans AS area => table BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME "%area%.are" BEGIN
+    COPY "bp-bgt-worldmap/language/english/revised/%table%_new_map_mods_trans.tra"
+         "bp-bgt-worldmap/language/english/revised/%table%_new_map_mods_trans.tra" //To guard against incomplete translations
+
+         "bp-bgt-worldmap/language/%LANGUAGE%/revised/%table%_new_map_mods_trans.tra"
+         "bp-bgt-worldmap/language/%LANGUAGE%/revised/%table%_new_map_mods_trans.tra"
+      LPM read_trans_array_from_2da
+    BUT_ONLY
+  END
+END
+
+LAM merge_in_translations
+
+
+////////////////////////////////////////////
+//Code specific to "revised"
+////////////////////////////////////////////
+
+//Adding Entrances to Tutu Areas to provide proper Entry Names for travel links
+INCLUDE "bp-bgt-worldmap/lib/revised/tutu_entrances.tpa"
+
+//Removing Travel Triggers from FW2000 & FW1500 to enable WM6 travel on Werewolf Isle
+COPY_EXISTING ~FW1500.ARE~ ~OVERRIDE~
+  SPRINT TRIGGERNAME "TravelSouth"
+  SET TRIGGERTYPE = 2
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "TravelSouth2"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "TravelSouth3"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "TravelSouth4"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "TravelSouth5"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "TravelSouth6"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "TravelSouth7"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+BUT_ONLY_IF_IT_CHANGES//*************************************************FW1500.ARE
+
+COPY_EXISTING ~FW2000.ARE~ ~OVERRIDE~
+  SPRINT TRIGGERNAME "DoorNorthA"
+  SET TRIGGERTYPE = 2
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "DoorNorthB"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "DoorNorthC"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "DoorNorthD"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "DoorNorthE"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "DoorNorthF"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+  SPRINT TRIGGERNAME "DoorNorthG"
+  LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~
+BUT_ONLY_IF_IT_CHANGES//*************************************************FW2000.ARE
+
+COPY ~bp-bgt-worldmap/BMP/Tutu/FW2000SR.bmp~ ~override~
+COPY ~bp-bgt-worldmap/BMP/Tutu/FW1500SR.bmp~ ~override~
+COPY ~bp-bgt-worldmap/BMP/Tutu/FW1600SR.bmp~ ~override~
+
+// assigns area scripts to areas with none assigned
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~MACINIT.BCS~ THEN BEGIN
+  COPY_EXISTING ~FW2200.are~ ~override~
+    PATCH_IF (SOURCE_SIZE > 0x11b) THEN BEGIN // protects against invalid files
+      READ_ASCII 0x94 "script"
+      PATCH_IF (("" STRING_COMPARE_CASE "%script%" = 0) OR ("None" STRING_COMPARE_CASE "%script%" = 0)) BEGIN
+        WRITE_EVALUATED_ASCII 0x94 ~%SOURCE_RES%~ #8
+      END
+    END
+  BUT_ONLY_IF_IT_CHANGES
+END
+
+// Proper Area Visibility
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~MACINIT.BCS~ THEN BEGIN // This is not an EasyTutu install
+  EXTEND_TOP ~FW2200.BCS~  ~bp-bgt-worldmap/BAF/Tutu/_AR2200.BAF~
+  EXTEND_TOP ~_AR2301.BCS~ ~bp-bgt-worldmap/BAF/Tutu/_AR2301.BAF~
+  EXTEND_TOP ~_AR2400.BCS~ ~bp-bgt-worldmap/BAF/Tutu/_AR2400.BAF~
+  EXTEND_TOP ~_AR2900.BCS~ ~bp-bgt-worldmap/BAF/Tutu/_AR2900.BAF~
+  EXTEND_TOP ~_AR3304.BCS~ ~bp-bgt-worldmap/BAF/Tutu/_AR3304.BAF~
+
+  COPY_EXISTING ~TRANZIG.BCS~ ~override~
+    DECOMPILE_BCS_TO_BAF
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP ~IF[%LNL% %TAB%]+Die()[%LNL% %TAB%]+THEN[%LNL% %TAB%]+RESPONSE +#100[%LNL% %TAB%]+RevealAreaOnMap("A?R?F?W?1900")[%LNL% %TAB%]+END~ ~~
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP ~IF[%LNL% %TAB%]+HPLT(Myself,20)[%LNL% %TAB%]+THEN[%LNL% %TAB%]+RESPONSE +#100[%LNL% %TAB%]+Dialogue(\[PC\])[%LNL% %TAB%]+END~ ~~
+    COMPILE_BAF_TO_BCS
+  BUT_ONLY
+
+  COPY_EXISTING ~_AR3352.BCS~ ~override~
+    REPLACE_BCS_BLOCK ~bp-bgt-worldmap/baf/Tutu/oFW3352.baf~ ~bp-bgt-worldmap/baf/Tutu/nFW3352.baf~
+  BUT_ONLY_IF_IT_CHANGES
+
+  COPY_EXISTING ~AR1901.BCS~ ~override~
+    DECOMPILE_BCS_TO_BAF
+      REPLACE_TEXTUALLY ~PartyHasItem("_SCRL2Y")~ ~PartyHasItem("_SCRL2Z")~
+    COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+END ELSE BEGIN
+  EXTEND_TOP ~_AR2200.BCS~ ~bp-bgt-worldmap/BAF/Tutu/_AR2200.BAF~
+  EXTEND_TOP ~_AR2301.BCS~ ~bp-bgt-worldmap/BAF/Tutu/_AR2301.BAF~
+  EXTEND_TOP ~_AR2400.BCS~ ~bp-bgt-worldmap/BAF/Tutu/_AR2400.BAF~
+  EXTEND_TOP ~_AR2900.BCS~ ~bp-bgt-worldmap/BAF/Tutu/_AR2900.BAF~
+  EXTEND_TOP ~_AR3304.BCS~ ~bp-bgt-worldmap/BAF/Tutu/_AR3304.BAF~
+
+  EXTEND_BOTTOM ~_AR3352.BCS~ ~bp-bgt-worldmap/baf/Tutu/nFW3352.baf~
+
+  COPY_EXISTING ~_AR1901.BCS~ ~override~
+    DECOMPILE_BCS_TO_BAF
+      REPLACE_TEXTUALLY ~PartyHasItem("_SCRL2Y")~ ~PartyHasItem("_SCRL2Z")~
+    COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+END

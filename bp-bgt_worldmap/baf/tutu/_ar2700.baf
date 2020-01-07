@@ -1,9 +1,0 @@
-IF
-  Global("FW2800Reveal_Crossroads","Global",0)
-  Global("Chapter","Global",1)
-THEN
-  RESPONSE #100
-    RevealAreaOnMap("FW2800")
-    SetGlobal("FW2800Reveal_Crossroads","Global",1)
-    Continue()
-END

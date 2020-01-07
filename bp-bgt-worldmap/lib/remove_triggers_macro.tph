@@ -1,0 +1,205 @@
+
+DEFINE_PATCH_MACRO ~DELETE_INFO_TRIGGER~ BEGIN
+  READ_LONG 0x54 "DIT_actor_off"
+  READ_LONG 0x5c "DIT_info_off"
+  READ_SHORT 0x5a "DIT_info_num"
+  READ_LONG 0x60 "DIT_spawn_off"
+  READ_LONG 0x68 "DIT_ent_off"
+  READ_LONG 0x70 "DIT_cont_off"
+  READ_SHORT 0x74 "DIT_cont_num"
+  READ_LONG 0x78 "DIT_item_off"
+  READ_LONG 0x7c "DIT_vert_off"
+  READ_SHORT 0x80 "DIT_vert_num"
+  READ_LONG 0x84 "DIT_amb_off"
+  READ_LONG 0x88 "DIT_var_off"
+  READ_LONG 0xa0 "DIT_bmp_off"
+  READ_LONG 0xa4 "DIT_door_num"
+  READ_LONG 0xa8 "DIT_door_off"
+  READ_LONG 0xb0 "DIT_anim_off"
+  READ_LONG 0xb8 "DIT_tiled_off"
+  READ_LONG 0xbc "DIT_song_off"
+  READ_LONG 0xc0 "DIT_rest_off"
+  READ_LONG 0xc4 "DIT_note_off"
+  SET DIT_found = (BNOT 0x0)
+  FOR(index = 0; (index < DIT_info_num) AND (DIT_found = (BNOT 0x0)); index = index + 1) BEGIN
+      READ_ASCII ("%DIT_info_off%" + "%index%"*0xC4 ) DIT_cur_name (32)
+      // the following is simply to truncate all null symbols from our string
+      SET DIT_length = 0
+      INNER_PATCH_SAVE DIT_cur_name "%DIT_cur_name%" BEGIN
+        FOR (index2 = 0; index2 < "%SOURCE_SIZE%"; index2 = index2 + 1) BEGIN
+          READ_BYTE "%index2%" DIT_byte
+          PATCH_IF ("%DIT_byte%" = 0) BEGIN SET index2 = "%SOURCE_SIZE%" END
+          ELSE BEGIN SET DIT_length += 1 END
+        END
+      END
+      SNPRINT "%DIT_length%" DIT_real_name "%DIT_cur_name%"
+      READ_SHORT ("%DIT_info_off%" + "%index%"*0xC4 + 0x20) DIT_cur_type
+      READ_SHORT ("%DIT_info_off%" + "%index%"*0xC4 + 0x2A) DIT_cur_numvert
+      READ_LONG ("%DIT_info_off%" + "%index%"*0xC4 + 0x2C) DIT_cur_vertidx
+      PATCH_IF !("%DIT_real_name%" STRING_COMPARE_CASE "%TRIGGERNAME%") AND ("%DIT_cur_type%" = "%TRIGGERTYPE%") BEGIN
+        SET DIT_found = "%index%"
+      END
+  END
+  PATCH_IF !("%DIT_found%" = (BNOT 0x0)) BEGIN
+    FOR(index = 0; index < DIT_info_num; index = index + 1) BEGIN
+      READ_LONG ("%DIT_info_off%" + "%index%"*0xC4 + 0x2C) DIT_loop_vertidx
+      PATCH_IF NOT ("%DIT_loop_vertidx%" < "%DIT_cur_vertidx%") BEGIN
+        WRITE_LONG ("%DIT_info_off%" + "%index%"*0xC4 + 0x2C) "%DIT_loop_vertidx%" - "%DIT_cur_numvert%"
+      END
+    END
+    FOR(index = 0; index < DIT_cont_num; index = index + 1) BEGIN
+      READ_LONG ("%DIT_cont_off%" + "%index%"*0xC0 + 0x50) DIT_loop_vertidx
+      PATCH_IF NOT ("%DIT_loop_vertidx%" < "%DIT_cur_vertidx%") BEGIN
+        WRITE_LONG ("%DIT_cont_off%" + "%index%"*0xC0 + 0x50) "%DIT_loop_vertidx%" - "%DIT_cur_numvert%"
+      END
+    END
+    FOR(index = 0; index < DIT_door_num; index = index + 1) BEGIN
+      READ_LONG ("%DIT_door_off%" + "%index%"*0xC8 + 0x2c) DIT_loop_vertidx
+      PATCH_IF NOT ("%DIT_loop_vertidx%" < "%DIT_cur_vertidx%") BEGIN
+        WRITE_LONG ("%DIT_door_off%" + "%index%"*0xC8 + 0x2c) "%DIT_loop_vertidx%" - "%DIT_cur_numvert%"
+      END
+      READ_LONG ("%DIT_door_off%" + "%index%"*0xC8 + 0x34) DIT_loop_vertidx
+      PATCH_IF NOT ("%DIT_loop_vertidx%" < "%DIT_cur_vertidx%") BEGIN
+        WRITE_LONG ("%DIT_door_off%" + "%index%"*0xC8 + 0x34) "%DIT_loop_vertidx%" - "%DIT_cur_numvert%"
+      END
+      READ_LONG ("%DIT_door_off%" + "%index%"*0xC8 + 0x48) DIT_loop_vertidx
+      PATCH_IF NOT ("%DIT_loop_vertidx%" < "%DIT_cur_vertidx%") BEGIN
+        WRITE_LONG ("%DIT_door_off%" + "%index%"*0xC8 + 0x48) "%DIT_loop_vertidx%" - "%DIT_cur_numvert%"
+      END
+      READ_LONG ("%DIT_door_off%" + "%index%"*0xC8 + 0x50) DIT_loop_vertidx
+      PATCH_IF NOT ("%DIT_loop_vertidx%" < "%DIT_cur_vertidx%") BEGIN
+        WRITE_LONG ("%DIT_door_off%" + "%index%"*0xC8 + 0x50) "%DIT_loop_vertidx%" - "%DIT_cur_numvert%"
+      END
+    END
+    DELETE_BYTES ("%DIT_info_off%" + "%DIT_found%"*0xC4) 0xC4
+    SET DIT_info_num = ("%DIT_info_num%" - 1)
+    WRITE_SHORT 0x5a "%DIT_info_num%"
+    PATCH_IF NOT ("%DIT_actor_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_actor_off" = ("%DIT_actor_off%" - 0XC4)
+      WRITE_LONG 0x54 "%DIT_actor_off%"
+    END
+    PATCH_IF NOT ("%DIT_spawn_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_spawn_off" = ("%DIT_spawn_off%" - 0XC4)
+      WRITE_LONG 0x60 "%DIT_spawn_off%"
+    END
+    PATCH_IF NOT ("%DIT_ent_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_ent_off" = ("%DIT_ent_off%" - 0XC4)
+      WRITE_LONG 0x68 "%DIT_ent_off%"
+    END
+    PATCH_IF NOT ("%DIT_cont_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_cont_off" = ("%DIT_cont_off%" - 0XC4)
+      WRITE_LONG 0x70 "%DIT_cont_off%"
+    END
+    PATCH_IF NOT ("%DIT_item_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_item_off" = ("%DIT_item_off%" - 0XC4)
+      WRITE_LONG 0x78 "%DIT_item_off%"
+    END
+    PATCH_IF NOT ("%DIT_vert_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_vert_off" = ("%DIT_vert_off%" - 0XC4)
+      WRITE_LONG 0x7c "%DIT_vert_off%"
+    END
+    PATCH_IF NOT ("%DIT_amb_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_amb_off" = ("%DIT_amb_off%" - 0XC4)
+      WRITE_LONG 0x84 "%DIT_amb_off%"
+    END
+    PATCH_IF NOT ("%DIT_var_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_var_off" = ("%DIT_var_off%" - 0XC4)
+      WRITE_LONG 0x88 "%DIT_var_off%"
+    END
+    PATCH_IF NOT ("%DIT_bmp_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_bmp_off" = ("%DIT_bmp_off%" - 0XC4)
+      WRITE_LONG 0xa0 "%DIT_bmp_off%"
+    END
+    PATCH_IF NOT ("%DIT_door_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_door_off" = ("%DIT_door_off%" - 0XC4)
+      WRITE_LONG 0xa8 "%DIT_door_off%"
+    END
+    PATCH_IF NOT ("%DIT_anim_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_anim_off" = ("%DIT_anim_off%" - 0XC4)
+      WRITE_LONG 0xb0 "%DIT_anim_off%"
+    END
+    PATCH_IF NOT ("%DIT_tiled_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_tiled_off" = ("%DIT_tiled_off%" - 0XC4)
+      WRITE_LONG 0xb8 "%DIT_tiled_off%"
+    END
+    PATCH_IF NOT ("%DIT_song_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_song_off" = ("%DIT_song_off%" - 0XC4)
+      WRITE_LONG 0xbc "%DIT_song_off%"
+    END
+    PATCH_IF NOT ("%DIT_rest_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_rest_off" = ("%DIT_rest_off%" - 0XC4)
+      WRITE_LONG 0xc0 "%DIT_rest_off%"
+    END
+    PATCH_IF NOT ("%DIT_note_off%" < "%DIT_info_off%") BEGIN
+      SET "DIT_note_off" = ("%DIT_note_off%" - 0XC4)
+      WRITE_LONG 0xc4 "%DIT_note_off%"
+    END
+    DELETE_BYTES ("%DIT_vert_off%" + "%DIT_cur_vertidx%"*0x04) "%DIT_cur_numvert%"*0x04
+    WRITE_SHORT 0x80 ("%DIT_vert_num%" - "%DIT_cur_numvert%")
+    PATCH_IF NOT ("%DIT_actor_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0x54 ("%DIT_actor_off%" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_info_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0x5c ("DIT_info_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_spawn_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0x60 ("DIT_spawn_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_ent_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0x68 ("DIT_ent_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_cont_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0x70 ("DIT_cont_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_item_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0x78 ("DIT_item_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_amb_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0x84 ("DIT_amb_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_var_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0x88 ("DIT_var_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_bmp_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0xa0 ("DIT_bmp_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_door_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0xa8 ("DIT_door_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_anim_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0xb0 ("DIT_anim_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_tiled_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0xb8 ("DIT_tiled_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_song_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0xbc ("DIT_song_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_rest_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0xc0 ("DIT_rest_off" - 0x04*"%DIT_cur_numvert%")
+    END
+    PATCH_IF NOT ("%DIT_note_off%" < "%DIT_vert_off%") BEGIN
+      WRITE_LONG 0xc4 ("DIT_note_off" - 0x04*"%DIT_cur_numvert%")
+    END
+  END
+END
+
+// Add to tp2 the following code example to delete specified travel triggers and associated vertices from an area:
+
+//COPY_EXISTING ~ARW000.ARE~ ~OVERRIDE~             //(Area File to be modified)
+//SPRINT TRIGGERNAME "DoorNorthA"                   //(Name of Info Trigger to be deleted)
+//SET TRIGGERTYPE = 2                               //(Type of Info Trigger to be deleted)
+//LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~          //(Execute command for previously defined macro)
+//SPRINT TRIGGERNAME "DoorNorthB"                   //(Name of additional Info Trigger to be deleted)
+//LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~          //(Execute command for previously defined macro)
+//SPRINT TRIGGERNAME "DoorNorthC"                   //(Name of additional Info Trigger to be deleted)
+//LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~          //(Execute command for previously defined macro)
+//SPRINT TRIGGERNAME "DoorNorthD"                   //(Name of additional Info Trigger to be deleted)
+//LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~          //(Execute command for previously defined macro)
+//SPRINT TRIGGERNAME "DoorNorthE"                   //(Name of additional Info Trigger to be deleted)
+//LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~          //(Execute command for previously defined macro)
+//SPRINT TRIGGERNAME "DoorNorthF"                   //(Name of additional Info Trigger to be deleted)
+//LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~          //(Execute command for previously defined macro)
+//SPRINT TRIGGERNAME "DoorNorthG"                   //(Name of additional Info Trigger to be deleted)
+//LAUNCH_PATCH_MACRO ~DELETE_INFO_TRIGGER~          //(Execute command for previously defined macro)
+//BUT_ONLY_IF_IT_CHANGES

@@ -1,0 +1,9 @@
+//NTotSC New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+AR20PB      AR20PB   AR20PB     2      62        1320   1836   @NT_783001   @NT_783001   N        //Northern Coast
+AR10PB      AR10PB   AR10PB     4      73        1500   1800   @NT_783002   @NT_783002   N        //Field of the Dead
+AR40PB      AR40PB   AR40PB     2      74        1860   1728   @NT_783003   @NT_783003   N        //Northern Wood
+AR01PB      AR01PB   AR01PB     2      40        1860   1858   @NT_783004   @NT_783004   N        //Wood of the Dead
+AR30PB      AR30PB   AR30PB     4      46        1850   2002   @NT_783005   @NT_783005   N        //Northern Citadel
+AR60PB      AR60PB   AR60PB     4      49        2330   2260   @NT_783006   @NT_783006   N        //Temple of the Black Hand

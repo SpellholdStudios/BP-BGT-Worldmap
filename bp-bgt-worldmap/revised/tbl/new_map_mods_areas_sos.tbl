@@ -1,0 +1,4 @@
+//SOS New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+AR4220      AR4220   AR4220     4      16        2525   1805   @SOS_780001  @SOS_780001  N        //River Chionthar

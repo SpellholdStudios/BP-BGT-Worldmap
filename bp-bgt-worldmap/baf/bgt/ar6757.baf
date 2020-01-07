@@ -1,0 +1,9 @@
+IF
+  Global("AR7100Reveal_High Hedge","Global",0)
+  Global("HelpPerdue","Global",1)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR7100")
+    SetGlobal("AR7100Reveal_High Hedge","Global",1)
+    Continue()
+END
