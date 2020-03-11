@@ -194,6 +194,19 @@ A: Either start a new game or use the savegame converter.
 
 ## <a name="versions" id="versions"></a>Versions History
 
+##### Version 10.2.5 (11 March 2020)
+
+- Compatibility with 'Sensible Entrance Points' from Tweaks Anthology.
+
+##### Version 10.2.4 (7 January 2020)
+
+- corrected area names for DSotSC areas (areas should be named correctly and should all have names on the worldmap).
+- corrected area visibility for ntotsc (areas should have the same visibility on worldmap as in original mod).
+- added changelog.txt file.
+- renamed folder to "bp-bgt-worldmap".
+- moved setup-bp-bgt-worldmap.tp2 inside mod folder.
+- added bp-bgt-worldmap.ini with mod info meta data.
+
 ##### Version 10.2.3 (26 September 2018)
 
 - Update EE map-icon file.
