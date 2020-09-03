@@ -13,10 +13,16 @@
 **Authors:** Yacomo, King Diamond, Erebusant, Weigo  
 **Mod Website and Forum:** <a href="http://www.shsforums.net/index.php?showforum=401">Spellhold Studios</a><br /><br />
 
+## 
+
+[Read the mod's readme](https://spellholdstudios.github.io/readmes/worldmap-readme-english.html)
+
+[Download the mod at Spellhold Studios](http://www.shsforums.net/files/file/308-bp-bgt-worldmap/)<br>
+
+## 
 
 <div align="center">
-<a href="#intro">Overview</a> &#x2B25; <a href="#compat">Compatibility</a> &#x2B25; <a href="#installation">Installation</a> &#x2B25; 
-<a href="#components">Components</a> &#x2B25; <a href="#faq">FAQ</a> &#x2B25; <a href="#credits">Credits</a> &#x2B25; <a href="#versions">Versions History</a></br>
+<a href="#intro">Overview</a> &#x2B25; <a href="#compat">Compatibility</a> &#x2B25; <a href="#installation">Installation</a> &#x2B25; <a href="#components">Components</a> &#x2B25; <a href="#faq">FAQ</a> &#x2B25; <a href="#credits">Credits</a> &#x2B25; <a href="#versions">Versions History</a></br>
 </div>
 
 
@@ -123,9 +129,9 @@ You must choose between:
 and:
 
 1. Large worldmap size (4900x3500), or
-<center><img src="bp-bgt_worldmap/images/worldmap/worldmap_v7.0_large_mini.jpg"></center>
+<center><img src="bp-bgt-worldmap/images/worldmap/worldmap_v7.0_large_mini.jpg"></center>
 2. Huge worldmap size (8000x6300).
-<center><img src="bp-bgt_worldmap/images/worldmap/worldmap_v7.0_huge_mini.jpg"></center>
+<center><img src="bp-bgt-worldmap/images/worldmap/worldmap_v7.0_huge_mini.jpg"></center>
 
 ## 
 
