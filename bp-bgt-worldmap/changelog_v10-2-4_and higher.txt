@@ -1,0 +1,16 @@
+Changelog:
+
+Version 10.2.6
+- added new bpbgtmap.BAM für bgt and ee that includes BST Mapicon (on slot 29 resp 28 if counted from 0).
+- added "changelog_v10-2-4_and higher.txt" to main mod folder.
+
+Version 10.2.5
+- Compatibility with 'Sensible Entrance Points' from Tweaks Anthology (thanks CamDawg!).
+
+Version 10.2.4
+- corrected area names for DSotSC areas (areas should be named correctly and should all have names on the worldmap).
+- corrected area visibility for ntotsc (areas should have the same visibility on worldmap as in original mod).
+- added changelog.txt file.
+- renamed folder to "bp-bgt-worldmap".
+- moved setup-bp-bgt-worldmap.tp2 inside mod folder.
+- added bp-bgt-worldmap.ini with mod info meta data.
