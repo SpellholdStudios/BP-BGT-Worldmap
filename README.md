@@ -13,10 +13,16 @@
 **Authors:** Yacomo, King Diamond, Erebusant, Weigo  
 **Mod Website and Forum:** <a href="http://www.shsforums.net/index.php?showforum=401">Spellhold Studios</a><br /><br />
 
+## 
+
+[Read the mod's readme](https://spellholdstudios.github.io/readmes/worldmap-readme-english.html)
+
+[Download the mod at Spellhold Studios](http://www.shsforums.net/files/file/308-bp-bgt-worldmap/)<br>
+
+## 
 
 <div align="center">
-<a href="#intro">Overview</a> &#x2B25; <a href="#compat">Compatibility</a> &#x2B25; <a href="#installation">Installation</a> &#x2B25; 
-<a href="#components">Components</a> &#x2B25; <a href="#faq">FAQ</a> &#x2B25; <a href="#credits">Credits</a> &#x2B25; <a href="#versions">Versions History</a></br>
+<a href="#intro">Overview</a> &#x2B25; <a href="#compat">Compatibility</a> &#x2B25; <a href="#installation">Installation</a> &#x2B25; <a href="#components">Components</a> &#x2B25; <a href="#faq">FAQ</a> &#x2B25; <a href="#credits">Credits</a> &#x2B25; <a href="#versions">Versions History</a></br>
 </div>
 
 
@@ -123,9 +129,9 @@ You must choose between:
 and:
 
 1. Large worldmap size (4900x3500), or
-<center><img src="bp-bgt_worldmap/images/worldmap/worldmap_v7.0_large_mini.jpg"></center>
+<center><img src="bp-bgt-worldmap/images/worldmap/worldmap_v7.0_large_mini.jpg"></center>
 2. Huge worldmap size (8000x6300).
-<center><img src="bp-bgt_worldmap/images/worldmap/worldmap_v7.0_huge_mini.jpg"></center>
+<center><img src="bp-bgt-worldmap/images/worldmap/worldmap_v7.0_huge_mini.jpg"></center>
 
 ## 
 
@@ -193,6 +199,19 @@ A: Either start a new game or use the savegame converter.
 
 
 ## <a name="versions" id="versions"></a>Versions History
+
+##### Version 10.2.5 (11 March 2020)
+
+- Compatibility with 'Sensible Entrance Points' from Tweaks Anthology.
+
+##### Version 10.2.4 (7 January 2020)
+
+- corrected area names for DSotSC areas (areas should be named correctly and should all have names on the worldmap).
+- corrected area visibility for ntotsc (areas should have the same visibility on worldmap as in original mod).
+- added changelog.txt file.
+- renamed folder to "bp-bgt-worldmap".
+- moved setup-bp-bgt-worldmap.tp2 inside mod folder.
+- added bp-bgt-worldmap.ini with mod info meta data.
 
 ##### Version 10.2.3 (26 September 2018)
 

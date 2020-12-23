@@ -1,6 +1,6 @@
 BACKUP ~bp-bgt-worldmap/backup~
 AUTHOR ~www.shsforums.net/forum/401-worldmap/~
-VERSION "v10.2.4"
+VERSION "v10.2.5"
 README "bp-bgt-worldmap/language/%LANGUAGE%/readme.html" "bp-bgt-worldmap/language/english/readme.html"
 
 ALWAYS
