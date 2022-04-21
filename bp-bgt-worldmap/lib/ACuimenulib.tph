@@ -1,0 +1,982 @@
+/*******************************************************************************
+ * UI.MENU abstraction WeiDU library Version 4.1
+ *
+ * Provides a medium level abstraction of the contents of UI.MENU with
+ * a fairly simple Macro interface for use by installation packages.
+ *
+ * The general model is to distinguish public (intended to be used by external
+ * code) interfaces from private (intended to be used only within this libary)
+ * interfaces via capitalization. Private macros/data is named in all
+ * lower-case. Public macros/data is named via mixed case (so-called
+ * 'CamelCase'), typically with the first part of the name being UIMenu.
+ *
+ * There are also a variety of regexp strings near the beginning that can be
+ * used externally. However, they are used extensively in the library so 
+ * changing any of them is likely to break the library.
+ *
+ ******************************************************************************/
+// Template for converting strings to inline files
+<<<<<<<< ToInlineTemplate
+dummy
+>>>>>>>>
+
+// Template for clearing inline files
+<<<<<<<< EmptyInlineTemplate
+>>>>>>>>
+
+// Generated code line ending to match UI.MENU - collected during first open
+OUTER_SPRINT LE				~~
+
+// Regexp Match strings/expressions
+OUTER_SPRINT MEOL			~[%WNL%%MNL%%LNL%]~
+OUTER_SPRINT MWHITE			~[%TAB% %WNL%%MNL%%LNL%]*~
+OUTER_SPRINT MQUOTE			~['"]~
+OUTER_SPRINT MNOTQUOTE		~[^'"]~
+OUTER_SPRINT MSQUOTE		~[']~
+OUTER_SPRINT MNOTSQUOTE		~[^']~
+OUTER_SPRINT MDQUOTE		~["]~
+OUTER_SPRINT MNOTDQUOTE		~[^"]~
+
+OUTER_SPRINT MLUA			~`[^`]*`[%TAB% ]*%MEOL%?~
+OUTER_SPRINT MCOMMENT		~--.*%MEOL%~
+OUTER_SPRINT NAMECHARS		~[-A-Za-z_0-9]~
+
+OUTER_SPRINT MNOBRACE		~[^{}]~                                                                    // 0 Groups
+OUTER_SPRINT MBRACES		~\({%MNOBRACE%*}\)~                                                        // 1 Group
+OUTER_SPRINT MNESTBR		~\({\(%MNOBRACE%*%MBRACES%\)+%MNOBRACE%*}\)~                               // 3 Groups
+OUTER_SPRINT M3LVLBR		~\({\(\(%MNOBRACE%\|%MBRACES%\)*%MNESTBR%\)+\(%MNOBRACE%\|%MBRACES%\)*}\)~ // 9 Groups
+
+OUTER_SPRINT MMENUELEMENTS	~\(%MNOBRACE%\|%MBRACES%\|%MNESTBR%\|%M3LVLBR%\)~                      // 14 Groups
+OUTER_SPRINT MNAMEDPREFIX	~menu%MWHITE%{%MMENUELEMENTS%*name%MWHITE%+%MQUOTE%[%TAB% ]*~          // 14 Groups
+OUTER_SPRINT MNAMEDSUFFIX	~[%TAB% ]*%MQUOTE%%MMENUELEMENTS%*}%MEOL%?~                            // 14 Groups
+OUTER_SPRINT MANYMENU		~%MNAMEDPREFIX%\(%NAMECHARS%+\)%MNAMEDSUFFIX%~                         // 14,1,14 Groups
+
+OUTER_SPRINT MMENUHEAD		~menu%MWHITE%{%MMENUELEMENTS%*~						// 14 Groups
+OUTER_SPRINT MMENUTAIL		~}%MEOL%?~											// 0 Groups
+
+// Strings used by extraction/insertion code to create/match the 3 types of tags
+OUTER_SPRINT INMARK			~##~
+OUTER_SPRINT INCOMMENTBASE	~%INMARK%CommentInsertion_~
+OUTER_SPRINT MCOMMENTMARK	~%INCOMMENTBASE%[0-9]+~
+OUTER_SPRINT INLUABASE		~%INMARK%LuaInsertion_~
+OUTER_SPRINT MLUAMARK		~%INLUABASE%[0-9]+~
+OUTER_SPRINT INMENUBASE		~%INMARK%MenuInsertion_~
+OUTER_SPRINT MMENUMARK		~%INMENUBASE%\(%NAMECHARS%+\)~
+
+/*******************************************************************************
+ * Associative array abstraction of UI.MENU. Private to elements in this library
+ * not intended to be accessed by external installation code.
+ * Possible state values
+ *	0	Closed
+ *	1	Open with elements extracted
+ *
+ ******************************************************************************/
+ACTION_DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+BEGIN
+	~state~			=>	0	// Obvious state flag
+	~luacount~		=>	0	// Number of extracted Lua code blocks
+	~commentcount~	=> 	0	// Number of extracted comments
+
+/* Following elements added after open
+	~comments~,~unique-comment-extracttag~		=> Extracted comment string
+			...  Subsequent extracted comments ...
+
+	~luablocks~,~unique-luablock-extracttag~	=> Extracted Lua code block
+			... Subsequent extracted Lua code blocks ...
+
+	~menus~,~menu-name~							=> Menu body for named menu
+			... Subsequent extracted menus ...
+*/
+/*	The following are not 'real' array entries at all. Merely names that
+	are used for inline files used internally by the library. By referencing
+	~$uimenulibglobal("uibuffer")~ (for example) in COPY actions, it 'looks
+	like' an inline file associative array entry and keeps the namespace
+	pollution within the "uimenu..." prefix - but they're just abstract names
+	(at least so far as I can determine) 
+		
+	~uibuffer~	// Interface between file and comment/lua/menu extractions
+	~uimenutransientlocal~ // Temporary used in several macros
+*/ 	
+END
+
+/*******************************************************************************
+ * Associative array for passing parameters to/getting results from UIMenu
+ * functions. As indicated by the capitalization, this is intended as a
+ * public interface.
+ ******************************************************************************/
+ACTION_DEFINE_ASSOCIATIVE_ARRAY UIMenuIF 
+BEGIN
+	~MenuName~	=>	~~		// Name of menu to Get/Update/Replace
+							// Input to UIMenuGetMenu/UIMenuUpdateMenu/UIMenuReplaceMenu/
+							//          UIMenuReplaceMenuMixed
+
+	~LuaID~		=>	0-1		// Unique keynumber for a specific Lua code block copy/replacement
+							// Output from UIMenuGetMatchingLuaBlock 
+							// Input to UIMenuUpdateLuaBlock/UIMenuReplaceLuaBlock
+
+	~LuaRegex~	=>	~~		// Regular expression to be used to identify a particular Lua code block
+							// Input to UIMenuGetMatchingLuaBlock
+
+	~Body~		=>	~~		// Copied/replacement menu/Lua body text
+							// Output from UIMenuGetMenu/UIMenuReplaceMenu/ 
+							//             UIMenuGetMatchingLuaBlock/UIMenuReplaceLuaBlock
+							// Input to UIMenuUpdateMenu/UIMentUpdateLuaBlock
+
+	~Filespec~	=>	~~		// Filepath/name of target file
+							// Input to UIMenuAppendFile/UIMenuReplaceMenu/UIMenuReplaceLuaBlock/
+							//          UIMenuReplaceMenuMixed
+
+	~Succeeded~	=>	0		// Succeeded/failed return from macros. 1 => Success, 0 => Failure
+							// Output from all external (UMenu) macros
+END
+
+/*******************************************************************************
+ * uimenudetermineeol
+ *
+ * Uses buffer of first 1000 characters from uibuffer and tests for windows 
+ * (CR/LF) and pre-osx mac (CR) line endings. Assumes that more than 5 
+ * occurances is sufficient to override default linux value.
+ * Sets LE string variable.
+ ******************************************************************************/
+DEFINE_ACTION_MACRO uimenudetermineeol 
+BEGIN
+	LOCAL_SET wincount = 0
+	LOCAL_SPRINT tempbuff ~~
+	LOCAL_SET oldmaccount = 0
+
+	COPY - ~$uimenulibglobal("uibuffer")~ ~$uimenulibglobal("uibuffer")~
+		READ_ASCII 0 tempbuff (1000) NULL
+	COPY - ~ToInlineTemplate~ ~$uimenulibglobal("uimenutransientlocal")~
+		REPLACE_EVALUATE ~dummy~ BEGIN END
+		~%tempbuff%~
+
+	COPY - ~$uimenulibglobal("uimenutransientlocal")~ ~$uimenulibglobal("uimenutransientlocal")~
+		REPLACE_EVALUATE ~\(%WNL%\)~ 
+		BEGIN
+			SET wincount += 1
+		END
+		~%MATCH1%~
+	
+	COPY - ~$uimenulibglobal("uimenutransientlocal")~ ~$uimenulibglobal("uimenutransientlocal")~
+		REPLACE_EVALUATE ~\(%MNL%\)~ 
+		BEGIN
+			SET oldmaccount += 1
+		END
+		~%MATCH1%~
+	
+	ACTION_IF wincount > 5 THEN 
+	BEGIN
+		OUTER_SPRINT LE ~%WNL%~
+	END ELSE 
+	BEGIN
+		ACTION_IF oldmaccount > 5 THEN 
+		BEGIN
+			OUTER_SPRINT LE ~%MNL%~
+		END ELSE
+		BEGIN
+			OUTER_SPRINT LE ~%LNL%~
+		END
+	END
+
+	// Empty $uimenulibglobal("uimenutransientlocal")
+	COPY - ~EmptyInlineTemplate~ ~$uimenulibglobal("uimenutransientlocal")~
+END
+
+/*******************************************************************************
+ * uimenuextractcomments
+ *
+ * Removes all comments from uibuffer and replaces them with tags which are
+ * used as the key in an associative array entry whose value is the original
+ * comment. Eliminates false parsing of commented out menus and/or comments
+ * that contain UI element names, braces, quotation marks, apostrophes,...
+ * Note that 'comments' refers to single line comments (--), not Lua bracketed
+ * multi-line. Lua multi-lined comments will be extracted as part of the
+ * enclosing Lua code blocks.
+ ******************************************************************************/
+DEFINE_ACTION_MACRO uimenuextractcomments 
+BEGIN
+	LOCAL_SET extractcount = $uimenulibglobal("commentcount")
+	LOCAL_SPRINT tempstr ""
+
+	// First, lets extract full line comments - with multiple contiguous lines
+	// as a single extraction
+	COPY - ~$uimenulibglobal("uibuffer")~ ~$uimenulibglobal("uibuffer")~
+		REPLACE_EVALUATE ~\(^[%TAB% ]*--.*%MEOL%\)+~ 
+		BEGIN
+			SPRINT tempstr ~%INCOMMENTBASE%%extractcount%~
+			DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+			BEGIN
+				~comments~,~%tempstr%~ => ~%MATCH0%~
+			END
+			SET extractcount += 1
+		END
+		~%tempstr%%LE%~
+	
+	// Now pull out the remaining comments
+	COPY - ~$uimenulibglobal("uibuffer")~ ~$uimenulibglobal("uibuffer")~
+		REPLACE_EVALUATE ~\(%MCOMMENT%\)~ 
+		BEGIN
+			SPRINT tempstr ~%INCOMMENTBASE%%extractcount%~
+			DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+			BEGIN
+				~comments~,~%tempstr%~ => ~%MATCH1%~
+			END
+			SET extractcount += 1
+		END
+		~%tempstr%%LE%~
+	
+	OUTER_SET $uimenulibglobal("commentcount") = extractcount
+END
+
+/*******************************************************************************
+ * uimenuextracttransientcomments
+ *
+ * Removes all comments from uimenutransientlocal. In all other ways works like
+ * uimenuextractcomments.
+ * 
+ ******************************************************************************/
+DEFINE_ACTION_MACRO uimenuextracttransientcomments 
+BEGIN
+	LOCAL_SET extractcount = $uimenulibglobal("commentcount")
+	LOCAL_SPRINT tempstr ""
+
+	// First, lets extract full line comments - with multiple contiguous lines
+	// as a single extraction
+	COPY - ~$uimenulibglobal("uimenutransientlocal")~ ~$uimenulibglobal("uimenutransientlocal")~
+		REPLACE_EVALUATE ~\(^[%TAB% ]*--.*%MEOL%\)+~ 
+		BEGIN
+			SPRINT tempstr ~%INCOMMENTBASE%%extractcount%~
+			DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+			BEGIN
+				~comments~,~%tempstr%~ => ~%MATCH0%~
+			END
+			SET extractcount += 1
+		END
+		~%tempstr%%LE%~
+	
+	// Now pull out the remaining comments
+	COPY - ~$uimenulibglobal("uimenutransientlocal")~ ~$uimenulibglobal("uimenutransientlocal")~
+		REPLACE_EVALUATE ~\(%MCOMMENT%\)~ 
+		BEGIN
+			SPRINT tempstr ~%INCOMMENTBASE%%extractcount%~
+			DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+			BEGIN
+				~comments~,~%tempstr%~ => ~%MATCH1%~
+			END
+			SET extractcount += 1
+		END
+		~%tempstr%%LE%~
+	
+	OUTER_SET $uimenulibglobal("commentcount") = extractcount
+END
+
+/*******************************************************************************
+ * uimenuinsertcomments
+ *
+ * Complementary macro to uimenuextractcomments and 
+ * uimenuextracttransientcomments- puts the previously extracted comments back
+ * into uibuffer. 
+ *
+ ******************************************************************************/
+DEFINE_ACTION_MACRO uimenuinsertcomments 
+BEGIN
+	LOCAL_SPRINT tempstr ""
+
+	COPY - ~$uimenulibglobal("uibuffer")~ ~$uimenulibglobal("uibuffer")~
+		REPLACE_EVALUATE ~\(%MCOMMENTMARK%\)%LE%~ 
+		BEGIN
+			SPRINT tempstr $uimenulibglobal(~comments_%MATCH1%~)
+		END
+		~%tempstr%~
+END
+
+/*******************************************************************************
+ * uimenuextractluablocks
+ *
+ * Removes all blocks of Lua code (delimited by ` pairs) from uibuffer and 
+ * replaces them with tags which are used as the key in an associative array 
+ * entry whose value is the original code block. Eliminates false parsing of
+ * Lua code as UI definitions.
+ ******************************************************************************/
+DEFINE_ACTION_MACRO uimenuextractluablocks 
+BEGIN
+	LOCAL_SET extractcount = $uimenulibglobal("luacount")
+	LOCAL_SPRINT tempstr ~~
+
+	COPY - ~$uimenulibglobal("uibuffer")~ ~$uimenulibglobal("uibuffer")~
+		REPLACE_EVALUATE ~\(%MLUA%\)~ 
+		BEGIN
+			SPRINT tempstr ~%INLUABASE%%extractcount%~
+			DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+			BEGIN
+				~luablocks~,~%tempstr%~ => ~%MATCH1%~
+			END
+			SET extractcount += 1
+		END
+		~%tempstr%%LE%~
+
+	OUTER_SET $uimenulibglobal("luacount") = extractcount
+END
+
+/*******************************************************************************
+ * uimenuinsertluablocks
+ *
+ * Complementary macro to uimenuextractluablocks - puts the previously extracted
+ * Lua code blocks back into uibuffer.
+ ******************************************************************************/
+DEFINE_ACTION_MACRO uimenuinsertluablocks 
+BEGIN
+	LOCAL_SPRINT tempstr ~~
+
+	COPY - ~$uimenulibglobal("uibuffer")~ ~$uimenulibglobal("uibuffer")~
+		REPLACE_EVALUATE ~\(%MLUAMARK%\)%LE%~ 
+		BEGIN
+			SPRINT tempstr $uimenulibglobal(~luablocks_%MATCH1%~)
+		END
+		~%tempstr%~
+END
+
+/*******************************************************************************
+ * uimenuextractmenus
+ *
+ * Removes all menus from uibuffer, replaces with menu name based tags, puts 
+ * menu bodies in uimenulibglobal associative array.
+ ******************************************************************************/
+DEFINE_ACTION_MACRO uimenuextractmenus 
+BEGIN
+	LOCAL_SPRINT tempstr ~~
+
+	COPY - ~$uimenulibglobal("uibuffer")~ ~$uimenulibglobal("uibuffer")~
+		REPLACE_EVALUATE ~%MANYMENU%~ 
+		BEGIN
+			SPRINT tempstr ~%INMENUBASE%%MATCH15%~
+			DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+			BEGIN
+				~menus~,~%MATCH15%~ => ~%MATCH0%~
+			END
+		END
+		~%tempstr%%LE%~
+END
+
+/*******************************************************************************
+ * uimenuinsertmenus
+ *
+ * Restores all previously extracted menus to uibuffer
+ * 
+ ******************************************************************************/
+DEFINE_ACTION_MACRO uimenuinsertmenus 
+BEGIN
+	LOCAL_SPRINT tempstr ~~
+
+	COPY - ~$uimenulibglobal("uibuffer")~ ~$uimenulibglobal("uibuffer")~
+		REPLACE_EVALUATE ~%MMENUMARK%%LE%~ 
+		BEGIN
+			SPRINT tempstr $uimenulibglobal(~menus_%MATCH1%~)
+		END
+		~%tempstr%~
+END
+
+/*******************************************************************************
+ * uimenuclearglobal
+ *
+ * Clears $uimenulibglobal to a closed empty state.
+ * 
+ ******************************************************************************/
+DEFINE_ACTION_MACRO uimenuclearglobal 
+BEGIN
+	LOCAL_SPRINT	key ~~
+	LOCAL_SPRINT	value ~~
+
+	ACTION_PHP_EACH uimenulibglobal AS key => value 
+	BEGIN
+		ACTION_IF (VARIABLE_IS_SET $uimenulibglobal("%key%_%key_1%")) THEN
+		BEGIN
+			OUTER_SPRINT ~$uimenulibglobal("%key%_%key_1%")~ ~~
+		END ELSE 
+		BEGIN
+			ACTION_IF (IS_AN_INT $uimenulibglobal("%key%")) THEN
+			BEGIN
+				OUTER_SET ~$uimenulibglobal("%key%")~ = 0
+			END ELSE 
+			BEGIN
+				OUTER_SPRINT ~$uimenulibglobal("%key%")~ ~~
+			END
+		END
+	END
+	ACTION_CLEAR_ARRAY ~uimenulibglobal~
+	OUTER_SET $uimenulibglobal("state") = 0 // Closed
+	OUTER_SET $uimenulibglobal("luacount") = 0
+	OUTER_SET $uimenulibglobal("commentcount") = 0
+	COPY - ~EmptyInlineTemplate~ ~$uimenulibglobal("uibuffer")~
+	COPY - ~EmptyInlineTemplate~ ~$uimenulibglobal("uimenutransientlocal")~
+END
+
+/*******************************************************************************
+ * UIMenuOpen
+ *
+ * Reads UI.MENU into uibuffer. Determines line terminator if necessary (first
+ * call to UIMenuOpen), extracts comments, Lua blocks, and all menus.
+ * Sets state to open (1). Upon completion, uibuffer will contain nothing but
+ * whitespace and tags.
+ * 
+ * Sets $UIMenuIF("Succeeded") to 1 on success, 0 on error (already open).
+ * 
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuOpen 
+BEGIN
+	ACTION_IF ($uimenulibglobal("state") = 0) THEN
+	BEGIN // Closed 
+		LAUNCH_ACTION_MACRO	uimenuclearglobal
+		COPY_EXISTING - ~UI.MENU~ ~$uimenulibglobal("uibuffer")~
+			REPLACE_TEXTUALLY ~\\\\~ ~¤§£~
+
+		// No need to do this more than once
+		ACTION_IF ~%LE%~ STRING_EQUAL ~~  THEN
+		BEGIN
+			LAUNCH_ACTION_MACRO uimenudetermineeol
+		END
+
+		// Extract comments
+		LAUNCH_ACTION_MACRO uimenuextractcomments
+
+		// Extract Lua code blocks
+		LAUNCH_ACTION_MACRO uimenuextractluablocks
+
+		// Extract menus
+		LAUNCH_ACTION_MACRO uimenuextractmenus
+
+		OUTER_SET $uimenulibglobal("state") = 1
+		OUTER_SET $UIMenuIF("Succeeded") = 1
+	END ELSE 
+	BEGIN // Already open
+		LOG ~In UIMenuOpen: UI.MENU already open~
+		OUTER_SET $UIMenuIF("Succeeded") = 0
+	END
+END
+
+/*******************************************************************************
+ * UIMenuClose
+ *
+ * Re-inserts extracted menus, Lua code blocks, and comments into uibuffer.
+ * Flushes uibuffer to UI.MENU. Sets uimenulibglobal to an empty/Closed state.
+ * 
+ * Sets $UIMenuIF("Succeeded") to 1 on success, 0 on error (not open).
+ * 
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuClose 
+BEGIN
+
+	ACTION_IF ($uimenulibglobal("state") = 1) THEN
+	BEGIN // Open
+		// Insert menus
+		LAUNCH_ACTION_MACRO uimenuinsertmenus
+
+		// Insert Lua code blocks
+		LAUNCH_ACTION_MACRO uimenuinsertluablocks
+
+		// Insert comments
+		LAUNCH_ACTION_MACRO uimenuinsertcomments
+
+		// Write uibuffer to UI.MENU
+		COPY ~$uimenulibglobal("uibuffer")~ ~override/UI.MENU~
+			REPLACE_TEXTUALLY ~¤§£~ ~\\\\~
+
+		// Reset $uimenulibglobal to closed and empty
+		LAUNCH_ACTION_MACRO	uimenuclearglobal
+
+		OUTER_SET $UIMenuIF("Succeeded") = 1
+	END ELSE 
+	BEGIN // Not open - Log it (for debug), but don't flag as error
+		LOG ~In UIMenuClose: UI.MENU not open~	
+		OUTER_SET $UIMenuIF("Succeeded") = 1
+	END
+END
+
+/*******************************************************************************
+ * UIMenuAbort
+ *
+ * Resets $uimenulibglobal to a closed state, discarding any changes made since
+ * UIMenuOpen was called. Thin wrapper for uimenuclearglobal.
+ * 
+ * Sets $UIMenuIF("Succeeded") to 1. No defined failure
+ *
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuAbort 
+BEGIN
+	ACTION_IF ($uimenulibglobal("state") = 1) THEN
+	BEGIN // Open
+		// Reset $uimenulibglobal to closed and empty
+		LAUNCH_ACTION_MACRO	uimenuclearglobal
+	END
+	// Reset function - can't fail
+	OUTER_SET $UIMenuIF("Succeeded") = 1	
+END
+
+/*******************************************************************************
+ * UIMenuAppendFile
+ *
+ * Appends the contents of $UIMenuIF("Filespec") to uibuffer, invokes 
+ * uimenuextractcomments, uimenuextractluablocks, and uimenuextractmenus.
+ * 
+ * Sets $UIMenuIF("Succeeded") to 1 on success, 0 on error.
+ *
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuAppendFile 
+BEGIN
+	LOCAL_SPRINT	filespec	$UIMenuIF("Filespec")
+
+	ACTION_IF ($uimenulibglobal("state") = 1) THEN
+	BEGIN // Open
+		COPY - ~$uimenulibglobal("uibuffer")~ ~$uimenulibglobal("uibuffer")~
+			APPEND_FILE ~%filespec%~
+
+		// Extract comments
+		LAUNCH_ACTION_MACRO uimenuextractcomments
+
+		// Extract Lua code blocks
+		LAUNCH_ACTION_MACRO uimenuextractluablocks
+
+		// Extract menus
+		LAUNCH_ACTION_MACRO uimenuextractmenus
+
+		OUTER_SET $UIMenuIF("Succeeded") = 1
+	END ELSE 
+	BEGIN // Not Open
+		LOG ~In UIMenuAppendFile: UI.MENU not open~
+		OUTER_SET $UIMenuIF("Succeeded") = 0
+	END
+END
+
+/*******************************************************************************
+ * UIMenuGetMenu
+ *
+ * Copies the body of the menu whose name matches the value of
+ * $UIMenuIF("MenuName") to the string $UIMenuIF("Body").
+ *
+ * Sets $UIMenuIF("Succeeded") to 1 on success, 0 on error.
+ * On failure, sets $UIMenuIF("Body") to ~~
+ *
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuGetMenu 
+BEGIN
+	LOCAL_SPRINT tempstr ~~
+	LOCAL_SPRINT menuname $UIMenuIF("MenuName")
+
+	ACTION_IF ($uimenulibglobal("state") = 1) THEN
+	BEGIN // Open
+		ACTION_IF (VARIABLE_IS_SET $uimenulibglobal(~menus_%menuname%~)) THEN
+		BEGIN
+			OUTER_SPRINT $UIMenuIF("Body") $uimenulibglobal(~menus_%menuname%~)
+			OUTER_SET $UIMenuIF("Succeeded") = 1
+		END ELSE 
+		BEGIN // Invalid menu name
+			LOG ~In UIMenuGetMenu: Invalid Menu Name %menuname%~
+			OUTER_SPRINT $UIMenuIF("Body") ~~ // Bad menu name
+			OUTER_SET $UIMenuIF("Succeeded") = 0
+		END
+	END ELSE 
+	BEGIN // Not open
+		LOG ~In UIMenuGetMenu: UI.MENU not open~
+		OUTER_SPRINT $UIMenuIF("Body") ~~ 
+		OUTER_SET $UIMenuIF("Succeeded") = 0
+	END
+END
+
+/*******************************************************************************
+ * UIMenuUpdateMenu
+ *
+ * Updates/changes an existing menu definition.
+ * Set $UIMenuIF("MenuName") to the menu name, and $UIMenuIF("Body") to the menu
+ * definition text  
+ *
+ * Sets $UIMenuIF("Succeeded") to 1 on success, 0 on error.
+ *
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuUpdateMenu 
+BEGIN
+	LOCAL_SPRINT name $UIMenuIF("MenuName")
+	ACTION_IF ($uimenulibglobal("state") = 1) THEN
+	BEGIN // Open
+		ACTION_DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+		BEGIN
+			~menus~, ~%name%~ => $UIMenuIF("Body")
+		END
+		OUTER_SET $UIMenuIF("Succeeded") = 1
+	END ELSE 
+	BEGIN // Not open
+		LOG ~In UIMenuUpdateMenu: UI.MENU not open~
+		OUTER_SET $UIMenuIF("Succeeded") = 0
+	END	
+END
+
+/*******************************************************************************
+ * UIMenuReplaceMenu
+ *
+ * Replaces the existing definition for the menu named '$UIMenuIF("MenuName")'
+ * with the same-named menu definition extracted from the file 
+ * '$UIMenuIF("Filespec")'. Puts the new definiton text in $UIMenuIF("Body").
+ * Does not require subsequent call to UIMenuUpdateMenu.
+ *
+ * Properly extracts comments.
+ *
+ * Sets $UIMenuIF("Succeeded") to 1 on success, 0 on error.
+ * On failure, the existing definition is not changed and $UIMenuIF("Body") is
+ * set to ~~
+ *
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuReplaceMenu 
+BEGIN
+	LOCAL_SPRINT menuname $UIMenuIF("MenuName")
+	LOCAL_SPRINT filespec $UIMenuIF("Filespec")
+	LOCAL_SPRINT namevar ~menus_%menuname%~
+	LOCAL_SPRINT menumatch ~%MNAMEDPREFIX%%menuname%%MNAMEDSUFFIX%~
+	LOCAL_SPRINT target ~~
+	LOCAL_SET    found = 0
+
+	ACTION_IF ($uimenulibglobal("state") = 1) THEN
+	BEGIN // Open
+		ACTION_IF VARIABLE_IS_SET $uimenulibglobal("%namevar%") THEN
+		BEGIN // Valid menu name
+			// Get the contents of the file and extract comments
+			COPY - ~%filespec%~ ~$uimenulibglobal("uimenutransientlocal")~
+			LAUNCH_ACTION_MACRO uimenuextracttransientcomments
+
+			// Now extract the desired menu
+			COPY - ~$uimenulibglobal("uimenutransientlocal")~ ~$uimenulibglobal("uimenutransientlocal")~			
+				REPLACE_EVALUATE ~%menumatch%~ 
+				BEGIN
+					SPRINT target ~%MATCH0%~
+					SET found = 1
+				END
+				~~
+			ACTION_IF %found% THEN
+			BEGIN
+				ACTION_DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+				BEGIN
+					~menus~, ~%menuname%~ => ~%target%~
+				END
+				OUTER_SET $UIMenuIF("Succeeded") = 1
+			END ELSE 
+			BEGIN // Can't find named menu in file
+				LOG ~In UIMenuReplaceMenu: Can't find %menuname% in file~
+				OUTER_SET $UIMenuIF("Succeeded") = 0
+			END
+		END ELSE 
+		BEGIN // Invalid menu name
+			LOG ~In UIMenuReplaceMenu: %namevar% not in associative array~
+			OUTER_SET $UIMenuIF("Succeeded") = 0
+		END
+	END ELSE 
+	BEGIN // Not open
+		LOG ~In UIMenuReplaceMenu: UI.MENU not open~
+		OUTER_SET $UIMenuIF("Succeeded") = 0
+	END	
+	OUTER_SPRINT $UIMenuIF("Body") ~%target%~
+END
+
+/*******************************************************************************
+ * UIMenuReplaceMenuMixed
+ *
+ * Replaces the menu specified by UIMenuIF("MenuName") with the contents of the
+ * file specified in UIMenuIF("Filespec"). Unlike UIMenuReplaceMenu, this 
+ * function does not test that any menu definition in the file has the same name
+ * as the target menu. And, the file can contain menus, Lua code blocks, and
+ * comments, all of which will be inserted.
+ *
+ * The main purpose of this function is to replace a menu that does not have a
+ * Lua code block associated with it, with a menu and a Lua code block relevant
+ * to the new menu definition.
+ *
+ * An alternative use is to replace a menu definition with a new definition 
+ * having a different name - with the assumption that all references to the old
+ * menu name are taken care by other menu/Lua code patches. The associative
+ * array entry for the original menu name is cleared, and thus any references
+ * to it must be changed. This is a rather dangerous use of this macro - use 
+ * lots of care and testing if you need to do this. Do NOT use UIMenuUpdateMenu
+ * to change a menu's name. Doing so will result in the associative array tag
+ * not matching the menu name.
+ *
+ * Sets $UIMenuIF("Succeeded") to 1 on success, 0 on error.
+ * 
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuReplaceMenuMixed 
+BEGIN
+	LOCAL_SPRINT 	menuname $UIMenuIF("MenuName")
+	LOCAL_SPRINT 	filespec $UIMenuIF("Filespec")
+	LOCAL_SPRINT	tagstring ~%INMENUBASE%%menuname%~
+	LOCAL_SPRINT 	adder ~~
+	LOCAL_SET		found = 0
+
+	ACTION_IF ($uimenulibglobal("state") = 1) THEN
+	BEGIN // Open
+		// Read contents of filespec into adder
+		OUTER_SET found = SIZE_OF_FILE ~%filespec%~
+		COPY - ~%filespec%~ ~%filespec%~
+			READ_ASCII 0 adder (%found%)
+		BUT_ONLY_IF_IT_CHANGES
+		OUTER_SET found = 0 
+
+		// Read and replace MenuName tag with adder
+		COPY - ~$uimenulibglobal("uibuffer")~ ~$uimenulibglobal("uibuffer")~
+			REPLACE_EVALUATE ~^[%TAB% ]*%tagstring%[%TAB% ]*%MEOL%~
+			BEGIN
+				found = 1
+			END
+			~%adder%~
+
+		ACTION_IF found = 1 THEN			
+		BEGIN // Found
+			// Clear associative array entry
+			ACTION_DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+			BEGIN
+				~menus~,~%menuname%~ => ~~
+			END
+
+			// Update associative array from newly inserted uibuffer text
+			// Extract comments
+			LAUNCH_ACTION_MACRO uimenuextractcomments
+
+			// Extract Lua code blocks
+			LAUNCH_ACTION_MACRO uimenuextractluablocks
+
+			// Extract menus
+			LAUNCH_ACTION_MACRO uimenuextractmenus
+
+			OUTER_SET $UIMenuIF("Succeeded") = 1
+		END ELSE 
+		BEGIN // Not found - bad menu name
+			LOG ~In UIMenuReplaceMenuMixed: Cannot find %tagstring% in uibuffer~
+			OUTER_SET $UIMenuIF("Succeeded") = 0
+		END
+
+	END ELSE 
+	BEGIN // Not open
+		LOG ~In UIMenuReplaceMenuMixed: UI.MENU not open~
+		OUTER_SET $UIMenuIF("Succeeded") = 0
+	END	
+END
+
+/*******************************************************************************
+ * UIMenuAppendMenuElements
+ *
+ * Inserts the contents of the file $UIMenuIF("Filespec") just before the
+ * closing brace of the menu whose contents are passed in $UIMenuIF("Body"). The
+ * modified menu definition is returned in $UIMenuIF("Body").
+ *
+ * Extracts comments properly
+ *
+ * Does not update the associative array definition - that is left
+ * to the caller to do via a call to UIMenuUpdateMenu.
+ *
+ * Sets $UIMenuIF("Succeeded") to 1 on success, 0 on error.
+ *
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuAppendMenuElements
+BEGIN
+	LOCAL_SPRINT	tempstr $UIMenuIF("Body")
+	LOCAL_SPRINT 	filespec $UIMenuIF("Filespec")
+	LOCAL_SPRINT 	adder ~~
+	LOCAL_SET		found = 0
+	ACTION_IF ($uimenulibglobal("state") = 1) THEN
+	BEGIN // Open
+
+		// Get the contents of the file and extract comments
+		COPY - ~%filespec%~ ~$uimenulibglobal("uimenutransientlocal")~
+		LAUNCH_ACTION_MACRO uimenuextracttransientcomments
+
+		// Now put it into adder
+		OUTER_SET found = SIZE_OF_FILE ~$uimenulibglobal("uimenutransientlocal")~
+		COPY - ~$uimenulibglobal("uimenutransientlocal")~ ~$uimenulibglobal("uimenutransientlocal")~
+			READ_ASCII 0 adder (%found%)
+		OUTER_SET found = 0 
+
+		// Put current menu definiton into inline file
+		COPY - ~ToInlineTemplate~ ~$uimenulibglobal("uimenutransientlocal")~
+			REPLACE_EVALUATE ~dummy~ BEGIN END
+			~%tempstr%~
+		OUTER_SPRINT tempstr ~~
+
+		// Insert new code
+		COPY - ~$uimenulibglobal("uimenutransientlocal")~ ~$uimenulibglobal("uimenutransientlocal")~
+			REPLACE_EVALUATE ~\(%MMENUHEAD%\)\(%MMENUTAIL%\)~
+			BEGIN
+				SPRINT tempstr ~%MATCH1%%adder%%MATCH16%~
+				SET found = 1
+			END
+			~~
+
+		ACTION_IF found THEN
+		BEGIN
+			OUTER_SPRINT $UIMenuIF("Body") ~%tempstr%~
+			OUTER_SET $UIMenuIF("Succeeded") = 1
+		END ELSE
+
+		BEGIN // Not found
+			LOG ~In UIMenuAppendMenuElements: Failed to match menu definition~
+			OUTER_SET $UIMenuIF("Succeeded") = 0
+		END
+	END ELSE
+	
+	BEGIN // Not open
+		LOG ~In UIMenuAppendMenuElements: UI.MENU not open~
+		OUTER_SET $UIMenuIF("Succeeded") = 0
+	END	
+END
+
+/*******************************************************************************
+ * UIMenuGetMatchingLuaBlock
+ *
+ * Finds the first Lua code block that contains a match of the regular
+ * expression passed in $UIMenuIF("LuaRegex"). Copies the code to
+ * $UIMenuIF("Body"), and puts the index needed later for UIMenuUpdateLuaBlock
+ * in $UIMenuIF("LuaID")
+ *
+ * Sets $UIMenuIF("Succeeded") to 1 on success, 0 on error.
+ * On failure sets $UIMenuIF("Body") to ~~ and $UIMenuIF("LuaID") to -1
+ *
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuGetMatchingLuaBlock 
+BEGIN
+	LOCAL_SPRINT subexp $UIMenuIF("LuaRegex")
+	LOCAL_SPRINT regexp ~`[^`]*%subexp%[^`]*`.*%MEOL%~
+	LOCAL_SPRINT target ~~
+	LOCAL_SET id = (0 - 1)
+	LOCAL_SET counter = 0
+	LOCAL_SET found = 0
+
+	ACTION_IF ($uimenulibglobal("state") = 1) THEN
+	BEGIN // Open
+		OUTER_FOR(; (%found% = 0) AND (%counter% < $uimenulibglobal("luacount")); SET counter += 1) 
+		BEGIN
+			OUTER_SPRINT target $uimenulibglobal("luablocks_%INLUABASE%%counter%")
+			COPY - ~ToInlineTemplate~ ~$uimenulibglobal("uimenutransientlocal")~
+				REPLACE_EVALUATE ~dummy~ BEGIN END
+				~%target%~
+			
+			COPY - ~$uimenulibglobal("uimenutransientlocal")~ ~$uimenulibglobal("uimenutransientlocal")~
+				REPLACE_EVALUATE ~%regexp%~ 
+				BEGIN
+					SET found = 1
+					SET id = %counter%
+				END
+				~~
+		END
+		ACTION_IF found THEN
+		BEGIN
+			OUTER_SPRINT $UIMenuIF("Body") ~%target%~
+			OUTER_SET $UIMenuIF("Succeeded") = 1
+		END ELSE 
+		BEGIN			// Not found, fail
+			LOG ~In UIMenuGetMatchingLuaBlock: Unable to match %regexp%~
+			OUTER_SET $UIMenuIF("Succeeded") = 0
+			OUTER_SPRINT $UIMenuIF("Body") ~~
+		END
+
+		// Empty $uimenulibglobal("uimenutransientlocal")
+		COPY - ~EmptyInlineTemplate~ ~$uimenulibglobal("uimenutransientlocal")~
+
+	END ELSE 
+	BEGIN	// Not open, fail
+		LOG ~In UIMenuGetMatchingLuaBlock: UI.MENU not open~
+		OUTER_SET $UIMenuIF("Succeeded") = 0
+		OUTER_SPRINT $UIMenuIF("Body") ~~ 
+	END
+
+	OUTER_SET $UIMenuIF("LuaID") = %id%
+END
+
+/*******************************************************************************
+ * UIMenuUpdateLuaBlock
+ *
+ * Updates the Lua code block identified by $UIMenuIF("LuaID"). The ID was
+ * returned as a result of a prior call to UIMenuGetMatchingLuaBlock.
+ * 
+ * Sets $UIMenuIF("Succeeded") to 1 on success, 0 on error.
+ *
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuUpdateLuaBlock 
+BEGIN
+	LOCAL_SET idval = $UIMenuIF("LuaID")
+	LOCAL_SPRINT keyval ~%INLUABASE%%idval%~
+	ACTION_IF ($uimenulibglobal("state") = 1) THEN
+	BEGIN // Open
+		ACTION_DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+		BEGIN
+			~luablocks~,~%keyval%~ => $UIMenuIF("Body")
+		END
+		OUTER_SET $UIMenuIF("Succeeded") = 1
+	END ELSE 
+	BEGIN // Not open
+		LOG ~In UIMenuUpdateLuaBlock: UI.MENU not open~
+		OUTER_SET $UIMenuIF("Succeeded") = 0
+	END
+END
+
+/*******************************************************************************
+ * UIMenuReplaceLuaBlock
+ *
+ * Replaces the existing definition for the Lua code block identified by
+ * '$UIMenuIF("LuaID")' with the first encountered Lua code block definition
+ * found in the file '$UIMenuIF("Filespec")'. Puts the new definiton text in 
+ * $UIMenuIF("Body").
+ *
+ * Properly extracts comments.
+ *
+ * Sets $UIMenuIF("Succeeded") to 1 on success, 0 on error.
+ * On failure, the existing definition is not changed and $UIMenuIF("Body") is
+ * set to ~~
+ *
+ ******************************************************************************/
+DEFINE_ACTION_MACRO UIMenuReplaceLuaBlock 
+BEGIN
+	LOCAL_SET    blockid = $UIMenuIF("LuaID")
+	LOCAL_SPRINT filespec $UIMenuIF("Filespec")
+	LOCAL_SPRINT blockname ~%INLUABASE%%blockid%~
+	LOCAL_SPRINT namevar ~luablocks_%blockname%~
+	LOCAL_SPRINT target ~~
+	LOCAL_SET    found = 0
+
+	ACTION_IF ($uimenulibglobal("state") = 1) THEN
+	BEGIN // Open
+		ACTION_IF VARIABLE_IS_SET $uimenulibglobal("%namevar%") THEN
+		BEGIN
+			// Get the contents of the file and extract comments
+			COPY - ~%filespec%~ ~$uimenulibglobal("uimenutransientlocal")~
+			LAUNCH_ACTION_MACRO uimenuextracttransientcomments
+
+			// Now extract the code block
+			COPY - ~$uimenulibglobal("uimenutransientlocal")~ ~$uimenulibglobal("uimenutransientlocal")~
+				REPLACE_EVALUATE ~%MLUA%~ 
+				BEGIN
+					PATCH_IF found = 0 
+					BEGIN
+						SPRINT target ~%MATCH0%~
+						SET found = 1
+					END
+				END
+				~~
+			ACTION_IF %found% THEN
+			BEGIN
+				ACTION_DEFINE_ASSOCIATIVE_ARRAY uimenulibglobal 
+				BEGIN
+					~luablocks~, ~%blockname%~ => ~%target%~
+				END
+				OUTER_SET $UIMenuIF("Succeeded") = 1	
+			END ELSE 
+			BEGIN // Unable to find Lua block in file 
+				LOG ~In UIMenuReplaceLuaBlock: Unable to find Lua block in %filespec%~
+				OUTER_SET $UIMenuIF("Succeeded") = 0
+			END
+		END ELSE 
+		BEGIN // Invalid LUAID
+			LOG ~In UIMenuReplaceLuaBlock: Invalid Lua block ID %blockid%~
+			OUTER_SET $UIMenuIF("Succeeded") = 0
+		END
+	END ELSE 
+	BEGIN // UI.MENU not open
+		LOG ~In UIMenuReplaceLuaBlock: UI.MENU not open~
+		OUTER_SET $UIMenuIF("Succeeded") = 0
+	END
+	OUTER_SPRINT $UIMenuIF("Body") ~%target%~
+END
+

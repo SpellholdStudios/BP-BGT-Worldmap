@@ -1,8 +1,25 @@
 /*
- * BG1 Platform-Abstraction Layer
+ *  BG1 Platform-Abstraction Library
+ *  https://github.com/FredrikLindgren/bg1pal
+ *  Copyright (C) 2015  Fredrik Lindgren, a.k.a., Wisp
  *
- * Author: Fredrik Lindgren, a.k.a., Wisp
- * Licence: GNU General Public License, v3 or later
+ *  This script is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version. The following additional
+ *  permissions apply:
+ *
+ *  Section 4: Conveying Verbatim Copies
+ *  You are only required to retain any existing notices of copyright
+ *  and absence of warranty.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this script.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
@@ -10,7 +27,7 @@
  * Public interface
  ********************************************************************/
 
-OUTER_SPRINT fl#bg1pal#version "1.1.0"
+OUTER_SPRINT fl#bg1pal#version "1.2.1"
 
 DEFINE_ACTION_FUNCTION fl#bg1pal
   STR_VAR
@@ -25,26 +42,30 @@ BEGIN
   OUTER_SET BGT = 0
   OUTER_SET TUTU = 0
   OUTER_SET BGEE = 0
+  OUTER_SET EET = 0
   ACTION_IF GAME_IS ~bgt~ BEGIN
     OUTER_SET BGT = 1
   END ELSE ACTION_IF GAME_IS ~tutu tutu_totsc~ BEGIN
     OUTER_SET TUTU = 1
   END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
     OUTER_SET BGEE = 1
+  END ELSE ACTION_IF GAME_IS ~eet~ BEGIN
+    OUTER_SET EET = 1
   END
-  ACTION_IF (BGT OR TUTU OR BGEE) AND
+
+  ACTION_IF "%file%" STR_CMP "" BEGIN
+    ACTION_TO_LOWER file
+    LAF fl#bg1pal#partition_file STR_VAR file RET res ext END
+  END ELSE BEGIN
+    ACTION_TO_LOWER resource
+    ACTION_TO_LOWER type
+    OUTER_SPRINT res "%resource%"
+    OUTER_SPRINT ext "%type%"
+  END
+
+  ACTION_IF (BGT OR TUTU OR BGEE OR EET) AND
             ("%file%" STR_CMP "" OR "%resource%" STR_CMP "")
   BEGIN
-    ACTION_IF "%file%" STR_CMP "" BEGIN
-      ACTION_TO_LOWER file
-      LAF fl#bg1pal#partition_file STR_VAR file RET res ext END
-    END ELSE BEGIN
-      ACTION_TO_LOWER resource
-      ACTION_TO_LOWER type
-      OUTER_SPRINT res "%resource%"
-      OUTER_SPRINT ext "%type%"
-    END
-
     ACTION_IF BGT BEGIN
       LAF fl#bg1pal#bgt STR_VAR res ext RET res END
     END
@@ -54,10 +75,14 @@ BEGIN
     ACTION_IF BGEE BEGIN
       LAF fl#bg1pal#bgee STR_VAR res ext RET res ext END
     END
-    OUTER_SPRINT file "%res%.%ext%"
-    OUTER_SPRINT resource "%res%"
-    OUTER_SPRINT type "%ext%"
+    ACTION_IF EET BEGIN
+      LAF fl#bg1pal#eet STR_VAR res ext RET res ext END
+    END
   END
+
+  OUTER_SPRINT file "%res%.%ext%"
+  OUTER_SPRINT resource "%res%"
+  OUTER_SPRINT type "%ext%"
 END
 
 DEFINE_PATCH_FUNCTION fl#bg1pal
@@ -79,10 +104,187 @@ END
  * Private interface
  ********************************************************************/
 
+DEFINE_ACTION_FUNCTION fl#bg1pal#bgt
+  STR_VAR
+    res = ""
+    ext = ""
+  RET
+    res
+BEGIN
+  ACTION_MATCH "%ext%" WITH
+    are bcs mos wed tis WHEN VARIABLE_IS_SET $fl#bg1pal#bgt#area("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#bgt#area("%res%")
+    END
+    bam WHEN VARIABLE_IS_SET $fl#bg1pal#bgt#bam("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#bgt#bam("%res%")
+    END
+    bcs WHEN VARIABLE_IS_SET $fl#bg1pal#bgt#bcs("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#bgt#bcs("%res%")
+    END
+    bmp WHEN "%res%" STRING_MATCHES_REGEXP "^ar[0-9]+\(ht\|lm\|sr\)$" = 0
+    BEGIN
+      LAF fl#bg1pal#bgt#area_bmp STR_VAR res RET res END
+    END
+    cre WHEN VARIABLE_IS_SET $fl#bg1pal#bgt#cre("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#bgt#cre("%res%")
+    END
+    dlg WHEN VARIABLE_IS_SET $fl#bg1pal#bgt#dlg("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#bgt#dlg("%res%")
+    END
+    itm WHEN VARIABLE_IS_SET $fl#bg1pal#bgt#itm("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#bgt#itm("%res%")
+    END
+    mve WHEN VARIABLE_IS_SET $fl#bg1pal#bgt#mve("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#bgt#mve("%res%")
+    END
+    spl WHEN VARIABLE_IS_SET $fl#bg1pal#bgt#spl("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#bgt#spl("%res%")
+    END
+    wav WHEN VARIABLE_IS_SET $fl#bg1pal#bgt#wav("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#bgt#wav("%res%")
+    END
+    DEFAULT
+  END
+END
+
+DEFINE_ACTION_FUNCTION fl#bg1pal#tutu
+  STR_VAR
+    res = ""
+    ext = ""
+  RET
+    res
+BEGIN
+  ACTION_MATCH "%ext%" WITH
+    are mos wed WHEN "%res%" STRING_MATCHES_REGEXP "^ar[0-9]+N?$" = 0
+    BEGIN
+      LAF fl#bg1pal#tutu#fw STR_VAR res RET res END
+    END
+    bmp WHEN "%res%" STRING_MATCHES_REGEXP "^ar[0-9]+\(ht\|lm\|sr\)$" = 0
+    BEGIN
+      LAF fl#bg1pal#tutu#fw STR_VAR res RET res END
+    END
+    bmp WHEN "%res%" STRING_MATCHES_REGEXP "^[a-z0-9]+\(l\|s\)$" = 0
+    BEGIN
+      LAF fl#bg1pal#part_portrait_suffix STR_VAR res RET res suffix END
+      ACTION_IF VARIABLE_IS_SET $fl#bg1pal#tutu#portraits("%res%") BEGIN
+        OUTER_SPRINT res $fl#bg1pal#tutu#portraits("%res%")
+        OUTER_SPRINT res "%res%%suffix%"
+      END
+    END
+    itm WHEN !VARIABLE_IS_SET $fl#bg1pal#tutu#itm("%res%")
+    BEGIN
+      LAF fl#bg1pal#tutu#underscore STR_VAR res RET res END
+    END
+    mos WHEN "%res%" STRING_EQUAL_CASE "worldmap" // compat array instead?
+    BEGIN
+      LAF fl#bg1pal#tutu#underscore STR_VAR res RET res END
+    END
+    bam bcs cre dlg mve sto tis wav
+    BEGIN
+      LAF fl#bg1pal#tutu#underscore STR_VAR res RET res END
+    END
+    DEFAULT
+  END
+END
+
+DEFINE_ACTION_FUNCTION fl#bg1pal#bgee
+  STR_VAR
+    res = ""
+    ext = ""
+  RET
+    res
+    ext
+BEGIN
+  ACTION_MATCH "%ext%" WITH
+    mve
+    BEGIN
+      OUTER_SPRINT ext wbm
+    END
+    DEFAULT
+  END
+END
+
+DEFINE_ACTION_FUNCTION fl#bg1pal#eet
+  STR_VAR
+    res = ""
+    ext = ""
+  RET
+    res
+    ext
+BEGIN
+  ACTION_MATCH "%ext%" WITH
+    2da WHEN VARIABLE_IS_SET $fl#bg1pal#eet#2da("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#eet#2da("%res%")
+    END
+    are mos wed bcs tis WHEN "%res%" STRING_MATCHES_REGEXP "^ar[0-9]+N?$" = 0
+    BEGIN
+      LAF fl#bg1pal#eet#bg STR_VAR res RET res END
+    END
+    bam WHEN VARIABLE_IS_SET $fl#bg1pal#eet#bam("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#eet#bam("%res%")
+    END
+    bcs WHEN VARIABLE_IS_SET $fl#bg1pal#eet#bcs("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#eet#bcs("%res%")
+    END
+    bmp WHEN "%res%" STRING_MATCHES_REGEXP "^ar[0-9]+\(ht\|lm\|sr\)$" = 0
+    BEGIN
+      LAF fl#bg1pal#eet#bg STR_VAR res RET res END
+    END
+    cre WHEN VARIABLE_IS_SET $fl#bg1pal#eet#cre("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#eet#cre("%res%")
+    END
+    dlg WHEN VARIABLE_IS_SET $fl#bg1pal#eet#dlg("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#eet#dlg("%res%")
+    END
+    itm WHEN VARIABLE_IS_SET $fl#bg1pal#eet#itm("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#eet#itm("%res%")
+    END
+    mve
+    BEGIN
+      ACTION_IF VARIABLE_IS_SET $fl#bg1pal#eet#mve("%res%") BEGIN
+        OUTER_SPRINT res $fl#bg1pal#eet#mve("%res%")
+      END
+      OUTER_SPRINT ext wbm
+    END
+    spl WHEN VARIABLE_IS_SET $fl#bg1pal#eet#spl("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#eet#spl("%res%")
+    END
+    sto WHEN VARIABLE_IS_SET $fl#bg1pal#eet#sto("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#eet#sto("%res%")
+    END
+    wav WHEN VARIABLE_IS_SET $fl#bg1pal#eet#wav("%res%")
+    BEGIN
+      OUTER_SPRINT res $fl#bg1pal#eet#wav("%res%")
+    END
+    DEFAULT
+  END
+END
+
+/*********************************************************************
+ * BGT auxiliary definitions
+ ********************************************************************/
+
 /*
  * Lookup table for BG1 areas by BGT
  */
-ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_area BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt#area BEGIN
   ar0002 => ara002
   ar0004 => ara004
   ar0005 => ara005
@@ -103,6 +305,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_area BEGIN
   ar0020 => ara020
   ar0021 => ara021
   ar0100 => ar7200
+  ar0100n => ar7200n
   ar0101 => ar7201
   ar0102 => ar7202
   ar0103 => ar7203
@@ -171,10 +374,12 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_area BEGIN
   ar0170 => ar7270
   ar0171 => ar7271
   ar0200 => ar7300
+  ar0200n => ar7300n
   ar0224 => ar7324
   ar0225 => ar7325
   ar0226 => ar7326
   ar0300 => ar7400
+  ar0300n => ar7400n
   ar0302 => ar7402
   ar0303 => ar7403
   ar0304 => ar7404
@@ -202,6 +407,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_area BEGIN
   ar0515 => ard015
   ar0516 => ard016
   ar0600 => ar7600
+  ar0600n => ar0600n
   ar0601 => ar7601
   ar0602 => ar7602
   ar0603 => ar7603
@@ -221,6 +427,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_area BEGIN
   ar0620 => ar7620
   ar0621 => ar7621
   ar0700 => ar7700
+  ar0700n => ar7700n
   ar0702 => ar7702
   ar0703 => ar7703
   ar0704 => ar7704
@@ -247,6 +454,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_area BEGIN
   ar0725 => ar7725
   ar0726 => ar7726
   ar0800 => ar7800
+  ar0800n => ar7800n
   ar0801 => ar7801
   ar0802 => ar7802
   ar0803 => ar7803
@@ -275,6 +483,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_area BEGIN
   ar1009 => aru009
   ar1010 => aru010
   ar1100 => ar8000
+  ar1100n => ar8000n
   ar1101 => ar8001
   ar1102 => ar8002
   ar1103 => ar8003
@@ -293,6 +502,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_area BEGIN
   ar1116 => ar8016
   ar1117 => ar8017
   ar1200 => ar8100
+  ar1200n => ar8100n
   ar1201 => ar8101
   ar1202 => ar8102
   ar1203 => ar8103
@@ -309,6 +519,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_area BEGIN
   ar1214 => ar8114
   ar1215 => ar8115
   ar1300 => ar8200
+  ar1300n => ar8200n
   ar1301 => ar8201
   ar1302 => ar8202
   ar1303 => ar8203
@@ -560,7 +771,7 @@ END
 /*
  * BG1 BAMs which are renamed by BGT
  */
-ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_bam BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt#bam BEGIN
   isw1h18 => isw1hbal
   isw2h07 => bgisw2h7
 END
@@ -569,7 +780,7 @@ END
  * BG1 scripts which are renamed by BGT
  * BGT renames the bg2 resource "mage2" into "bg2mage2"
  */
-ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_bcs BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt#bcs BEGIN
   ctdc => bgctdc
   ctmm => bgctmm
   gtmm => bggtmm
@@ -586,7 +797,7 @@ END
 /*
  * BG1 creatures which are renamed by BGT
  */
-ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_cre BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt#cre BEGIN
   calaha   => bgcalaha
   carbos   => bgcarbos
   ftown2   => bgftown2
@@ -636,7 +847,7 @@ END
 /*
  * BG1 dialogues which are renamed by BGT
  */
-ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_dlg BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt#dlg BEGIN
   bjahei => bjaheir
   bvicon => bviconi
   imoenp => imoen2p
@@ -676,7 +887,7 @@ END
 /*
  * BG1 items which are renamed by BGT
  */
-ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_itm BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt#itm BEGIN
   helm15 => bghelm15
   misc56 => bgmisc56
   misc79 => bgmisc79
@@ -695,14 +906,14 @@ END
  * BG1 movies which are renamed by BGT
  * BGT also renamed BG2 files intro15f.mve and intro15f.2da into soaintro.*
  */
-ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_mve BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt#mve BEGIN
   intro => bgintro
 END
 
 /*
  * BG1 spells which are renamed by BGT
  */
-ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_spl BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt#spl BEGIN
   spin996 => bgin996
   sppr982 => bgpr982
   spwi003 => bgwi003
@@ -715,7 +926,7 @@ END
 /*
  * BG1 sounds which are renamed by BGT
  */
-ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_wav BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt#wav BEGIN
   black01 => blackl01
   black02 => blackl02
   black03 => blackl03
@@ -836,11 +1047,37 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#bgt_compat_wav BEGIN
   umber06 => pumber06
 END
 
+DEFINE_ACTION_FUNCTION fl#bg1pal#bgt#area_bmp
+  STR_VAR
+    res = ""
+  RET
+    res
+BEGIN
+  ACTION_IF STRING_LENGTH "%res%" = 8 BEGIN
+    OUTER_INNER_PATCH "%res%" BEGIN
+      READ_ASCII 0 head (6)
+    END
+    OUTER_INNER_PATCH "%res%" BEGIN
+      READ_ASCII 6 tail (2)
+    END
+    ACTION_IF VARIABLE_IS_SET $fl#bg1pal#bgt#area("%head%") BEGIN
+      OUTER_SPRINT head $fl#bg1pal#bgt#area("%head%")
+    END
+    OUTER_SPRINT res "%head%%tail%"
+  END ELSE BEGIN
+    WARN "WARNING: %res% does not appear to be the name of a valid height, light or search map for Baldur's Gate Trilogy"
+  END
+END
+
+/*********************************************************************
+ * Tutu auxiliary definitions
+ ********************************************************************/
+
 /*
  * Items which do not use the conventional underscore in Tutu
  * unique items: macamul1, macring1
  */
-ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#tutu_compat_itm BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#tutu#itm BEGIN
   misc07 => 1 //Hardcoded item (gold)
   ring25 => 1 //Needs to be recognisable to BG2 (Koveras' ring)
   misc47 => 1 //Needs to be recognisable to BG2 (Golden Pantaloons)
@@ -861,7 +1098,41 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#tutu_compat_itm BEGIN
   //chan07 => 1 //_chan07 is used in EasyTutu
 END
 
-DEFINE_ACTION_FUNCTION fl#bg1pal#underscore
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#tutu#portraits BEGIN
+  safana  => _afana
+  kagain  => _again
+  jaheira => _aheira
+  faldorn => _aldorn
+  man1    => _an1
+  man2    => _an2
+  xan     => _an
+  garrick => _arrick
+  edwin   => _dwin
+  gendwrf => _endwrf
+  genmelf => _enmelf
+  geslick => _eslick
+  khalid  => _halid
+  shartel => _hartel
+  tiax    => _iax
+  viconia => _iconia
+  minsc   => _insc
+  kivan   => _ivan
+  ajantis => _jantis
+  skie    => _kie
+  eldoth  => _ldoth
+  alora   => _lora
+  imoen   => _moen
+  woman1  => _oman1
+  woman2  => _oman2
+  montar  => _ontar
+  coran   => _oran
+  branwe  => _ranwe
+  quayle  => _uayle
+  dynahe  => _ynahe
+  xzar    => _zar
+END
+
+DEFINE_ACTION_FUNCTION fl#bg1pal#tutu#underscore
   STR_VAR
     res = ""
   RET
@@ -876,7 +1147,7 @@ BEGIN
   END
 END
 
-DEFINE_ACTION_FUNCTION fl#bg1pal#fw
+DEFINE_ACTION_FUNCTION fl#bg1pal#tutu#fw
   STR_VAR
     res = ""
   RET
@@ -887,27 +1158,565 @@ BEGIN
   END
 END
 
-DEFINE_ACTION_FUNCTION fl#bg1pal#bgt_area_bmp
+/*********************************************************************
+ * EET auxiliary definitions
+ ********************************************************************/
+
+/*
+ * BG1 areas (are/mos/wed/bcs/tis) by EET
+ */
+DEFINE_ACTION_FUNCTION fl#bg1pal#eet#bg
   STR_VAR
     res = ""
   RET
     res
 BEGIN
-  ACTION_IF STRING_LENGTH "%res%" = 8 BEGIN
-    OUTER_INNER_PATCH "%res%" BEGIN
-      READ_ASCII 0 head (6)
-    END
-    OUTER_INNER_PATCH "%res%" BEGIN
-      READ_ASCII 6 tail (2)
-    END
-    ACTION_IF VARIABLE_IS_SET $fl#bg1pal#bgt_compat_area("%head%") BEGIN
-      OUTER_SPRINT head $fl#bg1pal#bgt_compat_area("%head%")
-    END
-    OUTER_SPRINT res "%head%%tail%"
-  END ELSE BEGIN
-    WARN "WARNING: %res% does not appear to be the name of a valid height, light or search map for Baldur's Gate Trilogy"
+  OUTER_INNER_PATCH_SAVE res "%res%" BEGIN
+    WRITE_ASCII 0 bg
   END
 END
+
+/*
+ * BG1 2DAs which are renamed by EET
+ */
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#eet#2da BEGIN
+  chptxt0 => chptxt0_
+  chptxt1 => chptxt1_
+  chptxt2 => chptxt2_
+  chptxt3 => chptxt3_
+  chptxt4 => chptxt4_
+  chptxt5 => chptxt5_
+  chptxt6 => chptxt6_
+  chptxt7 => chptxt7_
+  chptxt8 => chptxt8_
+  drmtxt2 => drmtxt2_
+  drmtxt3 => drmtxt3_
+  drmtxt4 => drmtxt4_
+  drmtxt5 => drmtxt5_
+  drmtxt6 => drmtxt6_
+  drmtxt7 => drmtxt7_
+END
+
+/*
+ * BG1 BAMs which are renamed by EET
+ */
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#eet#bam BEGIN
+  imisc13 => imisc13_
+  isw1h18 => isw1h18_
+  isw2h17 => isw2h17_
+END
+
+/*
+ * BG1 scripts which are renamed by EET
+ * EET renames the bg2 resource "mage2" into "bg2mage2"
+ */
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#eet#bcs BEGIN
+  branwen => branwen_
+  edwin => edwin_
+  faldorn => faldorn_
+  garrick => garrick_
+  guard2 => guard2_
+  guard3 => guard3_
+  imoen => imoen_
+  jaheira => jaheira_
+  minsc => minsc_
+  sarevok => sarevok_
+  sendai => sendai_
+  skie => skie_
+  tanari => tanari_
+  viconia => viconia_
+  dorn => dorn_
+  neera => neera_
+  rasaad => rasaad_
+  imoend => imoen2d
+  jaheid => jaheirad
+END
+
+/*
+ * BG1 creatures which are renamed by EET
+ */
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#eet#cre BEGIN
+  calaha   => calaha_
+  carbos   => carbos_
+  ftown2   => ftown2_
+  ftown3   => ftown3_
+  ftown4   => ftown4_
+  gorf     => gorf_
+  igibber  => igibber_
+  imoen6   => imoen6_
+  knight1  => knight1_
+  mtown2   => mtown2_
+  mtown3   => mtown3_
+  mtown4   => mtown4_
+  mtown5   => mtown5_
+  neb      => neb_
+  quayle   => quayle_
+  roger    => roger_
+  sendai   => sendai_
+  shank    => shank_
+  shop01   => shop01_
+  shop02   => shop02_
+  shop03   => shop03_
+  shop04   => shop04_
+  shop05   => shop05_
+  shop06   => shop06_
+  shop07   => shop07_
+  shop08   => shop08_
+  skelwa   => skelwa_
+  skelwa02 => skelwa2_
+  skelwa03 => skelwa3_
+  stalke   => stalke_
+  tarnor   => tarnor_
+  tazok    => tazok_
+  towncr   => towncr_
+  viconi6  => viconi6_
+  willia   => willia_
+  william  => william_
+  xan      => xan_
+  xzar     => xzar_
+  famcat   => famcat_
+  famdust  => famdust_
+  famfair  => famfair_
+  famfer   => famfer_
+  famimp   => famimp_
+  fampsd   => fampsd_
+  famquas  => famquas_
+  famrab   => famrab_
+END
+
+/*
+ * BG1 dialogues which are renamed by EET
+ */
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#eet#dlg BEGIN
+  calaha  => calaha_
+  carbos  => carbos_
+  edwin   => edwin_
+  edwinj  => edwinj_
+  edwinp  => edwinp_
+  franco  => franco_
+  ftown2  => ftown2_
+  ftown3  => ftown3_
+  ftown4  => ftown4_
+  imoen2  => imoen2_
+  imoenp  => imoenp_
+  knight  => knight_
+  minscj  => minscj_
+  minscp  => minscp_
+  mtown2  => mtown2_
+  mtown3  => mtown3_
+  mtown4  => mtown4_
+  mtown5  => mtown5_
+  neb     => neb_
+  quayle  => quayle_
+  roger   => roger_
+  sendai  => sendai_
+  shank   => shank_
+  shop01  => shop01_
+  shop02  => shop02_
+  shop03  => shop03_
+  shop04  => shop04_
+  shop05  => shop05_
+  shop06  => shop06_
+  shop07  => shop07_
+  shop08  => shop08_
+  shop09  => shop09_
+  tarnor  => tarnor_
+  tazok   => tazok_
+  viconi  => viconi_
+  willia  => willia_
+  dorn    => dorn_
+  dornj   => dornj_
+  dornp   => dornp_
+  neera   => neera_
+  neeraj  => neeraj_
+  neerap  => neerap_
+  rasaad  => rasaad_
+  rasaadj => rasaadj_
+  rasaadp => rasaadp_
+  famil1  => famil1_
+  famil2  => famil2_
+  famil3  => famil3_
+  bimoen  => bimoen2
+  bjahei  => bjaheir
+  bvicon  => bviconi
+END
+
+/*
+ * BG1 items which are renamed by EET
+ */
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#eet#itm BEGIN
+  helm15  => helm15_
+  misc56  => misc56_
+  misc79  => misc79_
+  misc89  => misc89_
+  ring08  => ring08_
+  scrl1v  => scrl1v_
+  staf04  => staf04_
+  sw2h07  => sw2h07_
+  wand12  => wand12_
+  bag02   => bag02_
+  bag02h  => bag02h_
+  bag03   => bag03_
+  bag03h  => bag03h_
+  bag06   => bag06_
+  bag06c  => bag06c_
+  famcat  => famcat_
+  famdust => famdust_
+  famfair => famfair_
+  famfer  => famfer_
+  famimp  => famimp_
+  fampsd  => fampsd_
+  famquas => famquas_
+  famrab  => famrab_
+  slng03  => slng05   // Not renamed, Arla's Dragonbane is slng03 in BG1 and slng05 in BG2/BGT (you find slng05 in Durlag's Tower in BGT)
+END
+
+/*
+ * BG1 movies which are renamed by EET
+ */
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#eet#mve BEGIN
+  intro => introbg1
+  credits => credits_
+  endcrdit => endcrdi_
+  blackpit => blackpi_
+END
+
+/*
+ * BG1 spells which are renamed by EET
+ */
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#eet#spl BEGIN
+  spin115 => bgin115
+  spin996 => bgin996
+  //sppr982 => bgpr982
+  //spwi003 => bgwi003
+  spwi924 => bgwi924
+  spwi925 => bgwi925
+  spwi927 => bgwi927
+  spwi930 => bpwi930
+  spwi947 => bpwi947
+END
+
+/*
+ * BG1 stores which are renamed by EET
+ */
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#eet#sto BEGIN
+  bag02  => bag02_
+  bag02h => bag02h_
+  bag03  => bag03_
+  bag03h => bag03h_
+  bag06  => bag06_
+  bag06c => bag06c_
+END
+
+/*
+ * BG1 sounds which are renamed by EET
+ */
+ACTION_DEFINE_ASSOCIATIVE_ARRAY fl#bg1pal#eet#wav BEGIN
+  black01  => black01_
+  black02  => black02_
+  black03  => black03_
+  black04  => black04_
+  edwin01  => edwin01_
+  edwin02  => edwin02_
+  edwin03  => edwin03_
+  edwin04  => edwin04_
+  edwin05  => edwin05_
+  edwin06  => edwin06_
+  edwin07  => edwin07_
+  edwin08  => edwin08_
+  edwin09  => edwin09_
+  edwin10  => edwin10_
+  edwin11  => edwin11_
+  edwin17  => edwin17_
+  edwin18  => edwin18_
+  edwin19  => edwin19_
+  edwin20  => edwin20_
+  edwin21  => edwin21_
+  edwin22  => edwin22_
+  edwin23  => edwin23_
+  edwin24  => edwin24_
+  edwin25  => edwin25_
+  edwin26  => edwin26_
+  edwin27  => edwin27_
+  edwin28  => edwin28_
+  edwin29  => edwin29_
+  edwin30  => edwin30_
+  edwin31  => edwin31_
+  edwin32  => edwin32_
+  edwin33  => edwin33_
+  edwin34  => edwin34_
+  edwin35  => edwin35_
+  edwin36  => edwin36_
+  edwin37  => edwin37_
+  edwin38  => edwin38_
+  edwin39  => edwin39_
+  edwin40  => edwin40_
+  edwin41  => edwin41_
+  edwin42  => edwin42_
+  edwin43  => edwin43_
+  edwin45  => edwin45_
+  edwin46  => edwin46_
+  edwin47  => edwin47_
+  edwin48  => edwin48_
+  imoen01  => imoen01_
+  imoen02  => imoen02_
+  imoen03  => imoen03_
+  imoen04  => imoen04_
+  imoen05  => imoen05_
+  imoen06  => imoen06_
+  imoen07  => imoen07_
+  imoen08  => imoen08_
+  imoen09  => imoen09_
+  imoen10  => imoen10_
+  imoen11  => imoen11_
+  imoen12  => imoen12_
+  imoen13  => imoen13_
+  imoen14  => imoen14_
+  imoen15  => imoen15_
+  imoen16  => imoen16_
+  imoen17  => imoen17_
+  imoen18  => imoen18_
+  imoen19  => imoen19_
+  imoen20  => imoen20_
+  imoen21  => imoen21_
+  imoen22  => imoen22_
+  imoen23  => imoen23_
+  imoen24  => imoen24_
+  imoen25  => imoen25_
+  imoen26  => imoen26_
+  imoen27  => imoen27_
+  imoen28  => imoen28_
+  imoen30  => imoen30_
+  minsc01  => minsc01_
+  minsc02  => minsc02_
+  minsc03  => minsc03_
+  minsc04  => minsc04_
+  minsc05  => minsc05_
+  minsc06  => minsc06_
+  minsc07  => minsc07_
+  minsc08  => minsc08_
+  minsc09  => minsc09_
+  minsc10  => minsc10_
+  minsc11  => minsc11_
+  minsc12  => minsc12_
+  minsc14  => minsc14_
+  minsc16  => minsc16_
+  minsc17  => minsc17_
+  minsc18  => minsc18_
+  minsc19  => minsc19_
+  minsc20  => minsc20_
+  minsc21  => minsc21_
+  minsc22  => minsc22_
+  minsc23  => minsc23_
+  minsc24  => minsc24_
+  minsc25  => minsc25_
+  minsc26  => minsc26_
+  minsc27  => minsc27_
+  minsc28  => minsc28_
+  minsc29  => minsc29_
+  minsc30  => minsc30_
+  minsc31  => minsc31_
+  minsc32  => minsc32_
+  minsc33  => minsc33_
+  minsc34  => minsc34_
+  minsc35  => minsc35_
+  minsc36  => minsc36_
+  minsc37  => minsc37_
+  minsc38  => minsc38_
+  minsc39  => minsc39_
+  minsc40  => minsc40_
+  minsc41  => minsc41_
+  umber01  => umber01_
+  umber02  => umber02_
+  umber05  => umber05_
+  umber06  => umber06_
+  mainf03  => bgmainfa
+  mainf08  => bgmainfb
+  mainf09  => bgmainfc
+  mainf10  => bgmainfd
+  mainf11  => bgmainfe
+  mainf17  => bgmainff
+  mainf18  => bgmainfg
+  mainf19  => bgmainfh
+  mainf20  => bgmainfi
+  mainf21  => bgmainfj
+  mainf22  => bgmainfk
+  mainf38  => bgmainfl
+  mainf39  => bgmainfm
+  mainm03  => bgmainma
+  mainm08  => bgmainmb
+  mainm09  => bgmainmc
+  mainm10  => bgmainmd
+  mainm11  => bgmainme
+  mainm17  => bgmainmf
+  mainm18  => bgmainmg
+  mainm19  => bgmainmh
+  mainm20  => bgmainmi
+  mainm21  => bgmainmj
+  mainm22  => bgmainmk
+  mainm38  => bgmainml
+  mainm39  => bgmainmm
+  female1a => bgfeml1a
+  female1b => bgfeml1b
+  female1c => bgfeml1c
+  female1d => bgfeml1d
+  female1e => bgfeml1e
+  female1f => bgfeml1f
+  female1g => bgfeml1g
+  female1h => bgfeml1h
+  female1i => bgfeml1i
+  female1j => bgfeml1j
+  female1k => bgfeml1k
+  female1l => bgfeml1l
+  female1m => bgfeml1m
+  female2a => bgfeml2a
+  female2b => bgfeml2b
+  female2c => bgfeml2c
+  female2d => bgfeml2d
+  female2e => bgfeml2e
+  female2f => bgfeml2f
+  female2g => bgfeml2g
+  female2h => bgfeml2h
+  female2i => bgfeml2i
+  female2j => bgfeml2j
+  female2k => bgfeml2k
+  female2l => bgfeml2l
+  female2m => bgfeml2m
+  female3a => bgfeml3a
+  female3b => bgfeml3b
+  female3c => bgfeml3c
+  female3d => bgfeml3d
+  female3e => bgfeml3e
+  female3f => bgfeml3f
+  female3g => bgfeml3g
+  female3h => bgfeml3h
+  female3i => bgfeml3i
+  female3j => bgfeml3j
+  female3k => bgfeml3k
+  female3l => bgfeml3l
+  female3m => bgfeml3m
+  female4a => bgfeml4a
+  female4b => bgfeml4b
+  female4c => bgfeml4c
+  female4d => bgfeml4d
+  female4e => bgfeml4e
+  female4f => bgfeml4f
+  female4g => bgfeml4g
+  female4h => bgfeml4h
+  female4i => bgfeml4i
+  female4j => bgfeml4j
+  female4k => bgfeml4k
+  female4l => bgfeml4l
+  female4m => bgfeml4m
+  female5a => bgfeml5a
+  female5b => bgfeml5b
+  female5c => bgfeml5c
+  female5d => bgfeml5d
+  female5e => bgfeml5e
+  female5f => bgfeml5f
+  female5g => bgfeml5g
+  female5h => bgfeml5h
+  female5i => bgfeml5i
+  female5j => bgfeml5j
+  female5k => bgfeml5k
+  female5l => bgfeml5l
+  female5m => bgfeml5m
+  female6a => bgfeml6a
+  female6b => bgfeml6b
+  female6c => bgfeml6c
+  female6d => bgfeml6d
+  female6e => bgfeml6e
+  female6f => bgfeml6f
+  female6g => bgfeml6g
+  female6h => bgfeml6h
+  female6i => bgfeml6i
+  female6j => bgfeml6j
+  female6k => bgfeml6k
+  female6l => bgfeml6l
+  female6m => bgfeml6m
+  male1a   => bgmale1a
+  male1b   => bgmale1b
+  male1c   => bgmale1c
+  male1d   => bgmale1d
+  male1e   => bgmale1e
+  male1f   => bgmale1f
+  male1g   => bgmale1g
+  male1h   => bgmale1h
+  male1i   => bgmale1i
+  male1j   => bgmale1j
+  male1k   => bgmale1k
+  male1l   => bgmale1l
+  male1m   => bgmale1m
+  male2a   => bgmale2a
+  male2b   => bgmale2b
+  male2c   => bgmale2c
+  male2d   => bgmale2d
+  male2e   => bgmale2e
+  male2f   => bgmale2f
+  male2g   => bgmale2g
+  male2h   => bgmale2h
+  male2i   => bgmale2i
+  male2j   => bgmale2j
+  male2k   => bgmale2k
+  male2l   => bgmale2l
+  male2m   => bgmale2m
+  male3a   => bgmale3a
+  male3b   => bgmale3b
+  male3c   => bgmale3c
+  male3d   => bgmale3d
+  male3e   => bgmale3e
+  male3f   => bgmale3f
+  male3g   => bgmale3g
+  male3h   => bgmale3h
+  male3i   => bgmale3i
+  male3j   => bgmale3j
+  male3k   => bgmale3k
+  male3l   => bgmale3l
+  male3m   => bgmale3m
+  male4a   => bgmale4a
+  male4b   => bgmale4b
+  male4c   => bgmale4c
+  male4d   => bgmale4d
+  male4e   => bgmale4e
+  male4f   => bgmale4f
+  male4g   => bgmale4g
+  male4h   => bgmale4h
+  male4i   => bgmale4i
+  male4j   => bgmale4j
+  male4k   => bgmale4k
+  male4l   => bgmale4l
+  male4m   => bgmale4m
+  male5a   => bgmale5a
+  male5b   => bgmale5b
+  male5c   => bgmale5c
+  male5d   => bgmale5d
+  male5e   => bgmale5e
+  male5f   => bgmale5f
+  male5g   => bgmale5g
+  male5h   => bgmale5h
+  male5i   => bgmale5i
+  male5j   => bgmale5j
+  male5k   => bgmale5k
+  male5l   => bgmale5l
+  male5m   => bgmale5m
+  male6a   => bgmale6a
+  male6b   => bgmale6b
+  male6c   => bgmale6c
+  male6d   => bgmale6d
+  male6e   => bgmale6e
+  male6f   => bgmale6f
+  male6g   => bgmale6g
+  male6h   => bgmale6h
+  male6i   => bgmale6i
+  male6j   => bgmale6j
+  male6k   => bgmale6k
+  male6l   => bgmale6l
+  male6m   => bgmale6m
+END
+
+/*********************************************************************
+ * General
+ ********************************************************************/
 
 DEFINE_ACTION_FUNCTION fl#bg1pal#partition_file
   STR_VAR
@@ -918,12 +1727,12 @@ DEFINE_ACTION_FUNCTION fl#bg1pal#partition_file
 BEGIN
   OUTER_SET slength = STRING_LENGTH "%file%"
   ACTION_IF slength > 0 BEGIN
-    OUTER_SET length = RINDEX ("." file)
+    OUTER_SET length = RINDEX ("\." "%file%")
     ACTION_IF length > 0 BEGIN
       LAF SUBSTRING
         INT_VAR
           start = 0
-          length = slength - length - 1
+          length = length
         STR_VAR
           string = EVAL "%file%"
         RET
@@ -931,8 +1740,8 @@ BEGIN
       END
       LAF SUBSTRING
         INT_VAR
-          start = slength - length
-          length
+          start = length + 1
+          length = slength - length - 1
         STR_VAR
           string = EVAL "%file%"
         RET
@@ -946,103 +1755,15 @@ BEGIN
   END
 END
 
-DEFINE_ACTION_FUNCTION fl#bg1pal#bgt
+DEFINE_ACTION_FUNCTION fl#bg1pal#part_portrait_suffix
   STR_VAR
     res = ""
-    ext = ""
   RET
     res
+    suffix
 BEGIN
-  ACTION_MATCH "%ext%" WITH
-    are mos wed WHEN VARIABLE_IS_SET $fl#bg1pal#bgt_compat_area("%res%")
-    BEGIN
-      OUTER_SPRINT res $fl#bg1pal#bgt_compat_area("%res%")
-    END
-    bam WHEN VARIABLE_IS_SET $fl#bg1pal#bgt_compat_bam("%res%")
-    BEGIN
-      OUTER_SPRINT res $fl#bg1pal#bgt_compat_bam("%res%")
-    END
-    bcs WHEN VARIABLE_IS_SET $fl#bg1pal#bgt_compat_bcs("%res%")
-    BEGIN
-      OUTER_SPRINT res $fl#bg1pal#bgt_compat_bcs("%res%")
-    END
-    bmp WHEN "%res%" STRING_MATCHES_REGEXP "^ar[0-9]+\(ht\|lm\|sr\)$" = 0
-    BEGIN
-      LAF fl#bg1pal#bgt_area_bmp STR_VAR res RET res END
-    END
-    cre WHEN VARIABLE_IS_SET $fl#bg1pal#bgt_compat_cre("%res%")
-    BEGIN
-      OUTER_SPRINT res $fl#bg1pal#bgt_compat_cre("%res%")
-    END
-    dlg WHEN VARIABLE_IS_SET $fl#bg1pal#bgt_compat_dlg("%res%")
-    BEGIN
-      OUTER_SPRINT res $fl#bg1pal#bgt_compat_dlg("%res%")
-    END
-    itm WHEN VARIABLE_IS_SET $fl#bg1pal#bgt_compat_itm("%res%")
-    BEGIN
-      OUTER_SPRINT res $fl#bg1pal#bgt_compat_itm("%res%")
-    END
-    mve WHEN VARIABLE_IS_SET $fl#bg1pal#bgt_compat_mve("%res%")
-    BEGIN
-      OUTER_SPRINT res $fl#bg1pal#bgt_compat_mve("%res%")
-    END
-    spl WHEN VARIABLE_IS_SET $fl#bg1pal#bgt_compat_spl("%res%")
-    BEGIN
-      OUTER_SPRINT res $fl#bg1pal#bgt_compat_spl("%res%")
-    END
-    wav WHEN VARIABLE_IS_SET $fl#bg1pal#bgt_compat_wav("%res%")
-    BEGIN
-      OUTER_SPRINT res $fl#bg1pal#bgt_compat_wav("%res%")
-    END
-    DEFAULT
-  END
-END
-
-DEFINE_ACTION_FUNCTION fl#bg1pal#tutu
-  STR_VAR
-    res = ""
-    ext = ""
-  RET
-    res
-BEGIN
-  ACTION_MATCH "%ext%" WITH
-    are mos wed WHEN "%res%" STRING_MATCHES_REGEXP "^ar[0-9]+$" = 0
-    BEGIN
-      LAF fl#bg1pal#fw STR_VAR res RET res END
-    END
-    bmp WHEN "%res%" STRING_MATCHES_REGEXP "^ar[0-9]+\(ht\|lm\|sr\)$" = 0
-    BEGIN
-      LAF fl#bg1pal#fw STR_VAR res RET res END
-    END
-    itm WHEN !VARIABLE_IS_SET $fl#bg1pal#tutu_compat_itm("%res%")
-    BEGIN
-      LAF fl#bg1pal#underscore STR_VAR res RET res END
-    END
-    mos WHEN "%res%" STRING_EQUAL_CASE "worldmap" // compat array instead?
-    BEGIN
-      LAF fl#bg1pal#underscore STR_VAR res RET res END
-    END
-    bam bcs bmp cre dlg mve sto tis wav
-    BEGIN
-      LAF fl#bg1pal#underscore STR_VAR res RET res END
-    END
-    DEFAULT
-  END
-END
-
-DEFINE_ACTION_FUNCTION fl#bg1pal#bgee
-  STR_VAR
-    res = ""
-    ext = ""
-  RET
-    res
-    ext
-BEGIN
-  ACTION_MATCH "%ext%" WITH
-    mve
-    BEGIN
-      OUTER_SPRINT ext wbm
-    END
-    DEFAULT
+  OUTER_INNER_PATCH "%res%" BEGIN
+    READ_ASCII 0 res (BUFFER_LENGTH - 1)
+    READ_ASCII BUFFER_LENGTH - 1 suffix (1)
   END
 END

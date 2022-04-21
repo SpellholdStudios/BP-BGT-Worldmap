@@ -1,0 +1,71 @@
+menu
+{
+	name "WORLD_MAP"
+	align left top
+	label
+	{
+		name "backgrd_label"
+		area 0 64 662 100
+		rectangle 4
+		rectangle opacity 150
+		text lua "getWorldmapAreaSize()"
+	}
+	text
+	{
+		name "backgrd_text"
+		area 701 72 184 74
+		text "WORLD_MAP_TITLE"
+		text style "label"
+	}
+	button
+	{
+		name "backgrd_button"
+		area 1106 88 200 44
+		bam GUIOSTLM
+		sequence 0
+		text style "button"
+		text "AREA_MAP_TITLE"
+		action
+		"
+			worldMapScreen:OnCancelButtonClick()
+		"
+	}
+	label
+	{
+		name "map_backgrd"
+		area 0 220 2048 1536
+		rectangle 4
+		rectangle opacity 150
+	}
+	map
+	{
+		name "map_painting"
+		area 20 240 2008 1496
+		worldmap
+		action
+		"
+			worldMapScreen:OnMapMouseDown(eventXCoord,eventYCoord)
+		"
+		actionDbl
+		"
+			worldMapScreen:TravelToSelected()
+		"
+		actionDrag
+		"
+			worldMapScreen:OnMapMouseMove(eventXCoord,eventYCoord)
+		"
+	}
+	button
+	{
+		name "travel_button"
+		area 1803 1690 205 44
+		enabled "worldMapScreen:IsTravelButtonVisible()"
+		bam GUIOSTUM
+		text "TRAVEL_BUTTON"
+		text style "button"
+		clickable lua "worldMapScreen:IsTravelButtonClickable()"
+		action "
+			worldMapScreen:TravelToSelected()
+		"	
+	}
+}

@@ -37,6 +37,9 @@ END
 //"Update" the area info with stuff we provide
 //This really should be done as patches insead of overwriting all the area info
 ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_tables BEGIN
+  BG0300 => eet
+  YS0360 => fft
+  ACIL01 => Silverrealms
   AR6526 => BGT
   AR4220 => SOS
   DD3300 => TDD
@@ -56,7 +59,6 @@ ACTION_PHP_EACH mod_tables AS area => table BEGIN
     BUT_ONLY
   END
 END
-
 
 ////////////////////////////////////////////
 //Mod-added links
