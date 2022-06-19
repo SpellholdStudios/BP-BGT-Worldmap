@@ -1,6 +1,8 @@
 // -*- coding: cp1250 -*-
 
 @SOS_780001  =  "Chionthar"
+@SOS_780002  =  "Soubar"
+@SOS_780003  =  "Warownia###Lyrara"
 
 @TDD_779001  =  "Wężowa###knieja"
 @TDD_779002  =  "Trollowe###góry"

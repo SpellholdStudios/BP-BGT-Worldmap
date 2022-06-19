@@ -1,7 +1,8 @@
 // -*- coding: cp1252 -*-
 
 @SOS_780001  =  "Fiume###Chionthar"
-
+@SOS_780002  =  "Soubar"
+@SOS_780003  =  "Fortezza###di###Lyrar"
 
 @TDD_779001   = "Bosco###del###Serpente"
 @TDD_779002   = "Montagne###dei###Troll"

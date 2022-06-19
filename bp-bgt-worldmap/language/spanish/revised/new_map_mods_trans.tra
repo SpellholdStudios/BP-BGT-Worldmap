@@ -1,6 +1,8 @@
 // -*- coding: cp1252 -*-
 
 @SOS_780001  =  "Río###Khionzhar"
+@SOS_780002  =  "Soubar"
+@SOS_780003  =  "Fortaleza###de###Lyrar"
 
 @TDD_779001   = "Bosques###de###la###Serpiente"
 @TDD_779002   = "Montañas###Troll"
