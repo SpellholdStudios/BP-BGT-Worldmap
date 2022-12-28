@@ -14,4 +14,12 @@ RA4500      RA4500   RA4500     4      10        3120   4070   @ROT_785010  @ROT
 RA4700      RA4700   RA4700     4      11        2580   4140   @ROT_785011  @ROT_785111  N        //Gaidan´s Castle
 RA4900      RA4900   RA4900     4      14        1770   2880   @ROT_785012  @ROT_785112  N        //Cave
 RA5700      RA5700   RA5700     4      9         3040   3920   @ROT_785013  @ROT_785113  N        //Razor´s Hideout
-RR0044      RR0044   RR0044     4      130        1630   3010   @ROT_785014  @ROT_785114  N        //Slave Route
+RR0044      RR0044   RR0044     4      16        1630   3010   @ROT_785014  @ROT_785114  N        //Slave Route
+
+RA5100      RA5100   RA5100     4      25        850    550    @ROT_785015  N            N        //Bremen
+RA5400      RA5400   RA5400     2      47        775    475    @ROT_785016  N            N        //The Waypoint
+RA5401      RA5401   RA5401     2      64        805    375    @ROT_785017  N            N        //Mountain Reaches
+RA5600      RA5600   RA5600     2      63        600    425    @ROT_785018  N            N        //Hermit's Outpost
+RA5601      RA5601   RA5601     2      83        500    500    @ROT_785019  N            N        //Ice Temple
+RA5412      RA5412   RA5412     2      69        1025   300    @ROT_785020  N            N        //Aerie of Dragons
+RA5416      RA5416   RA5416     2      66        975    400    @ROT_785021  N            N        //Maze
