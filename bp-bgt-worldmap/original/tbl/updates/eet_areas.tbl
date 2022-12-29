@@ -32,7 +32,7 @@ BG2800     BG2800     BG2800     2          47         1795       2392       @BG
 BG2900     BG2900     BG2900     2          48         2000       2372       @BG2900    @BG2900    N        //Larswood
 BG3000     BG3000     BG3000     2          54         2100       2355       @BG3000    @BG3000    N        //Spider Wood (The East Wood)
 BG3100     BG3100     BG3100     2          51         1382       2555       @BG3100    @BG3100    N        //Shipwreck's Coast (North Sword Coast)
-BG3200     BG3200     BG3200     2          58         1700       2515       @BG3200    @BG3200    N        //High Hedge
+BG3200     BG3200     BG3200     2          58         1700       2500       @BG3200    @BG3200    N        //High Hedge
 BG3300     BG3300     BG3300     3          53         1820       2475       @BG3300    @BG3300    N        //Beregost
 BG3400     BG3400     BG3400     2          84         1910       2475       @BG3400    @BG3400    N        //Temple of Lathander (Beregost Temple)
 BG3500     BG3500     BG3500     2          83         2150       2450       @BG3500    @BG3500    N        //Sharp Teeth Plain (Mutamin's Garden/Basilisk Monument)
