@@ -39,6 +39,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_areas BEGIN
   AR01PB => NTotSC
   BH0100 => SoBH
   G3G12A => G3
+  L#ND01 => SE // Southern Edge
 END
 
 ACTION_PHP_EACH mod_areas AS area => table BEGIN
