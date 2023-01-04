@@ -8,7 +8,7 @@ ALWAYS
   INCLUDE ~bp-bgt-worldmap/lib/lib.tpa~
   INCLUDE ~bp-bgt-worldmap/lib/fl#bg1pal.tpa~
 
-  OUTER_SET debug_reveal = 1
+  OUTER_SET debug_reveal = 0
 
 <<<<<<<< .../fl#inline/newlines
 %LNL%

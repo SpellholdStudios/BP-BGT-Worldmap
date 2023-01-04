@@ -50,6 +50,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_tables BEGIN
   BH0100 => SoBH
   g3g12a => G3Anniversary
   F_7777 => DS
+  L#ND01 => SouthernEdge
 END
 
 ACTION_PHP_EACH mod_tables AS area => table BEGIN
