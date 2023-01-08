@@ -54,6 +54,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_tables BEGIN
   // Patches for below mods can be removed after an update of the corresponding mod with correct map icons
   L#ND01 => SouthernEdge
   L#NI01 => TangledOakIsle
+  L#AS01 => AlabasterSands
 END
 
 ACTION_PHP_EACH mod_tables AS area => table BEGIN
