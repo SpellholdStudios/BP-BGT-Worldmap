@@ -204,6 +204,13 @@ A: Either start a new game or use the savegame converter.
 
 ## <a name="versions" id="versions"></a>Versions History
 
+##### Under development version
+
+- Updated mods to use dedicated map icons:
+	- Innershade
+
+##
+
 ##### Version 11.0.0 (27 January 2023)
 
 - New component for worldmap UI
