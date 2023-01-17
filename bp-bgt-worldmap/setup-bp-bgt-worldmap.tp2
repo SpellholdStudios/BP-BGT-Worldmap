@@ -280,7 +280,7 @@ END
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 BEGIN ~BG2 style~  //Larger worldmap screen window for the worldmap menu.ui
-DESIGNATED 4
+DESIGNATED 4 LABEL ~bg2ee_ui~
 REQUIRE_PREDICATE ENGINE_IS ~bgee bg2ee~ ~This component is not available for non EE-type games~ // It can be ported, however
 SUBCOMPONENT ~Larger worldmap screen window for the worldmap menu.ui~
 INCLUDE ~%MOD_FOLDER%/lib/ACuimenulib.tph~
