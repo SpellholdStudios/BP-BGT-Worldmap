@@ -292,14 +292,8 @@ INCLUDE ~%MOD_FOLDER%/lib/install_ui.tpa~
 BEGIN ~Dragonspear style~  //Larger worldmap screen window for the worldmap menu.ui
 DESIGNATED 5 LABEL ~dragonspear_ui_eet_gui~
 REQUIRE_PREDICATE ENGINE_IS ~bgee bg2ee~ ~This component is not available for non EE-type games~ // It can be ported, however
-//REQUIRE_COMPONENT "EET_GUI/EET_GUI.TP2" "6" ~You must install 'EET alternatives GUI -> Siege of Dragonspear'~ 
 SUBCOMPONENT ~Larger worldmap screen window for the worldmap menu.ui~
-ACTION_IF MOD_IS_INSTALLED "EET_GUI/EET_GUI.TP2" "0" OR MOD_IS_INSTALLED "DRAGONSPEAR_UI++/DRAGONSPEAR_UI++.TP2" "1" BEGIN
-	INCLUDE ~%MOD_FOLDER%/lib/ACuimenulib.tph~
-	OUTER_SPRINT menufolder ~%MOD_FOLDER%/UI/Dragonspear~
-	INCLUDE ~%MOD_FOLDER%/lib/install_ui.tpa~
-	COPY ~%menufolder%~ ~override~
-END ELSE BEGIN
-	FAIL ~You must install 'EET alternatives GUI -> Siege of Dragonspear' or  'Dragonspear_UI++'~
-END
-	
+INCLUDE ~%MOD_FOLDER%/lib/ACuimenulib.tph~
+OUTER_SPRINT menufolder ~%MOD_FOLDER%/UI/Dragonspear~
+INCLUDE ~%MOD_FOLDER%/lib/install_ui.tpa~
+COPY ~%menufolder%~ ~override~

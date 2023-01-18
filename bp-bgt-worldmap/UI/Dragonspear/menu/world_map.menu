@@ -138,12 +138,20 @@ menu
 		name "backgrd_text"
 		align center center
 	}
+	label
+	{
+		name "traveltext"
+		area 0 725 3840 355
+		enabled "worldMapScreen:IsTravelButtonVisible()"
+		mosaic 'dswmpbg2'
+		align bottom left
+	}
 	button
 	{
 		name "travel_button"
 		area 783 715 230 40
 		enabled "worldMapScreen:IsTravelButtonVisible()"
-		bam GUIBUTMT
+		bam DSBUT
 		text "TRAVEL_BUTTON"
 		text style "button"
 		clickable lua "worldMapScreen:IsTravelButtonClickable()"
