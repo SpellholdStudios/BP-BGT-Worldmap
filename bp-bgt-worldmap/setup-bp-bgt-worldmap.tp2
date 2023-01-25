@@ -279,85 +279,21 @@ END
 /////                                                  \\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
-BEGIN ~Larger worldmap screen window for the worldmap menu.ui~  //Larger worldmap screen window for the worldmap menu.ui
-DESIGNATED 4
+BEGIN ~BG2 style~  //Larger worldmap screen window for the worldmap menu.ui
+DESIGNATED 4 LABEL ~bg2ee_ui~
 REQUIRE_PREDICATE ENGINE_IS ~bgee bg2ee~ ~This component is not available for non EE-type games~ // It can be ported, however
+SUBCOMPONENT ~Larger worldmap screen window for the worldmap menu.ui~
 INCLUDE ~%MOD_FOLDER%/lib/ACuimenulib.tph~
-
-<<<<<<<< .../EmptyLuaFile
->>>>>>>>
-OUTER_SPRINT lua ~`~
-
-// Open UI.MENU abstraction
-LOG ~Opening UI.MENU~
-SILENT
-LAUNCH_ACTION_MACRO UIMenuOpen
-ACTION_IF NOT $UIMenuIF("Succeeded") THEN
-BEGIN
-	FAIL ~Failure attempting to open UI.MENU~
-END
+OUTER_SPRINT menufolder ~%MOD_FOLDER%/UI/BG2~
+INCLUDE ~%MOD_FOLDER%/lib/install_ui.tpa~
+//COPY ~%menufolder%~ ~override~
 
 
-// Patch WORLD_MAP
-LOG ~Patching WORLD_MAP menu~
-SILENT
-
-OUTER_SPRINT $UIMenuIF("MenuName") ~WORLD_MAP~
-OUTER_SPRINT $UIMenuIF("Body") ~~
-LAUNCH_ACTION_MACRO UIMenuGetMenu
-ACTION_IF NOT $UIMenuIF("Succeeded") THEN
-BEGIN
-	FAIL ~Unable to get WORLD_MAP menu~
-END
-
-OUTER_SPRINT luablock "singleClickTravel = Infinity_GetINIValue('Game Options', 'Single Click Travel', 0) ~= 0"
-OUTER_SPRINT $UIMenuIF("LuaRegex") ~%luablock%~
-LAUNCH_ACTION_MACRO UIMenuGetMatchingLuaBlock
-LOG ~Replacing WORLD_MAP lua block~
-OUTER_SPRINT test $UIMenuIF("LuaID")
-PRINT ~luaID: %test%~
-ACTION_IF $UIMenuIF("LuaID")>= 0 BEGIN
-	OUTER_SET found = SIZE_OF_FILE ~%MOD_FOLDER%/MENU/world_map.lua~
-	COPY - ~%MOD_FOLDER%/MENU/world_map.lua~ ~tmp.lua~
-		READ_ASCII 0 new_luablock (%found%-1)
-	COPY ~.../EmptyLuaFile~ ~%MOD_FOLDER%/MENU/new.lua~
-	APPEND_OUTER ~%MOD_FOLDER%/MENU/new.lua~ ~%lua%%LNL%%luablock%%LNL%%new_luablock%%LNL%%lua%~
-	OUTER_SPRINT $UIMenuIF("Filespec") ~%MOD_FOLDER%/MENU/new.lua~
-	OUTER_SPRINT test $UIMenuIF("LuaID")
-	LAUNCH_ACTION_MACRO UIMenuReplaceLuaBlock
-	ACTION_IF NOT $UIMenuIF("Succeeded") THEN
-	BEGIN
-		FAIL ~Unable to replace WORLD_MAP lua block~
-	END
-	OUTER_SPRINT $UIMenuIF("Filespec") ~%MOD_FOLDER%/MENU/world_map.menu~
-	LAUNCH_ACTION_MACRO UIMenuReplaceMenu
-	ACTION_IF NOT $UIMenuIF("Succeeded") THEN
-	BEGIN
-		FAIL ~Unable to replace WORLD_MAP menu~
-	END
-END ELSE BEGIN
-	OUTER_SET found = SIZE_OF_FILE ~%MOD_FOLDER%/MENU/world_map.lua~
-	COPY - ~%MOD_FOLDER%/MENU/world_map.lua~ ~tmp.lua~
-		READ_ASCII 0 new_luablock (%found%-1)
-	OUTER_SET found = SIZE_OF_FILE ~%MOD_FOLDER%/MENU/world_map.menu~
-	COPY - ~%MOD_FOLDER%/MENU/world_map.menu~ ~tmp.menu~
-		READ_ASCII 0 new_menublock (%found%)
-	COPY ~.../EmptyLuaFile~ ~%MOD_FOLDER%/MENU/new.menu~
-	APPEND_OUTER ~%MOD_FOLDER%/MENU/new.menu~ ~%lua%%WNL%%new_luablock%%WNL%%lua%%WNL%%new_menublock%~
-	
-	OUTER_SPRINT $UIMenuIF("Filespec") ~%MOD_FOLDER%/MENU/new.menu~
-	LAUNCH_ACTION_MACRO UIMenuReplaceMenuMixed
-	ACTION_IF NOT $UIMenuIF("Succeeded") THEN
-	BEGIN
-		FAIL ~Unable to replace WORLD_MAP menu~
-	END
-END
-
-// All done - close up
-LOG ~Closing UI.MENU~
-SILENT
-LAUNCH_ACTION_MACRO UIMenuClose
-ACTION_IF NOT $UIMenuIF("Succeeded") THEN
-BEGIN
-	FAIL ~Failure attempting to close UI.MENU~
-END
+BEGIN ~Dragonspear style~  //Larger worldmap screen window for the worldmap menu.ui
+DESIGNATED 5 LABEL ~dragonspear_ui_eet_gui~
+REQUIRE_PREDICATE ENGINE_IS ~bgee bg2ee~ ~This component is not available for non EE-type games~ // It can be ported, however
+SUBCOMPONENT ~Larger worldmap screen window for the worldmap menu.ui~
+INCLUDE ~%MOD_FOLDER%/lib/ACuimenulib.tph~
+OUTER_SPRINT menufolder ~%MOD_FOLDER%/UI/Dragonspear~
+INCLUDE ~%MOD_FOLDER%/lib/install_ui.tpa~
+COPY ~%menufolder%~ ~override~

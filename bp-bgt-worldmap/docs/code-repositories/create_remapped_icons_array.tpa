@@ -1,0 +1,29 @@
+DEFINE_ACTION_FUNCTION ~CREATE_REMAPPED_ICONS~ 
+	INT_VAR
+	verbose = 0
+	new_icon_index = ~new_icon_index~
+	STR_VAR
+	path_to_areas = ~~    // full path to the text file containing your areas data, e.g. ~mymod/tbl/areas.tbl~
+	RET_ARRAY
+	remapped_icons
+BEGIN
+	COPY - ~%path_to_areas%~ ~.../areas.tbl~
+		//PRETTY_PRINT_2DA
+		REPLACE_TEXTUALLY ~%WNL%~ ~%LNL%~
+		REPLACE_TEXTUALLY ~//.*$~ ~~
+		READ_2DA_ENTRIES_NOW areas_2da 10
+		FOR (i = 1; i < areas_2da; i = i + 1) BEGIN
+			READ_2DA_ENTRY_FORMER areas_2da i 0 "short_name"
+			PATCH_IF FILE_EXISTS_IN_GAME ~%short_name%.are~ BEGIN
+				READ_2DA_ENTRY_FORMER areas_2da i 4 "bam_anim_old"
+				PATCH_IF (NOT VARIABLE_IS_SET $remapped_icons("%bam_anim_old%")) BEGIN
+					DEFINE_ASSOCIATIVE_ARRAY remapped_icons BEGIN ~%bam_anim_old%~ => ~%new_icon_index%~ END
+					SET new_icon_index = new_icon_index + 1
+				END
+			END
+		END
+		PATCH_IF (verbose = 1) BEGIN
+			PATCH_PRINT ~remapped_icons: old => new~
+			PHP_EACH remapped_icons AS bam => num BEGIN PATCH_PRINT ~                %bam% => %num%~ END
+		END
+END
