@@ -151,7 +151,7 @@ This component converts old Savegames (No "*New Game*" needed).
 
 **4. Worldmap UI**<br />
 
-This component adds two worldmap ui designs (Only for EE).
+This component adds two worldmap UI designs (Only for EE).
 1. BG2EE design
 2. Dragonspear UI design
 
@@ -208,17 +208,35 @@ A: Either start a new game or use the savegame converter.
 
 ##### Version 10.2.7 (25 January 2023)
 
-- Added new icons
+- Added new icons to BPBGTMAP.BAM file
 - BPBGTMAP.BAM v1 and v2 has same number of icons
-- new worldmap ui 1. BG2EE design   2. Dragonspear UI design
-- worldmap ui automatically scale with the scale_ui option
-- EET and BPBGT-Worldmap has the same icon sequence (modder's notes)
-- added under bp-bgt-worldmap\docs a small modders tutorial (Modder's Notes)
+- New component for worldmap UI
+	1. BG2EE design
+	2. Dragonspear UI design
+- Worldmap UI automatically scale with the scale_ui option
+- EET and BPBGT-Worldmap has the same icon sequence (Modder's notes)
+- Added under bp-bgt-worldmap\docs a small modders tutorial (Modder's Notes)
+- Added new areas (Soubar and Lyrar's Hold) for Shadows over Soubar modification
+- Added new areas (7 locations from Icewind Dale) for Region of Terror modification
+- Updated NTotSC dedicated map icon of Northern Citadel
+- Updated Southern Edge and Tangled Oak mods to use dedicated map icon
+- Polish translation update
+- Russian translation update
 
+##
+
+##### Version 10.2.6 (23 December 2020)
+
+- added new bpbgtmap.BAM for bgt and ee that includes BST Mapicon (on slot 29 resp 28 if counted from 0).
+- added "changelog_v10-2-4_and higher.txt" to the main mod folder.
+
+##
 
 ##### Version 10.2.5 (11 March 2020)
 
 - Compatibility with 'Sensible Entrance Points' from Tweaks Anthology.
+
+##
 
 ##### Version 10.2.4 (7 January 2020)
 
@@ -228,6 +246,8 @@ A: Either start a new game or use the savegame converter.
 - renamed folder to "bp-bgt-worldmap".
 - moved setup-bp-bgt-worldmap.tp2 inside mod folder.
 - added bp-bgt-worldmap.ini with mod info meta data.
+
+## 
 
 ##### Version 10.2.3 (26 September 2018)
 
