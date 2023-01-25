@@ -206,7 +206,7 @@ A: Either start a new game or use the savegame converter.
 
 ## <a name="versions" id="versions"></a>Versions History
 
-##### Version 10.2.6 (25 January 2023)
+##### Version 10.2.7 (25 January 2023)
 
 - Added new icons
 - BPBGTMAP.BAM v1 and v2 has same number of icons
