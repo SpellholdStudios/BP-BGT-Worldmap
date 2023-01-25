@@ -149,6 +149,12 @@ This component converts old Savegames (No "*New Game*" needed).
 :warning: If you un-install the mod and you wish to keep using your existing saved-games, you need to run the savegame converter **after** the un-installation.
 <div align="right"><a href="#top">Back to top</a></div>
 
+**4. Worldmap UI**<br />
+
+This component adds two worldmap ui designs (Only for EE).
+1. BG2EE design
+2. Dragonspear UI design
+
 
 <hr>
 
@@ -169,7 +175,7 @@ A: Either start a new game or use the savegame converter.
 ## <a name="credits" id="credits"></a>Credits and Acknowledgements
 
 #### Painters: Yacomo, Weigo </span>
-#### Coders: King Diamond, Weigo, Erebusant
+#### Coders: King Diamond, Weigo, Erebusant, Wisp
 #### Support: Erebusant
 
 ## 
@@ -199,6 +205,16 @@ A: Either start a new game or use the savegame converter.
 
 
 ## <a name="versions" id="versions"></a>Versions History
+
+##### Version 10.2.6 (25 January 2023)
+
+- Added new icons
+- BPBGTMAP.BAM v1 and v2 has same number of icons
+- new worldmap ui 1. BG2EE design   2. Dragonspear UI design
+- worldmap ui automatically scale with the scale_ui option
+- EET and BPBGT-Worldmap has the same icon sequence (modder's notes)
+- added under bp-bgt-worldmap\docs a small modders tutorial (Modder's Notes)
+
 
 ##### Version 10.2.5 (11 March 2020)
 
