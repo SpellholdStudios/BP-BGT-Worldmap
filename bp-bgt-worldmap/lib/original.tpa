@@ -52,6 +52,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_tables BEGIN
   F_7777 => DS
 
   // Patches for below mods can be removed after an update of the corresponding mod with correct map icons
+  ARLDV1 => TotDG // Tales of the Deep Gardens
   L#ND01 => SouthernEdge
   L#NI01 => TangledOakIsle
   L#AS01 => AlabasterSands
