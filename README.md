@@ -218,8 +218,12 @@ A: Either start a new game or use the savegame converter.
 - Added under bp-bgt-worldmap\docs a small modders tutorial (Modder's Notes)
 - Added new areas (Soubar and Lyrar's Hold) for Shadows over Soubar modification
 - Added new areas (7 locations from Icewind Dale) for Region of Terror modification
-- Updated NTotSC dedicated map icon of Northern Citadel
-- Updated Southern Edge and Tangled Oak mods to use dedicated map icon
+- Updated mods to use dedicated map icons:
+	- NTotSC (Northern Citadel)
+	- Southern Edge
+	- Tangled Oak
+	- Tales of the Deep Garden
+	- Alabaster Sands
 - Polish translation update
 - Russian translation update
 
