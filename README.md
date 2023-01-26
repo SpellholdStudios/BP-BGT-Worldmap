@@ -206,7 +206,7 @@ A: Either start a new game or use the savegame converter.
 
 ## <a name="versions" id="versions"></a>Versions History
 
-##### Version 10.2.7 (25 January 2023)
+##### Version 11.0.0 (Upcoming version...)
 
 - Added new icons to BPBGTMAP.BAM file
 - BPBGTMAP.BAM v1 and v2 has same number of icons
@@ -216,6 +216,7 @@ A: Either start a new game or use the savegame converter.
 - Worldmap UI automatically scale with the scale_ui option
 - EET and BPBGT-Worldmap has the same icon sequence (Modder's notes)
 - Added under bp-bgt-worldmap\docs a small modders tutorial (Modder's Notes)
+- Added river to the map image to better fit SoD original map
 - Added new areas (Soubar and Lyrar's Hold) for Shadows over Soubar modification
 - Added new areas (7 locations from Icewind Dale) for Region of Terror modification
 - Updated mods to use dedicated map icons:
