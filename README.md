@@ -213,7 +213,7 @@ A: Either start a new game or use the savegame converter.
 	2. Dragonspear UI design
 - Worldmap UI automatically scale with the scale_ui option
 - Added new icons to BPBGTMAP.BAM file
-- BPBGTMAP.BAM v1 and v2 has same number of icons
+- BPBGTMAP.BAM v1 and v2 has the same number of icons
 - EET and BP-BGT-Worldmap has the same icon sequence (Modder's notes)
 - Added under bp-bgt-worldmap\docs a small modders tutorial (Modder's Notes)
 - Added river to the map image to better fit SoD original map

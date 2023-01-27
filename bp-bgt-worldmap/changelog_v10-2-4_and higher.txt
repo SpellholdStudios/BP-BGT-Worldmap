@@ -1,5 +1,26 @@
 Changelog:
 
+Version 11.0.0
+- New component for worldmap UI
+	1. BG2EE design
+	2. Dragonspear UI design
+- Worldmap UI automatically scale with the scale_ui option
+- Added new icons to BPBGTMAP.BAM file
+- BPBGTMAP.BAM v1 and v2 has the same number of icons
+- EET and BP-BGT-Worldmap has the same icon sequence (Modder's notes)
+- Added under bp-bgt-worldmap\docs a small modders tutorial (Modder's Notes)
+- Added river to the map image to better fit SoD original map
+- Added new areas (Soubar and Lyrar's Hold) for Shadows over Soubar modification
+- Added new areas (7 locations from Icewind Dale) for Region of Terror modification
+- Updated mods to use dedicated map icons:
+	- NTotSC (only Northern Citadel)
+	- Southern Edge
+	- Tangled Oak
+	- Tales of the Deep Garden
+	- Alabaster Sands
+- Polish translation update
+- Russian translation update
+
 Version 10.2.6
 - added new bpbgtmap.BAM für bgt and ee that includes BST Mapicon (on slot 29 resp 28 if counted from 0).
 - added "changelog_v10-2-4_and higher.txt" to main mod folder.
