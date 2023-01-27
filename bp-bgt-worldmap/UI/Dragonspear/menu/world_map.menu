@@ -60,27 +60,6 @@ menu
 --		rectangle opacity 150
 		text lua "getWorldmapAreaSize()"
 	}
-	map
-	{
-		name "map_painting"
-		area 20 240 2008 1496
-		worldmap
-		action
-		"
-			worldMapScreen:OnMapMouseDown(eventXCoord,eventYCoord)
-			if singleClickTravel and worldMapScreen:IsTravelButtonClickable() then
-				worldMapScreen:TravelToSelected()
-			end
-		"
-		actionDbl
-		"
-			worldMapScreen:TravelToSelected()
-		"
-		actionDrag
-		"
-			worldMapScreen:OnMapMouseMove(eventXCoord,eventYCoord)
-		"
-	}
 	label
 	{
 		name "wmpl"
@@ -118,13 +97,6 @@ menu
 	}
 	label
 	{
-		name "wmpl1"
-		area 0 725 3840 355
-		mosaic 'dswmpl1'
-		align bottom left
-	}
-	label
-	{
 		name "wmptext"
 		area 0 725 3840 355
 		mosaic 'dswmpbg'
@@ -137,6 +109,82 @@ menu
 		text style "title"
 		name "backgrd_text"
 		align center center
+	}
+	map
+	{
+		name "map_painting"
+		area 20 240 2008 1496
+		worldmap
+		action
+		"
+			worldMapScreen:OnMapMouseDown(eventXCoord,eventYCoord)
+			if singleClickTravel and worldMapScreen:IsTravelButtonClickable() then
+				worldMapScreen:TravelToSelected()
+			end
+		"
+		actionDbl
+		"
+			worldMapScreen:TravelToSelected()
+		"
+		actionDrag
+		"
+			worldMapScreen:OnMapMouseMove(eventXCoord,eventYCoord)
+		"
+	}
+	label
+	{
+		name "wmpl1"
+		area 0 725 3840 355
+		mosaic 'dswmpl1'
+		align bottom left
+	}
+	label
+	{
+		name "conbl"
+		area 0 0 3840 355
+		mosaic 'conbl'
+		align bottom left
+	}
+	label
+	{
+		name "conbr"
+		area 0 0 3840 355
+		mosaic 'conbr'
+		align bottom left
+	}
+	label
+	{
+		name "conlt"
+		area 0 0 3840 355
+		mosaic 'conlt'
+		align bottom left
+	}
+	label
+	{
+		name "conrb"
+		area 0 0 3840 355
+		mosaic 'conrb'
+		align bottom left
+	}
+	label
+	{
+		name "conrt"
+		area 0 0 3840 355
+		mosaic 'conrt'
+		align bottom left
+	}
+	button
+	{
+		name "backgrd_button"
+		area 1206 48 390 44
+		bam DSBUT
+		sequence 0
+		text style "button"
+		text "AREA_MAP_TITLE"
+		action
+		"
+			worldMapScreen:OnCancelButtonClick()
+		"
 	}
 	label
 	{
