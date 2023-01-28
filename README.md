@@ -178,17 +178,15 @@ A: Either start a new game or use the savegame converter.
 #### Coders: King Diamond, Weigo, Erebusant, Wisp
 #### Support: Erebusant
 
-## 
-
 #### Special Acknowledgements to:
 
-- German translation: Weigo.
-- Italian translation: Ilot and Turambar.
-- Polish translation: Hesus, K4thos and morgan, as well as people from Children of Bhaal Clan and Tawerna Hrothgara Forums.
-- Spanish translation: Ghildrean.
-- French translation: Isaya.
-- Russian translation: prowler and Silent.
-- Others: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
+- **German translation**: Weigo.
+- **Italian translation**: Ilot and Turambar.
+- **Polish translation**: Hesus, K4thos and morgan, as well as people from Children of Bhaal Clan and Tawerna Hrothgara Forums.
+- **Spanish translation**: Ghildrean.
+- **French translation**: Isaya.
+- **Russian translation**: prowler and Silent.
+- **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, Roberciiik, p_zombie, abalabokhin, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
 
 ## 
 
