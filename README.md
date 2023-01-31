@@ -206,6 +206,7 @@ A: Either start a new game or use the savegame converter.
 
 ##### Under development version
 
+- Updated Hidden Refuge position
 - Updated mods to use dedicated map icons:
 	- Innershade
 

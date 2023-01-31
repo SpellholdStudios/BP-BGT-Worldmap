@@ -119,8 +119,8 @@ OH4100      OH4100   OH4100     0      108      1835    2938   @800002  N       
 OH5100      OH5100   OH5100     0      110      1682    3390   @800003  N        N        //Resurrection Gorge
 OH5300      OH5300   OH5300     0      10       1495    3250   @800004  N        N        //Helmite Camp
 OH6000      OH6000   OH6000     0      109      1600    3540   @800005  N        N        //Wild Forest
-OH6100      OH6100   OH6100     0      107      1792    3442   @800006  N        N        //Hidden Refuge
-OH6200      OH6200   OH6200     0      107      1792    3442   @800006  N        N        //Hidden Refuge
+OH6100      OH6100   OH6100     0      107      1720    3495   @800006  N        N        //Hidden Refuge
+OH6200      OH6200   OH6200     0      107      1720    3495   @800006  N        N        //Hidden Refuge
 
 // BG2:EE ToB old areas
 AR4000      AR4000   AR4000     4      91       1820    3750   @777018  N        N        //Forest of Tethir
