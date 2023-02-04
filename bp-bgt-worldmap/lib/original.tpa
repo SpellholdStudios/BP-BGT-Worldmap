@@ -48,11 +48,12 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_tables BEGIN
   DSC001 => DSotSC
   AR01PB => NTotSC
   BH0100 => SoBH
-  g3g12a => G3Anniversary
+  G3G12A => G3Anniversary
   F_7777 => DS
 
   // Patches for below mods can be removed after an update of the corresponding mod with correct map icons
   ARLDV1 => TotDG // Tales of the Deep Gardens
+  ARISH1 => Innershade
   L#ND01 => SouthernEdge
   L#NI01 => TangledOakIsle
   L#AS01 => AlabasterSands
