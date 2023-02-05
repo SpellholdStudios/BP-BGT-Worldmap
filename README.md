@@ -206,10 +206,12 @@ A: Either start a new game or use the savegame converter.
 
 ##### Under development version
 
+- Fixed Winding Water river source to start at March of Chelimber on the map image
 - Updated Hidden Refuge position
 - Updated mods to use dedicated map icons:
 	- Innershade
 	- The White Queen (Silent Swamps)
+- Russian translation update
 
 ##
 
