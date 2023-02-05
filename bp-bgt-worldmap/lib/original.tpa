@@ -54,6 +54,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_tables BEGIN
   // Patches for below mods can be removed after an update of the corresponding mod with correct map icons
   ARLDV1 => TotDG // Tales of the Deep Gardens
   ARISH1 => Innershade
+  WQ0001 => WhiteQueen
   L#ND01 => SouthernEdge
   L#NI01 => TangledOakIsle
   L#AS01 => AlabasterSands

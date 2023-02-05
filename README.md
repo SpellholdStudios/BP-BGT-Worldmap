@@ -209,6 +209,7 @@ A: Either start a new game or use the savegame converter.
 - Updated Hidden Refuge position
 - Updated mods to use dedicated map icons:
 	- Innershade
+	- The White Queen (Silent Swamps)
 
 ##
 
