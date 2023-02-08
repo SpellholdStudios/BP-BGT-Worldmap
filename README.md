@@ -208,6 +208,8 @@ A: Either start a new game or use the savegame converter.
 
 - Fixed Winding Water river source to start at March of Chelimber on the map image
 - Updated Hidden Refuge position
+- Removed custom map definition for supported mods, as it is implemented in the original mod:
+	- Alabaster Sands (v1.2)
 - Updated mods to use dedicated map icons:
 	- Innershade
 	- The White Queen (Silent Swamps)
