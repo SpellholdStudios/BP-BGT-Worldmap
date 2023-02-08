@@ -44,6 +44,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_areas BEGIN
   ARLDV1 => TotDG // Tales of the Deep Gardens
   ARISH1 => ISH // Innershade
   WQ0001 => WQ // The White Queen
+  L#FOU0 => FOU // Foundling
   L#ND01 => SE // Southern Edge
   L#NI01 => TOI // Tangled Oak Isle
   L#AS01 => AS // Alabaster Sands

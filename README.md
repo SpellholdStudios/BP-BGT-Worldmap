@@ -210,6 +210,7 @@ A: Either start a new game or use the savegame converter.
 - Updated Hidden Refuge position
 - Updated mods to use dedicated map icons:
 	- Innershade
+	- Foundling (Hidden Sanctuary)
 	- The White Queen (Silent Swamps)
 	- Fishing for Troubles (Government District West)
 - Russian translation update
