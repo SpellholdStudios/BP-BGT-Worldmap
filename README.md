@@ -212,6 +212,7 @@ A: Either start a new game or use the savegame converter.
 	- Alabaster Sands (v1.2)
 - Updated mods to use dedicated map icons:
 	- Innershade
+	- Foundling (Hidden Sanctuary)
 	- The White Queen (Silent Swamps)
 	- Fishing for Troubles (Government District West)
 - Polish translation update
