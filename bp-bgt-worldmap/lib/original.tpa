@@ -57,7 +57,6 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_tables BEGIN
   WQ0001 => WhiteQueen
   L#ND01 => SouthernEdge
   L#NI01 => TangledOakIsle
-  L#AS01 => AlabasterSands
 END
 
 ACTION_PHP_EACH mod_tables AS area => table BEGIN
