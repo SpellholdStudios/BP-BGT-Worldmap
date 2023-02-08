@@ -212,6 +212,7 @@ A: Either start a new game or use the savegame converter.
 	- Innershade
 	- The White Queen (Silent Swamps)
 	- Fishing for Troubles (Government District West)
+- Polish translation update
 - Russian translation update
 
 ##
