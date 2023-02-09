@@ -51,9 +51,10 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_tables BEGIN
   G3G12A => G3Anniversary
   F_7777 => DS
 
-  // Patches for below mods can be removed after an update of the corresponding mod with correct map icons
+  // Patches for below mods can be removed after an update of the corresponding mod with correct map icons and positions
   ARLDV1 => TotDG // Tales of the Deep Gardens
   ARISH1 => Innershade
+  ARES01 => Eilistraee
   WQ0001 => WhiteQueen
   L#FOU0 => Foundling
   L#ND01 => SouthernEdge

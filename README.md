@@ -207,13 +207,16 @@ A: Either start a new game or use the savegame converter.
 ##### Under development version
 
 - Fixed Winding Water river source to start at March of Chelimber on the map image
-- Updated Hidden Refuge position
+- Updated icons positions:
+	- Hidden Refuge
+	- Wild Forest
 - Removed custom map definition for supported mods, as it is implemented in the original mod:
 	- Alabaster Sands (v1.2)
 - Updated mods to use dedicated map icons:
 	- Innershade
 	- Foundling (Hidden Sanctuary)
 	- The White Queen (Silent Swamps)
+	- Eilistraee Song (Eilistraee's Clearing)
 	- Fishing for Troubles (Government District West)
 - Polish translation update
 - Russian translation update
