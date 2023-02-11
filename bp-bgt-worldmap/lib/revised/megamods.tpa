@@ -40,9 +40,10 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_areas BEGIN
   BH0100 => SoBH
   G3G12A => G3
 
-  // Patches for below mods can be removed after an update of the corresponding mod with correct map icons
+  // Patches for below mods can be removed after an update of the corresponding mod with correct map icons and positions
   ARLDV1 => TotDG // Tales of the Deep Gardens
   ARISH1 => ISH // Innershade
+  ARES01 => ES // Eilistraee
   WQ0001 => WQ // The White Queen
   L#FOU0 => FOU // Foundling
   L#ND01 => SE // Southern Edge
