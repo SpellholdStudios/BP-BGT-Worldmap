@@ -61,7 +61,10 @@ This mod is designed to work on the following Infinity Engine games: the origina
 
 This is a WeiDU mod, and therefore should be compatible with all WeiDU mods. If you encounter any bugs, please report them on the forum!<br>
 
+Starting from BP-BGT-Worldmap v12.0.0, modification does not require add-ons! Localized maps are available for all supported languages.<br>
+
 :warning: BP-BGT Worldmap is not compatible with any Baldurdash!!!<br>
+
 <div align="right"><a href="#top">Back to top</a></div>
 
 
@@ -204,22 +207,26 @@ A: Either start a new game or use the savegame converter.
 
 ## <a name="versions" id="versions"></a>Versions History
 
-##### Under development version
+##### Version 12.0.0 (Under development)
 
+- Starting from this version language add-ons are no longer required: localized maps are integrated into base modification
 - Fixed Winding Water river source to start at March of Chelimber on the map image
 - Updated icons positions:
 	- Hidden Refuge
 	- Wild Forest
+- Added new icons to BPBGTMAP.BAM file
+	- BG1 NPC SoA (Water Gardens)
 - Removed custom map definition for supported mods, as it is implemented in the original mod:
 	- Alabaster Sands (v1.2)
 - Updated mods to use dedicated map icons:
 	- Innershade
 	- Foundling (Hidden Sanctuary)
 	- The White Queen (Silent Swamps)
-	- Eilistraee Song (Eilistraee's Clearing)
-	- Fishing for Troubles (Government District West)
+	- Eilistraee's Song (Eilistraee's Clearing)
+	- Fishing for Troubles (only Government District West)
 - Polish translation update
 - Russian translation update
+- French translation update
 
 ##
 
