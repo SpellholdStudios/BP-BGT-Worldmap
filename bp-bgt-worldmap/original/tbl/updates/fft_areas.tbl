@@ -3,7 +3,7 @@ SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOL
 
 YS0360      YS0360   YS0360     0      13        1908   2865   @ys0360      @ys0360      N        //Cerendor Hold
 YS0370      YS0370   YS0370     0      98        1635   2705   @ys0370      @ys0370      N        //Cloudpeak Mountains
-YS0390      YS0390   YS0390     0      182       1160   2850   @ys0390      @ys0390      N        //Government District Westside
+YS0390      YS0390   YS0390     0      182       1160   2810   @ys0390      @ys0390      N        //Government District Westside
 YS1000      YS1000   YS1000     0      13        1503   3148   @ys1000      @ys1000      N        //Portpentyrch
 YS1001      YS1001   YS1001     0      13        1503   3148   @ys1001      @ys1001      N        //Portpentyrch
 
