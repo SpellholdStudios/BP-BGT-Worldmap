@@ -214,6 +214,7 @@ A: Either start a new game or use the savegame converter.
 - Updated icons positions:
 	- Hidden Refuge
 	- Wild Forest
+	- Govt. West (Fishing for Troubles)
 - Added new icons to BPBGTMAP.BAM file
 	- BG1 NPC SoA (Water Gardens)
 - Removed custom map definition for supported mods, as it is implemented in the original mod:
