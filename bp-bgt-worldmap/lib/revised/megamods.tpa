@@ -48,6 +48,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_areas BEGIN
   L#FOU0 => FOU // Foundling
   L#ND01 => SE // Southern Edge
   L#NI01 => TOI // Tangled Oak Isle
+  L#AF01 => WH // Whin Hill
 END
 
 ACTION_PHP_EACH mod_areas AS area => table BEGIN
