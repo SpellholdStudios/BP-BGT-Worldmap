@@ -60,6 +60,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_tables BEGIN
   L#ND01 => SouthernEdge
   L#NI01 => TangledOakIsle
   L#AF01 => WhinHill
+  L#ORM1 => SotSC // Shades of the Sword Coast
 END
 
 ACTION_PHP_EACH mod_tables AS area => table BEGIN
