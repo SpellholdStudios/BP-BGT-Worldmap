@@ -50,6 +50,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY mod_areas BEGIN
   L#NI01 => TOI // Tangled Oak Isle
   L#AF01 => WH // Whin Hill
   L#ORM1 => SotSC // Shades of the Sword Coast
+  L#XZE1 => ILU // In Love, Undeath
 END
 
 ACTION_PHP_EACH mod_areas AS area => table BEGIN
