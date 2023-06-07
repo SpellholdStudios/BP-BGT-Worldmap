@@ -219,6 +219,7 @@ A: Either start a new game or use the savegame converter.
 	- BG1 NPC SoA (Water Gardens)
 	- The Journey to the Whin Hill (Whin Hill)
 	- Shades of the Sword Coast (Ormyrrs' Peak & Cemetery)
+	- In Love, Undeath (Temple of Evening Glory)
 - Removed custom map definition for supported mods, as it is implemented in the original mod:
 	- Alabaster Sands (v1.2)
 - Updated mods to use dedicated map icons:
