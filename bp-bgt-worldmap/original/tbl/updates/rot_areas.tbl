@@ -2,24 +2,24 @@
 SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
 
 RR3100      RR3100   RR3100     4      19        2900   4000   @ROT_785001  @ROT_785101  N        //Arlax
-RR3200      RR3200   RR3200     4      14        2710   4085   @ROT_785002  @ROT_785102  N        //Monzuma큦 Cave
+RR3200      RR3200   RR3200     4      14        2710   4085   @ROT_785002  @ROT_785102  N        //Monzuma's Cave
 RR3300      RR3300   RR3300     4      10        2325   2700   @ROT_785003  @ROT_785103  N        //Westchar
-RR3400      RR3400   RR3400     4      12        2140   3020   @ROT_785004  @ROT_785104  N        //Olmar큦 Castle
-RR3450      RR3450   RR3450     4      79        2030   2740   @ROT_785005  @ROT_785105  N        //Talavan큦 Castle
+RR3400      RR3400   RR3400     4      12        2140   3020   @ROT_785004  @ROT_785104  N        //Olmar's Castle
+RR3450      RR3450   RR3450     4      79        2030   2740   @ROT_785005  @ROT_785105  N        //Talavan's Castle
 RR3900      RR3900   RR3900     4      18        3150   2950   @ROT_785006  @ROT_785106  N        //Maribur
 RR3950      RR3950   RR3950     4      16        3260   2840   @ROT_785007  @ROT_785107  N        //Mysterious Cave
 RA4200      RA4200   RA4200     4      17        3080   2810   @ROT_785008  @ROT_785108  N        //Forest
 RA4300      RA4300   RA4300     4      26        1120   2975   @ROT_785009  @ROT_785109  N        //The Arena
 RA4500      RA4500   RA4500     4      10        3120   4070   @ROT_785010  @ROT_785110  N        //Farms
-RA4700      RA4700   RA4700     4      11        2580   4140   @ROT_785011  @ROT_785111  N        //Gaidan큦 Castle
+RA4700      RA4700   RA4700     4      11        2580   4140   @ROT_785011  @ROT_785111  N        //Gaidan's Castle
 RA4900      RA4900   RA4900     4      14        1770   2880   @ROT_785012  @ROT_785112  N        //Cave
-RA5700      RA5700   RA5700     4      9         3040   3920   @ROT_785013  @ROT_785113  N        //Razor큦 Hideout
+RA5700      RA5700   RA5700     4      9         3040   3920   @ROT_785013  @ROT_785113  N        //Razor's Hideout
 RR0044      RR0044   RR0044     4      16        1630   3010   @ROT_785014  @ROT_785114  N        //Slave Route
 
-RA5100      RA5100   RA5100     4      25        850    550    @ROT_785015  N            N        //Bremen
-RA5400      RA5400   RA5400     2      47        775    475    @ROT_785016  N            N        //The Waypoint
-RA5401      RA5401   RA5401     2      64        805    375    @ROT_785017  N            N        //Mountain Reaches
-RA5600      RA5600   RA5600     2      63        600    425    @ROT_785018  N            N        //Hermit's Outpost
-RA5601      RA5601   RA5601     2      83        500    500    @ROT_785019  N            N        //Ice Temple
-RA5412      RA5412   RA5412     2      69        1025   300    @ROT_785020  N            N        //Aerie of Dragons
-RA5416      RA5416   RA5416     2      66        975    400    @ROT_785021  N            N        //Maze
+RA5100      RA5100   RA5100     4      25        615    185    @ROT_785015  N            N        //Bremen
+RA5400      RA5400   RA5400     2      47        610    90     @ROT_785016  N            N        //The Waypoint
+RA5401      RA5401   RA5401     2      64        670    40     @ROT_785017  N            N        //Mountain Reaches
+RA5600      RA5600   RA5600     2      63        515    240    @ROT_785018  N            N        //Hermit's Outpost
+RA5601      RA5601   RA5601     2      83        472    540    @ROT_785019  N            N        //Ice Temple
+RA5412      RA5412   RA5412     2      69        1032   249    @ROT_785020  N            N        //Aerie of Dragons
+RA5416      RA5416   RA5416     2      66        940    455    @ROT_785021  N            N        //Maze
