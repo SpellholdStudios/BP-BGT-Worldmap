@@ -215,6 +215,7 @@ A: Either start a new game or use the savegame converter.
 	- Hidden Refuge
 	- Wild Forest
 	- Govt. West (Fishing for Troubles)
+	- Icewind Dale part of Region of Terror (compatibility with IWD-EET)
 - Added new icons to BPBGTMAP.BAM file for the following modifications:
 	- BG1 NPC SoA (Water Gardens)
 	- The Journey to the Whin Hill (Whin Hill)
