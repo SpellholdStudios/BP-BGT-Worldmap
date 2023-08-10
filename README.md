@@ -122,6 +122,8 @@ In addition to the methods above for removing individual components, you can com
 
 The installer includes the following components.<br /><br />
 
+##
+
 **1. Worldmap for Baldur's Gate - including colored Baldur's Gate map icons**<br />
 
 You must choose between:
@@ -150,7 +152,8 @@ and:
 This component converts old Savegames (No "*New Game*" needed).
 
 :warning: If you un-install the mod and you wish to keep using your existing saved-games, you need to run the savegame converter **after** the un-installation.
-<div align="right"><a href="#top">Back to top</a></div>
+
+## 
 
 **4. Worldmap UI**<br />
 
@@ -159,6 +162,7 @@ This component adds two worldmap UI designs (Only for EE).
 2. Dragonspear UI design
 
 
+<div align="right"><a href="#top">Back to top</a></div>
 <hr>
 
 
@@ -169,9 +173,8 @@ A: Reinstall the complete worldmap.
 
 **Q: I installed the worldmap, but there is no new worldmap in the game**  
 A: Either start a new game or use the savegame converter.
+
 <div align="right"><a href="#top">Back to top</a></div>
-
-
 <hr>
 
 
@@ -179,7 +182,7 @@ A: Either start a new game or use the savegame converter.
 
 #### Painters: Yacomo, Weigo </span>
 #### Coders: King Diamond, Weigo, Erebusant, Wisp
-#### Support: Erebusant
+#### Support: Erebusant, Roberciiik
 
 #### Special Acknowledgements to:
 
@@ -188,8 +191,8 @@ A: Either start a new game or use the savegame converter.
 - **Polish translation**: Hesus, K4thos and morgan, as well as people from Children of Bhaal Clan and Tawerna Hrothgara Forums.
 - **Spanish translation**: Ghildrean.
 - **French translation**: Isaya.
-- **Russian translation**: prowler and Silent.
-- **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, Roberciiik, p_zombie, abalabokhin, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
+- **Russian translation**: prowler and Silent,
+- **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, p_zombie, abalabokhin, JohnBob, GraionDilach, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
 
 ## 
 
@@ -199,9 +202,8 @@ A: Either start a new game or use the savegame converter.
 ###### The Big Picture - Baldur's Gate Trilogy compatibility mod was created by Horred the Plague, Baldur's Gate Trilogy was created by Bardez, The Darkest Day was created by Potencius (Max) and Minto - Tweaked by folks at TeamBG, Shadows over Soubar and Check the Bodies were created by CBisson, Tortured Souls and Neverending Journey were created by Vlad, Secret of Bonehill was created by Sir Billybob, Dark Side of the Sword Coast was created by TeamBG and ported to BP-BGT by Sir Billybob, Northern Tales of the Sword Coast was created by Aurelinus and ported to BP-BGT by Sir Billybob. Large parts of this readme were inspired by the ones made by the gibberlings3 team for their mods.
 ###### If there are any copyright issues or this statement needs revision then please contact me and advise me what to do about it.
 ###### This mod was created to be freely enjoyed by all Baldur's Gate 2 players. However, it should not be sold, published, compiled or redistributed in any form without the consent of the author.</br>
+
 <div align="right"><a href="#top">Back to top</a></div>
-
-
 <hr>
 
 
@@ -211,6 +213,8 @@ A: Either start a new game or use the savegame converter.
 
 - Starting from this version language add-ons are no longer required: localized maps are integrated into base modification
 - Fixed Winding Water river source to start at March of Chelimber on the map image
+- Extended map canvas with Neverwinter city frame
+- Restored proper BAM files' palette (fixed regression from v11)
 - Updated icons positions:
 	- Hidden Refuge
 	- Wild Forest
@@ -221,6 +225,7 @@ A: Either start a new game or use the savegame converter.
 	- The Journey to the Whin Hill (Whin Hill)
 	- Shades of the Sword Coast (Ormyrrs' Peak & Cemetery)
 	- In Love, Undeath (Temple of Evening Glory)
+	- NWN-for-BG (Neverwinter districts)
 - Removed custom map definition for supported mods, as it is implemented in the original mod:
 	- Alabaster Sands (v1.2)
 - Updated mods to use dedicated map icons:
@@ -606,4 +611,5 @@ pointing this out.
 - Updated the worldmap.wmp file from Bonehill 1.8 for the new map size.
 - Created a debug variant of worldmap.wmp with all map icons visible.
 - Created a small WeiDU installer.
+
 <div align="right"><a href="#top">Back to top</a></div>

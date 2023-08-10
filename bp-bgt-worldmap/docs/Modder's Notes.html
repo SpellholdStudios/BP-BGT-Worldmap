@@ -146,24 +146,27 @@ a:hover.spoiler {
 </style>
 </head>
 <body>
-<h1>BP-BGT-Worldmap Icons Reference Table</h1>
+<h1>BP-BGT-Worldmap Modder's Notes</h1>
 
-<!-- ================== T a b l e ================== --><a id="table" name="Table of Contents"></a>
+<!-- ================== T a b l e ================== -->
+<a id="table" name="Table of Contents"></a>
 <h2>Table of Contents</h2>
 <div class="section">
 	<ol>
 		<li><a href="#overview">Overview</a></li>
-		<li><a href="#Support for EET Worldmap">Support for EET Worldmap</a></li>
+		<li><a href="#Adding-new-icons">Adding new icons</a></li>
 		<ul>
 			<li><a href="#General">General</a></li>
 			<li><a href="#Mods after BP-BGT-Worldmap">Mods after BP-BGT-Worldmap</a></li>
 			<li><a href="#Mods before BP-BGT-Worldmap">Mods before BP-BGT-Worldmap</a></li>
-			<li><a href="#Reference table map icons">Naming convention for new files</a></li>
+			<li><a href="#Add-icons-to-BAMv1">Generating BAM v1 for Classic Engine</a></li>
 		</ul>
+    <li><a href="#Reference table map icons">Reference table for map icons</a></li>
 	</ol> 
 </div>
 
-<!-- ================== O v e r v i e w ================== --><a id="overview" name="Overview"></a>
+<!-- ================== O v e r v i e w ================== -->
+<a id="overview" name="Overview"></a>
 <h2>Overview</h2>
 <div class="section">
 
@@ -176,21 +179,16 @@ This thanks also goes to Mike1072 for his <a href="https://gist.github.com/mike1
 
 
 
-<!-- ================== Adding support for EET Worldmap ================== --><a id="Support for EET Worldmap" name="Support for EET Worldmap"></a>
-<h2>Support for EET Worldmap</h2>
+<!-- ================== Adding new icons ================== -->
+<a id="Adding-new-icons" name="Adding-new-icons"></a>
+<h2>Adding new icons to BP-BGT-Worldmap</h2>
 <div class="section">
-<ul>
-	<li><a href="#General">General</a></li>
-	<li><a href="#Mods after BP-BGT-Worldmap">Mods after BP-BGT-Worldmap</a></li>
-	<li><a href="#Mods before BP-BGT-Worldmap">Mods before BP-BGT-Worldmap</a></li>
-	<li><a href="#Reference table map icons">Naming convention for new files</a></li>
-</ul>
 
 <a id="General" name="General"></a>
 <h3>General</h3>
-<p>The following is just an example to add areas with icons. In the meantime, several variants have developed. Some easier, some more difficult, some more complete.</p>
+<p>The following is just an example how to add areas with icons. In the meantime, several variants have developed. Some easier, some more difficult, some more complete.</p>
 <p>In general, it is possible to add new map icons during the installation and assign them to the corresponding areas.</p>
-<p>Every mod that should be compatible with the BP-BGT worldmap needs a directory "worldmap" in the main mod_folder.</p>
+<p>Every mod that should be compatible with the BP-BGT worldmap needs a directory "worldmap" in the main MOD_FOLDER.</p>
 <p>The following files must be contained there: 1. areas.tbl 2. links.tbl 3. worldmap.tra</p>
 <p>How the areas.tbl, links.tbl and worldmap.tra are built, have a look at example mods.</p>
 <p>
@@ -309,11 +307,10 @@ DEFINE_ACTION_FUNCTION ~ADD_WORLDMAP_TBL~
 <a id="Mods before BP-BGT-Worldmap" name="Mods before BP-BGT-Worldmap"></a>
 <h3>Mods before BP-BGT-Worldmap</h3>
 <p>Unfortunately, the icons cannot be installed before installing the BP-BGT worldmap because the corresponding bam file does not exist.
-Therefore it is done with the following short code. If icons are needed after all, you have to add them manually to the worldmap in advance.
+Therefore it is done with the following short code. If icons are needed after all, you have to add them manually to the worldmap BAM file in advance.
 </p>
 <div class="code">
 <pre>
-
 ACTION_IF FILE_EXISTS ~Worldmap/map_mods_areas.tbl~ THEN BEGIN
   COPY ~Worldmap/map_mods_areas.tbl~  ~Worldmap~
    APPEND_FILE ~CtB/Worldmap/areas.tbl~
@@ -338,11 +335,51 @@ ELSE BEGIN
 END
 </pre>
 </div>
-<p>This is an excerpt from ctb as an example of the installation before the BP-BGT-worldmap.</p>
+<p>This is an excerpt from "Check the Bodies" as an example of the installation before the BP-BGT-worldmap.</p>
 <p>How the areas.tbl, links.tbl and worldmap.tra are built, have a look at example mods.</p>
 
+<a id="Add-icons-to-BAMv1" name="Add-icons-to-BAMv1"></a>
+<h3>Generating BAM v1 for Classic Engine</h3>
+
+<p>BAM v1 file that is used in original Baldur's Gate 2 game is running out of colors in the palette.
+  Each insertion of a new icon causes to lose some color information.
+  To keep it close to the original file, there is a workaround to generate BAM v1 file from EE PVRZ-based BAM v2 file.</p>
+
+<p>You should regenerate the file after adding new icon, to preform this action you need to:</p>
+<ol>
+  <li>Install BP-BGT-Worldmap modification on a EE game (version from you want to generate new BAM)</li>
+  <li>Open the EE game in NearInfinity</li>
+  <li>Use "Tools->Mass Export" to batch export and convert all BAM-related PVRZ files to PNG:</li>
+  <ol>
+    <li>Select PVRZ as a type to export</li>
+    <li>Select some output directory</li>
+    <li>Use "Resource name filter" to filter list of files to export (for example "MOS10.*" with "Use regular expressions" checkbox checked)</li>
+    <li>Check "Export MOS/PVRZ/TIS as PNG" option</li>
+  </ol>
+  <li>Use "Tools->Convert->Image to PVRZ" converter to convert PNG files back to PVRZ</li>
+  <ol>
+    <li>Select directory with newly created PNG files (verify what files you need to convert)</li>
+    <li>Select output directory (can be the same as for PNG files)</li>
+    <li>Use compression type "DXT1" to get rid of alpha channel!!!</li>
+  </ol>
+  <li>Copy new PVRZ files to override directory with your EE game.</li>
+  <li>Use "Game->Refresh tree" to reload BAM file.</li>
+  <li>Search for and open BPBGTMAP.BAM file</li>
+  <li>Click "Edit BAM" button</li>
+  <ol>
+    <li>Select all frames (Ctrl+A shortcut) and check "Compress frame"</li>
+    <li>Select "BAM Version" to "Legacy (v1)"</li>
+    <li>Click "Save output file" button and save in reposity folder</li>
+  </ol>
+</ol>
+
+<p><b>NEVER SAVE BPBGTMAP.BAM V1 FILE AS PVRZ-BASED BAM V2!</b></p>
+
+</div>
+
 <a id="Reference table map icons" name="Reference table map icons"></a>
-<h3>Reference table map icons</h3>
+<h2>Reference table map icons</h3>
+<div class="section">
 
 <p>For reference, here is a table with all the symbols available in the EET MAPICONS.BAM file, BP-BGT-Worldmap BPBGTMAP.BAM file and the symbol numbers used by EET, BP-BGT-Worldmap and other platforms.</p>
 <p>All EET numbers and icons are identical to BP-BGT numbers and icons without exception. However, BP-BGT has more entries. It is important to mention that the v1 bam and the v2 bam are completely identical, even if some icons are of course not used in the original version. But for future extensions it is easier if both bam are identical.
@@ -1901,6 +1938,51 @@ END
   <td>L#XZE1 (Temple of Evening Glory)</td>
   <td>-</td>
   <td>210</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><img id="Image 180" src="images/image180.png"></td>
+  <td>NW1000 (Neverwinter Core)</td>
+  <td>-</td>
+  <td>211</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><img id="Image 181" src="images/image181.png"></td>
+  <td>NW1100 (Neverwinter's Docs)</td>
+  <td>-</td>
+  <td>212</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><img id="Image 182" src="images/image182.png"></td>
+  <td>NW1200 (Beggar's Nest)</td>
+  <td>-</td>
+  <td>213</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><img id="Image 183" src="images/image183.png"></td>
+  <td>NW1300 (Peninsula)</td>
+  <td>-</td>
+  <td>214</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><img id="Image 184" src="images/image184.png"></td>
+  <td>NW1400 (Blacklake)</td>
+  <td>-</td>
+  <td>215</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
