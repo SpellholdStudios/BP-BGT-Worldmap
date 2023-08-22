@@ -191,7 +191,7 @@ A: Either start a new game or use the savegame converter.
 - **Polish translation**: Hesus, K4thos and morgan, as well as people from Children of Bhaal Clan and Tawerna Hrothgara Forums.
 - **Spanish translation**: Ghildrean.
 - **French translation**: Isaya.
-- **Russian translation**: prowler and Silent,
+- **Russian translation**: prowler and Silent.
 - **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, p_zombie, abalabokhin, JohnBob, GraionDilach, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
 
 ## 
@@ -226,6 +226,7 @@ A: Either start a new game or use the savegame converter.
 	- Shades of the Sword Coast (Ormyrrs' Peak & Cemetery)
 	- In Love, Undeath (Temple of Evening Glory)
 	- NWN-for-BG (Neverwinter districts)
+	- Region of Terror (Ice Temple)
 - Removed custom map definition for supported mods, as it is implemented in the original mod:
 	- Alabaster Sands (v1.2)
 - Updated mods to use dedicated map icons:
@@ -234,6 +235,7 @@ A: Either start a new game or use the savegame converter.
 	- The White Queen (Silent Swamps)
 	- Eilistraee's Song (Eilistraee's Clearing)
 	- Fishing for Troubles (only Government District West)
+	- Region of Terror (Hermit's Outpost)
 - Polish translation update
 - Russian translation update
 - French translation update
