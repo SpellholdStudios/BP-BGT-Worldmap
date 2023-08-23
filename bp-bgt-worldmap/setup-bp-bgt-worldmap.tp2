@@ -7,6 +7,7 @@ ALWAYS
   INCLUDE ~bp-bgt-worldmap/lib/remove_triggers_macro.tph~
   INCLUDE ~bp-bgt-worldmap/lib/lib.tpa~
   INCLUDE ~bp-bgt-worldmap/lib/fl#bg1pal.tpa~
+  INCLUDE ~%MOD_FOLDER%/lib/a7_tools.tpa~
 
   OUTER_SET debug_reveal = 0
 

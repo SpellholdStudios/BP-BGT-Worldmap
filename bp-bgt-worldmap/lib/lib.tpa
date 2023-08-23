@@ -279,13 +279,28 @@ DEFINE_ACTION_FUNCTION unpack_worldmap
     map_res = worldmap_large
     dest_res = worldmap
 BEGIN
-  ACTION_IF FILE_EXISTS "bp-bgt-worldmap/language/%LANGUAGE%/moz/%map_res%.moz" BEGIN
-    OUTER_SPRINT path "bp-bgt-worldmap/language/%LANGUAGE%/moz"
+
+  ACTION_IF FILE_EXISTS "bp-bgt-worldmap/language/%LANGUAGE%/mbc/%map_res%.mbc" BEGIN
+    OUTER_SPRINT path "bp-bgt-worldmap/language/%LANGUAGE%/mbc"
   END ELSE BEGIN
-    OUTER_SPRINT path "bp-bgt-worldmap/language/english/moz"
+    OUTER_SPRINT path "bp-bgt-worldmap/language/english/mbc"
+  END
+  
+  ACTION_IF !FILE_EXISTS "%path%/%map_res%.mos" BEGIN
+	LAF HANDLE_TILECONV
+	  STR_VAR
+		input_path = EVAL "%path%"
+		output_path	  = EVAL "bp-bgt-worldmap/language"
+	END
+	ACTION_BASH_FOR "bp-bgt-worldmap/language" ".*\.mos" BEGIN
+		MOVE + "%BASH_FOR_FILESPEC%" "%path%/%BASH_FOR_FILE%"
+	END
+	COPY_LARGE "%path%/%map_res%.mos" "override/%dest_res%.mos"
+  END ELSE BEGIN
+    COPY_LARGE "%path%/%map_res%.mos" "override/%dest_res%.mos"
   END
 
-  ACTION_IF !FILE_EXISTS "%path%/%map_res%.mos" BEGIN
+/*  ACTION_IF !FILE_EXISTS "%path%/%map_res%.mos" BEGIN
     ACTION_IF "%WEIDU_OS%" STRING_EQUAL_CASE win32 BEGIN
       OUTER_SPRINT mosunpack "bp-bgt-worldmap/bin/win32/mosunpack.exe"
     END ELSE BEGIN
@@ -315,6 +330,7 @@ BEGIN
   END ELSE BEGIN
     COPY_LARGE "%path%/%map_res%.mos" "override/%dest_res%.mos"
   END
+  */
 END
 
 DEFINE_PATCH_FUNCTION fix_table BEGIN
