@@ -16,7 +16,7 @@ OUTER_SET $size_check(f_0222) = 1 //Drizzt Saga
 
 OUTER_SET hugeworldmap = 0
 ACTION_PHP_EACH fl#CONTENT AS area => _ BEGIN
-  ACTION_IF !VARIABLE_IS_SET $size_check("%area%") AND $fl#YCOR("%area%") < 1700 BEGIN
+  ACTION_IF !VARIABLE_IS_SET $size_check("%area%") AND $fl#YCOR("%area%") <= 1700 BEGIN
     OUTER_SET hugeworldmap = 1
   END
 END
