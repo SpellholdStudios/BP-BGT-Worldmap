@@ -212,6 +212,7 @@ A: Either start a new game or use the savegame converter.
 ##### Version 12.0.0 (Under development)
 
 - Starting from this version language add-ons are no longer required: localized maps are integrated into base modification
+- Used lossless compression for worldmap tilesets (format MBC instead of MOZ)
 - Fixed Winding Water river source to start at March of Chelimber on the map image
 - Extended map canvas with Neverwinter city frame
 - Restored proper BAM files' palette (fixed regression from v11)
