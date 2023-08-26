@@ -23,7 +23,7 @@ AR2400     AR2400     AR2400     2          49         1990       2282       @78
 AR2900     AR2900     AR2900     2          48         2000       2372       @781509    N          N        //Larswood
 AR3000     AR3000     AR3000     2          54         2100       2355       N          N          N        //Spider Wood
 AR2800     AR2800     AR2800     2          47         1795       2392       N          N          N        //Coast Way
-AR2600     AR2600     AR2600     15         50         1366       2464       @781510    N          N        //Candlekeep [Ch.1]
+AR2600     AR2600     AR2600     0          50         1366       2464       N          N          N        //Candlekeep [Ch.1]
 AR2626     AR2626     AR2626     15         50         1366       2464       @781510    N          N        //Candlekeep [Ch.6]
 AR3100     AR3100     AR3100     2          51         1380       2535       N          N          N        //Shipwreck's Coast
 AR2700     AR2700     AR2700     2          52         1500       2450       N          N          N        //Lion's Way
