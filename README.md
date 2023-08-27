@@ -216,7 +216,8 @@ A: Either start a new game or use the savegame converter.
 - Fixed Winding Water river source to start at March of Chelimber on the map image
 - Extended map canvas with Neverwinter city frame
 - Restored proper BAM files' palette (fixed regression from v11)
-- Fixed issue with overlapping Candlekeep icon on BG:EE
+- Fixed issue with overlapping Candlekeep text labels on BG:EE
+- Fixed Dragonspear Castle location on Large Worldmap on EET
 - Updated icons positions:
 	- Hidden Refuge
 	- Wild Forest
