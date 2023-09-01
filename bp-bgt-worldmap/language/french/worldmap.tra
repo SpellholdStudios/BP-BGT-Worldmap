@@ -9,7 +9,7 @@
 @100005 = ~"Citadelle###de###Daerthmac"~ 			// Dark Side of the Sword Coast
 @100006 = ~"Temple###of###the###Black###Hand"~		// Northern Tales of the Sword Coast
 @100007 = ~"Colline###Chauve"~						// Secret of BoneHill
-@100008 = ~"Caverne###aux###Dragons"~
+@100008 = ~"Caverne###aux###Dragons"~				// Drizzt Saga
 
 // Baldur's Gate II
 @777002  = "Promenade###de###Waukyne"
@@ -70,7 +70,7 @@
 @781017  = "Bérégost"
 @781018  = "Auberge###de###Brasamical"
 @781019  = "Croisée###des###chemins"
-@781020  = "Pavillon###de###Bois-Manteau"
+@781020  = "Bois-Manteau"																		// Previously Pavillon###de###Bois-Manteau
 @781021  = "Haute-Haie"																			// Previously Haute###haie
 // D'après un guide sur les Royaumes Oubliés, on dit bien "la" Chionthar
 @781022  = "En###amont###de###la###Chionthar"													// Previously Fermes###sur###la###Chionthar
