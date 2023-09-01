@@ -54,6 +54,8 @@ LANGUAGE French  french  ~bp-bgt-worldmap/language/english/worldmap.tra~
 LANGUAGE Russian russian ~bp-bgt-worldmap/language/english/worldmap.tra~
                          ~bp-bgt-worldmap/language/russian/worldmap.tra~
 
+LANGUAGE ~Simplified Chinese~ ~schinese~ ~bp-bgt-worldmap/language/english/worldmap.tra~
+                                         ~bp-bgt-worldmap/language/schinese/worldmap.tra~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
