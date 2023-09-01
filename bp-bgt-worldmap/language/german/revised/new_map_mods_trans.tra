@@ -43,6 +43,13 @@
 @ROT_785012 =  "Höhle"
 @ROT_785013 =  "Razors###Versteck"
 @ROT_785014 =  "Sklavenrute"
+@ROT_785015 =  "Bremen"
+@ROT_785016 =  "Der###Wegpunkt"
+@ROT_785017 =  "Berggegend"
+@ROT_785018 =  "Hermits###Außenposten"
+@ROT_785019 =  "Eistempel"
+@ROT_785020 =  "Drachenhorst"
+@ROT_785021 =  "Labyrinth"
 
 @BGT_781001  =   "Kerzenburg"
 @BGT_781002  =   "Verwilderter###See"
@@ -100,6 +107,7 @@
 @NT_783004  = "Wald###der###Toten"
 @NT_783005  = "Nördliche###Zitadelle"
 @NT_783006  = "Tempel###der###Schwarzen###Hand"
+@NT_783007  = "Sireneninsel"
 
 @BH_784001  = "Kahler###Hügel"
 @BH_784002  = "Restenfurth"

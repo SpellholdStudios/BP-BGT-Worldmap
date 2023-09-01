@@ -44,6 +44,13 @@
 @ROT_785012 =  "Cueva###septentrional"
 @ROT_785013 =  "Escondrijo###de###Razor"
 @ROT_785014 =  "Ruta###de###esclavos"
+@ROT_785015 =  "Bremen"
+@ROT_785016 =  "La###marca"
+@ROT_785017 =  "Montañas###Extendidas"
+@ROT_785018 =  "Puesto###del###ermitaño"
+@ROT_785019 =  "Templo###de###hielo"
+@ROT_785020 =  "Nido###de###dragones"
+@ROT_785021 =  "Laberinto"
 
 @BGT_781001  =   "Candelero"
 @BGT_781002  =   "Lago###salvaje"
@@ -104,6 +111,7 @@
 @NT_783004  = "Bosque###de###la###Muerte"
 @NT_783005  = "Ciudadela###septentrional"
 @NT_783006  = "Templo###de###la###Mano###Negra"
+@NT_783007  = "Isla###de###Sirenas"
 
 @BH_784001  = "Colinas###baldías"
 @BH_784002  = "Restenford"

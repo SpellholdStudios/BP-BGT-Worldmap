@@ -43,6 +43,13 @@
 @ROT_785012  =  "Pó³nocna###jaskinia"
 @ROT_785013  =  "Kryjówka###Brzytwy"
 @ROT_785014  =  "Niewolniczy###szlak"
+@ROT_785015  =  "Bremen"
+@ROT_785016  =  "Punkt###orientacyjny"
+@ROT_785017  =  "Pogórze"
+@ROT_785018  =  "Pustelnia"
+@ROT_785019  =  "Lodowa###œwi¹tynia"
+@ROT_785020  =  "Smocze###le¿e"
+@ROT_785021  =  "Labirynt"
 
 @BGT_781001  =  "Candlekeep"
 @BGT_781002  =  "Ustronne###jezioro"

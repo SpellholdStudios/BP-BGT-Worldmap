@@ -45,6 +45,13 @@
 @ROT_785012 =  "Grotta###a###Nord"
 @ROT_785013 =  "Nascondiglio###di###Razor"
 @ROT_785014 =  "Strada###dello###Schiavo"
+@ROT_785015 =  "Bremen"
+@ROT_785016 =  "Il###Punto###di###Passaggio"
+@ROT_785017 =  "Montagne###Estese"
+@ROT_785018 =  "Avamposto###dell'###Eremita"
+@ROT_785019 =  "Tempio###di###Ghiaccio"
+@ROT_785020 =  "Nido###dei###Draghi"
+@ROT_785021 =  "Labirinto"
 
 @BGT_781001  =   "Candlekeep"
 @BGT_781002  =   "Lago###nella###Foresta"
@@ -105,6 +112,7 @@
 @NT_783004  = "Bosco###dei###Morti"
 @NT_783005  = "Cittadella###del###Nord"
 @NT_783006  = "Tempio###della###Mano###Nera"
+@NT_783007  = "Isola###delle###Sirene"
 
 @BH_784001  = "Collina###Spoglia"
 @BH_784002  = "Restenford"

@@ -44,6 +44,13 @@
 @ROT_785012 =  "North###Cave"
 @ROT_785013 =  "Razor's###Hideout"
 @ROT_785014 =  "Slave###Route"
+@ROT_785015 =  "Bremen"
+@ROT_785016 =  "The###Waypoint"
+@ROT_785017 =  "Mountain###Reaches"
+@ROT_785018 =  "Hermit's###Outpost"
+@ROT_785019 =  "Ice###Temple"
+@ROT_785020 =  "Aerie###of###Dragons"
+@ROT_785021 =  "Maze"
 
 @BGT_781001  =   "Candlekeep"
 @BGT_781002  =   "Wilderness###Lake"
@@ -99,10 +106,11 @@
 
 @NT_783001  = "Northern###Coast"
 @NT_783002  = "Field###of###the###Dead"
-@NT_783003  = "Northern###Wood"
+@NT_783003  = "Elven###Wood"
 @NT_783004  = "Wood###of###the###Dead"
 @NT_783005  = "Northern###Citadel"
 @NT_783006  = "Temple###of###the###Black###Hand"
+@NT_783007  = "Sirene's###Island"
 
 @BH_784001  = "Bald###Hill"
 @BH_784002  = "Restenford"
