@@ -239,6 +239,7 @@ A: Either start a new game or use the savegame converter.
 	- Eilistraee's Song (Eilistraee's Clearing)
 	- Fishing for Troubles (only Government District West)
 	- Region of Terror (Hermit's Outpost)
+- Added Simplified Chinese language (thanks to MephistoSatanDevil)
 - Polish translation update
 - Russian translation update
 - French translation update
