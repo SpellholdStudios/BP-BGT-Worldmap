@@ -16,7 +16,7 @@ OUTER_SET $size_check(f_0222) = 1 //Drizzt Saga
 
 OUTER_SET hugeworldmap = 0
 ACTION_PHP_EACH fl#CONTENT AS area => _ BEGIN
-  ACTION_IF !VARIABLE_IS_SET $size_check("%area%") AND $fl#YCOR("%area%") <= 1700 BEGIN
+  ACTION_IF !VARIABLE_IS_SET $size_check("%area%") AND $fl#YCOR("%area%") < 1700 BEGIN
     OUTER_SET hugeworldmap = 1
   END
 END
@@ -88,7 +88,7 @@ ACTION_IF how = 1 THEN BEGIN
 			STR_VAR
 			verbose = 1
 			path_to_areas_bp = EVAL ~%patch_are%~
-			path_to_links = EVAL ~%patch_link%~
+			path_to_links_bp = EVAL ~%patch_link%~
 			path_to_trans = EVAL ~%patch_tra%~
 		END
 	END
