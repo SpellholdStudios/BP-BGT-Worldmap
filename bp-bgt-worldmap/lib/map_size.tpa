@@ -65,19 +65,52 @@ ACTION_IF how = 1 THEN BEGIN
       END
     END
   BUT_ONLY
-
+  	  ////////////////////////////////////////////
+	  // patch map_mods_patch_area.tbl
+	  ////////////////////////////////////////////
+	INCLUDE ~%MOD_FOLDER%/lib/add_worldmap_tbl.tpa~
+	ACTION_IF FILE_EXISTS ~worldmap/map_mods_patch_areas.tbl~ BEGIN
+		OUTER_SPRINT patch_are ~worldmap/map_mods_patch_areas.tbl~
+		
+		ACTION_IF FILE_EXISTS ~worldmap/map_mods_patch_links.tbl~ BEGIN
+			OUTER_SPRINT patch_link ~worldmap/map_mods_patch_links.tbl~
+		END ELSE BEGIN
+			OUTER_SPRINT patch_link ~~
+		END
+		
+		ACTION_IF FILE_EXISTS ~worldmap/map_mods_patch_trans.tra~ BEGIN
+			OUTER_SPRINT patch_tra ~worldmap/map_mods_patch_trans.tra~
+		END ELSE BEGIN
+			OUTER_SPRINT patch_tra ~~
+		END
+		
+		LAF ADD_WORLDMAP_TBL
+			STR_VAR
+			verbose = 1
+			path_to_areas_bp = EVAL ~%patch_are%~
+			path_to_links = EVAL ~%patch_link%~
+			path_to_trans = EVAL ~%patch_tra%~
+		END
+	END
   OUTER_SPRINT map_res worldmap_small
 END
 
 
 // ====================================================
-// Part 1.3.2: Large Worldmap 8000x6300
+// Part 1.3.2: Large Worldmap 8500x6300
 // ====================================================
 ACTION_IF how = 2 THEN BEGIN
   COPY_EXISTING worldmap.wmp override
     READ_LONG    0x0c              map_offset
     WRITE_LONG   map_offset + 0x08 8000
     WRITE_LONG   map_offset + 0x0c 6300
+	READ_LONG    map_offset + 0x20 num_areas
+    READ_LONG    map_offset + 0x24 area_off
+    FOR (i = 0; i < num_areas; ++i) BEGIN
+      ao = area_off + 0xf0*i
+      READ_ASCII ao name
+      WRITE_LONG ao + 0x3c THIS + 500
+    END
   BUT_ONLY
 
   OUTER_SPRINT map_res worldmap_large
