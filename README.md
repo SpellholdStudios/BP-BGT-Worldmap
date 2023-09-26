@@ -1,7 +1,7 @@
 
 ![Latest Release](https://img.shields.io/github/v/release/SpellholdStudios/BP-BGT-Worldmap?include_prereleases&color=darkred)<a name="top" id="top"> </a>
 ![Platform](https://img.shields.io/static/v1?label=platform&message=windows%20%7C%20macos%20%7C%20linux&color=informational)
-![Language](https://img.shields.io/static/v1?label=language&message=English%20%7C%20French%20%7C%20German%20%7C%20Italian%20%7C%20Polish%20%7C%20Russian%20%7C%20Spanish&color=limegreen)
+![Language](https://img.shields.io/static/v1?label=language&message=English%20%7C%20French%20%7C%20German%20%7C%20Italian%20%7C%20Polish%20%7C%20Russian%20%7C%20Spanish%20%7C%20Simplified%20Chinese&color=limegreen)
 
 <div align="center"><h1></a>BP-BGT Worldmap</h1>
 
@@ -182,7 +182,7 @@ A: Either start a new game or use the savegame converter.
 
 #### Painters: Yacomo, Weigo </span>
 #### Coders: King Diamond, Weigo, Erebusant, Wisp
-#### Support: Erebusant, Roberciiik
+#### Support: Erebusant (retired), Wisp, Gwendolyne, jastey, Roberciiik
 
 #### Special Acknowledgements to:
 
@@ -192,7 +192,7 @@ A: Either start a new game or use the savegame converter.
 - **Spanish translation**: Ghildrean.
 - **French translation**: Isaya.
 - **Russian translation**: prowler and Silent.
-- **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, p_zombie, abalabokhin, JohnBob, GraionDilach, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
+- **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, p_zombie, abalabokhin, JohnBob, paladin84, GraionDilach, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
 
 ## 
 
@@ -209,12 +209,12 @@ A: Either start a new game or use the savegame converter.
 
 ## <a name="versions" id="versions"></a>Versions History
 
-##### Version 12.0.0 (Under development)
+##### Version 12.0.0 (28 September 2023)
 
 - Starting from this version language add-ons are no longer required: localized maps are integrated into base modification
 - Used lossless compression for worldmap tilesets (format MBC instead of MOZ)
 - Fixed Winding Water river source to start at March of Chelimber on the map image
-- Extended map canvas with Neverwinter city frame
+- Extended map canvas with Neverwinter city "insert"
 - Restored proper BAM files' palette (fixed regression from v11)
 - Fixed issue with overlapping Candlekeep text labels on BG:EE
 - Fixed Dragonspear Castle location on Large Worldmap on EET
