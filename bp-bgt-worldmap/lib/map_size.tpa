@@ -46,9 +46,9 @@ END
 // ====================================================
 ACTION_IF how = 1 THEN BEGIN
 
-	//**************************************************
-	// Change the coordinates of the areas: y-coord -1700
-	//**************************************************
+	//****************************************************
+	// Change the coordinates of the areas: y-coord - 1700
+	//****************************************************
 	COPY_EXISTING worldmap.wmp override
 		READ_LONG    0x0c              map_offset
 		WRITE_LONG   map_offset + 0x08 4900
@@ -101,6 +101,10 @@ END
 // Part 1.3.2: Huge Worldmap 8500x6300
 // ====================================================
 ACTION_IF how = 2 THEN BEGIN
+
+	//****************************************************
+	// Change the coordinates of the areas: y-coord + 500
+	//****************************************************
 	COPY_EXISTING worldmap.wmp override
 		READ_LONG    0x0c              map_offset
 		WRITE_LONG   map_offset + 0x08 8500
@@ -146,6 +150,9 @@ ACTION_IF how = 2 THEN BEGIN
 	OUTER_SPRINT map_res worldmap_large
 END
 
+// ====================================================
+// Debug icon reveal
+// ====================================================
 ACTION_IF debug_reveal BEGIN
 	COPY_EXISTING worldmap.wmp override
 				  worldm25.wmp override
