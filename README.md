@@ -193,9 +193,10 @@ A: Either start a new game or use the savegame converter.
 - **French translation**: Isaya.
 - **Russian translation**: prowler and Silent.
 - **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, p_zombie, JohnBob, paladin84, GraionDilach, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
+- **Extended northern worldmap**: <br>
+   Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for their cooperative work and passionate commitment to the creation of the extended northern worldmap in v13.
 
-Huge thanks to **JohnBob**, **p_zombie**, **paladin84**, **Roberciiik** and **Weigo** for their cooperative work and passionate commitment to the creation of the extended northern worldmap in v13.
-
+And a very special thanks to **Roberciiik**, who is always developing the world map with his commitment.
 ## 
 
 #### Copyrights Information
