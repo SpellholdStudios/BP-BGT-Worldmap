@@ -209,6 +209,10 @@ A: Either start a new game or use the savegame converter.
 
 ## <a name="versions" id="versions"></a>Versions History
 
+##### In development
+
+- Simplified Chinese translation update
+
 ##### Version 12.0.0 (28 September 2023)
 
 - Starting from this version language add-ons are no longer required: localized maps are integrated into base modification
