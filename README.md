@@ -135,7 +135,7 @@ and:
 
 1. Large worldmap size (4900x3500), or
 <center><img src="bp-bgt-worldmap/images/worldmap/worldmap_v7.0_large_mini.jpg"></center>
-2. Huge worldmap size (8000x6300).
+2. Huge worldmap size (8500x6300).
 <center><img src="bp-bgt-worldmap/images/worldmap/worldmap_v7.0_huge_mini.jpg"></center>
 
 ## 
@@ -211,6 +211,7 @@ A: Either start a new game or use the savegame converter.
 
 ##### In development
 
+- Restored missing unused BG:SoD icons
 - Simplified Chinese translation update
 
 ##### Version 12.0.0 (28 September 2023)
