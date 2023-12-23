@@ -216,6 +216,8 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 
 - Huge worldmap is extended with northern part of the continent, supporting IWD1_EET, IWD2_EET, RoT, PoF, Drizzt Saga modifications
 - Mods have possibility to include a patch files depending on size of the selected worldmap, more information in the user guide
+- Fixed tileconv installation issue on Linux 
+- Simplified Chinese translation update
 
 ##### Version 12.0.0 (28 September 2023)
 

@@ -162,6 +162,7 @@ a:hover.spoiler {
 			<li><a href="#Add-icons-to-BAMv1">Generating BAM v1 for Classic Engine</a></li>
 		</ul>
     <li><a href="#Reference table map icons">Reference table for map icons</a></li>
+    <li><a href="#Icons positions map size">Defining icon positions depending on map size</a></li>
 	</ol> 
 </div>
 
@@ -188,8 +189,13 @@ This thanks also goes to Mike1072 for his <a href="https://gist.github.com/mike1
 <h3>General</h3>
 <p>The following is just an example how to add areas with icons. In the meantime, several variants have developed. Some easier, some more difficult, some more complete.</p>
 <p>In general, it is possible to add new map icons during the installation and assign them to the corresponding areas.</p>
-<p>Every mod that should be compatible with the BP-BGT worldmap needs a directory "worldmap" in the main MOD_FOLDER.</p>
-<p>The following files must be contained there: 1. areas.tbl 2. links.tbl 3. worldmap.tra</p>
+<p>Every mod that should be compatible with the BP-BGT-Worldmap needs a directory "worldmap" in the main MOD_FOLDER.</p>
+<p>The following files must be contained there:
+  <ol>
+    <li>areas.tbl</li>
+    <li>links.tbl</li>
+    <li>worldmap.tra</li>
+  </ol>
 <p>How the areas.tbl, links.tbl and worldmap.tra are built, have a look at example mods.</p>
 <p>
 <p>Two cases must be distinguished. Can I install my mod after the BP-BGT worldmap, or must it be before the BP-BGT worldmap. Depending on this, the installation differs.</p>
@@ -339,7 +345,7 @@ END
 <p>How the areas.tbl, links.tbl and worldmap.tra are built, have a look at example mods.</p>
 
 <a id="Add-icons-to-BAMv1" name="Add-icons-to-BAMv1"></a>
-<h3>Generating BAM v1 for Classic Engine</h3>
+<h3>Generating BAM v1 file for Classic Engine</h3>
 
 <p>BAM v1 file that is used in original Baldur's Gate 2 game is running out of colors in the palette.
   Each insertion of a new icon causes to lose some color information.
@@ -378,12 +384,11 @@ END
 </div>
 
 <a id="Reference table map icons" name="Reference table map icons"></a>
-<h2>Reference table map icons</h3>
+<h2>Reference table map icons</h2>
 <div class="section">
 
 <p>For reference, here is a table with all the symbols available in the EET MAPICONS.BAM file, BP-BGT-Worldmap BPBGTMAP.BAM file and the symbol numbers used by EET, BP-BGT-Worldmap and other platforms.</p>
-<p>All EET numbers and icons are identical to BP-BGT numbers and icons without exception. However, BP-BGT has more entries. It is important to mention that the v1 bam and the v2 bam are completely identical, even if some icons are of course not used in the original version. But for future extensions it is easier if both bam are identical.
-</p>
+<p>All EET numbers and icons are identical to BP-BGT numbers and icons without exception. However, BP-BGT has more entries. It is important to mention that the v1 bam and the v2 bam are completely identical, even if some icons are of course not used in the original version. But for future extensions it is easier if both bam are identical.</p>
 <table class="tg" style="width: 90%">
  <colgroup>
    <col style="width: 20%">
@@ -1998,5 +2003,31 @@ END
  </tr>
 </table>
 
+</div>
+
+<a id="Icons positions map size" name="Icons positions map size"></a>
+<h2>Defining icon positions depending on map size</h2>
+<div class="section">
+  <p>BP-BGT-Worldmap v13 introduced a slightly different version of the huge map. The northern part of Faerûn has been improved and is no longer compatible with older versions of the worldmap. Thus, if your modification uses Icewind Dale "insert" on a huge map or simply has different positions for large and huge map versions, you can adjust these coordinates by creating a patch file.</p>
+  <p>During installation, BP-BGT-Worldmap will check for all icons' coordinates to decide if the huge map version is required. To override those settings, you can create a patch file that contains new icons' positions for large or huge versions of worldmap.</p>
+  <p>In your mod's worldmap subdirectory, you can patch all data by creating patch files depending on the worldmap size. A file format is the same as normal worldmap table definitions. Available patch files are:</p>
+  <ul>
+    <li>
+      <span>For the large worldmap version:</span>
+      <ul>
+        <li><i>map_mods_large_areas.tbl</i> for patching areas data.</li>
+        <li><i>map_mods_large_links.tbl</i> for patching links data (requires map_mods_large_areas.tbl file).</li>
+        <li><i>map_mods_large_trans.tra</i> for patching translations (requires map_mods_large_areas.tbl file).</li>
+      </ul>
+    </li>
+    <li>
+      <span>For the huge worldmap version:</span>
+      <ul>
+        <li><i>map_mods_huge_areas.tbl</i> for patching areas data.</li>
+        <li><i>map_mods_huge_links.tbl</i> for patching links data (requires map_mods_huge_areas.tbl file).</li>
+        <li><i>map_mods_huge_trans.tra</i> for patching translations (requires map_mods_huge_areas.tbl file).</li>
+      </ul>
+    </li>
+  </ul>
 </div>
 </html>
