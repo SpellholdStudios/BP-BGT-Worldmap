@@ -100,26 +100,26 @@ AR3675      AR3675   AR3675     4      92        4556   3170   @CTB_778011  @CTB
 SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
 
 RR3100      RR3100   RR3100     4      19        3180   4100   @ROT_785001  N            N        //Arlax
-RR3200      RR3200   RR3200     4      14        2710   4085   @ROT_785002  N            N        //Monzuma큦 Cave
+RR3200      RR3200   RR3200     4      14        2710   4085   @ROT_785002  N            N        //Monzuma's Cave
 RR3300      RR3300   RR3300     4      10        2475   2675   @ROT_785003  N            N        //Westchar
-RR3400      RR3400   RR3400     4      12        2000   2780   @ROT_785004  N            N        //Olmar큦 Castle
-RR3450      RR3450   RR3450     4      79        2100   2860   @ROT_785005  N            N        //Talavan큦 Castle
+RR3400      RR3400   RR3400     4      12        2000   2780   @ROT_785004  N            N        //Olmar's Castle
+RR3450      RR3450   RR3450     4      79        2100   2860   @ROT_785005  N            N        //Talavan's Castle
 RR3900      RR3900   RR3900     4      18        3150   2950   @ROT_785006  N            N        //Maribur
 RR3950      RR3950   RR3950     4      16        2980   2840   @ROT_785007  N            N        //Mysterious Cave
 RA4200      RA4200   RA4200     4      17        3110   2810   @ROT_785008  N            N        //Hunting Forest
 RA4300      RA4300   RA4300     4      26        1120   2975   @ROT_785009  N            N        //The Arena
 RA4500      RA4500   RA4500     4      10        3110   4170   @ROT_785010  N            N        //Esath's Farms
-RA4700      RA4700   RA4700     4      11        2580   4140   @ROT_785011  N            N        //Gaidan큦 Castle
+RA4700      RA4700   RA4700     4      11        2580   4140   @ROT_785011  N            N        //Gaidan's Castle
 RA4900      RA4900   RA4900     4      14        1735   2810   @ROT_785012  N            N        //North Cave
-RA5700      RA5700   RA5700     4      9         3040   3920   @ROT_785013  N            N        //Razor큦 Hideout
+RA5700      RA5700   RA5700     4      9         3040   3920   @ROT_785013  N            N        //Razor's Hideout
 RR0044      RR0044   RR0044     4      16        1540   2775   @ROT_785014  N            N        //Slave Route
-RA5100      RA5100   RA5100     4      25        850    550    @ROT_785015  N            N        //Bremen
-RA5400      RA5400   RA5400     2      47        775    475    @ROT_785016  N            N        //The Waypoint
-RA5401      RA5401   RA5401     2      64        805    375    @ROT_785017  N            N        //Mountain Reaches
-RA5600      RA5600   RA5600     2      168       515    255    @ROT_785018  N            N        //Hermit's Outpost
-RA5601      RA5601   RA5601     2      167       497    505    @ROT_785019  N            N        //Ice Temple
-RA5412      RA5412   RA5412     2      69        1025   300    @ROT_785020  N            N        //Aerie of Dragons
-RA5416      RA5416   RA5416     2      66        975    400    @ROT_785021  N            N        //Maze
+RA5100      RA5100   RA5100     4      25        396    -14    @ROT_785015  N            N        //Bremen
+RA5400      RA5400   RA5400     2      47        480    -227   @ROT_785016  N            N        //The Waypoint
+RA5401      RA5401   RA5401     2      64        624    -424   @ROT_785017  N            N        //Mountain Reaches
+RA5600      RA5600   RA5600     2      168       220    105    @ROT_785018  N            N        //Hermit's Outpost
+RA5601      RA5601   RA5601     2      167       358    414    @ROT_785019  N            N        //Ice Temple
+RA5412      RA5412   RA5412     2      69        993    234    @ROT_785020  N            N        //Aerie of Dragons
+RA5416      RA5416   RA5416     2      66        883    207    @ROT_785021  N            N        //Maze
 
 //DSotSC New Areas Table
 SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
@@ -171,4 +171,4 @@ F_0222      F_0222   F_0222     4      68        225    180    @DSW_786004  @DSW
 F_7779      F_7779   F_7779     6      74        280    240    @DSW_786005  @DSW_786005  N        //Dragon Caves
 F_0112      F_0112   F_0112     4      63        120    150    @DSW_786006  @DSW_786006  N        //Frost Giant Hills
 F_0115      F_0115   F_0115     6      51        232    115    @DSW_786007  @DSW_786007  N        //Winter Wolf Ritual
-F_8888      F_8888   F_8888     6      10        305    135    @DSW_786008  @DSW_786008  N        //Drow Caves
+F_8888      F_8888   F_8888     6      69        305    135    @DSW_786008  @DSW_786008  N        //Drow Caves

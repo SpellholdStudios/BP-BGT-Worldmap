@@ -10,7 +10,7 @@
 </div><br />
 
 
-**Authors:** Yacomo, King Diamond, Erebusant, Weigo  
+**Authors:** Yacomo, King Diamond, Erebusant, Weigo, Roberciiik
 **Mod Website and Forum:** <a href="http://www.shsforums.net/index.php?showforum=401">Spellhold Studios</a><br /><br />
 
 ## 
@@ -75,7 +75,7 @@ Starting from BP-BGT-Worldmap v12.0.0, modification does not require add-ons! Lo
 
 #### Notes
 
-<em>If you've previously installed the mod, remove it before extracting the new version. To do this, run **`setup-bp-bgt-worldmap.exe`**, un-install the previously installed main component and delete the :file_folder: bp-bgt_worldmap folder.</em>
+<em>If you've previously installed the mod, remove it before extracting the new version. To do this, run **`setup-bp-bgt-worldmap.exe`**, un-install the previously installed main component and delete the :file_folder: bp-bgt-worldmap folder.</em>
 
 <em>When installing or un-installing, **do not close the DOS window** by clicking on the **X** button! Instead, press the **Enter** key whenever instructed to do so.</em>
 
@@ -91,17 +91,17 @@ The Enhanced Editions are actively supported games. Please note that every patch
 
 #### Windows
 
-Extract the contents of the mod archive into the folder of the game you wish to modify (*the folder which contains the "CHITIN.KEY" file*), using <a href="http://www.7-zip.org/download.html">7zip</a>, <a href="http://www.rarlab.com/download.htm">WinRAR</a>, or another file compression utility that handles .zip files. On successful extraction, there should be a :file_folder: bp-bgt_worldmap folder and a setup-bp-bgt_worldmap.exe file in your game folder. To install, simply double-click **`setup-bp-bgt_worldmap.exe`** and follow the instructions on screen.
+Extract the contents of the mod archive into the folder of the game you wish to modify (*the folder which contains the "CHITIN.KEY" file*), using <a href="http://www.7-zip.org/download.html">7zip</a>, <a href="http://www.rarlab.com/download.htm">WinRAR</a>, or another file compression utility that handles .zip files. On successful extraction, there should be a :file_folder: bp-bgt-worldmap folder and a setup-bp-bgt-worldmap.exe file in your game folder. To install, simply double-click **`setup-bp-bgt-worldmap.exe`** and follow the instructions on screen.
 
 At the installer itself is finished, the map graphics will be uncompressed automatically. This last step may take a while depending on your machine. Please do not interrupt it.
 
-Run **`setup-bp-bgt_worldmap.exe`** in your game folder to reinstall, un-install or otherwise change the component settings.
+Run **`setup-bp-bgt-worldmap.exe`** in your game folder to reinstall, un-install or otherwise change the component settings.
 
 ## 
 
 #### Other systems (Linux, 64-bit Mac)
 
-**Note:** BP-BGT Worldmap relies on an external executable called <a href="http://www.shsforums.net/topic/47779-mospack/">mosunpack</a>. Mosunpack comes bundled with the mod (located in bp-bgt_worldmap/bin/) and the mod will attempt to run it inside the mod directory. Should this for any reason not be possible you need to place mosunpack on your system path and allow it to be executed as a program (chmod it) before attempting to install the mod.
+**Note:** BP-BGT Worldmap relies on an external executable called <a href="http://www.shsforums.net/topic/47779-mospack/">mosunpack</a>. Mosunpack comes bundled with the mod (located in bp-bgt-worldmap/bin/) and the mod will attempt to run it inside the mod directory. Should this for any reason not be possible you need to place mosunpack on your system path and allow it to be executed as a program (chmod it) before attempting to install the mod.
 
 Download a compiled version of <a href="https://github.com/WeiDUorg/weidu/releases">WeiDU</a> appropriate for your platform. Place the WeiDU and WeInstall binaries on your path. If you don't already have one it is recommended you create a directory in your home directory, add that directory to your path and place your binaries there. If you are on Linux, or another case-sensitive environment, you also need the tolower binary.
 
@@ -111,7 +111,7 @@ Extract the BP-BGT-Worldmap archive to your game-installation directory. Open a 
 
 #### Note for Complete Un-installation
 
-In addition to the methods above for removing individual components, you can completely un-install the mod using **`setup-bp-bgt_worldmap --uninstall`** at the command line to remove all components without wading through prompts.</br>
+In addition to the methods above for removing individual components, you can completely un-install the mod using **`setup-bp-bgt-worldmap --uninstall`** at the command line to remove all components without wading through prompts.</br>
 <div align="right"><a href="#top">Back to top</a></div>
 
 
@@ -192,8 +192,11 @@ A: Either start a new game or use the savegame converter.
 - **Spanish translation**: Ghildrean.
 - **French translation**: Isaya.
 - **Russian translation**: prowler and Silent.
-- **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, p_zombie, abalabokhin, JohnBob, paladin84, GraionDilach, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
+- **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, p_zombie, JohnBob, paladin84, GraionDilach, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
+- **Extended northern worldmap**: <br>
+   Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for their cooperative work and passionate commitment to the creation of the extended northern worldmap in v13.
 
+And a very special thanks to **Roberciiik**, who is always developing the world map with his commitment.
 ## 
 
 #### Copyrights Information
@@ -211,6 +214,9 @@ A: Either start a new game or use the savegame converter.
 
 ##### In development
 
+- Huge worldmap is extended with northern part of the continent, supporting IWD1_EET, IWD2_EET, RoT, PoF, Drizzt Saga modifications
+- Mods have possibility to include a patch files depending on size of the selected worldmap, more information in the user guide
+- Fixed tileconv installation issue on Linux 
 - Simplified Chinese translation update
 
 ##### Version 12.0.0 (28 September 2023)

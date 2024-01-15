@@ -4,21 +4,21 @@
 //*****************************************************
 
 LAF fl#bg1pal STR_VAR resource = "ar1008" type = "ARE" RET iceisland = resource END
-OUTER_SET $size_check("%iceisland%") = 1 //Somewhere far North
-OUTER_SET $size_check(f_7777) = 1 //Drizzt Saga
-OUTER_SET $size_check(f_9898) = 1 //Drizzt Saga
-OUTER_SET $size_check(f_0111) = 1 //Drizzt Saga
-OUTER_SET $size_check(f_7779) = 1 //Drizzt Saga
-OUTER_SET $size_check(f_0112) = 1 //Drizzt Saga
-OUTER_SET $size_check(f_0115) = 1 //Drizzt Saga
-OUTER_SET $size_check(f_8888) = 1 //Drizzt Saga
-OUTER_SET $size_check(f_0222) = 1 //Drizzt Saga
+OUTER_SET $static_coordinates("%iceisland%") = 1 //Somewhere far North
+OUTER_SET $static_coordinates(f_7777) = 1 //Drizzt Saga
+OUTER_SET $static_coordinates(f_9898) = 1 //Drizzt Saga
+OUTER_SET $static_coordinates(f_0111) = 1 //Drizzt Saga
+OUTER_SET $static_coordinates(f_7779) = 1 //Drizzt Saga
+OUTER_SET $static_coordinates(f_0112) = 1 //Drizzt Saga
+OUTER_SET $static_coordinates(f_0115) = 1 //Drizzt Saga
+OUTER_SET $static_coordinates(f_8888) = 1 //Drizzt Saga
+OUTER_SET $static_coordinates(f_0222) = 1 //Drizzt Saga
 
 OUTER_SET hugeworldmap = 0
 ACTION_PHP_EACH fl#CONTENT AS area => _ BEGIN
-  ACTION_IF !VARIABLE_IS_SET $size_check("%area%") AND $fl#YCOR("%area%") <= 1700 BEGIN
-    OUTER_SET hugeworldmap = 1
-  END
+	ACTION_IF !VARIABLE_IS_SET $static_coordinates("%area%") AND $fl#YCOR("%area%") <= 1700 BEGIN
+		OUTER_SET hugeworldmap = 1
+	END
 END
 
 ACTION_IF hugeworldmap THEN BEGIN
@@ -26,71 +26,141 @@ ACTION_IF hugeworldmap THEN BEGIN
 // Large worldmap is not possible
 // ====================================================
 
-  PRINT @3003
-  OUTER_SET how = 2
+PRINT @3003
+OUTER_SET how = 2
 END ELSE BEGIN
 // ==============================================================
 // Choose between large (4900x3500) and huge (8000x6300) worldmap
 // ==============================================================
 
-  PRINT @3000
-  ACTION_READLN how
-  OUTER_WHILE !IS_AN_INT how OR how > 2 OR how < 1 BEGIN
-    PRINT @3000
-    ACTION_READLN how
-  END
+PRINT @3000
+ACTION_READLN how
+OUTER_WHILE !IS_AN_INT how OR how > 2 OR how < 1 BEGIN
+	PRINT @3000
+	ACTION_READLN how
+END
 END
 
 // ====================================================
-// Part 1.3.1: Small Worldmap 4900x3500
+// Part 1.3.1: Large Worldmap 4900x3500
 // ====================================================
-
 ACTION_IF how = 1 THEN BEGIN
-  //**************************************************
-  //Change the coordinates of the areas: y-coord -1700
-  //**************************************************
-  COPY_EXISTING worldmap.wmp override
-    READ_LONG    0x0c              map_offset
-    WRITE_LONG   map_offset + 0x08 4900
-    WRITE_LONG   map_offset + 0x0c 3500
-    READ_LONG    map_offset + 0x20 num_areas
-    READ_LONG    map_offset + 0x24 area_off
-    FOR (i = 0; i < num_areas; ++i) BEGIN
-      ao = area_off + 0xf0*i
-      READ_ASCII ao name
-      READ_LONG  ao + 0x3c y
-      TO_LOWER name
-      PATCH_IF !VARIABLE_IS_SET $size_check("%name%") AND y > 1700 BEGIN
-        WRITE_LONG ao + 0x3c y - 1700
-      END
-    END
-  BUT_ONLY
 
-  OUTER_SPRINT map_res worldmap_small
+	//****************************************************
+	// Change the coordinates of the areas: y-coord - 1700
+	//****************************************************
+	COPY_EXISTING worldmap.wmp override
+		READ_LONG    0x0c              map_offset
+		WRITE_LONG   map_offset + 0x08 4900
+		WRITE_LONG   map_offset + 0x0c 3500
+		READ_LONG    map_offset + 0x20 num_areas
+		READ_LONG    map_offset + 0x24 area_off
+		FOR (i = 0; i < num_areas; ++i) BEGIN
+			ao = area_off + 0xf0*i
+			READ_ASCII ao name
+			READ_LONG  ao + 0x3c y
+			TO_LOWER name
+			PATCH_IF !VARIABLE_IS_SET $static_coordinates("%name%") AND y > 1700 BEGIN
+				WRITE_LONG ao + 0x3c y - 1700
+			END
+		END
+	BUT_ONLY
+
+	////////////////////////////////////////////
+	// Patch map_mods_large_area.tbl
+	////////////////////////////////////////////
+	INCLUDE ~%MOD_FOLDER%/lib/add_worldmap_tbl.tpa~
+	ACTION_IF FILE_EXISTS ~worldmap/map_mods_large_areas.tbl~ BEGIN
+		OUTER_SPRINT patch_are ~worldmap/map_mods_large_areas.tbl~
+		
+		ACTION_IF FILE_EXISTS ~worldmap/map_mods_large_links.tbl~ BEGIN
+			OUTER_SPRINT patch_link ~worldmap/map_mods_large_links.tbl~
+		END ELSE BEGIN
+			OUTER_SPRINT patch_link ~~
+		END
+		
+		ACTION_IF FILE_EXISTS ~worldmap/map_mods_large_trans.tra~ BEGIN
+			OUTER_SPRINT patch_tra ~worldmap/map_mods_large_trans.tra~
+		END ELSE BEGIN
+			OUTER_SPRINT patch_tra ~~
+		END
+		
+		LAF ADD_WORLDMAP_TBL
+			STR_VAR
+			verbose = 1
+			path_to_areas_bp = EVAL ~%patch_are%~
+			path_to_links_bp = EVAL ~%patch_link%~
+			path_to_trans = EVAL ~%patch_tra%~
+		END
+	END
+	OUTER_SPRINT map_res worldmap_small
 END
 
 
 // ====================================================
-// Part 1.3.2: Large Worldmap 8000x6300
+// Part 1.3.2: Huge Worldmap 8500x6300
 // ====================================================
 ACTION_IF how = 2 THEN BEGIN
-  COPY_EXISTING worldmap.wmp override
-    READ_LONG    0x0c              map_offset
-    WRITE_LONG   map_offset + 0x08 8000
-    WRITE_LONG   map_offset + 0x0c 6300
-  BUT_ONLY
 
-  OUTER_SPRINT map_res worldmap_large
+	//****************************************************
+	// Change the coordinates of the areas: y-coord + 500
+	//****************************************************
+	COPY_EXISTING worldmap.wmp override
+		READ_LONG    0x0c              map_offset
+		WRITE_LONG   map_offset + 0x08 8500
+		WRITE_LONG   map_offset + 0x0c 6300
+		READ_LONG    map_offset + 0x20 num_areas
+		READ_LONG    map_offset + 0x24 area_off
+		FOR (i = 0; i < num_areas; ++i) BEGIN
+			ao = area_off + 0xf0*i
+			READ_ASCII ao name
+			PATCH_IF !VARIABLE_IS_SET $static_coordinates("%name%") BEGIN
+				WRITE_LONG ao + 0x3c THIS + 500
+			END
+		END
+	BUT_ONLY
+
+	////////////////////////////////////////////
+	// patch map_mods_huge_area.tbl
+	////////////////////////////////////////////
+	INCLUDE ~%MOD_FOLDER%/lib/add_worldmap_tbl.tpa~
+	ACTION_IF FILE_EXISTS ~worldmap/map_mods_huge_areas.tbl~ BEGIN
+		OUTER_SPRINT patch_are ~worldmap/map_mods_huge_areas.tbl~
+		
+		ACTION_IF FILE_EXISTS ~worldmap/map_mods_huge_links.tbl~ BEGIN
+			OUTER_SPRINT patch_link ~worldmap/map_mods_huge_links.tbl~
+		END ELSE BEGIN
+			OUTER_SPRINT patch_link ~~
+		END
+		
+		ACTION_IF FILE_EXISTS ~worldmap/map_mods_huge_trans.tra~ BEGIN
+			OUTER_SPRINT patch_tra ~worldmap/map_mods_huge_trans.tra~
+		END ELSE BEGIN
+			OUTER_SPRINT patch_tra ~~
+		END
+		
+		LAF ADD_WORLDMAP_TBL
+			STR_VAR
+			verbose = 1
+			path_to_areas_bp = EVAL ~%patch_are%~
+			path_to_links_bp = EVAL ~%patch_link%~
+			path_to_trans = EVAL ~%patch_tra%~
+		END
+	END
+	OUTER_SPRINT map_res worldmap_large
 END
 
+// ====================================================
+// Debug icon reveal
+// ====================================================
 ACTION_IF debug_reveal BEGIN
-  COPY_EXISTING worldmap.wmp override
-                worldm25.wmp override
-    GET_OFFSET_ARRAY areas WMP_AREAS
-    PHP_EACH areas AS i => off BEGIN
-      WRITE_LONG off + 0x30 THIS | BIT0
-    END
-  BUT_ONLY
+	COPY_EXISTING worldmap.wmp override
+				  worldm25.wmp override
+		GET_OFFSET_ARRAY areas WMP_AREAS
+		PHP_EACH areas AS i => off BEGIN
+			WRITE_LONG off + 0x30 THIS | BIT0
+		END
+	BUT_ONLY
 END
 
 LAF unpack_worldmap STR_VAR map_res END
