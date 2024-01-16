@@ -111,3 +111,36 @@ COPY "%tra_path%/english/worldmap.tra" "%tra_path%/english/worldmap.tra" //To ga
 BUT_ONLY
 
 LAM merge_in_translations
+
+//////////////////////////////////////////////////////////
+// Large/Huge areas patches provided by BP-BGT-Worldmap //
+//////////////////////////////////////////////////////////
+
+ACTION_FOR_EACH worldmap_size IN large huge BEGIN
+  <<<<<<<< .../fl#inline/empty
+  >>>>>>>>
+
+  ACTION_IF !FILE_EXISTS ~worldmap/map_mods_%worldmap_size%_areas.tbl~ BEGIN
+    COPY ~.../fl#inline/empty~ ~Worldmap/map_mods_%worldmap_size%_areas.tbl~
+  END
+
+  ACTION_IF !FILE_EXISTS ~worldmap/map_mods_%worldmap_size%_links.tbl~ BEGIN
+    COPY ~.../fl#inline/empty~ ~Worldmap/map_mods_%worldmap_size%_links.tbl~
+  END
+
+  ACTION_IF !FILE_EXISTS ~worldmap/map_mods_%worldmap_size%_trans.tra~ BEGIN
+    COPY ~.../fl#inline/empty~ ~Worldmap/map_mods_%worldmap_size%_trans.tra~
+  END
+
+  COPY ~worldmap/map_mods_%worldmap_size%_areas.tbl~ ~worldmap~
+    PATCH_FOR_EACH mod_name IN ds BEGIN
+      PATCH_IF FILE_EXISTS ~%MOD_FOLDER%/original/tbl/patches/%mod_name%_%worldmap_size%_areas.tbl~ THEN BEGIN
+        APPEND_FILE_EVALUATE ~%MOD_FOLDER%/original/tbl/patches/%mod_name%_%worldmap_size%_areas.tbl~
+      END
+    END
+
+  COPY ~worldmap/map_mods_%worldmap_size%_trans.tra~ ~worldmap~
+    PATCH_FOR_EACH mod_name IN ds BEGIN
+      APPEND_FILE_EVALUATE ~%MOD_FOLDER%/language/%LANGUAGE%/revised/%mod_name%_new_map_mods_trans.tra~ // Use original translation if there is no patched translations for a modification
+    END
+END
