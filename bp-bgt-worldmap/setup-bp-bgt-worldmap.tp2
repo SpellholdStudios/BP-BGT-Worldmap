@@ -67,7 +67,7 @@ LANGUAGE ~Simplified Chinese~ ~schinese~ ~bp-bgt-worldmap/language/english/world
 
 
 BEGIN @1000
-DESIGNATED 0
+DESIGNATED 0 LABEL ~worldmap-main~
 REQUIRE_PREDICATE ENGINE_IS ~tob bgee bg2ee~ ~This mod cannot be installed on this game~
 //REQUIRE_PREDICATE "%WEIDU_OS%" STRING_COMPARE_CASE osx OR FILE_EXISTS ~bp-bgt-worldmap/bin/osx/mosunpack~ ~This mod is not available for your platform~
 
@@ -159,7 +159,7 @@ INCLUDE ~bp-bgt-worldmap/lib/map_size.tpa~
 // ====================================================
 
 BEGIN @4001
-DESIGNATED 1
+DESIGNATED 1 LABEL ~worldmap-replace-tob-map~
 SUBCOMPONENT @4000
 REQUIRE_PREDICATE FILE_EXISTS_IN_GAME bp-bgt_wm6.wm6 @900
 REQUIRE_PREDICATE !GAME_IS ~tutu tutu_totsc bgee eet~ ~This component is not available for this game~
@@ -207,7 +207,7 @@ COPY_EXISTING ~worldmap.wmp~ ~override/worldm25.wmp~
 // ====================================================
 
 BEGIN @4002
-DESIGNATED 2
+DESIGNATED 2 LABEL ~worldmap-original-tob-map~
 SUBCOMPONENT @4000
 REQUIRE_PREDICATE FILE_EXISTS_IN_GAME bp-bgt_wm6.wm6 @900
 REQUIRE_PREDICATE !GAME_IS ~tutu tutu_totsc bgee eet~ ~This component is not available for this game~
@@ -227,7 +227,7 @@ LAF unpack_worldmap STR_VAR map_res = tobmap72 dest_res = tobmap72 END
 
 
 BEGIN @5000  //If you want to uninstall this component, you have to make a backup of your savegame folder manually!
-DESIGNATED 3
+DESIGNATED 3 LABEL ~worldmap-update-savegame~
 REQUIRE_PREDICATE !ENGINE_IS ~bgee bg2ee~ ~This component is not available for EE-type games~ // It can be ported, however
 REQUIRE_PREDICATE ENGINE_IS ~tob~ ~~
 NO_LOG_RECORD
@@ -283,7 +283,7 @@ END
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 BEGIN ~BG2 style~  //Larger worldmap screen window for the worldmap menu.ui
-DESIGNATED 4
+DESIGNATED 4 LABEL ~worldmap-fullscreen-bgee~
 REQUIRE_PREDICATE ENGINE_IS ~bgee bg2ee~ ~This component is not available for non EE-type games~ // It can be ported, however
 SUBCOMPONENT ~Larger worldmap screen window for the worldmap menu.ui~
 INCLUDE ~%MOD_FOLDER%/lib/ACuimenulib.tph~
@@ -293,7 +293,7 @@ INCLUDE ~%MOD_FOLDER%/lib/install_ui.tpa~
 
 
 BEGIN ~Dragonspear style~  //Larger worldmap screen window for the worldmap menu.ui
-DESIGNATED 5
+DESIGNATED 5 LABEL ~worldmap-fullscreen-dragonspear-ui~
 REQUIRE_PREDICATE ENGINE_IS ~bgee bg2ee~ ~This component is not available for non EE-type games~ // It can be ported, however
 SUBCOMPONENT ~Larger worldmap screen window for the worldmap menu.ui~
 INCLUDE ~%MOD_FOLDER%/lib/ACuimenulib.tph~
