@@ -221,6 +221,9 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 - Fixed tileconv installation issue on Linux 
 - Simplified Chinese translation update
 
+- Added Balduran's Isle to the BGT worldmap for original version
+- Fixed incorrect label of Balduran Isle and Ice Island for revised version (only Polish language affected)
+
 ##### Version 12.0.0 (28 September 2023)
 
 - Starting from this version language add-ons are no longer required: localized maps are integrated into base modification

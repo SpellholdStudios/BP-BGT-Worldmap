@@ -55,3 +55,5 @@ ARA100      ARA100   ARA100     2      68        1500   2618   @BGT_781041  @BGT
 ARD000      ARD000   ARD000     6      79        2100   2665   @BGT_781042  @BGT_781042  N        //Durlag's Tower
 ARU000      ARU000   ARU000     2      80        1375   1940   @BGT_781043  @BGT_781043  N        //Ulgoth's Beard
 ARU008      ARU008   ARU008     4      51        145    445    @BGT_781044  @BGT_781044  N        //Somewhere far North
+ARW000      ARW000   ARW000     4      42        700    1965   @BGT_781045  @BGT_781045  N        //Werewolf Isle
+ARW500      ARW500   ARW500     2      51        715    1885   @BGT_781046  @BGT_781046  N        //Balduran's Shipwreck

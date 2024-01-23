@@ -125,8 +125,8 @@ od tego ile zapisanych stanow gier posiadasz!*/ //s.a.
 @781041  = "Staro¿ytne###ruiny"
 @781042  = "Wie¿a###Durlaga"
 @781043  = "Broda###Ulgotha"
-@781044  = "Wyspa###Baldurana###-###po³udnie"
-@781045  = "Lodowa###wyspa"
+@781044  = "Lodowa###wyspa"
+@781045  = "Wyspa###Baldurana###-###po³udnie"
 @781046  = "Wyspa###Baldurana###-###pó³noc"
 
 // BG:EE areas
