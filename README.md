@@ -224,6 +224,8 @@ Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for t
 - Restored missing unused BG:SoD icons
 - Added missing black outline to IWD-EET icons
 - Fixed tileconv installation issue on Linux 
+- Added new icons to BPBGTMAP.BAM file for the following modifications:
+	- Paladins of Faerun (Ship of Gradak)
 - Simplified Chinese translation update
 
 ##### Version 12.0.0 (28 September 2023)
