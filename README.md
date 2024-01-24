@@ -225,6 +225,7 @@ Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for t
 - Added missing black outline to IWD-EET icons
 - Fixed tileconv installation issue on Linux 
 - Added new icons to BPBGTMAP.BAM file for the following modifications:
+	- IWD2-EET (Targos City and Targos Palisade)
 	- Paladins of Faerun (Ship of Gradak)
 - Simplified Chinese translation update
 
