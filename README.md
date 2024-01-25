@@ -218,15 +218,18 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for their cooperative work and passionate commitment to the creation of the extended northern worldmap in v13 and many other improvements.
 
 - Huge worldmap is extended with northern part of the continent, supporting IWD1_EET, IWD2_EET, RoT, PoF, Drizzt Saga modifications
-- Huge worldmap is extended with Moonshae Isles, supporting PoF modification.
+- Huge worldmap is extended with Moonshae Isles, supporting PoF modification
 - Huge worldmap: Better thumbnail frames for Athkatla and Baldur's Gate cities
 - Mods have possibility to include a patch files depending on size of the selected worldmap, more information in the user guide
-- Restored missing unused BG:SoD icons
-- Added missing black outline to IWD-EET icons
-- Fixed tileconv installation issue on Linux 
+- Fixed tileconv installation issue on Linux
 - Added new icons to BPBGTMAP.BAM file for the following modifications:
 	- IWD2-EET (Targos City and Targos Palisade)
 	- Paladins of Faerun (Ship of Gradak)
+	- Call of the Lost Goddess (Goldspires)
+	- Dark Tidings (Irphong)
+	- Throne of the Mad God (The Wailing Dwarf)
+- Restored missing unused BG:SoD icons
+- Added missing black outline to IWD-EET icons
 - Simplified Chinese translation update
 
 ##### Version 12.0.0 (28 September 2023)
