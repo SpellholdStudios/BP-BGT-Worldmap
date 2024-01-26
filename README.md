@@ -230,6 +230,7 @@ Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for t
 	- Throne of the Mad God (The Wailing Dwarf)
 - Restored missing unused BG:SoD icons
 - Added missing black outline to IWD-EET icons
+- Added missing red outline to NWN-for-BG icons
 - Simplified Chinese translation update
 
 ##### Version 12.0.0 (28 September 2023)
