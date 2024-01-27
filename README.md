@@ -229,6 +229,7 @@ Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for t
 	- Dark Tidings (Irphong)
 	- Throne of the Mad God (The Wailing Dwarf)
 - Restored missing unused BG:SoD icons
+- Restored Destroyed Saradush icon
 - Added missing black outline to IWD-EET icons
 - Added missing red outline to NWN-for-BG icons
 - Simplified Chinese translation update
