@@ -110,10 +110,10 @@ RA4200      RA4200   RA4200     4      17        3110   2810   @ROT_785008  N   
 RA4300      RA4300   RA4300     4      26        1120   2975   @ROT_785009  N            N        //The Arena
 RA4500      RA4500   RA4500     4      10        3110   4170   @ROT_785010  N            N        //Esath's Farms
 RA4700      RA4700   RA4700     4      11        2580   4140   @ROT_785011  N            N        //Gaidan's Castle
-RA4900      RA4900   RA4900     4      14        1735   2810   @ROT_785012  N            N        //North Cave
+RA4900      RA4900   RA4900     4      14        2048   2936   @ROT_785012  N            N        //North Cave
 RA5700      RA5700   RA5700     4      9         3040   3920   @ROT_785013  N            N        //Razor's Hideout
 RR0044      RR0044   RR0044     4      16        1540   2775   @ROT_785014  N            N        //Slave Route
-RA5100      RA5100   RA5100     4      25        396    -14    @ROT_785015  N            N        //Bremen
+RA5100      RA5100   RA5100     4      25        396    -14    N            N            N        //Bremen
 RA5400      RA5400   RA5400     2      47        480    -227   @ROT_785016  N            N        //The Waypoint
 RA5401      RA5401   RA5401     2      64        624    -424   @ROT_785017  N            N        //Mountain Reaches
 RA5600      RA5600   RA5600     2      168       220    105    @ROT_785018  N            N        //Hermit's Outpost
