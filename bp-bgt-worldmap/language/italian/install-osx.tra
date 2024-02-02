@@ -77,10 +77,10 @@ DIGITA 1 O 2  ~
 @3000   = ~Di che dimensioni vuoi la Mappa?
 
 1. Mappa Grande 4900x3500
-2. Mappa Enorme 8000x6300
+2. Mappa Enorme 8500x6300
 
 DIGITA  1 O 2  ~
-@3003   = ~La Mappa Enorme 8000x6300 è necessaria e sarà installata~
+@3003   = ~La Mappa Enorme 8500x6300 è necessaria e sarà installata~
 
 
 @4000   = ~Mappa per Throne of Bhaal~

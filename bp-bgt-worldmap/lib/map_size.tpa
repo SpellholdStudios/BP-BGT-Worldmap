@@ -1,6 +1,6 @@
 
 //*****************************************************
-//Search for Mods that need the huge worldmap 8000x6300
+//Search for Mods that need the huge worldmap 8500x6300
 //*****************************************************
 
 LAF fl#bg1pal STR_VAR resource = "ar1008" type = "ARE" RET iceisland = resource END
@@ -30,7 +30,7 @@ PRINT @3003
 OUTER_SET how = 2
 END ELSE BEGIN
 // ==============================================================
-// Choose between large (4900x3500) and huge (8000x6300) worldmap
+// Choose between large (4900x3500) and huge (8500x6300) worldmap
 // ==============================================================
 
 PRINT @3000
