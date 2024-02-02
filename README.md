@@ -219,9 +219,16 @@ Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for t
 
 - Huge worldmap is extended with northern part of the continent, supporting IWD1_EET, IWD2_EET, RoT, PoF, Drizzt Saga modifications
 - Huge worldmap is extended with Moonshae Isles, supporting PoF modification
-- Huge worldmap: Better thumbnail frames for Athkatla and Baldur's Gate cities
+- Updated Large worldmap to reflect similar changes to Huge worldmap
+- Better thumbnail frames for Athkatla and Baldur's Gate cities
 - Mods have possibility to include a patch files depending on size of the selected worldmap, more information in the user guide
 - Fixed tileconv installation issue on Linux
+- Added Balduran's Isle to the BGT worldmap for original version
+- Updated icons positions:
+	- Deep Mir Forest (The Darkest Day)
+	- Troll Mountains (The Darkest Day)
+	- Cave (Region of Terror, to not overlap with Temple of Evening Glory)
+	- Icewind Dale part of Region of Terror (compatibility with larger map of the North)
 - Added new icons to BPBGTMAP.BAM file for the following modifications:
 	- IWD2-EET (Targos City and Targos Palisade)
 	- Paladins of Faerun (Ship of Gradak)
@@ -232,10 +239,8 @@ Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for t
 - Restored Destroyed Saradush icon
 - Added missing black outline to IWD-EET icons
 - Added missing red outline to NWN-for-BG icons
-- Simplified Chinese translation update
-
-- Added Balduran's Isle to the BGT worldmap for original version
 - Fixed incorrect label of Balduran Isle and Ice Island for revised version (only Polish language affected)
+- Simplified Chinese translation update
 
 ##### Version 12.0.0 (28 September 2023)
 
