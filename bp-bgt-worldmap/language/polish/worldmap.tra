@@ -15,10 +15,10 @@ PROSZE WYBRAC  1 ALBO 2  ~
 @3000   = ~Jaki rozmiar mapy swiata chcesz zainstalowac?
 
 1. Duza mapa swiata (4900x3500)
-2. Ogromna mapa swiata (8000x6300)
+2. Ogromna mapa swiata (8500x6300)
 
-PROSZE WYBRAC  1 ALBO 2  ~
-@3003   = ~Ogromna mapa swiata (8000x6300) jest potrzebna i zostanie zainstalowana.~
+PROSZE WYBRAC  1 ALBO 2~
+@3003   = ~Ogromna mapa swiata (8500x6300) jest potrzebna i zostanie zainstalowana.~
 
 
 @4000   = ~Mapa swiata dla Tronu Bhaala~

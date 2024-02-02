@@ -135,7 +135,7 @@ and:
 
 1. Large worldmap size (4900x3500), or
 <center><img src="bp-bgt-worldmap/images/worldmap/worldmap_v7.0_large_mini.jpg"></center>
-2. Huge worldmap size (8000x6300).
+2. Huge worldmap size (8500x6300).
 <center><img src="bp-bgt-worldmap/images/worldmap/worldmap_v7.0_huge_mini.jpg"></center>
 
 ## 
@@ -192,7 +192,8 @@ A: Either start a new game or use the savegame converter.
 - **Spanish translation**: Ghildrean.
 - **French translation**: Isaya.
 - **Russian translation**: prowler and Silent.
-- **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, p_zombie, JohnBob, paladin84, GraionDilach, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
+- **Simplified Chinese translation**: MephistoSatanDevil.
+- **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, p_zombie, abalabokhin, JohnBob, paladin84, GraionDilach, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
 - **Extended northern worldmap**: <br>
    Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for their cooperative work and passionate commitment to the creation of the extended northern worldmap in v13.
 
@@ -214,11 +215,23 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 
 ##### In development
 
+Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for their cooperative work and passionate commitment to the creation of the extended northern worldmap in v13 and many other improvements.
+
 - Huge worldmap is extended with northern part of the continent, supporting IWD1_EET, IWD2_EET, RoT, PoF, Drizzt Saga modifications
-- Huge worldmap is extended with Moonshae Isles, supporting PoF modification.
+- Huge worldmap is extended with Moonshae Isles, supporting PoF modification
 - Huge worldmap: Better thumbnail frames for Athkatla and Baldur's Gate cities
 - Mods have possibility to include a patch files depending on size of the selected worldmap, more information in the user guide
-- Fixed tileconv installation issue on Linux 
+- Fixed tileconv installation issue on Linux
+- Added new icons to BPBGTMAP.BAM file for the following modifications:
+	- IWD2-EET (Targos City and Targos Palisade)
+	- Paladins of Faerun (Ship of Gradak)
+	- Call of the Lost Goddess (Goldspires)
+	- Dark Tidings (Irphong)
+	- Throne of the Mad God (The Wailing Dwarf)
+- Restored missing unused BG:SoD icons
+- Restored Destroyed Saradush icon
+- Added missing black outline to IWD-EET icons
+- Added missing red outline to NWN-for-BG icons
 - Simplified Chinese translation update
 
 - Added Balduran's Isle to the BGT worldmap for original version

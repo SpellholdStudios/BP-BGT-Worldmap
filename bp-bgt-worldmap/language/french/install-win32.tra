@@ -15,10 +15,10 @@ VEUILLEZ ENTRER  1 ou 2  ~
 @3000   = ~Quelle taille de carte du monde souhaitez-vous ?
 
 1. Grande carte du monde 4900x3500
-2. Immense carte du monde 8000x6300
+2. Immense carte du monde 8500x6300
 
 VEUILLEZ ENTRER  1 ou 2  ~
-@3003   = ~L'Immense carte du monde 8000x6300 est necessaire et va etre installee~
+@3003   = ~L'Immense carte du monde 8500x6300 est necessaire et va etre installee~
 
 @4000   = ~Carte du monde pour Throne of Bhaal~
 @4001   = ~Utiliser la nouvelle carte du monde aussi pour Throne of Bhaal~
