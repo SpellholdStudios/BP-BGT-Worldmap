@@ -227,6 +227,9 @@ Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for t
 - Updated icons positions:
 	- Deep Mir Forest (The Darkest Day)
 	- Troll Mountains (The Darkest Day)
+	- Soubar (Shadows over Soubar)
+	- River Chiontar (Shadows over Soubar)
+	- Lyrar's Hold (Shadows over Soubar)
 	- Cave (Region of Terror, to not overlap with Temple of Evening Glory)
 	- Icewind Dale part of Region of Terror (compatibility with larger map of the North)
 - Added new icons to BPBGTMAP.BAM file for the following modifications:
