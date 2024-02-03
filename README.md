@@ -230,6 +230,8 @@ Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for t
 	- Soubar (Shadows over Soubar)
 	- River Chiontar (Shadows over Soubar)
 	- Lyrar's Hold (Shadows over Soubar)
+	- Ruathym Island (Check the Bodies)
+	- Druidic Circle (Check the Bodies)
 	- Cave (Region of Terror, to not overlap with Temple of Evening Glory)
 	- Icewind Dale part of Region of Terror (compatibility with larger map of the North)
 - Added new icons to BPBGTMAP.BAM file for the following modifications:
