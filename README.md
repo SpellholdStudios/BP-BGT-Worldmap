@@ -225,6 +225,9 @@ Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for t
 - Fixed tileconv installation issue on Linux
 - Added Balduran's Isle to the BGT worldmap for original version
 - Updated icons positions:
+	- Brynnlaw
+	- The Asylum
+	- Upper Chiontar (BG:EE & BGT)
 	- Deep Mir Forest (The Darkest Day)
 	- Troll Mountains (The Darkest Day)
 	- Soubar (Shadows over Soubar)
