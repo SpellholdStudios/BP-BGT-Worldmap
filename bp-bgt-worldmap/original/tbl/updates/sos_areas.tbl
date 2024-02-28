@@ -1,6 +1,6 @@
 //SOS New Areas Table
 SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
 
-AR4220      AR4220   AR4220     4      51       2370    1870    @SOS_780001  @SOS_780101  N        //River Chionthar
-AR4230      AR4230   AR4230     4      53       2240    1893    N            @SOS_780102  N        //Soubar
-AR4370      AR4370   AR4370     4      46       2340    1745    @SOS_780003  @SOS_780103  N        //Castle Lyrars
+AR4220      AR4220   AR4220     4      51        2244   2126   @SOS_780001  @SOS_780101  N        //River Chionthar
+AR4230      AR4230   AR4230     4      53        2095   1983   N            @SOS_780102  N        //Soubar
+AR4370      AR4370   AR4370     4      46        2209   1800   @SOS_780003  @SOS_780103  N        //Castle Lyrars

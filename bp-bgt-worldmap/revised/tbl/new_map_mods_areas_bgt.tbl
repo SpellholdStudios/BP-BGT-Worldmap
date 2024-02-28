@@ -26,7 +26,7 @@ AR7100      AR7100   AR7100     2      58        1700   2515   @BGT_781021  @BGT
 AR7200      AR7200   AR7200     3      29        934    2000   N            N            N        //Baldur's Gate NW
 AR7300      AR7300   AR7300     3      30        1019   1987   N            N            N        //Baldur's Gate N
 AR7400      AR7400   AR7400     3      31        1111   1997   N            N            N        //Baldur's Gate NE
-AR7500      AR7500   AR7500     2      57        1475   1950   @BGT_781022  @BGT_781022  N        //Farms over Chionthar
+AR7500      AR7500   AR7500     2      57        1650   2100   @BGT_781022  @BGT_781022  N        //Farms over Chionthar
 AR7600      AR7600   AR7600     3      32        927    2047   N            N            N        //Baldur's Gate W
 AR7700      AR7700   AR7700     3      33        1033   2048   N            N            N        //Baldur's Gate Center
 AR7800      AR7800   AR7800     3      34        1125   2062   N            N            N        //Baldur's Gate E
@@ -54,6 +54,6 @@ AR9900      AR9900   AR9900     2      61        2275   2650   @BGT_781040  @BGT
 ARA100      ARA100   ARA100     2      68        1445   2675   @BGT_781041  @BGT_781041  N        //Archeological Site
 ARD000      ARD000   ARD000     6      79        2380   2515   @BGT_781042  @BGT_781042  N        //Durlag's Tower
 ARU000      ARU000   ARU000     2      80        1335   1865   @BGT_781043  @BGT_781043  N        //Ulgoth's Beard
+ARU008      ARU008   ARU008     4      51        145    445    @BGT_781044  @BGT_781044  N        //Ice Island
 ARW000      ARW000   ARW000     4      42        700    1965   @BGT_781045  @BGT_781045  N        //Werewolf Isle
 ARW500      ARW500   ARW500     2      51        715    1885   @BGT_781046  @BGT_781046  N        //Balduran's Shipwreck
-ARU008      ARU008   ARU008     4      51        145    445    @BGT_781044  @BGT_781044  N        //Ice Island

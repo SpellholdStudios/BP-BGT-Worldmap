@@ -2,7 +2,7 @@
 SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
 
 DD1800      DD1800   DD1800     4      17        2280   2912   @TDD_779001  @TDD_779001  N        //Snake Woods
-DD2500      DD2500   DD2500     4      10        2600   2845   N            @TDD_779002  N        //Troll Mountains
+DD2500      DD2500   DD2500     4      10        2585   2849   N            @TDD_779002  N        //Troll Mountains
 DD2300      DD2300   DD2300     4      12        2530   3120   N            @TDD_779003  N        //Eshpurta
 DD5000      DD5000   DD5000     4      11        3800   2970   @TDD_779004  @TDD_779004  N        //Hall of Knowledge
 DD3300      DD3300   DD3300     4      53        2585   3345   N            @TDD_779005  N        //Riatavin

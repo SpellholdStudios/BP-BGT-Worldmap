@@ -20,9 +20,9 @@ AR1700      AR1700   AR1700     4      17       1800    3355   @777016  N       
 AR2500      AR2500   AR2500     0      15       1520    3450   @777017  N        N        //Underdark Exit
 AR2600      AR2600   AR2600     6      17       1820    3460   N        N        N        //Forest of Tethyr
 AR1800      AR1800   AR1800     6      16       1600    3280   @777019  N        N        //North Forest
-AR1600      AR1600   AR1600     6      5        550     3900   @777020  N        N        //Brynnlaw
+AR1600      AR1600   AR1600     6      5        247     3442   @777020  N        N        //Brynnlaw
 AR2100      AR2100   AR2100     0      7        900     3450   @777021  N        N        //Underdark
-AR1500      AR1500   AR1500     0      6        445     3800   @777022  N        N        //The Asylum
+AR1500      AR1500   AR1500     0      6        250     3298   @777022  N        N        //The Asylum
 AR2300      AR2300   AR2300     0      8        770     3500   @777023  N        N        //Underwater City
 AR2800      AR2800   AR2800     6      18       1920    3540   @777024  N        N        //Suldanessellar
 AR4000      AR4000   AR4000     6      91       1820    3750   @777034  @777034  N        //Godsheads

@@ -26,7 +26,7 @@ AR7100      AR7100   AR7100     2      58        1700   2515   @BGT_781021  @BGT
 AR7200      AR7200   AR7200     3      29        934    2000   N            N            N        //Baldur's Gate NW
 AR7300      AR7300   AR7300     3      30        1019   1987   N            N            N        //Baldur's Gate N
 AR7400      AR7400   AR7400     3      31        1111   1997   N            N            N        //Baldur's Gate NE
-AR7500      AR7500   AR7500     2      57        1475   1950   @BGT_781022  @BGT_781022  N        //Farms over Chionthar
+AR7500      AR7500   AR7500     2      57        1650   2100   @BGT_781022  @BGT_781022  N        //Farms over Chionthar
 AR7600      AR7600   AR7600     3      32        927    2047   N            N            N        //Baldur's Gate W
 AR7700      AR7700   AR7700     3      33        1033   2048   N            N            N        //Baldur's Gate Center
 AR7800      AR7800   AR7800     3      34        1125   2062   N            N            N        //Baldur's Gate E
@@ -61,15 +61,15 @@ ARU008      ARU008   ARU008     4      51        145    445    @BGT_781046  @BGT
 //SOS New Areas Table
 SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
 
-AR4220      AR4220   AR4220     4      51        2525   1805   @SOS_780001  @SOS_780001  N        //River Chionthar
-AR4230      AR4230   AR4230     4      53        2240   1893   N            @SOS_780102  N        //Soubar
-AR4370      AR4370   AR4370     4      46        2340   1745   @SOS_780003  @SOS_780103  N        //Castle Lyrars
+AR4220      AR4220   AR4220     4      51        2244   2126   @SOS_780001  @SOS_780001  N        //River Chionthar
+AR4230      AR4230   AR4230     4      53        2095   1983   N            @SOS_780102  N        //Soubar
+AR4370      AR4370   AR4370     4      46        2209   1800   @SOS_780003  @SOS_780103  N        //Castle Lyrars
 
 //TDD New Areas Table
 SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
 
 DD1800      DD1800   DD1800     4      17        2280   2912   @TDD_779001  @TDD_779001  N        //Snake Woods
-DD2500      DD2500   DD2500     4      10        2600   2845   N            @TDD_779002  N        //Troll Mountains
+DD2500      DD2500   DD2500     4      10        2585   2849   N            @TDD_779002  N        //Troll Mountains
 DD2300      DD2300   DD2300     4      12        2530   3120   N            @TDD_779003  N        //Eshpurta
 DD5000      DD5000   DD5000     4      11        3800   2970   @TDD_779004  @TDD_779004  N        //Hall of Knowledge
 DD3300      DD3300   DD3300     4      53        2585   3345   N            @TDD_779005  N        //Riatavin
@@ -90,7 +90,7 @@ AR3540      AR3540   AR3540     4      10        3200   3600   @CTB_778005  @CTB
 AR3570      AR3570   AR3570     4      91        2276   3466   @CTB_778006  @CTB_778006  N        //Secluded Meadow
 AR3585      AR3585   AR3585     4      11        1840   3650   @CTB_778007  @CTB_778007  N        //Hunting Lodge
 AR3587      AR3587   AR3587     4      38        1290   2395   @CTB_778008  @CTB_778008  N        //Druidic Circle
-AR3588      AR3588   AR3588     1      82        660    2965   @CTB_778009  @CTB_778009  N        //Rauthym Island
+AR3588      AR3588   AR3588     1      82        118    1566   @CTB_778009  @CTB_778009  N        //Rauthym Island
 AR3597      AR3597   AR3597     4      9         1730   2954   @CTB_778010  @CTB_778010  N        //Neng Horse Ranch
 AR3610      AR3610   AR3610     4      21        4670   3630   @CTB_778002  @CTB_778002  N        //Central Hlondeth
 AR3611      AR3611   AR3611     4      20        4760   3725   @CTB_778012  @CTB_778012  N        //East Hlondeth
@@ -110,10 +110,10 @@ RA4200      RA4200   RA4200     4      17        3110   2810   @ROT_785008  N   
 RA4300      RA4300   RA4300     4      26        1120   2975   @ROT_785009  N            N        //The Arena
 RA4500      RA4500   RA4500     4      10        3110   4170   @ROT_785010  N            N        //Esath's Farms
 RA4700      RA4700   RA4700     4      11        2580   4140   @ROT_785011  N            N        //Gaidan's Castle
-RA4900      RA4900   RA4900     4      14        1735   2810   @ROT_785012  N            N        //North Cave
+RA4900      RA4900   RA4900     4      14        2048   2936   @ROT_785012  N            N        //North Cave
 RA5700      RA5700   RA5700     4      9         3040   3920   @ROT_785013  N            N        //Razor's Hideout
 RR0044      RR0044   RR0044     4      16        1540   2775   @ROT_785014  N            N        //Slave Route
-RA5100      RA5100   RA5100     4      25        396    -14    @ROT_785015  N            N        //Bremen
+RA5100      RA5100   RA5100     4      25        396    -14    N            N            N        //Bremen
 RA5400      RA5400   RA5400     2      47        480    -227   @ROT_785016  N            N        //The Waypoint
 RA5401      RA5401   RA5401     2      64        624    -424   @ROT_785017  N            N        //Mountain Reaches
 RA5600      RA5600   RA5600     2      168       220    105    @ROT_785018  N            N        //Hermit's Outpost
