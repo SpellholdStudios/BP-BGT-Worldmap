@@ -198,6 +198,7 @@ A: Either start a new game or use the savegame converter.
    Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for their cooperative work and passionate commitment to the creation of the extended northern worldmap in v13.
 
 And a very special thanks to **Roberciiik**, who is always developing the world map with his commitment.
+
 ## 
 
 #### Copyrights Information
@@ -213,7 +214,7 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 
 ## <a name="versions" id="versions"></a>Versions History
 
-##### In development
+##### Version 13.0.0 (29 February 2024)
 
 Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for their cooperative work and passionate commitment to the creation of the extended northern worldmap in v13 and many other improvements.
 
@@ -249,6 +250,8 @@ Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for t
 - Added missing red outline to NWN-for-BG icons
 - Fixed incorrect label of Balduran Isle and Ice Island for revised version (only Polish language affected)
 - Simplified Chinese translation update
+
+##
 
 ##### Version 12.0.0 (28 September 2023)
 
