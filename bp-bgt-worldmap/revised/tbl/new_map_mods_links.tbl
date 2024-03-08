@@ -1066,23 +1066,12 @@ ARU000   W        F_7777     #WMtravel    6        1         N    N    N    N   
 ARU000   W        F_0111     #WMtravel    8        1         N    N    N    N    N    0
 ARU000   W        F_0222     #WMtravel    10       1         N    N    N    N    N    0
 ARU000   W        F_9898     #WMtravel    11       1         N    N    N    N    N    0
-ARU000   W        F_7779     #Icewind03   6        1         N    N    N    N    N    0
-
-AR3100   N        F_7777     #WMtravel    15       1         N    N    N    N    N    0
-AR3100   N        F_0111     #WMtravel    17       1         N    N    N    N    N    0
-AR3100   N        F_0222     #WMtravel    19       1         N    N    N    N    N    0
-AR3100   N        F_9898     #WMtravel    20       1         N    N    N    N    N    0
 
 F_0111   S        ARU000     EXIT8300     8        1             N    N    N    N    N    0
-F_0111   S        AR3100     EXIT9600     17       1             N    N    N    N    N    0
 F_0222   S        ARU000     EXIT8300     10       1             N    N    N    N    N    0
-F_0222   S        AR3100     EXIT9600     19       1         N    N    N    N    N    0
 F_7777   S        ARU000     EXIT8300     6        1         N    N    N    N    N    0
-F_7777   S        AR3100     EXIT9600     15       1         N    N    N    N    N    0
 F_9898   S        ARU000     EXIT8300     11       1         N    N    N    N    N    0
-F_9898   S        AR3100     EXIT9600     20       1         N    N    N    N    N    0
 F_7779   S        ARU000     EXIT8300     6        1         N    N    N    N    N    0
-F_7779   S        AR3100     EXIT9600     15       1         N    N    N    N    N    0
 
 F_0111   N        F_0112     #Gianthill01 1        1         N    N    N    N    N    0
 F_0111   S        F_0222     #WMtravel    4        1         N    N    N    N    N    0
