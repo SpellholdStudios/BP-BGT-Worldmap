@@ -214,6 +214,10 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 
 ## <a name="versions" id="versions"></a>Versions History
 
+##### In development
+
+- Removed incorrect and outdated area links for Drizzt Saga modification.
+
 ##### Version 13.0.0 (29 February 2024)
 
 Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for their cooperative work and passionate commitment to the creation of the extended northern worldmap in v13 and many other improvements.
