@@ -56,6 +56,7 @@ LANGUAGE Russian russian ~bp-bgt-worldmap/language/english/worldmap.tra~
 
 LANGUAGE ~Simplified Chinese~ ~schinese~ ~bp-bgt-worldmap/language/english/worldmap.tra~
                                          ~bp-bgt-worldmap/language/schinese/worldmap.tra~
+                                         ~bp-bgt-worldmap/language/schinese/install-%WEIDU_OS%.tra~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
