@@ -192,7 +192,7 @@ A: Either start a new game or use the savegame converter.
 - **Spanish translation**: Ghildrean.
 - **French translation**: Isaya.
 - **Russian translation**: prowler and Silent.
-- **Simplified Chinese translation**: MephistoSatanDevil.
+- **Simplified Chinese translation**: MephistoSatanDevil and Jiaozi (canvas).
 - **Others**: Valiant, CBisson, Sir BillyBob, Horred the Plague, HardenCoonor, K4thos, Mad Mate, NIGHTMARE, hlidskialf, Seanas, Ascension, Per Olofsson, The Wizard, K'aeloree, White Agnus, p_zombie, abalabokhin, JohnBob, paladin84, GraionDilach, Spellholdstudios, G3, Blackwyrm, Kerzenburgforum, Rosenranken, Pocketplane.
 - **Extended northern worldmap**: <br>
    Huge thanks to **JohnBob**, **p_zombie**, **paladin84** and **Roberciiik** for their cooperative work and passionate commitment to the creation of the extended northern worldmap in v13.
@@ -214,8 +214,9 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 
 ## <a name="versions" id="versions"></a>Versions History
 
-##### In development
+##### Version 13.1.0 (24 March 2024)
 
+- Worldmap canvas image translated to Simplified Chinese, by Jiaozi
 - Removed incorrect and outdated area links for Drizzt Saga modification.
 
 ##### Version 13.0.0 (29 February 2024)
