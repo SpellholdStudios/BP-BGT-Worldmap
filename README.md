@@ -214,6 +214,10 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 
 ## <a name="versions" id="versions"></a>Versions History
 
+##### Version 13.1.1 (15 April 2024)
+
+- Fix for North Forest revealed by travelling point (oBG2).
+
 ##### Version 13.1.0 (24 March 2024)
 
 - Worldmap canvas image translated to Simplified Chinese, by Jiaozi

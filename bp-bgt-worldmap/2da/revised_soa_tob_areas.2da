@@ -19,7 +19,7 @@ AR1900      AR1900   AR1900     4      14       2255    3340   @777015  N       
 AR1700      AR1700   AR1700     4      17       1800    3355   @777016  N        N        //Small Teeth Pass
 AR2500      AR2500   AR2500     0      15       1520    3450   @777017  N        N        //Underdark Exit
 AR2600      AR2600   AR2600     6      17       1820    3460   N        N        N        //Forest of Tethyr
-AR1800      AR1800   AR1800     6      16       1600    3280   @777019  N        N        //North Forest
+AR1800      AR1800   AR1800     4      16       1600    3280   @777019  N        N        //North Forest
 AR1600      AR1600   AR1600     6      5        247     3442   @777020  N        N        //Brynnlaw
 AR2100      AR2100   AR2100     0      7        900     3450   @777021  N        N        //Underdark
 AR1500      AR1500   AR1500     0      6        250     3298   @777022  N        N        //The Asylum
