@@ -214,14 +214,21 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 
 ## <a name="versions" id="versions"></a>Versions History
 
+##### Version 14.0.0 (Under development...)
+
+- Westgate city "insert" added to the Worldmap canvas
+- Added new icons to BPBGTMAP.BAM file for the following modifications:
+	- Classic Adventures
+- Fixed typos in Polish and English texts
+
 ##### Version 13.1.1 (15 April 2024)
 
-- Fix for North Forest revealed by travelling point (oBG2).
+- Fix for North Forest revealed by a travelling point (oBG2)
 
 ##### Version 13.1.0 (24 March 2024)
 
 - Worldmap canvas image translated to Simplified Chinese, by Jiaozi
-- Removed incorrect and outdated area links for Drizzt Saga modification.
+- Removed incorrect and outdated area links for Drizzt Saga modification
 
 ##### Version 13.0.0 (29 February 2024)
 
