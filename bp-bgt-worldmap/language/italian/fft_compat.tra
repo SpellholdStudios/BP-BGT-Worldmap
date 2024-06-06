@@ -1,9 +1,0 @@
-//-*- coding: cp1252 -*-
-//This file is encoded in CP1252 and the strings are displayed in-game
-
-@ys0360 = "Forte###Cerendor"
-@ys0370 = "Picchi###delle###Nuvole"
-@ys0410 = "Imradim"
-@ys0390 = "Distretto###Governativo###lato###ovest"
-@ys1000 = "Portpentyrch"
-@ys1001 = "Portpentyrch"

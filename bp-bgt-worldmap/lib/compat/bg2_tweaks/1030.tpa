@@ -1,5 +1,0 @@
-ACTION_FOR_EACH area IN ar1700 ar1800 ar2600 BEGIN //Small Teeth Pass, North Forest and Tethyr Wood
-  ACTION_IF VARIABLE_IS_SET $fl#CONTENT("%area%") BEGIN
-    OUTER_SET $fl#FLAGS("%area%") |= BIT1 //Add "reveal through link"
-  END
-END

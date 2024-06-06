@@ -1,7 +1,0 @@
-IF
-  OnCreation()
-THEN
-  RESPONSE #100
-    SetGlobal("HelpWenric","Global",0)
-    Continue()
-END

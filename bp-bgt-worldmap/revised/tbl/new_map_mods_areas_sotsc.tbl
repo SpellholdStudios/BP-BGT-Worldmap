@@ -1,8 +1,0 @@
-
-SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS   Y_POS  NAME         TOOLTIP  LOAD_IM
-
-AR5100      AR5100   AR5100     2      75        1495    2790   @781519      @781519  N // Move Gnoll Stronghold a bit
-BG5100      BG5100   BG5100     2      75        1495    2790   @781519      @781519  N // Move EET Gnoll Stronghold a bit
-
-L#ORM1      L#ORM1   L#ORM1     0      208       1380    2820   @L#ORM1      N        N // Ormyrrs' Peak
-L#ORM2      L#ORM2   L#ORM2     3      209       1445    2855   @L#ORM2      N        N // Mountain Cemetry

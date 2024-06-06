@@ -1,8 +1,0 @@
-IF
-  Global("FW5100Reveal_Gnoll Stronghold","Global",0)
-THEN
-  RESPONSE #100
-    RevealAreaOnMap("FW5100")
-    SetGlobal("FW5100Reveal_Gnoll Stronghold","Global",1)
-    Continue()
-END

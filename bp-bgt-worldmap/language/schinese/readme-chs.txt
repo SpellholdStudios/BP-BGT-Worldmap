@@ -1,1 +1,0 @@
-Map image translated by jiaozi

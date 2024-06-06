@@ -1,9 +1,0 @@
-IF
-  Global("AR8600Reveal_Cloakwood Mines","Global",0)
-  GlobalGT("Chapter","Global",4)
-THEN
-  RESPONSE #100
-    RevealAreaOnMap("AR8600")
-    SetGlobal("AR8600Reveal_Cloakwood Mines","Global",1)
-    Continue()
-END

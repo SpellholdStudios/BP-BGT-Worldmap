@@ -1,8 +1,0 @@
-// -*- coding: cp1252 -*-
-
-// Shadow over Soubar (non traduit)
-
-@SOS_780001  =  "River###Chionthar"
-// @SOS_780001  =  "Rivière###Chionthar"
-@SOS_780002  =  "Soubar"
-@SOS_780003  =  "Lyrar's###Hold"
