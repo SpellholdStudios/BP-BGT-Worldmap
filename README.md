@@ -219,7 +219,8 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 - Westgate city "insert" added to the Worldmap canvas
 - Added new icons to BPBGTMAP.BAM file for the following modifications:
 	- Classic Adventures
-- Fixed typos in Polish and English texts
+- Winter Wolf Ritual area can be fast-traveled for Drizzt Saga modification
+- Fixed typos in English, Polish and Chinese texts
 
 ##### Version 13.1.1 (15 April 2024)
 
