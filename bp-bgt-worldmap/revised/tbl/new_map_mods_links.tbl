@@ -1067,8 +1067,8 @@ ARU000   W        F_0111     #WMtravel    8        1         N    N    N    N   
 ARU000   W        F_0222     #WMtravel    10       1         N    N    N    N    N    0
 ARU000   W        F_9898     #WMtravel    11       1         N    N    N    N    N    0
 
-F_0111   S        ARU000     EXIT8300     8        1             N    N    N    N    N    0
-F_0222   S        ARU000     EXIT8300     10       1             N    N    N    N    N    0
+F_0111   S        ARU000     EXIT8300     8        1         N    N    N    N    N    0
+F_0222   S        ARU000     EXIT8300     10       1         N    N    N    N    N    0
 F_7777   S        ARU000     EXIT8300     6        1         N    N    N    N    N    0
 F_9898   S        ARU000     EXIT8300     11       1         N    N    N    N    N    0
 F_7779   S        ARU000     EXIT8300     6        1         N    N    N    N    N    0
@@ -1079,6 +1079,8 @@ F_0111   S        F_7777     #WMtravel    4        1         N    N    N    N   
 F_0111   S        F_7779     #Icewind03   4        1         N    N    N    N    N    0
 F_0111   S        F_9898     #WMtravel    4        1         N    N    N    N    N    0
 F_0112   S        F_0111     #Gianthill02 1        1         N    N    N    N    N    0
+F_0112   N        F_0115     #ToSpirit01  1        1         N    N    N    N    N    0
+F_0115   S        F_0112     #ToSpirit02  1        1         N    N    N    N    N    0
 F_0222   S        F_0111     #WMtravel    4        1         N    N    N    N    N    0
 F_0222   S        F_7777     #WMtravel    4        1         N    N    N    N    N    0
 F_0222   S        F_9898     #WMtravel    8        1         N    N    N    N    N    0
