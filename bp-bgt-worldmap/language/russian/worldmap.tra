@@ -1,6 +1,6 @@
 // -*- coding: cp1251 -*-
 
-// No need to translate @900-@5001 as WeiDU installer can't handle Russian encoding properly (English will be used).
+// No need to translate @900-@6002 as WeiDU installer can't handle Russian encoding properly (English will be used).
 
 @100000 = ~"Где-то###на###Крайнем###Севере"~
 @100001 = ~"Река###Чионтар"~

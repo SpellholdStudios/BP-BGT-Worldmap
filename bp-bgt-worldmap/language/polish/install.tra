@@ -1,0 +1,38 @@
+// -*- coding: cp1250 -*-
+
+@900 = ~Wymaga instalacji Rozszerzonej mapy swiata (BP-BGT Worldmap)~
+@901 = ~Nie mozna zainstalowac tej modyfikacji na tej grze~
+@902 = ~Nie mozna zainstalowac tego komponentu na tej grze~
+@903 = ~Ten komponent nie jest dostepny dla gier na silniku EE~
+@904 = ~Ten komponent nie jest dostepny dla gier na silniku klasycznym~
+
+@1000   = ~Rozszerzona mapa swiata dla Baldur's Gate~
+
+@2000   = ~Jakie czasy podrozy chcesz zainstalowac?
+
+1. Oryginalne czasy podrozy oraz widzialnosc obszarow.
+2. Poprawione czasy podrozy oraz widzialnosc obszarow.
+
+PROSZE WYBRAC  1 ALBO 2~
+
+@3000   = ~Jaki rozmiar mapy swiata chcesz zainstalowac?
+
+1. Duza mapa swiata (4900x3500)
+2. Ogromna mapa swiata (8500x6300)
+
+PROSZE WYBRAC  1 ALBO 2~
+@3003   = ~Ogromna mapa swiata (8500x6300) jest potrzebna i zostanie zainstalowana.~
+
+@4000   = ~Mapa swiata dla Tronu Bhaala~
+@4001   = ~Uzyj nowej rozszerzonej mapy rowniez dla Tronu Bhaala~
+@4002   = ~Mapa swiata stylizowana na malowanym plotnie dla Tronu Bhaala~
+
+@5000   = ~Przekonwertowanie starych zapisanych stanow gry do nowej mapy swiata (nie musisz rozpoczynac gry na nowo)
+
+>>   Jesli chcesz usunac ten komponent, musisz samodzielnie
+zrobic sobie kopie folderu z zapisanymi stanami gry! <<~
+@5001   = ~Nie znaleziono zapisanych stanow gry~
+
+@6000 = ~Wieksze okno podgladu mapy swiata (menu.ui)~
+@6001 = ~W stylu BG2:EE~
+@6002 = ~W stylu Dragonspear~
