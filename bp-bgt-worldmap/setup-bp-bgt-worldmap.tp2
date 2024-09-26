@@ -17,7 +17,7 @@ ALWAYS
 
   OUTER_SPRINT tra_path ~bp-bgt-worldmap/language~
 
-  ACTION_DEFINE_ARRAY fl#noconvert BEGIN install-osx install-unix install-win32 END
+  ACTION_DEFINE_ARRAY fl#noconvert BEGIN install install-osx install-unix install-win32 END
   ACTION_DEFINE_ARRAY fl#reload BEGIN worldmap END
   LAF HANDLE_CHARSETS
     INT_VAR
@@ -31,32 +31,41 @@ ALWAYS
 END
 
 LANGUAGE English english ~bp-bgt-worldmap/language/english/worldmap.tra~
+                         ~bp-bgt-worldmap/language/english/install.tra~
 
 LANGUAGE Deutsch german  ~bp-bgt-worldmap/language/english/worldmap.tra~
+                         ~bp-bgt-worldmap/language/english/install.tra~
                          ~bp-bgt-worldmap/language/german/worldmap.tra~
                          ~bp-bgt-worldmap/language/german/install-%WEIDU_OS%.tra~
 
 LANGUAGE Italian italian ~bp-bgt-worldmap/language/english/worldmap.tra~
+                         ~bp-bgt-worldmap/language/english/install.tra~
                          ~bp-bgt-worldmap/language/italian/worldmap.tra~
                          ~bp-bgt-worldmap/language/italian/install-%WEIDU_OS%.tra~
 
 LANGUAGE Polish  polish  ~bp-bgt-worldmap/language/english/worldmap.tra~
+                         ~bp-bgt-worldmap/language/english/install.tra~
                          ~bp-bgt-worldmap/language/polish/worldmap.tra~
+                         ~bp-bgt-worldmap/language/polish/install.tra~
 
 LANGUAGE Spanish spanish ~bp-bgt-worldmap/language/english/worldmap.tra~
+                         ~bp-bgt-worldmap/language/english/install.tra~
                          ~bp-bgt-worldmap/language/spanish/worldmap.tra~
                          ~bp-bgt-worldmap/language/spanish/install-%WEIDU_OS%.tra~
 
 LANGUAGE French  french  ~bp-bgt-worldmap/language/english/worldmap.tra~
+                         ~bp-bgt-worldmap/language/english/install.tra~
                          ~bp-bgt-worldmap/language/french/worldmap.tra~
                          ~bp-bgt-worldmap/language/french/install-%WEIDU_OS%.tra~
 
 LANGUAGE Russian russian ~bp-bgt-worldmap/language/english/worldmap.tra~
+                         ~bp-bgt-worldmap/language/english/install.tra~
                          ~bp-bgt-worldmap/language/russian/worldmap.tra~
 
 LANGUAGE ~Simplified Chinese~ ~schinese~ ~bp-bgt-worldmap/language/english/worldmap.tra~
+                                         ~bp-bgt-worldmap/language/english/install.tra~
                                          ~bp-bgt-worldmap/language/schinese/worldmap.tra~
-                                         ~bp-bgt-worldmap/language/schinese/install-%WEIDU_OS%.tra~
+                                         ~bp-bgt-worldmap/language/schinese/install.tra~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -69,8 +78,7 @@ LANGUAGE ~Simplified Chinese~ ~schinese~ ~bp-bgt-worldmap/language/english/world
 
 BEGIN @1000
 DESIGNATED 0 LABEL ~worldmap-main~
-REQUIRE_PREDICATE ENGINE_IS ~tob bgee bg2ee~ ~This mod cannot be installed on this game~
-//REQUIRE_PREDICATE "%WEIDU_OS%" STRING_COMPARE_CASE osx OR FILE_EXISTS ~bp-bgt-worldmap/bin/osx/mosunpack~ ~This mod is not available for your platform~
+REQUIRE_PREDICATE ENGINE_IS ~tob bgee bg2ee~ @901
 
 COPY_EXISTING sw1h01.itm ~override/bp-bgt_wm6.wm6~ // flag to say we've installed wm6 in our game
 
@@ -163,7 +171,7 @@ BEGIN @4001
 DESIGNATED 1 LABEL ~worldmap-replace-tob-map~
 SUBCOMPONENT @4000
 REQUIRE_PREDICATE FILE_EXISTS_IN_GAME bp-bgt_wm6.wm6 @900
-REQUIRE_PREDICATE !GAME_IS ~tutu tutu_totsc bgee eet~ ~This component is not available for this game~
+REQUIRE_PREDICATE !GAME_IS ~tutu tutu_totsc bgee eet~ @902
 
 COPY_EXISTING ~worldmap.wmp~ ~override/worldm25.wmp~
   GET_OFFSET_ARRAY areas WMP_AREAS
@@ -211,7 +219,7 @@ BEGIN @4002
 DESIGNATED 2 LABEL ~worldmap-original-tob-map~
 SUBCOMPONENT @4000
 REQUIRE_PREDICATE FILE_EXISTS_IN_GAME bp-bgt_wm6.wm6 @900
-REQUIRE_PREDICATE !GAME_IS ~tutu tutu_totsc bgee eet~ ~This component is not available for this game~
+REQUIRE_PREDICATE !GAME_IS ~tutu tutu_totsc bgee eet~ @902
 
 LAF unpack_worldmap STR_VAR map_res = tobmap72 dest_res = tobmap72 END
 
@@ -229,8 +237,8 @@ LAF unpack_worldmap STR_VAR map_res = tobmap72 dest_res = tobmap72 END
 
 BEGIN @5000  //If you want to uninstall this component, you have to make a backup of your savegame folder manually!
 DESIGNATED 3 LABEL ~worldmap-update-savegame~
-REQUIRE_PREDICATE !ENGINE_IS ~bgee bg2ee~ ~This component is not available for EE-type games~ // It can be ported, however
-REQUIRE_PREDICATE ENGINE_IS ~tob~ ~~
+REQUIRE_PREDICATE !ENGINE_IS ~bgee bg2ee~ @903 // It can be ported, however
+REQUIRE_PREDICATE ENGINE_IS ~tob~ @902
 NO_LOG_RECORD
 
 MKDIR save mpsave
@@ -283,20 +291,20 @@ END
 /////                                                  \\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
-BEGIN ~BG2 style~  //Larger worldmap screen window for the worldmap menu.ui
+BEGIN @6001 //Larger worldmap screen window for the worldmap menu.ui
 DESIGNATED 4 LABEL ~worldmap-fullscreen-bg2ee~
-REQUIRE_PREDICATE ENGINE_IS ~bgee bg2ee~ ~This component is not available for non EE-type games~ // It can be ported, however
-SUBCOMPONENT ~Larger worldmap screen window for the worldmap menu.ui~
+REQUIRE_PREDICATE ENGINE_IS ~bgee bg2ee~ @904 // It can be ported, however
+SUBCOMPONENT @6000
 INCLUDE ~%MOD_FOLDER%/lib/ACuimenulib.tph~
 OUTER_SPRINT menufolder ~%MOD_FOLDER%/UI/BG2~
 INCLUDE ~%MOD_FOLDER%/lib/install_ui.tpa~
 //COPY ~%menufolder%~ ~override~
 
 
-BEGIN ~Dragonspear style~  //Larger worldmap screen window for the worldmap menu.ui
+BEGIN @6002 //Larger worldmap screen window for the worldmap menu.ui
 DESIGNATED 5 LABEL ~worldmap-fullscreen-dragonspear-ui~
-REQUIRE_PREDICATE ENGINE_IS ~bgee bg2ee~ ~This component is not available for non EE-type games~ // It can be ported, however
-SUBCOMPONENT ~Larger worldmap screen window for the worldmap menu.ui~
+REQUIRE_PREDICATE ENGINE_IS ~bgee bg2ee~ @904 // It can be ported, however
+SUBCOMPONENT @6000
 INCLUDE ~%MOD_FOLDER%/lib/ACuimenulib.tph~
 OUTER_SPRINT menufolder ~%MOD_FOLDER%/UI/Dragonspear~
 INCLUDE ~%MOD_FOLDER%/lib/install_ui.tpa~

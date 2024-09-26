@@ -220,6 +220,7 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 - Added new icons to BPBGTMAP.BAM file for the following modifications:
 	- Classic Adventures
 - Winter Wolf Ritual area can be fast-traveled for Drizzt Saga modification
+- Separated installation prompts from worldmap.tra file
 - Fixed typos in English, Polish and Chinese texts
 
 ##### Version 13.1.1 (15 April 2024)

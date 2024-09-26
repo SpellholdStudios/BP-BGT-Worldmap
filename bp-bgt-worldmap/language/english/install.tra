@@ -1,0 +1,38 @@
+// -*- coding: cp1252 -*-
+
+@900 = ~Requires installation of BP-BGT Worldmap first~
+@901 = ~This mod cannot be installed on this game~
+@902 = ~This component is not available for this game~
+@903 = ~This component is not available for EE-type games~
+@904 = ~This component is not available for non EE-type games~
+
+@1000   = ~Worldmap for Baldur's Gate - including colored Baldur's Gate map icons~
+
+@2000   = ~Which travel times do you want?
+
+1. Original Travel Times and Area Visibility
+2. Revised Travel Times and Area Visibility.
+
+PLEASE ENTER  1 OR 2  ~
+
+@3000   = ~Which size of the worldmap do you want?
+
+1. Large Worldmap 4900x3500
+2. Huge Worldmap 8500x6300
+
+PLEASE ENTER  1 OR 2  ~
+@3003   = ~Huge worldmap 8500x6300 is required and will be installed~
+
+@4000   = ~Worldmap for Throne of Bhaal~
+@4001   = ~Use new Worldmap for Throne of Bhaal as well~
+@4002   = ~Clothmap-style map for Throne of Bhaal~
+
+@5000   = ~Convert old Savegames (No "New Game" needed)
+
+>> If you want to uninstall this component,
+you have to make a backup of your savegame folder manually! <<~
+@5001   = ~There is no savegame~
+
+@6000 = ~Larger worldmap screen window for the worldmap menu.ui~
+@6001 = ~BG2:EE style~
+@6002 = ~Dragonspear style~
