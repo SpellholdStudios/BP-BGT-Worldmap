@@ -216,6 +216,7 @@ And a very special thanks to **Roberciiik**, who is always developing the world 
 
 ##### Version 14.0.0 (Under development...)
 
+- The Crags mountains are now separated from Surbrin Hills on the Worldmap canvas (thanks to p_zombie for updated image; thanks to Acifer, Mornagest, MephistoSatanDevil, Frenzygyn, alaisFcZ and paladin84 for the translations)
 - Westgate city "insert" added to the Worldmap canvas
 - Added new icons to BPBGTMAP.BAM file for the following modifications:
 	- Classic Adventures
